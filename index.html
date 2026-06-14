@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Das Spezialisten Netzwerk – Vermögensbildung nach Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --g:       #8DC63F;
+  --gd:      #6FA52E;
+  --gl:      #A8D85A;
+  --gbg:     #F2FAE4;
+  --dark:    #1A1A1A;
+  --mid:     #4A4A4A;
+  --light:   #8A8A8A;
+  --border:  #E5E5E5;
+  --white:   #FFFFFF;
+  --offwhite:#F8F8F6;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--dark);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.65}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* ── PRELOADER ── */
+#pre{position:fixed;inset:0;z-index:9999;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;transition:opacity .6s,visibility .6s}
+#pre.off{opacity:0;visibility:hidden;pointer-events:none}
+.pre-logo-mark{display:flex;align-items:center;gap:.7rem}
+.pre-logo-svg{width:44px;height:44px}
+.pre-wordmark{line-height:1.15}
+.pre-wordmark .w1{display:block;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--dark)}
+.pre-wordmark .w2{display:block;font-size:.62rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:var(--g)}
+.pre-bar{width:120px;height:2px;background:#eee;border-radius:2px;overflow:hidden}
+.pre-fill{width:0;height:100%;background:linear-gradient(90deg,var(--g),var(--gl));animation:pf 1.8s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes pf{to{width:100%}}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:1000;background:var(--g);padding:0 2.5rem;box-shadow:0 2px 20px rgba(141,198,63,.25);transition:background .35s,box-shadow .35s,backdrop-filter .35s}
+.nav.scrolled{background:rgba(110,165,40,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 4px 30px rgba(0,0,0,.18)}
+.nav-inner{max-width:1200px;margin:0 auto;height:70px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+/* Logo */
+.nav-logo{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
+.nav-logo-svg{width:36px;height:36px;flex-shrink:0}
+.nav-logo-text{line-height:1.2}
+.nav-logo-text .nl1{display:block;font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.nav-logo-text .nl2{display:block;font-size:.58rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+.nav-logo-img{height:42px;width:auto;display:block;filter:brightness(0) invert(1)}
+/* Nav links */
+.nav-mid{display:flex;gap:.15rem}
+.nav-mid a{padding:.42rem .95rem;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.85);border-radius:5px;transition:all .2s;letter-spacing:.01em}
+.nav-mid a:hover{color:#fff;background:rgba(255,255,255,.16)}
+/* CTA */
+.nav-cta{padding:.58rem 1.5rem;background:#fff;color:var(--gd);font-size:.72rem;font-weight:800;border-radius:5px;letter-spacing:.02em;transition:all .25s;white-space:nowrap;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+.nav-cta:hover{background:rgba(255,255,255,.92);transform:translateY(-1px);box-shadow:0 5px 22px rgba(0,0,0,.14)}
+
+/* ── HERO ── */
+.hero{position:relative;overflow:hidden;min-height:88vh;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:85% 30%;filter:brightness(.45) saturate(.7)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.45) 50%,rgba(0,0,0,.15) 100%)}
+/* Green accent bar left */
+.hero-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,transparent,var(--g) 20%,var(--g) 80%,transparent);z-index:3}
+/* Vignette */
+.hero-grid{position:absolute;inset:0;background:radial-gradient(ellipse 75% 70% at 50% 50%, transparent 20%, rgba(0,0,0,.55) 100%);z-index:1;pointer-events:none}
+/* Floating dot particles */
+.hero-pts{position:absolute;inset:0;overflow:hidden;z-index:1;pointer-events:none}
+.hpt{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--g);opacity:0;animation:ptrise linear infinite}
+@keyframes ptrise{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.5}90%{opacity:.3}100%{transform:translateY(-10vh) scale(0);opacity:0}}
+.hero-in{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:5rem 2.5rem;width:100%}
+/* Pill badge */
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;background:rgba(141,198,63,.15);border:1px solid rgba(141,198,63,.3);border-radius:100px;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gl);margin-bottom:1.4rem;backdrop-filter:blur(8px)}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:900;line-height:1.08;letter-spacing:-.03em;color:#fff;max-width:620px;margin-bottom:1.3rem}
+.hero h1 em{font-style:normal;color:var(--gl)}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:500px;line-height:1.8;margin-bottom:2.2rem}
+.hero-btns{display:flex;gap:1rem;align-items:center;margin-bottom:3rem;flex-wrap:wrap}
+.btn-g{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:var(--g);color:#fff;font-size:.82rem;font-weight:700;border-radius:6px;transition:all .3s;box-shadow:0 6px 28px rgba(141,198,63,.35);letter-spacing:.02em}
+.btn-g:hover{background:var(--gl);transform:translateY(-2px);box-shadow:0 10px 36px rgba(141,198,63,.5)}
+.btn-ghost-w{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.5);transition:color .25s}
+.btn-ghost-w:hover{color:rgba(255,255,255,.85)}
+/* Hero proof bar */
+.hero-proof{display:flex;gap:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden;backdrop-filter:blur(16px);max-width:fit-content}
+.hpr{display:flex;align-items:center;gap:.6rem;padding:.9rem 1.6rem;position:relative}
+.hpr::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(255,255,255,.08)}
+.hpr:last-child::after{display:none}
+.hpr-icon{width:32px;height:32px;border-radius:8px;background:rgba(141,198,63,.12);border:1px solid rgba(141,198,63,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hpr-icon svg{width:14px;height:14px;color:var(--gl)}
+.hpr-t{font-size:.58rem;color:rgba(255,255,255,.4);line-height:1.3}
+.hpr-t strong{display:block;font-size:.72rem;font-weight:800;color:#fff}
+/* Glow bottom */
+.hero-glow{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g) 40%,var(--gl) 50%,var(--g) 60%,transparent);z-index:5}
+
+/* ── MARQUEE ── */
+.mq{background:#141414;padding:.65rem 0;overflow:hidden;position:relative;border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
+.mq::before,.mq::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.mq::before{left:0;background:linear-gradient(90deg,var(--dark),transparent)}
+.mq::after{right:0;background:linear-gradient(-90deg,var(--dark),transparent)}
+.mq-tr{display:flex;animation:mqa 50s linear infinite;width:max-content}
+.mq-i{display:flex;align-items:center;gap:.55rem;padding:0 2rem;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);white-space:nowrap}
+.mq-dot{width:5px;height:5px;border-radius:50%;background:var(--g);flex-shrink:0}
+@keyframes mqa{to{transform:translateX(-50%)}}
+
+/* ── SHARED ── */
+.sec{padding:clamp(5rem,9vw,7.5rem) 2.5rem;position:relative;overflow:hidden}
+.sec-w{background:#fff}
+.sec-off{background:var(--offwhite)}
+.sec-dark{background:var(--dark)}
+.w{max-width:1080px;margin:0 auto}
+.tc{text-align:center}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.rv.v{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.d4{transition-delay:.32s}.d5{transition-delay:.4s}.d6{transition-delay:.48s}.d7{transition-delay:.56s}
+
+/* Section labels */
+.sec-label{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 1rem;background:var(--gbg);border:1px solid rgba(141,198,63,.2);border-radius:100px;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gd);margin-bottom:1.1rem}
+.sec-label::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g);flex-shrink:0}
+/* H2 */
+.h2{font-size:clamp(1.9rem,3.2vw,2.65rem);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:var(--dark);margin-bottom:.5rem}
+.h2 .g{color:var(--g)}
+.h2-sub{font-size:.95rem;color:var(--light);line-height:1.85;max-width:560px;margin-top:.75rem}
+.tc .h2-sub{margin:.75rem auto 0}
+/* Dark section overrides */
+.sec-dark .h2{color:#fff}
+.sec-dark .h2 .g{color:var(--gl)}
+.sec-dark .h2-sub{color:rgba(255,255,255,.42)}
+.sec-dark .sec-label{background:rgba(141,198,63,.1);border-color:rgba(141,198,63,.2);color:var(--gl)}
+.sec-dark p{color:rgba(255,255,255,.5)}
+
+/* Check list */
+.ck-list{list-style:none;display:flex;flex-direction:column;gap:.75rem}
+.ck-list li{display:grid;grid-template-columns:22px 1fr;align-items:start;gap:.75rem;font-size:.88rem;color:var(--mid);line-height:1.65}
+.ck-ico{width:22px;height:22px;border-radius:50%;background:var(--g);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:.2em;box-shadow:0 2px 8px rgba(141,198,63,.3)}
+.ck-ico svg{width:10px;height:10px;color:#fff}
+
+/* ── NETZWERK IMAGE — Portrait + WOW ── */
+.netz-section{padding:clamp(4rem,7vw,6.5rem) 2.5rem;overflow:hidden;background:#fff}
+.netz-g{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1080px;margin:0 auto}
+.netz-img-col{position:relative;border-radius:16px;overflow:visible}
+/* Decorative green block behind */
+.netz-img-col::before{content:'';position:absolute;bottom:-14px;right:-14px;width:100%;height:100%;border-radius:16px;background:var(--g);opacity:.15;z-index:0;transition:all .4s}
+.netz-img-col::after{content:'';position:absolute;top:-14px;left:-14px;width:60%;height:60%;border-radius:16px;border:2px solid var(--g);opacity:.2;z-index:0;pointer-events:none;transition:all .4s}
+.netz-img-col:hover::before{bottom:-18px;right:-18px;opacity:.22}
+.netz-img-col:hover::after{top:-18px;left:-18px;opacity:.3}
+.netz-img-inner{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.18),0 8px 24px rgba(0,0,0,.1);z-index:1;height:100%}
+.netz-img-inner img{width:100%;height:100%;min-height:520px;object-fit:cover;object-position:center 15%;display:block;filter:brightness(.9);transition:transform .6s cubic-bezier(.22,1,.36,1),filter .4s}
+.netz-img-col:hover .netz-img-inner img{transform:scale(1.04);filter:brightness(.95)}
+/* Bottom overlay badge */
+.netz-badge{position:absolute;bottom:1.6rem;left:1.6rem;z-index:2;background:var(--g);color:#fff;padding:1rem 1.4rem;border-radius:10px;box-shadow:0 10px 36px rgba(141,198,63,.5);display:flex;align-items:center;gap:.6rem}
+.netz-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.6);flex-shrink:0;animation:bpulse 2s ease-in-out infinite}
+@keyframes bpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+.netz-badge strong{font-size:1.4rem;font-weight:900;line-height:1}
+.netz-badge span{font-size:.62rem;font-weight:600;opacity:.9;letter-spacing:.04em}
+/* Text column */
+.netz-text-col{display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.netz-text-col .h2{text-align:left;margin-bottom:1.2rem}
+.netz-text-col .intro-txt{font-size:.92rem;color:var(--mid);line-height:1.85;margin-bottom:1.5rem;text-align:left}
+.netz-text-col .ck-list{margin:0 0 2rem;width:100%}
+.netz-text-col .btn-g{align-self:flex-start}
+
+/* ── VORTEILE IMAGE — Portrait + WOW (mirrored) ── */
+.vort-img-outer{position:relative;border-radius:16px;overflow:visible;display:flex;flex-direction:column;height:100%}
+.vort-img-outer::before{content:'';position:absolute;bottom:-14px;left:-14px;width:100%;height:100%;border-radius:16px;background:var(--g);opacity:.15;z-index:0;transition:all .4s}
+.vort-img-outer::after{content:'';position:absolute;top:-14px;right:-14px;width:60%;height:60%;border-radius:16px;border:2px solid var(--g);opacity:.2;z-index:0;pointer-events:none;transition:all .4s}
+.vort-img-outer:hover::before{bottom:-18px;left:-18px;opacity:.22}
+.vort-img-outer:hover::after{top:-18px;right:-18px;opacity:.3}
+.vort-img-wrap{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.18),0 8px 24px rgba(0,0,0,.1);z-index:1;flex:1;min-height:460px}
+.vort-img-wrap img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:brightness(.9);transition:transform .6s cubic-bezier(.22,1,.36,1),filter .4s}
+.vort-img-outer:hover .vort-img-wrap img{transform:scale(1.04);filter:brightness(.95)}
+.vort-img-label{position:absolute;bottom:1.6rem;right:1.6rem;z-index:2;background:var(--g);color:#fff;padding:.9rem 1.3rem;border-radius:10px;box-shadow:0 10px 36px rgba(141,198,63,.5);display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:700;letter-spacing:.04em}
+.vort-img-label::before{content:'';width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.6);flex-shrink:0;animation:bpulse 2s ease-in-out infinite}
+
+/* ── VORTEILE layout ── */
+.vort-g{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:stretch;grid-auto-rows:1fr}
+.vort-cards{display:flex;flex-direction:column;gap:1.1rem;margin-top:1.8rem}
+.vort-card{padding:1.5rem 1.8rem 1.5rem 2rem;background:#fff;border-radius:10px;border:1px solid var(--border);position:relative;overflow:hidden;transition:all .35s;box-shadow:0 2px 16px rgba(0,0,0,.04)}
+.vort-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--g);border-radius:0 2px 2px 0}
+.vort-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(141,198,63,.03),transparent 60%);opacity:0;transition:opacity .35s}
+.vort-card:hover{box-shadow:0 8px 35px rgba(0,0,0,.08);transform:translateX(4px)}
+.vort-card:hover::after{opacity:1}
+.vort-card h4{font-size:.94rem;font-weight:700;color:var(--dark);margin-bottom:.45rem;line-height:1.3}
+.vort-card p{font-size:.82rem;color:var(--mid);line-height:1.8;margin:0}
+
+/* ── STATS ── */
+.stats-bar{background:var(--g);display:grid;grid-template-columns:repeat(4,1fr);position:relative;overflow:hidden}
+.stats-bar::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.06),transparent 60%);pointer-events:none}
+.stat{padding:1.8rem 1rem;text-align:center;position:relative;transition:background .3s}
+.stat::after{content:'';position:absolute;top:20%;right:0;height:60%;width:1px;background:rgba(255,255,255,.15)}
+.stat:last-child::after{display:none}
+.stat:hover{background:rgba(0,0,0,.05)}
+.stat-n{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:#fff;line-height:1;letter-spacing:-.02em}
+.stat-l{font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:.3rem}
+
+/* ── SPEZIALGEBIETE ── */
+.sg-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden;border:1px solid var(--border);margin-top:3rem}
+.sg-c{background:#fff;padding:2rem 1.6rem;transition:all .3s;cursor:default;position:relative;overflow:hidden}
+.sg-c::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--g);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.sg-c:hover{background:var(--offwhite);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.06);z-index:1}
+.sg-c:hover::after{transform:scaleX(1)}
+.sg-c:hover .sg-i{background:var(--g);border-color:var(--g)}
+.sg-c:hover .sg-i svg{color:#fff}
+.sg-n{font-size:.48rem;font-weight:700;letter-spacing:.16em;color:rgba(141,198,63,.5);text-transform:uppercase;margin-bottom:.6rem}
+.sg-i{width:42px;height:42px;border-radius:10px;background:var(--gbg);border:1px solid rgba(141,198,63,.2);display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;transition:all .3s}
+.sg-i svg{width:17px;height:17px;color:var(--g);transition:all .3s}
+.sg-c h4{font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:.4rem;line-height:1.3}
+.sg-c p{font-size:.74rem;color:var(--light);line-height:1.7}
+.sg-link{display:inline-flex;align-items:center;gap:.3rem;margin-top:.8rem;font-size:.64rem;font-weight:700;color:var(--g);opacity:0;transition:all .25s;transform:translateX(-4px)}
+.sg-c:hover .sg-link{opacity:1;transform:none}
+.sg-link svg{width:10px;height:10px}
+
+/* ── PROZESS ── */
+.proc-g{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3rem;position:relative}
+.proc-g::before{content:'';position:absolute;top:30px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,var(--g),var(--gl),var(--g));opacity:.3;z-index:0}
+.proc-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 1.2rem;z-index:1}
+.proc-num{width:60px;height:60px;border-radius:50%;background:#fff;border:2px solid var(--g);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900;color:var(--g);margin-bottom:1.2rem;box-shadow:0 4px 20px rgba(141,198,63,.18);transition:all .35s}
+.proc-step:hover .proc-num{background:var(--g);color:#fff;box-shadow:0 6px 28px rgba(141,198,63,.4);transform:scale(1.08)}
+.proc-step h4{font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:.45rem}
+.proc-step p{font-size:.78rem;color:var(--light);line-height:1.75}
+.proc-badge{display:inline-block;margin-top:.7rem;font-size:.48rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g);background:var(--gbg);border:1px solid rgba(141,198,63,.2);padding:.22rem .65rem;border-radius:100px}
+
+/* ── TEAM ── */
+.team-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1.8rem;margin-top:3rem}
+.tm{background:#fff;border-radius:16px;overflow:hidden;transition:all .45s cubic-bezier(.22,1,.36,1);position:relative;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.tm:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,.13)}
+.tm-img-wrap{overflow:hidden;position:relative;height:300px}
+.tm-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.72) 100%);z-index:1;transition:background .45s}
+.tm:hover .tm-img-wrap::after{background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.85) 100%)}
+.tm-overlay{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:1.2rem 1.2rem 1rem;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.tm:hover .tm-overlay{transform:translateY(-4px)}
+.tm-overlay .tm-name{font-size:.92rem;font-weight:800;color:#fff;margin-bottom:.2rem;line-height:1.2}
+.tm-overlay .tm-role{font-size:.62rem;color:rgba(255,255,255,.6);line-height:1.45;max-height:0;overflow:hidden;opacity:0;transition:all .4s cubic-bezier(.22,1,.36,1)}
+.tm:hover .tm-overlay .tm-role{max-height:80px;opacity:1}
+.tm-field{display:inline-flex;align-items:center;gap:.3rem;margin-top:.5rem;font-size:.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g);background:rgba(141,198,63,.15);border:1px solid rgba(141,198,63,.3);padding:.22rem .65rem;border-radius:100px}
+.tm-field::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--g);flex-shrink:0}
+.tm::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--g);transform:scaleY(0);transform-origin:bottom;transition:transform .4s cubic-bezier(.22,1,.36,1);z-index:3;border-radius:0 2px 2px 0}
+.tm:hover::before{transform:scaleY(1)}
+.tm-img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .65s cubic-bezier(.22,1,.36,1),filter .45s;filter:grayscale(8%) brightness(.95);display:block}
+.tm:hover .tm-img{transform:scale(1.06);filter:grayscale(0%) brightness(1)}
+.tm-av-wrap{height:300px;background:linear-gradient(135deg,var(--offwhite),#e8f0d0);display:flex;align-items:center;justify-content:center}
+.tm-av{width:90px;height:90px;border-radius:50%;background:var(--gbg);border:3px solid rgba(141,198,63,.3);display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:900;color:var(--g);box-shadow:0 4px 20px rgba(141,198,63,.2)}
+.tm-body{display:none}
+.tm-name{font-size:.9rem;font-weight:800;color:var(--dark);margin-bottom:.3rem;line-height:1.2}
+.tm-role{font-size:.68rem;color:var(--light);line-height:1.5}
+
+/* ── VS ── */
+/* ── ORBIT NETZWERK GRAFIK — Premium ── */
+.orbit-section{background:linear-gradient(160deg,#f7faf2 0%,#fff 50%,#f2f8ea 100%);padding:clamp(2rem,4vw,3.5rem) 2.5rem 5rem;position:relative;overflow:visible}
+.orbit-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1000px;height:1000px;border-radius:50%;background:radial-gradient(circle,rgba(141,198,63,.1) 0%,rgba(141,198,63,.03) 40%,transparent 65%);pointer-events:none}
+.orbit-section .sec-label{background:rgba(141,198,63,.12);border-color:rgba(141,198,63,.3);color:var(--gd)}
+.orbit-section .h2{color:var(--dark)}
+.orbit-section .h2 .g{color:var(--g)}
+.orbit-section .h2-sub{color:var(--mid)}
+.orbit-wrap{position:relative;width:640px;height:640px;margin:2rem auto .5rem;user-select:none}
+/* Decorative background rings */
+.orbit-bg-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(141,198,63,.08);pointer-events:none}
+/* Center */
+.orbit-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:175px;height:175px;z-index:10}
+.orbit-center-inner{position:absolute;inset:0;border-radius:50%;background:linear-gradient(135deg,#e8f5d0,#f0fae0);border:3px solid rgba(141,198,63,.6);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 14px rgba(141,198,63,.1),0 0 0 30px rgba(141,198,63,.05),0 16px 60px rgba(141,198,63,.25);z-index:2;overflow:hidden}
+.orbit-logo{width:88%;height:88%;object-fit:contain;padding:12px;filter:brightness(1.1)}
+.orbit-logo-text{font-size:.45rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;text-align:center;color:#fff;line-height:1.4}
+.orbit-logo-text span{color:var(--g)}
+/* Animated rings around center */
+.orbit-center-ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.orbit-ring-1{width:190px;height:190px;border:2px dashed rgba(141,198,63,.45);animation:orbitSpin 12s linear infinite}
+.orbit-ring-2{width:260px;height:260px;border:2px dashed rgba(141,198,63,.28);animation:orbitSpin 20s linear infinite reverse}
+.orbit-ring-3{width:330px;height:330px;border:1.5px solid rgba(141,198,63,.18);animation:orbitSpin 35s linear infinite}
+@keyframes orbitSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+/* Main orbit path */
+.orbit-wrap::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:460px;height:460px;border-radius:50%;border:2px solid rgba(141,198,63,.35);pointer-events:none;z-index:0}
+/* Nodes */
+.orbit-dot{width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.9);border:2px solid rgba(141,198,63,.4);backdrop-filter:blur(10px);box-shadow:0 4px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .4s cubic-bezier(.22,1,.36,1);position:relative}
+.orbit-dot:hover,.orbit-node.active .orbit-dot{background:var(--g);border-color:var(--g);transform:scale(1.32);box-shadow:0 0 50px rgba(141,198,63,.7),0 0 100px rgba(141,198,63,.25),0 8px 32px rgba(141,198,63,.5)}
+.orbit-icon{width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.orbit-icon svg{width:18px;height:18px;color:var(--gd);transition:color .25s}
+.orbit-dot:hover .orbit-icon svg,.orbit-node.active .orbit-dot .orbit-icon svg{color:#fff}
+/* Label */
+.orbit-label{position:absolute;top:76px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.65rem;font-weight:800;color:rgba(30,50,10,.55);letter-spacing:.08em;text-transform:uppercase;text-align:center;pointer-events:none;transition:color .25s}
+.orbit-node:hover .orbit-label,.orbit-node.active .orbit-label{color:var(--gd)}
+/* Popup card — always on top */
+.orbit-node{position:absolute;z-index:5;transform:translate(-50%,-50%);isolation:isolate}
+.orbit-node.active,.orbit-node:hover{z-index:99999!important}
+.orbit-popup{position:absolute;left:calc(100% + 14px);top:50%;transform:translateY(-50%) scale(.92);background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.3rem;box-shadow:0 24px 60px rgba(0,0,0,.15),0 4px 16px rgba(0,0,0,.08);width:210px;z-index:99999;opacity:0;visibility:hidden;transition:all .3s cubic-bezier(.22,1,.36,1);pointer-events:none;white-space:normal}
+.orbit-node.active .orbit-popup{opacity:1;visibility:visible;transform:translateY(-50%) scale(1)}
+.orbit-node.flip .orbit-popup{left:auto;right:calc(100% + 14px)}
+.op-img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top;border-radius:10px;margin-bottom:.8rem;filter:grayscale(5%);border:1px solid var(--border)}
+.op-name{font-size:.82rem;font-weight:800;color:var(--dark);margin-bottom:.25rem}
+.op-role{font-size:.64rem;color:var(--g);line-height:1.4}
+.op-divider{height:1px;background:rgba(141,198,63,.12);margin:.7rem 0}
+.op-field{display:inline-flex;align-items:center;gap:.3rem;font-size:.52rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g);background:rgba(141,198,63,.1);border:1px solid rgba(141,198,63,.2);padding:.2rem .6rem;border-radius:100px}
+@media(max-width:700px){
+  .orbit-wrap{width:380px;height:380px}
+  .orbit-wrap::before{width:300px;height:300px}
+  .orbit-ring-1{width:135px;height:135px}
+  .orbit-ring-2{width:190px;height:190px}
+  .orbit-ring-3{width:235px;height:235px}
+  .orbit-center{width:96px;height:96px}
+  .orbit-dot{width:48px;height:48px}
+  .orbit-icon svg{width:14px;height:14px}
+  .orbit-label{font-size:.52rem;top:54px}
+}
+/* ── VORGEHEN — Premium Timeline ── */
+/* ── VORGEHEN — Horizontal Interactive Stepper ── */
+.vorg-section{background:linear-gradient(160deg,#0a1205,#111 55%,#0e130a);padding:clamp(4rem,7vw,6rem) 2.5rem;position:relative;overflow:hidden}
+.vorg-section::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(141,198,63,.06),transparent 60%);pointer-events:none}
+/* Step tabs */
+.vorg-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;z-index:1;margin-top:4rem;border-radius:16px;overflow:hidden;border:1px solid rgba(141,198,63,.12)}
+.vorg-tab{padding:1.4rem 1rem;text-align:center;cursor:pointer;position:relative;transition:all .35s cubic-bezier(.22,1,.36,1);border-right:1px solid rgba(141,198,63,.1);background:rgba(255,255,255,.02)}
+.vorg-tab:last-child{border-right:none}
+.vorg-tab::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--g);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.vorg-tab.active{background:rgba(141,198,63,.08)}
+.vorg-tab.active::after{transform:scaleX(1)}
+.vorg-tab:hover{background:rgba(141,198,63,.05)}
+.vorg-tab-num{font-size:2.8rem;font-weight:900;color:rgba(141,198,63,.15);line-height:1;letter-spacing:-.04em;margin-bottom:.3rem;transition:color .35s;font-variant-numeric:tabular-nums}
+.vorg-tab.active .vorg-tab-num,.vorg-tab:hover .vorg-tab-num{color:rgba(141,198,63,.7)}
+.vorg-tab-title{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.4);transition:color .3s;letter-spacing:.02em}
+.vorg-tab.active .vorg-tab-title,.vorg-tab:hover .vorg-tab-title{color:#fff}
+.vorg-tab-dot{width:24px;height:2px;border-radius:1px;background:rgba(141,198,63,.15);margin:.7rem auto 0;transition:all .35s}
+.vorg-tab.active .vorg-tab-dot{background:var(--g);box-shadow:0 0 10px rgba(141,198,63,.5);width:32px}
+/* Progress bar */
+.vorg-progress{height:2px;background:rgba(255,255,255,.05);border-radius:1px;margin:0;position:relative;z-index:1;overflow:hidden}
+.vorg-progress-fill{height:100%;background:linear-gradient(90deg,var(--g),var(--gl));border-radius:1px;transition:width .6s cubic-bezier(.22,1,.36,1);width:25%}
+/* Content panels */
+.vorg-panels{position:relative;z-index:1;margin-top:0}
+.vorg-panel{display:none;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:3.5rem 0;opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s cubic-bezier(.22,1,.36,1)}
+.vorg-panel.active{display:grid}
+.vorg-panel.ready{opacity:1;transform:none}
+/* Panel left - number + text */
+.vorg-panel-left{position:relative}
+.vorg-big-num{font-size:8rem;font-weight:900;color:rgba(141,198,63,.06);line-height:1;letter-spacing:-.04em;position:absolute;top:-1.5rem;left:-1rem;pointer-events:none;user-select:none}
+.vorg-panel-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.52rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--g);background:rgba(141,198,63,.1);border:1px solid rgba(141,198,63,.25);padding:.25rem .8rem;border-radius:100px;margin-bottom:1.2rem;position:relative;z-index:1}
+.vorg-panel-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--g);flex-shrink:0;animation:vorgPulse 2s ease-in-out infinite}
+@keyframes vorgPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
+.vorg-panel-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:1rem;letter-spacing:-.01em;position:relative;z-index:1}
+.vorg-panel-desc{font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.9;position:relative;z-index:1}
+/* Panel right - visual card */
+.vorg-panel-card{background:rgba(255,255,255,.03);border:1.5px solid rgba(141,198,63,.15);border-radius:20px;padding:2.5rem;position:relative;overflow:hidden;backdrop-filter:blur(8px)}
+.vorg-panel-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(141,198,63,.4),transparent)}
+.vorg-feature-list{display:flex;flex-direction:column;gap:1rem}
+.vorg-feature{display:flex;align-items:flex-start;gap:.9rem;padding:.8rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.vorg-feature:last-child{border-bottom:none;padding-bottom:0}
+.vorg-feature-ico{width:36px;height:36px;border-radius:9px;background:rgba(141,198,63,.1);border:1px solid rgba(141,198,63,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+.vorg-feature-ico svg{width:16px;height:16px;stroke:var(--g);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.vorg-feature-text strong{display:block;font-size:.8rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.vorg-feature-text span{font-size:.7rem;color:rgba(255,255,255,.38);line-height:1.5}
+.vorg-highlight{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.8rem;font-size:.72rem;font-weight:700;color:var(--gl);background:rgba(141,198,63,.08);border:1px solid rgba(141,198,63,.2);padding:.65rem 1rem;border-radius:10px;width:100%;justify-content:center}
+.vorg-highlight svg{width:14px;height:14px;stroke:var(--g);fill:none;stroke-width:2}
+@media(max-width:800px){.vorg-tabs{grid-template-columns:1fr 1fr}.vorg-panel{grid-template-columns:1fr}}
+
+.vs-section{background:var(--dark);padding:clamp(5rem,9vw,7.5rem) 2.5rem;position:relative;overflow:hidden}
+.vs-section::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(141,198,63,.06),transparent 65%);pointer-events:none}
+.vs-section .sec-label{background:rgba(141,198,63,.1);border-color:rgba(141,198,63,.2);color:var(--gl)}
+.vs-section .h2{color:#fff}
+.vs-section .h2 .g{color:var(--gl)}
+.vs-section .h2-sub{color:rgba(255,255,255,.42)}
+.vs-table{margin-top:3.5rem;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.vs-head{display:grid;grid-template-columns:1fr 1fr 1fr}
+.vs-head-cell{padding:1.4rem 2rem;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.vs-head-cell:first-child{background:rgba(255,255,255,.03);color:rgba(255,255,255,.25);border-right:1px solid rgba(255,255,255,.06)}
+.vs-head-cell.bad{background:rgba(220,80,80,.06);color:rgba(220,80,80,.7);border-right:1px solid rgba(255,255,255,.06);text-align:left}
+.vs-head-cell.ok{background:var(--g);color:#fff;text-align:left;position:relative}
+.vs-row{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid rgba(255,255,255,.05);transition:background .2s}
+.vs-row:hover{background:rgba(255,255,255,.03)}
+.vs-row-topic{padding:1.15rem 2rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.38);display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.015)}
+.vs-cell{padding:1.15rem 2rem;display:flex;align-items:center;justify-content:flex-start;gap:.5rem;font-size:.8rem;text-align:left;border-right:1px solid rgba(255,255,255,.06)}
+.vs-cell:last-child{border-right:none;background:rgba(141,198,63,.04)}
+.vs-cell.bad{color:rgba(220,80,80,.6)}
+.vs-cell.ok{color:rgba(255,255,255,.82);font-weight:600}
+.vs-cell svg{width:15px;height:15px;flex-shrink:0}
+.vs-cell.bad svg{color:rgba(220,80,80,.55)}
+.vs-cell.ok svg{color:var(--g)}
+
+/* ── TESTIMONIALS — sliding 1-by-1, 3 visible ── */
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.tc-carousel{position:relative;overflow:hidden;margin-top:3rem}
+.tc-track{display:flex;gap:1.5rem;transition:transform .75s cubic-bezier(.4,0,.2,1);will-change:transform;width:max-content}
+.tc-slide{flex:0 0 calc((100vw - 5rem - 4.5rem) / 3);max-width:340px;min-width:260px}
+.tc-card{padding:2rem;border-radius:12px;background:#fff;border:1px solid var(--border);transition:box-shadow .4s,transform .4s,border-color .4s;position:relative;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.03);height:100%}
+.tc-card::before{content:'"';position:absolute;top:.5rem;right:1.2rem;font-size:5rem;font-weight:900;color:var(--g);opacity:.07;line-height:1;pointer-events:none}
+.tc-card:hover{border-color:rgba(141,198,63,.25);box-shadow:0 12px 45px rgba(0,0,0,.08);transform:translateY(-4px)}
+.tc-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.8rem}
+.tc-dot{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;cursor:pointer;padding:0;transition:all .3s}
+.tc-dot.active{background:var(--g);width:24px;border-radius:100px}
+.tc-stars{display:flex;gap:2px;margin-bottom:.9rem}
+.tc-stars svg{width:14px;height:14px;fill:var(--g)}
+.tc-txt{font-size:.86rem;color:var(--mid);line-height:1.82;font-style:italic;margin-bottom:1.2rem}
+.tc-auth{display:flex;align-items:center;gap:.7rem;padding-top:.9rem;border-top:1px solid var(--border)}
+.tc-name{font-size:.76rem;font-weight:700;color:var(--dark);line-height:1.2}
+.tc-role{font-size:.62rem;color:var(--light);margin-top:.1rem}
+.tc-av{width:36px;height:36px;border-radius:50%;background:var(--gbg);border:1.5px solid rgba(141,198,63,.25);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.72rem;color:var(--g);flex-shrink:0}
+.tc-name{font-size:.74rem;font-weight:700;color:var(--dark)}
+.tc-role{font-size:.58rem;color:var(--light)}
+/* Rating */
+.rating-block{display:flex;align-items:center;gap:2rem;padding:2rem 2.4rem;background:linear-gradient(135deg,rgba(141,198,63,.06),rgba(141,198,63,.02));border:1px solid rgba(141,198,63,.15);border-radius:12px;margin-top:2.5rem;box-shadow:0 4px 24px rgba(141,198,63,.06)}
+.rating-ring{width:78px;height:78px;border-radius:50%;border:2.5px solid var(--g);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 18px rgba(141,198,63,.2)}
+.rating-n{font-size:1.6rem;font-weight:900;color:var(--g);line-height:1}
+.rating-s{font-size:.42rem;color:var(--light);text-transform:uppercase;letter-spacing:.06em}
+.rating-info h4{font-size:1rem;font-weight:800;color:var(--dark);margin-bottom:.2rem}
+.rating-info p{font-size:.74rem;color:var(--light)}
+.rating-badge{margin-left:auto;padding:.6rem 1.2rem;border:1.5px solid rgba(141,198,63,.35);border-radius:6px;font-size:.48rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gd);white-space:nowrap;flex-shrink:0;background:var(--gbg)}
+
+/* ── FAQ ── */
+.faq{max-width:700px;margin:2.5rem auto 0}
+.fq{border-bottom:1px solid var(--border)}
+.fq-q{width:100%;background:none;border:none;padding:1.2rem 0;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-family:'Inter',sans-serif;font-size:.92rem;font-weight:700;color:var(--dark);text-align:left;gap:1rem;transition:color .2s;line-height:1.4}
+.fq-q:hover{color:var(--g)}
+.fq-ic{width:26px;height:26px;border-radius:50%;background:var(--gbg);border:1.5px solid rgba(141,198,63,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s}
+.fq-ic svg{width:10px;height:10px;color:var(--g);transition:transform .35s}
+.fq.open .fq-ic{background:var(--g);border-color:var(--g)}
+.fq.open .fq-ic svg{transform:rotate(45deg);color:#fff}
+.fq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,1,.36,1)}
+.fq.open .fq-a{max-height:300px}
+.fq-a p{font-size:.86rem;color:var(--mid);line-height:1.85;padding-bottom:1.3rem;text-align:left}
+
+/* ── CTA ── */
+.cta-sec{background:var(--dark);padding:clamp(5rem,9vw,8rem) 2.5rem;text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(141,198,63,.08),transparent 65%);pointer-events:none}
+.cta-sec::after{content:'';position:absolute;bottom:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(141,198,63,.05),transparent 70%);pointer-events:none}
+.cta-in{position:relative;z-index:2;max-width:580px;margin:0 auto}
+.cta-sec .h2{color:#fff}
+.cta-sec .h2 .g{color:var(--gl)}
+.cta-sec p{color:rgba(255,255,255,.45);font-size:.95rem;margin:.8rem auto 2.5rem;max-width:440px}
+
+/* ── FOOTER ── */
+.ft{background:#111;padding:4rem 2.5rem 0}
+.ft-inner{max-width:1080px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1.4fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.ft-logo{margin-bottom:.8rem}
+.ft-logo img{height:38px;width:auto;filter:brightness(0) invert(1);opacity:.85}
+.ft-logo-fallback{display:flex;align-items:center;gap:.5rem}
+.ft-logo-fallback .fl-svg{width:26px;height:26px}
+.ft-logo-fallback .fl-text{font-size:.6rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.8);line-height:1.25}
+.ft-logo-fallback .fl-text span{display:block;color:var(--g)}
+.ft-desc{font-size:.72rem;color:rgba(255,255,255,.28);line-height:1.8;max-width:240px;margin-bottom:1.1rem}
+.ft-cta{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.2rem;background:var(--g);color:#fff!important;font-size:.65rem;font-weight:700;border-radius:5px;transition:all .25s}
+.ft-cta:hover{background:var(--gl);color:#fff!important}
+.ft h5{font-size:.5rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:.9rem;padding-bottom:.4rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.ft a{color:rgba(255,255,255,.35);font-size:.72rem;display:block;margin-bottom:.45rem;transition:color .2s}
+.ft a:hover{color:var(--gl)}
+.ft-bot{padding:1.3rem 0 1.6rem;display:flex;justify-content:space-between;font-size:.58rem;color:rgba(255,255,255,.18)}
+.ft-bot-links{display:flex;gap:1.2rem}
+.ft-bot a{color:rgba(255,255,255,.18);font-size:.58rem;transition:color .2s}
+.ft-bot a:hover{color:var(--g)}
+
+/* ── FLOAT ── */
+.fl-btn{position:fixed;bottom:1.5rem;right:1.5rem;width:52px;height:52px;background:var(--g);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:900;transition:all .3s;box-shadow:0 4px 24px rgba(141,198,63,.45)}
+.fl-btn:hover{background:var(--gl);transform:scale(1.08);box-shadow:0 8px 36px rgba(141,198,63,.6)}
+.fl-btn svg{width:20px;height:20px;color:#fff}
+.fl-ring{position:absolute;inset:-5px;border-radius:50%;border:1.5px solid var(--g);opacity:.3;animation:flr 2.5s ease-out infinite}
+@keyframes flr{0%{transform:scale(1);opacity:.3}100%{transform:scale(1.5);opacity:0}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .nav{padding:0 1.2rem}
+  .nav-mid{display:none}
+  .sec{padding:3.5rem 1.2rem}
+  .netz-section{padding:4rem 1.5rem}
+  .netz-g{grid-template-columns:1fr;gap:4rem}
+  .netz-img-col,.vort-img-outer{margin:14px}
+  .netz-img-inner img,.vort-img-wrap img{min-height:300px}
+  .vort-g{grid-template-columns:1fr;gap:4rem}
+  .netz-badge{left:1rem;bottom:-1rem}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .stat::after{display:none}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid rgba(255,255,255,.15)}
+  .sg-g{grid-template-columns:repeat(2,1fr)}
+  .proc-g{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .proc-g::before{display:none}
+  .team-g{grid-template-columns:repeat(2,1fr)}
+  .vs-table{font-size:.72rem}
+  .tg{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr 1fr;gap:2rem}
+  .hero-btns{flex-direction:column;gap:.9rem;width:100%}
+  .btn-g{width:100%;justify-content:center}
+  .hero h1{font-size:2.4rem}
+  .hero-proof{flex-wrap:wrap}
+  .rating-block{flex-direction:column;text-align:center;padding:1.5rem;gap:1rem}
+  .rating-badge{margin:0}
+}
+@media(max-width:600px){
+  .sg-g{grid-template-columns:1fr}
+  .proc-g{grid-template-columns:1fr}
+  .team-g{grid-template-columns:1fr 1fr}
+  .ft-top{grid-template-columns:1fr}
+  .ft-bot{flex-direction:column;gap:.5rem;text-align:center}
+  .hero h1{font-size:2rem}
+  .vs-table{font-size:.72rem}
+  .hpr{padding:.75rem 1rem}
+}
+
+/* ── OPTIPLAN — Premium Minimal ── */
+.op-section{background:var(--offwhite);padding:clamp(4rem,7vw,6rem) 2.5rem;position:relative;overflow:hidden}
+.op-section::before{display:none}
+.op-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto}
+.op-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:3rem;gap:2rem}
+.op-top-left .sec-label{background:var(--gbg);border-color:rgba(141,198,63,.2);color:var(--gd);display:inline-flex;margin-bottom:.8rem}
+.op-top-left h2{color:#1A1A1A;font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:900;line-height:1.1;letter-spacing:-.02em}
+.op-top-left h2 em{color:var(--g);font-style:normal}
+.op-tabs{display:flex;gap:2px;background:var(--offwhite);border:1px solid var(--border);border-radius:10px;padding:3px;flex-shrink:0}
+.op-tab{padding:.55rem 1.2rem;border-radius:7px;font-size:.72rem;font-weight:700;color:var(--light);cursor:pointer;transition:all .3s cubic-bezier(.22,1,.36,1);letter-spacing:.02em;white-space:nowrap;border:none;background:none;font-family:inherit}
+.op-tab.active{background:var(--g);color:#fff;box-shadow:0 4px 16px rgba(141,198,63,.35)}
+.op-tab:hover:not(.active){color:var(--gd);background:var(--gbg)}
+.op-body{display:grid;grid-template-columns:1fr 280px;gap:2rem;align-items:stretch}.op-info{display:flex;flex-direction:column;gap:.75rem}
+.op-chart-panel{background:#fff;border:1px solid var(--border);border-radius:18px;padding:2rem 1.8rem 1.4rem;position:relative;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.04)}
+.op-chart-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g),var(--gl));border-radius:3px 3px 0 0}
+.op-chart-kpi{display:flex;align-items:center;gap:1rem;margin-bottom:1.6rem}
+.op-chart-kpi-val{font-size:2rem;font-weight:900;color:#1A1A1A;letter-spacing:-.03em;line-height:1}
+.op-chart-kpi-sub{font-size:.68rem;color:var(--light);margin-top:.2rem}
+.op-chart-kpi-trend{margin-left:auto;font-size:.6rem;font-weight:700;color:var(--gd);background:var(--gbg);padding:.2rem .65rem;border-radius:100px;border:1px solid rgba(141,198,63,.2);white-space:nowrap}
+.op-chart-svg-wrap{position:relative}
+.op-rline{position:absolute;top:0;bottom:20px;width:1px;background:repeating-linear-gradient(to bottom,rgba(0,0,0,.2) 0px,rgba(0,0,0,.2) 4px,transparent 4px,transparent 8px);z-index:2}
+.op-rtag{position:absolute;top:0;transform:translateX(-50%);font-size:.44rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(0,0,0,.3);white-space:nowrap}
+.op-chart-svg{width:100%;display:block}
+.op-bar{cursor:pointer}
+.op-bar:hover{filter:brightness(1.3)}
+.op-x-label{font-size:7px;fill:rgba(0,0,0,.3);text-anchor:middle;font-family:Inter,sans-serif}
+.op-y-label{font-size:7px;fill:rgba(0,0,0,.3);text-anchor:end;font-family:Inter,sans-serif}
+.op-grid-line{stroke:rgba(0,0,0,.05);stroke-width:1}
+.op-chart-legend{display:flex;gap:1.2rem;margin-top:.9rem}
+.op-leg{display:flex;align-items:center;gap:.4rem;font-size:.57rem;color:var(--light)}
+.op-leg-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.op-tooltip{position:absolute;background:rgba(20,30,10,.92);border:1px solid rgba(141,198,63,.3);border-radius:8px;padding:.4rem .7rem;font-size:.6rem;color:rgba(255,255,255,.85);pointer-events:none;opacity:0;transition:opacity .15s;z-index:20;white-space:nowrap}
+.op-tooltip strong{color:var(--gl);display:block;font-size:.76rem;font-weight:900;margin-bottom:1px}
+.op-info{display:flex;flex-direction:column;gap:.9rem;padding-top:.3rem}
+.op-info-head{font-size:.5rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gd);margin-bottom:.5rem}
+.op-info-desc{font-size:.78rem;color:var(--mid);line-height:1.85}
+.op-info-kpis{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem}
+.op-kpi{padding:.75rem .9rem;background:#fff;border:1px solid var(--border);border-radius:9px;transition:border-color .3s;box-shadow:0 1px 6px rgba(0,0,0,.04)}
+.op-kpi:hover{border-color:rgba(141,198,63,.35);background:var(--gbg)}
+.op-kpi-val{font-size:1rem;font-weight:900;color:#1A1A1A;margin-bottom:.15rem}
+.op-kpi-lbl{font-size:.58rem;color:var(--light);line-height:1.3}
+.op-cta-link{display:inline-flex;align-items:center;gap:.45rem;font-size:.7rem;font-weight:700;color:var(--gl);text-decoration:none;margin-top:.4rem;transition:gap .3s}
+.op-cta-link:hover{gap:.7rem}
+.op-cta-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5}
+@media(max-width:900px){.op-body{grid-template-columns:1fr}.op-top{flex-wrap:wrap}}
+.szen-banner{margin-top:1.5rem;background:#fff;border:1px solid var(--border);border-radius:18px;padding:2rem 2.5rem;display:flex;align-items:center;gap:2.5rem;position:relative;overflow:hidden}
+.sb-main{position:relative;z-index:1;flex-shrink:0}
+.sb-main-val{font-size:2.4rem;font-weight:900;color:var(--g);letter-spacing:-.03em;line-height:1}
+.sb-main-lbl{font-size:.62rem;font-weight:600;color:var(--light);margin-top:.25rem;line-height:1.4}
+.sb-main-title{font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:.4rem}
+.sb-div{width:1px;height:70px;background:var(--border);flex-shrink:0}
+.sb-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem 2rem;flex:1;position:relative;z-index:1}
+.sb-item{}
+.sb-item-val{font-size:1.15rem;font-weight:800;color:var(--dark);line-height:1}
+.sb-item-lbl{font-size:.6rem;color:var(--light);margin-top:.18rem;line-height:1.3}
+.sb-item-sub{font-size:.52rem;font-weight:600;color:var(--g);margin-top:.1rem;letter-spacing:.04em}
+@media(max-width:768px){.szen-banner{flex-direction:column;gap:1.5rem}.sb-div{width:100%;height:1px}.sb-grid{grid-template-columns:1fr 1fr}}
+
+
+.op-scenario-legend{display:flex;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+.op-sleg{display:flex;align-items:center;gap:.4rem;font-size:.58rem;color:var(--light)}
+.op-sleg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+/* Szenarien comparison card */
+.op-szen-card{background:var(--gbg);border:1px solid rgba(141,198,63,.22);border-radius:14px;padding:1.1rem;margin-top:.3rem}
+.op-szen-title{font-size:.58rem;font-weight:700;color:var(--gd);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.op-szen-title svg{stroke:var(--g)}
+.op-szen-rows{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+.op-szen-row{display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.op-szen-lbl{font-size:.7rem;color:var(--mid)}
+.op-szen-val{font-size:.72rem;font-weight:700;border-radius:6px;padding:.18rem .6rem}
+.op-szen-val.green{color:var(--gl);background:rgba(141,198,63,.12);border:1px solid rgba(141,198,63,.2)}
+.op-szen-val.red{color:rgba(220,80,80,.8);background:rgba(220,80,80,.08);border:1px solid rgba(220,80,80,.15)}
+.op-szen-delta{border-top:1px solid rgba(141,198,63,.2);padding-top:.75rem;display:flex;align-items:baseline;gap:.5rem;flex-wrap:nowrap}
+.op-delta-num{font-size:1.4rem;font-weight:900;color:var(--g);letter-spacing:-.01em;white-space:nowrap;flex-shrink:0}
+.op-delta-lbl{font-size:.62rem;color:var(--light);line-height:1.4}
+
+</style>
+
+<!-- ════════════ HTML ════════════ -->
+
+<!-- NAV — grüner Hintergrund -->
+<nav class="nav">
+  <div class="nav-inner">
+    <!-- Logo: zeigt echtes Bild, fällt auf SVG+Text zurück -->
+    <a href="/" class="nav-logo">
+      <img class="nav-logo-img"
+           src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/09/preview_files_01_854.png"
+           alt="Das Spezialisten Netzwerk"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="nav-logo-text" style="display:none">
+        <span class="nl1">Das Spezialisten</span>
+        <span class="nl2">NETZWERK</span>
+      </div>
+    </a>
+    <div class="nav-mid">
+      <a href="#netzwerk">Das Netzwerk</a>
+      <a href="#netzwerk-grafik">Spezialisten</a>
+      <a href="#vorgehen">Vorgehen</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="/kontakt.html" class="nav-cta">Kontakt aufnehmen ›</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=85" alt="" id="hero-bg-img">
+  </div>
+  <div class="hero-grid"></div>
+  <div class="hero-pts" id="hpts"></div>
+  <div class="hero-bar"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-in">
+    <div class="hero-badge" id="hbadge" style="opacity:0;transform:translateY(12px)">
+      13+ Fachspezialisten · Alles aus einer Hand
+    </div>
+    <h1 id="hh" style="opacity:0;transform:translateY(24px)">
+      Vermögensbildung<br>nach Plan<br><em>mit Sicherheit das Richtige</em>
+    </h1>
+    <p class="hero-sub" id="hs" style="opacity:0;transform:translateY(18px)">
+      Nutzen Sie unsere individuelle Wohlstandsplanung, alles unter einem Dach, um Ihre finanziellen Ziele maßgeschneidert zu erreichen!
+    </p>
+    <div class="hero-btns" id="hb" style="opacity:0;transform:translateY(16px)">
+      <a href="/kontakt.html" class="btn-g">Kontakt aufnehmen ›</a>
+      <a href="#netzwerk-grafik" class="btn-ghost-w">Mehr erfahren ↓</a>
+    </div>
+    <div class="hero-proof" id="hpr" style="opacity:0;transform:translateY(14px)">
+      <div class="hpr">
+        <div class="hpr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="hpr-t"><strong>13+</strong>Fachspezialisten</div>
+      </div>
+      <div class="hpr">
+        <div class="hpr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="hpr-t"><strong>100%</strong>Ungebunden</div>
+      </div>
+      <div class="hpr">
+        <div class="hpr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="hpr-t"><strong>150 Jahre</strong>Erfahrung im Netzwerk</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq"><div class="mq-tr" id="mqt"></div></div>
+
+
+
+<!-- DAS NETZWERK + GRAFIK -->
+<section class="sec orbit-section" id="netzwerk" style="padding:clamp(2rem,3vw,3rem) 2.5rem 1.5rem">
+  <div class="w tc">
+    <div class="sec-label rv" style="display:inline-flex;margin-bottom:1rem">Das Netzwerk</div>
+    <h2 class="h2 rv" style="margin-bottom:1rem">Das Spezialisten <span class="g">NETZWERK</span></h2>
+    <p class="rv" style="font-size:.9rem;color:#4A4A4A;line-height:1.85;max-width:600px;margin:0 auto 1.5rem">13 Spezialisten. Eine Strategie. Wir koordinieren alle Bereiche Ihrer Vermögensplanung aus einer Hand, transparent, ungebunden und konsequent an Ihren Zielen ausgerichtet.</p>
+    <p class="rv" style="font-size:.62rem;color:#8A8A8A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:0">Hover über einen Bereich</p>
+    <div class="orbit-wrap rv" id="orbit-wrap">
+
+      <!-- Center -->
+      <div class="orbit-center">
+        <div class="orbit-center-ring orbit-ring-1"></div>
+        <div class="orbit-center-ring orbit-ring-2"></div>
+        <div class="orbit-center-ring orbit-ring-3"></div>
+        <div class="orbit-center-inner">
+          <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/09/preview_files_01_854.png"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Spezialisten Netzwerk" class="orbit-logo">
+          <div class="orbit-logo-fallback" style="display:none">
+            <div class="orbit-logo-text">SPEZIALISTEN<br><span>NETZWERK</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orbit nodes — positioned by JS -->
+      <div class="orbit-node" data-idx="0"
+           data-name="Jonathan Lohne" data-role="Netzwerk Manager"
+           data-img="https://spezialisten-netzwerk.com/wp-content/uploads/2026/03/Design-ohne-Titel-7.png"
+           data-label="Netzwerk Manager">
+        <div class="orbit-dot"><div class="orbit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div></div>
+        <div class="orbit-label">Netzwerk Manager</div>
+        <div class="orbit-popup">
+          <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2026/03/Design-ohne-Titel-7.png" alt="" class="op-img">
+          <div class="op-name">Jonathan Lohne</div>
+          <div class="op-role">Netzwerk Manager</div></div>
+      </div>
+
+      <div class="orbit-node" data-idx="1"
+           data-label="Finanzierung">
+        <div class="orbit-dot"><div class="orbit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div></div>
+        <div class="orbit-label">Finanzierung</div>
+        <div class="orbit-popup orbit-popup-wide">
+          <div class="op-dual">
+            <div class="op-person">
+              <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T135826.354.png" alt="" class="op-img">
+              <div class="op-name">Jana Hoffmann</div>
+              <div class="op-role">Spezialistin Finanzierung</div>
+            </div>
+            <div class="op-person">
+              <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T125430.178.png" alt="" class="op-img">
+              <div class="op-name">Mathias Moews</div>
+              <div class="op-role">Dipl.-Betriebswirt | Finanzierungen</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="orbit-node" data-idx="2"
+           data-name="Dr. Michael Buck" data-role="Kranken- & Pflegeversicherung"
+           data-img="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T140743.795.png"
+           data-label="Kranken & Pflege">
+        <div class="orbit-dot"><div class="orbit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div></div>
+        <div class="orbit-label">Kranken & Pflege</div>
+        <div class="orbit-popup">
+          <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T140743.795.png" alt="" class="op-img">
+          <div class="op-name">Dr. Michael Buck</div>
+          <div class="op-role">Kranken- & Pflegeversicherung</div></div>
+      </div>
+
+      <div class="orbit-node" data-idx="3"
+           data-name="Joachim Hendelkes" data-role="Spezialist Finanzanalysen"
+           data-img="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T152937.141.png"
+           data-label="Finanzanalysen">
+        <div class="orbit-dot"><div class="orbit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div></div>
+        <div class="orbit-label">Finanzanalysen</div>
+        <div class="orbit-popup">
+          <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T152937.141.png" alt="" class="op-img">
+          <div class="op-name">Joachim Hendelkes</div>
+          <div class="op-role">Dipl.-Kfm. | Finanzanalysen</div></div>
+      </div>
+
+      <div class="orbit-node" data-idx="4"
+           data-name="Christian H. Schneider" data-role="Kapitalanlage Immobilien"
+           data-img="https://spezialisten-netzwerk.com/wp-content/uploads/2026/03/Design-ohne-Titel-6.png"
+           data-label="Immobilien">
+        <div class="orbit-dot"><div class="orbit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        </div></div>
+        <div class="orbit-label">Immobilien</div>
+        <div class="orbit-popup">
+          <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2026/03/Design-ohne-Titel-6.png" alt="" class="op-img">
+          <div class="op-name">Christian H. Schneider</div>
+          <div class="op-role">Dipl.-Kfm. | Kapitalanlage Immobilien</div></div>
+      </div>
+
+      <div class="orbit-node" data-idx="5"
+           data-name="Dorian Scholl" data-role="Investment & AIF"
+           data-img="https://spezialisten-netzwerk.com/wp-content/uploads/2024/01/Design-ohne-Titel-2024-01-22T220526.655.png"
+           data-label="Investment & AIF">
+        <div class="orbit-dot"><div class="orbit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div></div>
+        <div class="orbit-label">Investment & AIF</div>
+        <div class="orbit-popup">
+          <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2024/01/Design-ohne-Titel-2024-01-22T220526.655.png" alt="" class="op-img">
+          <div class="op-name">Dorian Scholl</div>
+          <div class="op-role">Financial Planner | Investment & AIF</div></div>
+      </div>
+
+      <div class="orbit-node" data-idx="6"
+           data-name="Sigrid Casanova" data-role="Unternehmensberatung Heilwesen"
+           data-img="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T154944.131.png"
+           data-label="Heilwesenberufe">
+        <div class="orbit-dot"><div class="orbit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div></div>
+        <div class="orbit-label">Heilwesenberufe</div>
+        <div class="orbit-popup">
+          <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T154944.131.png" alt="" class="op-img">
+          <div class="op-name">Sigrid Casanova</div>
+          <div class="op-role">M.A. | Unternehmensberatung Heilwesen</div></div>
+      </div>
+
+      <div class="orbit-node" data-idx="7"
+           data-label="Betr. Versorgung">
+        <div class="orbit-dot"><div class="orbit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div></div>
+        <div class="orbit-label">Betr. Versorgung</div>
+        <div class="orbit-popup orbit-popup-wide">
+          <div class="op-dual">
+            <div class="op-person">
+              <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T160433.709.png" alt="" class="op-img">
+              <div class="op-name">Ronni Arndt</div>
+              <div class="op-role">Dipl.-Volkswirt | bAV / DMA</div>
+            </div>
+            <div class="op-divider-v"></div>
+            <div class="op-person">
+              <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2024/05/Design-ohne-Titel.png" alt="" class="op-img">
+              <div class="op-name">Steffen Domes</div>
+              <div class="op-role">Experte bAV / DMA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div><!-- /orbit-wrap -->
+  </div>
+
+  </div>
+</section>
+<!-- OPTIPLAN DYNAMIC PLANNING -->
+<section class="op-section" id="finanzplanung">
+  <div class="op-inner">
+    <div class="op-top rv">
+      <div class="op-top-left">
+        <div class="sec-label">Strategische Finanzplanung</div>
+        <h2>OptiPlan <em>—</em> Drei Dimensionen. Ein Plan.</h2>
+      </div>
+      <div class="op-tabs">
+        <button class="op-tab active" data-dim="0" onclick="opGoTo(0)">Liquidität</button>
+        <button class="op-tab" data-dim="1" onclick="opGoTo(1)">Vermögen</button>
+        <button class="op-tab" data-dim="2" onclick="opGoTo(2)">Steuern</button>
+      </div>
+    </div>
+
+    <div class="op-body rv">
+      <!-- Chart -->
+      <div class="op-chart-panel">
+        <div class="op-tooltip" id="op-tooltip"></div>
+        <div class="op-chart-kpi">
+          <div>
+            <div class="op-chart-kpi-val" id="op-cval">+ 82 T€</div>
+            <div class="op-chart-kpi-sub" id="op-cvsub">Freie Liquidität 2025</div>
+          </div>
+          <div class="op-chart-kpi-trend" id="op-ctrend">Prognose bis 2054</div>
+        </div>
+        <!-- Scenario legend -->
+        <div class="op-scenario-legend" id="op-scenario-legend">
+          <div class="op-sleg"><div class="op-sleg-dot" style="background:#8DC63F"></div>Mit Empfehlungen</div>
+          <div class="op-sleg"><div class="op-sleg-dot" style="background:#ccc"></div>Status Quo</div>
+        </div>
+        <div class="op-chart-svg-wrap" id="op-svg-wrap">
+          <div class="op-rline" id="op-rline" style="left:20%"></div>
+          <div class="op-rtag" id="op-rtag" style="left:20%">Ruhestand</div>
+          <svg class="op-chart-svg" viewBox="0 0 560 180" id="op-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+        <div class="op-chart-legend" id="op-legend"></div>
+      </div>
+
+      <!-- Right: Szenarien callout -->
+      <div class="op-info rv d1" id="op-info-panel">
+        <div>
+          <div class="op-info-head" id="op-ihead">Dimension Liquidität</div>
+          <div class="op-info-desc" id="op-idesc" style="font-size:.75rem;color:var(--mid);line-height:1.7;margin-top:.3rem"></div>
+        </div>
+
+        <!-- Szenarien comparison card — prominent -->
+        <div class="op-szen-card" id="op-szen">
+          <div class="op-szen-title">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14"><polyline points="1,12 5,7 9,10 15,3"/></svg>
+            Szenarien im Vergleich
+          </div>
+          <div class="op-szen-rows" id="op-szen-rows">
+            <div class="op-szen-row">
+              <div class="op-szen-lbl">Status Quo</div>
+              <div class="op-szen-val red" id="op-sq-val">ab 2038 negativ</div>
+            </div>
+            <div class="op-szen-row">
+              <div class="op-szen-lbl">Mit Empfehlungen</div>
+              <div class="op-szen-val green" id="op-emp-val">dauerhaft positiv</div>
+            </div>
+          </div>
+          <div class="op-szen-delta" id="op-szen-delta">
+            <span class="op-delta-num" id="op-dnum">+ 15 T€</span>
+            <span class="op-delta-lbl" id="op-dlbl">Verbesserung pro Jahr im Ruhestand</span>
+          </div>
+        </div>
+
+        <!-- Extra kacheln -->
+        <div style="display:flex;flex-direction:column;gap:.6rem;flex:1">
+          <div style="padding:.9rem 1rem;background:#fff;border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;gap:.8rem;box-shadow:0 1px 6px rgba(0,0,0,.04)">
+            <div style="width:34px;height:34px;border-radius:8px;background:var(--gbg);border:1px solid rgba(141,198,63,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div style="font-size:.85rem;font-weight:800;color:var(--dark)">30 Jahre</div>
+              <div style="font-size:.58rem;color:var(--light);margin-top:.1rem">Planungshorizont 2025–2054</div>
+            </div>
+          </div>
+          <div style="padding:.9rem 1rem;background:#fff;border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;gap:.8rem;box-shadow:0 1px 6px rgba(0,0,0,.04)">
+            <div style="width:34px;height:34px;border-radius:8px;background:var(--gbg);border:1px solid rgba(141,198,63,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <div style="font-size:.85rem;font-weight:800;color:var(--dark)">13+ Spezialisten</div>
+              <div style="font-size:.58rem;color:var(--light);margin-top:.1rem">Koordiniert im Netzwerk</div>
+            </div>
+          </div>
+          <a href="/optiplan.html" style="margin-top:auto;display:none"></a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="szen-banner rv d3">
+      <div class="sb-main">
+        <div class="sb-main-title">Gesamter Mehrwert durch Optimierung</div>
+        <div class="sb-main-val">+ 520.000 €</div>
+        <div class="sb-main-lbl">Zusätzliches Nettovermögen<br>bis 2054</div>
+      </div>
+      <div class="sb-div"></div>
+      <div class="sb-grid">
+        <div class="sb-item">
+          <div class="sb-item-val">+ 15 T€</div>
+          <div class="sb-item-lbl">Liquiditätsvorteil</div>
+          <div class="sb-item-sub">pro Jahr</div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-item-val">− 3 % Satz</div>
+          <div class="sb-item-lbl">Steuerersparnis</div>
+          <div class="sb-item-sub">im Ruhestand</div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-item-val">72 € / Mon.</div>
+          <div class="sb-item-lbl">bAV Netto-Vorteil</div>
+          <div class="sb-item-sub">nach Steuern</div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-item-val">30 Jahre</div>
+          <div class="sb-item-lbl">Planungshorizont</div>
+          <div class="sb-item-sub">2025 – 2054</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<script>
+(function(){
+  var years=[];for(var y=2025;y<=2054;y++)years.push(y);
+
+  var DATA={
+    0:{
+      // Liquidität: jährliche freie Liquidität T€ — Status Quo vs Mit Empfehlungen
+      vals:  [82,28,25,10,16,11,12,8,5,4,3,4,5,5,4,3,3,4,5,6,6,7,8,8,9,10,10,11,11,12],
+      vals2: [82,18,12, 2, 8, 2, 0,-2,-4,-5,-6,-6,-5,-4,-3,-2,-2,-1, 0, 1, 1, 2, 3, 3, 4, 4, 5, 5, 6, 6],
+      kval:'+ 82 T€',ksub:'Freie Liquidität 2025',ktrend:'Prognose bis 2054',
+      color:'#8DC63F',color2:'rgba(0,0,0,.12)',negColor2:'rgba(220,70,70,.25)',negColor:'rgba(220,70,70,.55)',
+      legend:[],
+      head:'Dimension Liquidität',
+      desc:'Liquidität, Vermögen, Steuern — drei Vitalwerte Ihrer Finanzplanung.',
+      szen:{sq:'ab 2038 negativ',emp:'dauerhaft positiv',dnum:'+ 15 T€',dlbl:'Verbesserung pro Jahr im Ruhestand'},
+      kpis:[['+ 82 T€','Freie Liquidität 2025'],['+ 256 T€','Kumuliert bis Ruhestand'],['2054+','Gesichert mit Optimierung']]
+    },
+    1:{
+      // Vermögen: Status Quo vs Mit Empfehlungen (Depot-Aufbau)
+      vals:  [1656,1752,1747,1735,1730,1735,1745,1820,1880,1950,2040,2145,2250,2355,2460,2570,2680,2790,2900,3010,3090,3140,3160,3180,3200,3215,3230,3245,3260,3280],
+      vals2: [1656,1690,1695,1685,1680,1685,1695,1730,1770,1820,1880,1950,2020,2090,2155,2220,2290,2360,2430,2500,2560,2610,2640,2660,2680,2695,2710,2725,2740,2760],
+      kval:'1,66 Mio.',ksub:'Nettovermögen 2025',ktrend:'Wächst auf 3,28 Mio.',
+      color:'#60a5fa',color2:'rgba(96,165,250,.55)',negColor:'rgba(220,70,70,.55)',negColor2:'rgba(220,70,70,.55)',
+      legend:[],
+      head:'Dimension Vermögen',
+      desc:'Liquidität, Vermögen, Steuern — drei Vitalwerte Ihrer Finanzplanung.',
+      szen:{sq:'2,76 Mio. € (2054)',emp:'3,28 Mio. € (2054)',dnum:'+ 520 T€',dlbl:'Mehrvermögen durch Optimierung'},
+      kpis:[['1,66 Mio.','Nettovermögen 2025'],['3,28 Mio.','Prognose 2054 (opt.)'],['98 %','Eigenkapitalquote']]
+    },
+    2:{
+      // Steuern: Grenzsteuersatz — Status Quo vs Mit Empfehlungen
+      vals:  [42,42,24,25,25,24,23,22,20,18,18,18,18,19,19,19,20,20,20,21,21,22,22,22,23,23,24,24,25,25],
+      vals2: [42,42,30,32,32,30,28,26,24,22,22,22,22,22,22,22,23,23,23,24,24,25,25,25,26,26,27,27,28,28],
+      kval:'42 %',ksub:'Grenzsteuersatz 2025',ktrend:'Sinkt auf ~25 % im Ruhestand',
+      color:'rgba(141,198,63,.85)',color2:'rgba(251,146,60,.5)',negColor:'rgba(220,70,70,.55)',negColor2:'rgba(220,70,70,.55)',
+      legend:[],
+      head:'Dimension Steuern',
+      desc:'Liquidität, Vermögen, Steuern — drei Vitalwerte Ihrer Finanzplanung.',
+      szen:{sq:'~28 % Grenzsteuersatz',emp:'~25 % Grenzsteuersatz',dnum:'– 3 %',dlbl:'Steuerersparnis durch Optimierung'},
+      kpis:[['42 %','Grenzsteuersatz 2025'],['~25 %','Mit Empfehlungen'],['≥ 30 %','Optimierungspotenzial']]
+    }
+  };
+
+  var current=0,animFrame=null,barEls=[];
+  var SW=560,SH=180,PL=34,PR=6,PT=8,PB=22,cW=SW-PL-PR,cH=SH-PT-PB,COLS=years.length;
+  var gap=cW/COLS, bTot=gap*0.72, bW1=bTot*0.52, bW2=bTot*0.44, bGap=bTot*0.04;
+
+  function buildChart(dim,animate){
+    var d=DATA[dim],vals=d.vals,vals2=d.vals2,svg=document.getElementById('op-svg');
+    var allV=vals.concat(vals2||[]);
+    var maxV=Math.max.apply(null,allV.map(Math.abs))*1.12;
+    var minV=Math.min.apply(null,allV);
+    var hasNeg=minV<0;
+    var zeroY=hasNeg?PT+cH*(maxV/(maxV+Math.abs(minV))):PT+cH;
+    svg.innerHTML='';
+
+    // Grid + zero line
+    for(var g=0;g<=4;g++){
+      var gy=PT+(cH/4)*g,gv=Math.round(maxV*(1-g/4));
+      var gl=document.createElementNS('http://www.w3.org/2000/svg','line');
+      gl.setAttribute('x1',PL);gl.setAttribute('x2',SW-PR);gl.setAttribute('y1',gy);gl.setAttribute('y2',gy);
+      gl.setAttribute('stroke','rgba(0,0,0,.06)');gl.setAttribute('stroke-width','1');svg.appendChild(gl);
+      var lbl=document.createElementNS('http://www.w3.org/2000/svg','text');
+      lbl.setAttribute('x',PL-4);lbl.setAttribute('y',gy+3);lbl.setAttribute('class','op-y-label');
+      var isPct=(dim===2);
+      lbl.textContent=gv>=1000?(gv/1000).toFixed(1)+'M':(isPct?gv+'%':gv);
+      svg.appendChild(lbl);
+    }
+    // Zero baseline for negative bars
+    if(hasNeg){
+      var zl=document.createElementNS('http://www.w3.org/2000/svg','line');
+      zl.setAttribute('x1',PL);zl.setAttribute('x2',SW-PR);
+      zl.setAttribute('y1',zeroY);zl.setAttribute('y2',zeroY);
+      zl.setAttribute('stroke','rgba(0,0,0,.15)');zl.setAttribute('stroke-width','1');
+      svg.appendChild(zl);
+    }
+
+    barEls=[];
+    for(var i=0;i<COLS;i++){
+      var bx=PL+i*gap+(gap-bTot)/2;
+
+      // Bar 1: Mit Empfehlungen (primary, green)
+      var v=vals[i],bh=Math.abs(v)/maxV*cH,isNeg=v<0;
+      var by=isNeg?zeroY:zeroY-bh;
+      var r1=document.createElementNS('http://www.w3.org/2000/svg','rect');
+      r1.setAttribute('x',bx);r1.setAttribute('y',animate?zeroY:by);
+      r1.setAttribute('width',bW1);r1.setAttribute('height',animate?0.5:bh);
+      r1.setAttribute('rx',2);r1.setAttribute('fill',isNeg?d.negColor:d.color);
+      r1.setAttribute('class','op-bar');
+      (function(yr,val,isPct2){
+        r1.addEventListener('mouseenter',function(){
+          var tip=document.getElementById('op-tooltip');
+          tip.innerHTML='<strong>Mit Empf.: '+(val>=0?'+':'')+val+(isPct2?' %':' T€')+'</strong>'+yr;
+          tip.style.opacity='1';
+        });
+        r1.addEventListener('mouseleave',function(){document.getElementById('op-tooltip').style.opacity='0';});
+      })(years[i],v,isPct);
+      svg.appendChild(r1);
+      barEls.push({el:r1,ty:by,th:bh,isNeg:isNeg});
+
+      // Bar 2: Status Quo (secondary, muted)
+      if(vals2&&vals2[i]!==undefined){
+        var v2=vals2[i],bh2=Math.abs(v2)/maxV*cH,isNeg2=v2<0;
+        var by2=isNeg2?zeroY:zeroY-bh2;
+        var r2=document.createElementNS('http://www.w3.org/2000/svg','rect');
+        r2.setAttribute('x',bx+bW1+bGap);r2.setAttribute('y',animate?zeroY:by2);
+        r2.setAttribute('width',bW2);r2.setAttribute('height',animate?0.5:bh2);
+        r2.setAttribute('rx',2);r2.setAttribute('fill',isNeg2?d.negColor2:d.color2);
+        r2.setAttribute('class','op-bar');
+        (function(yr,val,isPct2){
+          r2.addEventListener('mouseenter',function(){
+            var tip=document.getElementById('op-tooltip');
+            tip.innerHTML='<strong>Status Quo: '+(val>=0?'+':'')+val+(isPct2?' %':' T€')+'</strong>'+yr;
+            tip.style.opacity='1';
+          });
+          r2.addEventListener('mouseleave',function(){document.getElementById('op-tooltip').style.opacity='0';});
+        })(years[i],v2,isPct);
+        svg.appendChild(r2);
+        barEls.push({el:r2,ty:by2,th:bh2,isNeg:isNeg2});
+      }
+
+      if(i%5===0){
+        var xt=document.createElementNS('http://www.w3.org/2000/svg','text');
+        xt.setAttribute('x',bx+bW1/2);xt.setAttribute('y',SH-3);
+        xt.setAttribute('class','op-x-label');xt.textContent=years[i];
+        svg.appendChild(xt);
+      }
+    }
+    if(animate)animBars(0);
+  }
+
+  function animBars(f){
+    var done=true;
+    for(var i=0;i<barEls.length;i++){
+      var b=barEls[i],delay=i*0.4;
+      if(f<delay){done=false;continue;}
+      var t=Math.min((f-delay)*0.09,1),ease=1-Math.pow(1-t,3),h=b.th*ease;
+      var y=b.isNeg?b.ty:b.ty+b.th-h;
+      b.el.setAttribute('y',y);b.el.setAttribute('height',Math.max(1,h));
+      if(t<1)done=false;
+    }
+    if(!done)animFrame=requestAnimationFrame(function(){animBars(f+1);});
+  }
+
+  function updateInfo(dim){
+    var d=DATA[dim];
+    document.getElementById('op-cval').textContent=d.kval;
+    document.getElementById('op-cvsub').textContent=d.ksub;
+    document.getElementById('op-ctrend').textContent=d.ktrend;
+    document.getElementById('op-ihead').textContent=d.head;
+    document.getElementById('op-idesc').textContent=d.desc;
+    // Szenarien
+    document.getElementById('op-sq-val').textContent=d.szen.sq;
+    document.getElementById('op-emp-val').textContent=d.szen.emp;
+    document.getElementById('op-dnum').textContent=d.szen.dnum;
+    document.getElementById('op-dlbl').textContent=d.szen.dlbl;
+    // Sync legend dots with bar colors
+    var dots=document.querySelectorAll('.op-sleg-dot');
+    if(dots[0]) dots[0].style.background=d.color;
+    if(dots[1]) dots[1].style.background=d.color2;
+  }
+
+  window.opGoTo=function(idx){
+    if(idx===current)return;
+    cancelAnimationFrame(animFrame);current=idx;
+    document.querySelectorAll('.op-tab').forEach(function(t){t.classList.remove('active');});
+    document.querySelector('[data-dim="'+idx+'"]').classList.add('active');
+    updateInfo(idx);buildChart(idx,true);
+  };
+
+  // Init
+  updateInfo(0);
+  buildChart(0,false);
+  var inited=false;
+  new IntersectionObserver(function(e){
+    if(e[0].isIntersecting&&!inited){inited=true;buildChart(current,true);}
+  },{threshold:.25}).observe(document.querySelector('.op-section'));
+  document.getElementById('op-svg-wrap').addEventListener('mousemove',function(e){
+    var tip=document.getElementById('op-tooltip'),r=this.getBoundingClientRect();
+    tip.style.left=(e.clientX-r.left+14)+'px';
+    tip.style.top=(e.clientY-r.top-36)+'px';
+  });
+})();
+</script>
+
+
+<!-- VORGEHEN -->
+<section class="vorg-section" id="vorgehen">
+  <div class="w tc">
+    <div class="sec-label rv" style="display:inline-flex;background:rgba(141,198,63,.12);border-color:rgba(141,198,63,.25);color:var(--gl)">Unser Prozess</div>
+    <h2 class="h2 rv" style="color:#fff">Unser <span style="color:var(--gl)">Vorgehen</span></h2>
+    
+  </div>
+
+  <div class="w" style="position:relative;z-index:1">
+    <!-- Step Tabs -->
+    <div class="vorg-tabs rv">
+      <div class="vorg-tab active" data-panel="0" data-vorg="0">
+        <div class="vorg-tab-num">01</div>
+        <div class="vorg-tab-title">Vorgespräch</div>
+        <div class="vorg-tab-dot"></div>
+      </div>
+      <div class="vorg-tab" data-panel="1" data-vorg="1">
+        <div class="vorg-tab-num">02</div>
+        <div class="vorg-tab-title">Status-Analyse</div>
+        <div class="vorg-tab-dot"></div>
+      </div>
+      <div class="vorg-tab" data-panel="2" data-vorg="2">
+        <div class="vorg-tab-num">03</div>
+        <div class="vorg-tab-title">Strategiegespräch</div>
+        <div class="vorg-tab-dot"></div>
+      </div>
+      <div class="vorg-tab" data-panel="3" data-vorg="3">
+        <div class="vorg-tab-num">04</div>
+        <div class="vorg-tab-title">Umsetzung</div>
+        <div class="vorg-tab-dot"></div>
+      </div>
+    </div>
+    <div class="vorg-progress"><div class="vorg-progress-fill" id="vorg-progress"></div></div>
+
+    <!-- Panel 0 -->
+    <div class="vorg-panel active" id="vorg-panel-0">
+      <div class="vorg-panel-left">
+        <div class="vorg-big-num">01</div>
+        <div class="vorg-panel-badge">Kostenlos</div>
+        <h3 class="vorg-panel-title">Vorgespräch &amp; Zieldefinition</h3>
+        <p class="vorg-panel-desc">Wir lernen Ihre Situation kennen. Gemeinsam ermitteln wir Ihre Ziele, das verfügbare Budget und erstellen Ihren individuellen Aufnahme-Bogen. Kein Aufwand, keine Kosten.</p>
+      </div>
+      <div class="vorg-panel-card">
+        <div class="vorg-feature-list">
+          <div class="vorg-feature">
+            <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <div class="vorg-feature-text"><strong>Persönliches Kennenlernen</strong><span>Wir verstehen Ihre Lebenssituation und finanziellen Ziele</span></div>
+          </div>
+          <div class="vorg-feature">
+            <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="vorg-feature-text"><strong>Individueller Aufnahme-Bogen</strong><span>Strukturierte Erfassung aller relevanten Informationen</span></div>
+          </div>
+          <div class="vorg-feature">
+            <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="vorg-feature-text"><strong>Zeitaufwand ca. 45 Min</strong><span>Online oder persönlich vor Ort möglich</span></div>
+          </div>
+        </div>
+        <div class="vorg-highlight"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Vollständig kostenlos und unverbindlich</div>
+      </div>
+    </div>
+
+    <!-- Panel 1 -->
+    <div class="vorg-panel" id="vorg-panel-1">
+      <div class="vorg-panel-left">
+        <div class="vorg-big-num">02</div>
+        <div class="vorg-panel-badge">Analyse</div>
+        <h3 class="vorg-panel-title">Besprechung Ihres Status</h3>
+        <p class="vorg-panel-desc">Aufbau und Einleitung des dynamischen Finanzplans. Wir visualisieren Ihre aktuellen Rücklagen, decken Versorgungslücken auf und zeigen konkrete Handlungsoptionen.</p>
+      </div>
+      <div class="vorg-panel-card">
+        <div class="vorg-feature-list">
+          <div class="vorg-feature">
+            <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="vorg-feature-text"><strong>Dynamischer Finanzplan</strong><span>Visualisierung Ihrer aktuellen Vermögenssituation</span></div>
+          </div>
+          <div class="vorg-feature">
+            <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div class="vorg-feature-text"><strong>Lückenanalyse</strong><span>Identifikation von Versorgungslücken und Optimierungspotenzial</span></div>
+          </div>
+          <div class="vorg-feature">
+            <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div class="vorg-feature-text"><strong>Steueroptimierung</strong><span>Analyse aller steuerlichen Gestaltungsmöglichkeiten</span></div>
+          </div>
+        </div>
+        <div class="vorg-highlight"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Transparente Darstellung aller Ergebnisse</div>
+      </div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="vorg-panel" id="vorg-panel-2">
+      <div class="vorg-panel-left">
+        <div class="vorg-big-num">03</div>
+        <div class="vorg-panel-badge">Strategie</div>
+        <h3 class="vorg-panel-title">Strategiegespräch</h3>
+        <p class="vorg-panel-desc">Finale Strategie- und Konzeptplanung. Maßnahmen werden gemeinsam besprochen und präzise auf Ihre Lebensplanung abgestimmt. Sie entscheiden, wir setzen um.</p>
+      </div>
+      <div class="vorg-panel-card">
+        <div class="vorg-feature-list">
+          <div class="vorg-feature">
+            <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+            <div class="vorg-feature-text"><strong>Individuelles Konzept</strong><span>Maßgeschneiderte Strategie für Ihre Situation</span></div>
+          </div>
+          <div class="vorg-feature">
+            <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="vorg-feature-text"><strong>Netzwerk-Koordination</strong><span>Die richtigen Spezialisten für Ihr Konzept werden bestimmt</span></div>
+          </div>
+          <div class="vorg-feature">
+            <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="vorg-feature-text"><strong>Rechtssichere Planung</strong><span>Alle Maßnahmen gesetzeskonform dokumentiert</span></div>
+          </div>
+        </div>
+        <div class="vorg-highlight"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Individuell auf Ihre Lebensplanung abgestimmt</div>
+      </div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="vorg-panel" id="vorg-panel-3">
+      <div class="vorg-panel-left">
+        <div class="vorg-big-num">04</div>
+        <div class="vorg-panel-badge">Dauerhaft</div>
+        <h3 class="vorg-panel-title">Umsetzung &amp; Betreuung</h3>
+        <p class="vorg-panel-desc">Die jeweiligen Spezialisten des Netzwerks setzen Ihr Konzept um. Ein zentraler Ansprechpartner koordiniert alles und begleitet Sie dauerhaft.</p>
+      </div>
+      <div class="vorg-panel-card">
+        <div class="vorg-feature-list">
+          <div class="vorg-feature">
+            <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="vorg-feature-text"><strong>13+ Spezialisten im Einsatz</strong><span>Jeder Experte setzt seinen Teil des Konzepts um</span></div>
+          </div>
+          <div class="vorg-feature">
+            <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.77 4.77a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.72 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="vorg-feature-text"><strong>1 zentraler Ansprechpartner</strong><span>Kein Koordinationsaufwand für Sie</span></div>
+          </div>
+          <div class="vorg-feature">
+            <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="vorg-feature-text"><strong>Dauerhaftes Monitoring</strong><span>Regelmäßige Überprüfung und Anpassung Ihrer Strategie</span></div>
+          </div>
+        </div>
+        <div class="vorg-highlight"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Lebenslange Partnerschaft statt einmalige Beratung</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section class="sec sec-off">
+  <div class="w tc">
+    <div class="sec-label rv" style="display:inline-flex">Kundenstimmen</div>
+    <h2 class="h2 rv">Mandantenstimmen</h2>
+
+        <div class="tc-carousel rv" id="tc-carousel">
+      <div class="tc-track" id="tc-track">
+        <div class="tc-slide"><div class="tc-card"><div class="tc-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg></div><p class="tc-txt">"Endlich eine Beratung, die Strategie vor Produkt stellt. Das Netzwerk hat Ruhestandsplanung, Immobilien und bAV perfekt verzahnt — ohne Zeitverlust für mich."</p><div class="tc-auth"><div class="tc-av">M</div><div><div class="tc-name">Michael R.</div><div class="tc-role">Unternehmer, Frankfurt</div></div></div></div></div>
+        <div class="tc-slide"><div class="tc-card"><div class="tc-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg></div><p class="tc-txt">"Als Ärztin hatte ich keine Zeit für Finanzthemen. Das Netzwerk hat mir ein schlüssiges Gesamtkonzept erarbeitet — transparent, ungebunden und zeiteffizient."</p><div class="tc-auth"><div class="tc-av">S</div><div><div class="tc-name">Dr. Sarah K.</div><div class="tc-role">Ärztin, München</div></div></div></div></div>
+        <div class="tc-slide"><div class="tc-card"><div class="tc-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg></div><p class="tc-txt">"Die Kombination aus tiefem Spezialwissen und einem zentralen Koordinator gibt mir Klarheit und Vertrauen, die ich vorher in keiner Beratung erfahren hatte."</p><div class="tc-auth"><div class="tc-av">T</div><div><div class="tc-name">Thomas B.</div><div class="tc-role">Geschäftsführer, Hamburg</div></div></div></div></div>
+        <div class="tc-slide"><div class="tc-card"><div class="tc-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg></div><p class="tc-txt">"Das Netzwerk hat uns als Familie geholfen, die Vermögensnachfolge so zu strukturieren, dass keine unnötigen Steuern anfallen und alle fair behandelt werden."</p><div class="tc-auth"><div class="tc-av">K</div><div><div class="tc-name">Klaus W.</div><div class="tc-role">Unternehmer, München</div></div></div></div></div>
+        <div class="tc-slide"><div class="tc-card"><div class="tc-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg></div><p class="tc-txt">"Als Zahnarzt war ich froh, endlich jemanden zu haben, der Praxis und Privatleben gemeinsam denkt. Die bAV-Lösung hat uns wirklich Steuern gespart."</p><div class="tc-auth"><div class="tc-av">A</div><div><div class="tc-name">Dr. Andreas P.</div><div class="tc-role">Zahnarzt, Stuttgart</div></div></div></div></div>
+        <div class="tc-slide"><div class="tc-card"><div class="tc-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg></div><p class="tc-txt">"Ruhestandsplanung war für mich ein Buch mit sieben Siegeln. Das Netzwerk hat alles verständlich gemacht und eine Lösung entwickelt, die wirklich zu mir passt."</p><div class="tc-auth"><div class="tc-av">L</div><div><div class="tc-name">Lisa M.</div><div class="tc-role">Führungskraft, Berlin</div></div></div></div></div>
+        <div class="tc-slide"><div class="tc-card"><div class="tc-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg></div><p class="tc-txt">"Ich war skeptisch, ob sich eine Kapitalanlageimmobilie lohnt. Nach der Beratung war alles klar — die Zahlen sprechen für sich."</p><div class="tc-auth"><div class="tc-av">J</div><div><div class="tc-name">Jens F.</div><div class="tc-role">Ingenieur, Köln</div></div></div></div></div>
+        <div class="tc-slide"><div class="tc-card"><div class="tc-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg></div><p class="tc-txt">"Das Team versteht es, komplexe Finanzthemen auf den Punkt zu bringen. Ich fühle mich bestens betreut und weiß, dass mein Vermögen in guten Händen ist."</p><div class="tc-auth"><div class="tc-av">N</div><div><div class="tc-name">Nicole B.</div><div class="tc-role">Unternehmerin, Düsseldorf</div></div></div></div></div>
+        
+      </div>
+      <div class="tc-dots" id="tc-dots"></div>
+    </div>
+
+    <div class="rating-block rv">
+      <div class="rating-ring"><div class="rating-n">4.9</div><div class="rating-s">von 5</div></div>
+      <div class="rating-info"><h4>Empfohlen von unseren Mandanten</h4><p>Hohe Zufriedenheit durch Interdisziplinarität und Ungebundenheit</p></div>
+      <div class="rating-badge">TOP EMPFEHLUNG</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec-w" id="faq">
+  <div class="w tc">
+    <div class="sec-label rv" style="display:inline-flex">FAQ</div>
+    <h2 class="h2 rv">Häufig gestellte <span class="g">Fragen</span></h2>
+    <div class="faq">
+      <div class="fq rv"><button class="fq-q">Was macht das Spezialisten-Netzwerk anders?<div class="fq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="fq-a"><p>Wir verbinden 13+ Fachspezialisten in einem koordinierten Netzwerk. Statt fragmentierter Einzelberatung erhalten Sie eine kohärente Gesamtstrategie — Strategie vor Produkt ist unser Grundprinzip.</p></div></div>
+      <div class="fq rv"><button class="fq-q">Ist die Beratung wirklich ungebunden?<div class="fq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="fq-a"><p>Ja, vollständig. Wir sprechen zuerst über Ihre Strategie, dann über Produktgattungen — erst zum Schluss suchen wir das marktbeste Produkt. Kein Spezialist ist an Produktgeber gebunden.</p></div></div>
+      <div class="fq rv"><button class="fq-q">Für wen ist das Netzwerk geeignet?<div class="fq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="fq-a"><p>Wir begleiten Unternehmer, Freiberufler, Führungskräfte und Privatpersonen, die ein schlüssiges Gesamtkonzept für ihr Vermögen suchen — inklusive Ruhestandsplanung, Absicherung und Kapitalanlage.</p></div></div>
+      <div class="fq rv"><button class="fq-q">Wie viel Zeit muss ich investieren?<div class="fq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="fq-a"><p>Minimal. Ein zentraler Ansprechpartner koordiniert alle Spezialisten — Sie müssen weder selbst koordinieren noch zwischen Beratern vermitteln.</p></div></div>
+      <div class="fq rv"><button class="fq-q">Was kostet das Erstgespräch?<div class="fq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="fq-a"><p>Das Erstgespräch ist vollständig kostenfrei und unverbindlich. Wir lernen Ihre Situation kennen und zeigen Ihnen transparent, ob und wie wir helfen können.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="kontakt">
+  <div class="cta-in rv">
+    <h2 class="h2">Jetzt Kontakt <span class="g">aufnehmen</span></h2>
+    <p>Unverbindlich erfahren, wie wir Ihr Vermögen strukturieren und optimieren können.</p>
+    <a href="/kontakt.html" class="btn-g" style="display:inline-flex;font-size:.86rem;padding:.95rem 2.4rem">Kostenfreies Erstgespräch ›</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <div class="ft-logo">
+          <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/09/preview_files_01_854.png"
+               alt="Das Spezialisten Netzwerk"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="ft-logo-fallback" style="display:none">
+            <svg class="fl-svg" viewBox="0 0 26 26" fill="none"><path d="M13 2L23 7.5V18.5L13 24L3 18.5V7.5L13 2Z" fill="#8DC63F" opacity=".15"/><path d="M13 2L23 7.5V18.5L13 24L3 18.5V7.5L13 2Z" stroke="#8DC63F" stroke-width="1.5"/><polyline points="8.5,13 11.5,16 17.5,10" stroke="#8DC63F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="fl-text">Das Spezialisten<span>Netzwerk</span></div>
+          </div>
+        </div>
+        <p class="ft-desc">Individuelle Wohlstandsplanung durch 13+ Fachspezialisten. Strategie vor Produkt.</p>
+        <a href="/kontakt.html" class="ft-cta">Jetzt Kontakt aufnehmen ›</a>
+      </div>
+      <div>
+        <h5>Spezialisten-Themen</h5>
+        <a href="/kapitalanlage-immobilie.html">Kapitalanlage Immobilie</a>
+        <a href="/betriebliche-versorgung.html">Betriebliche Versorgung</a>
+        <a href="https://spezialisten-netzwerk.com/finanz-und-ruhestandsplanung/">Ruhestandsplanung</a>
+        <a href="https://spezialisten-netzwerk.com/investment-und-aif/">Investment & AIF</a>
+        <a href="https://spezialisten-netzwerk.com/kranken-und-pflegeversicherung/">Kranken & Pflege</a>
+      </div>
+      <div>
+        <h5>Weitere Themen</h5>
+        <a href="https://spezialisten-netzwerk.com/finanzanalysen/">Finanzanalysen</a>
+        <a href="https://spezialisten-netzwerk.com/gewerbliche-finanzierung/">Finanzierung</a>
+        <a href="https://spezialisten-netzwerk.com/unternehmensberatung-fuer-heilwesenberufe/">Heilwesenberufe</a>
+      </div>
+      <div>
+        <h5>Rechtliches</h5>
+        <a href="https://spezialisten-netzwerk.com/impressum/">Impressum</a>
+        <a href="https://spezialisten-netzwerk.com/datenschutzerklaerung/">Datenschutzerklärung</a>
+        <a href="/kontakt.html">Kontakt aufnehmen</a>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span>Copyright © 2026 – Spezialisten-Netzwerk – Alle Rechte vorbehalten</span>
+      <div class="ft-bot-links">
+        <a href="https://spezialisten-netzwerk.com/impressum/">Impressum</a>
+        <a href="https://spezialisten-netzwerk.com/datenschutzerklaerung/">Datenschutzerklärung</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOAT -->
+<a href="/kontakt.html" class="fl-btn" title="Kontakt aufnehmen">
+  <div class="fl-ring"></div>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+
+<script>
+(function(){
+
+/* PRELOADER */
+
+
+/* PARTICLES */
+var pts = document.getElementById('hpts');
+for(var p = 0; p < 18; p++){
+  var pt = document.createElement('div');
+  pt.className = 'hpt';
+  pt.style.left = Math.random()*100+'%';
+  pt.style.width = pt.style.height = (2+Math.random()*3)+'px';
+  pt.style.animationDuration = (10+Math.random()*15)+'s';
+  pt.style.animationDelay = Math.random()*18+'s';
+  pt.style.opacity = .1+Math.random()*.3;
+  pts.appendChild(pt);
+}
+
+/* HERO PARALLAX removed */
+
+/* HERO ANIM */
+function fa(id,d){ var el=document.getElementById(id); if(!el)return; setTimeout(function(){ el.style.transition='all .9s cubic-bezier(.16,1,.3,1)'; el.style.opacity='1'; el.style.transform='none'; },d); }
+function heroAnim(){ fa('hbadge',0); fa('hh',150); fa('hs',310); fa('hb',460); fa('hpr',600); }
+heroAnim();
+
+/* MARQUEE */
+var items=['Kapitalanlage Immobilien','Betriebliche Versorgung','Finanzanalysen','Investment & AIF','Kranken & Pflegeversicherung','Gewerbliche Finanzierung','Finanz- & Ruhestandsplanung','Unternehmensberatung Heilwesen'];
+var mt=document.getElementById('mqt'), h='';
+for(var r=0;r<3;r++) items.forEach(function(t){ h+='<div class="mq-i"><div class="mq-dot"></div>'+t+'</div>'; });
+mt.innerHTML=h;
+
+/* REVEAL */
+var obs=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('v'); }); },{threshold:.06,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.rv').forEach(function(el){ obs.observe(el); });
+
+/* COUNTERS */
+var cobs=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting && e.target.dataset.c){
+      var el=e.target; delete el.dataset.c;
+      var t=parseFloat(el.dataset.t), s=el.dataset.s||'', f=t%1!==0;
+      var dur=1600, st=performance.now();
+      (function run(n){
+        var p=Math.min((n-st)/dur,1), ez=1-Math.pow(1-p,4);
+        el.textContent=(f?(ez*t).toFixed(1):Math.floor(ez*t))+s;
+        if(p<1) requestAnimationFrame(run);
+      })(st);
+    }
+  });
+},{threshold:.6});
+document.querySelectorAll('.stat-n[data-t]').forEach(function(el){ cobs.observe(el); });
+
+/* FAQ */
+document.querySelectorAll('.fq-q').forEach(function(btn){
+  btn.onclick=function(){ var p=this.parentElement, o=p.classList.contains('open'); document.querySelectorAll('.fq').forEach(function(f){ f.classList.remove('open'); }); if(!o) p.classList.add('open'); };
+});
+
+/* SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.onclick=function(e){ e.preventDefault(); var t=document.querySelector(this.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth',block:'start'}); };
+});
+
+/* TESTIMONIAL CAROUSEL — true infinite loop with clones */
+(function(){
+  var track  = document.getElementById('tc-track');
+  var dotsEl = document.getElementById('tc-dots');
+  if(!track) return;
+
+  var VISIBLE  = 3;
+  var INTERVAL = 3500;
+  var GAP      = 24;
+
+  // Clone slides to create seamless loop: [clones-end | originals | clones-start]
+  var originals = Array.from(track.querySelectorAll('.tc-slide'));
+  var TOTAL = originals.length;
+
+  // Append clones of first 3 at end, last 3 at start
+  originals.slice(0, VISIBLE).forEach(function(s){
+    track.appendChild(s.cloneNode(true));
+  });
+  originals.slice(-VISIBLE).reverse().forEach(function(s){
+    track.insertBefore(s.cloneNode(true), track.firstChild);
+  });
+
+  var allSlides = Array.from(track.querySelectorAll('.tc-slide'));
+  var current = VISIBLE; // start after the leading clones
+  var animating = false;
+
+  function getW(){ return allSlides[0].offsetWidth + GAP; }
+
+  // Jump silently to position
+  function jumpTo(idx){
+    track.style.transition = 'none';
+    track.style.transform  = 'translateX(-'+(idx * getW())+'px)';
+    current = idx;
+    void track.offsetWidth; // force reflow
+    track.style.transition = '';
+  }
+
+  function moveTo(idx, manual){
+    if(animating) return;
+    animating = true;
+    current = idx;
+    track.style.transform = 'translateX(-'+(current * getW())+'px)';
+    updateDots();
+    setTimeout(function(){
+      // If we landed on a clone, silently jump to the real slide
+      if(current >= TOTAL + VISIBLE){
+        jumpTo(VISIBLE);
+      } else if(current < VISIBLE){
+        jumpTo(TOTAL + VISIBLE - 1);
+      }
+      animating = false;
+    }, 750);
+    if(manual) resetTimer();
+  }
+
+  function next(){ moveTo(current + 1, false); }
+
+  function updateDots(){
+    // Map current position back to original index
+    var realIdx = ((current - VISIBLE) % TOTAL + TOTAL) % TOTAL;
+    dotsEl.querySelectorAll('.tc-dot').forEach(function(d,i){
+      d.classList.toggle('active', i === realIdx);
+    });
+  }
+
+  // Build dots for originals only
+  for(var i=0;i<TOTAL;i++){
+    var d=document.createElement('button');
+    d.className='tc-dot'+(i===0?' active':'');
+    d.setAttribute('data-i',i);
+    d.onclick=(function(idx){return function(){
+      if(!animating){ moveTo(idx + VISIBLE, true); }
+    };})(i);
+    dotsEl.appendChild(d);
+  }
+
+  // Init position silently
+  jumpTo(VISIBLE);
+
+  var timer;
+  function resetTimer(){
+    clearInterval(timer);
+    timer = setInterval(next, INTERVAL);
+  }
+  resetTimer();
+})();
+var nav=document.querySelector('.nav');
+window.addEventListener('scroll',function(){
+  if(scrollY>60){ nav.classList.add('scrolled'); }
+  else { nav.classList.remove('scrolled'); }
+},{passive:true});
+
+/* VORGEHEN STEPPER — global */
+window.vorgCurrent = 0;
+window.vorgAutoTimer = null;
+
+window.vorgGoTo = function(idx){
+  var tabs = document.querySelectorAll('.vorg-tab');
+  var panels = document.querySelectorAll('.vorg-panel');
+  var prog = document.getElementById('vorg-progress');
+  tabs.forEach(function(t){ t.classList.remove('active'); });
+  panels.forEach(function(p){ p.classList.remove('active','ready'); });
+  if(tabs[idx]) tabs[idx].classList.add('active');
+  if(panels[idx]){
+    panels[idx].classList.add('active');
+    setTimeout(function(){ panels[idx].classList.add('ready'); }, 30);
+  }
+  if(prog) prog.style.width = ((idx+1)/4*100)+'%';
+  window.vorgCurrent = idx;
+};
+
+setTimeout(function(){
+  var p0 = document.getElementById('vorg-panel-0');
+  if(p0) p0.classList.add('ready');
+  var prog = document.getElementById('vorg-progress');
+  if(prog) prog.style.width = '25%';
+}, 100);
+
+// Auto-advance on scroll into view
+(function(){
+  var sec = document.querySelector('.vorg-section');
+  if(!sec) return;
+  var running = false;
+  var io = new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting && !running){
+      running = true;
+      window.vorgAutoTimer = setInterval(function(){
+        window.vorgGoTo((window.vorgCurrent+1)%4);
+      }, 4000);
+    } else if(!entries[0].isIntersecting){
+      clearInterval(window.vorgAutoTimer);
+      running = false;
+    }
+  },{threshold:.25});
+  io.observe(sec);
+})();
+
+// Attach vorg tab events
+document.querySelectorAll('[data-vorg]').forEach(function(el){
+  el.addEventListener('click', function(){
+    clearInterval(window.vorgAutoTimer);
+    window.vorgGoTo(+this.getAttribute('data-vorg'));
+  });
+});
+
+/* VORGEHEN scroll reveal */
+(function(){
+  var steps = document.querySelectorAll('.vorg-step');
+  if(!steps.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:.2});
+  steps.forEach(function(s){ obs.observe(s); });
+})();
+
+/* ORBIT GRAPHIC — premium */
+(function(){
+  var wrap = document.getElementById('orbit-wrap');
+  if(!wrap) return;
+
+  function init(){
+    var nodes = Array.from(wrap.querySelectorAll('.orbit-node'));
+    var total = nodes.length;
+    var W  = wrap.offsetWidth;
+    var H  = wrap.offsetHeight;
+    var cx = W / 2;
+    var cy = H / 2;
+    var radius = W * 0.40;
+
+    nodes.forEach(function(node, i){
+      var angle = (i / total) * 2 * Math.PI - Math.PI / 2;
+      var x = cx + radius * Math.cos(angle);
+      var y = cy + radius * Math.sin(angle);
+      node.style.left = x + 'px';
+      node.style.top  = y + 'px';
+      // Flip popup to left side for nodes on left half of circle
+      if(x < cx) node.classList.add('flip');
+      else node.classList.remove('flip');
+    });
+
+    nodes.forEach(function(node){
+      var dot = node.querySelector('.orbit-dot');
+      var popup = node.querySelector('.orbit-popup');
+      popup.style.pointerEvents = 'auto';
+
+      dot.addEventListener('mouseenter', function(){
+        nodes.forEach(function(n){ n.classList.remove('active'); });
+        node.classList.add('active');
+      });
+      dot.addEventListener('mouseleave', function(){
+        setTimeout(function(){ if(!node.matches(':hover')) node.classList.remove('active'); }, 120);
+      });
+      popup.addEventListener('mouseenter', function(){ node.classList.add('active'); });
+      popup.addEventListener('mouseleave', function(){ node.classList.remove('active'); });
+
+      dot.addEventListener('click', function(e){
+        e.stopPropagation();
+        var on = node.classList.contains('active');
+        nodes.forEach(function(n){ n.classList.remove('active'); });
+        if(!on) node.classList.add('active');
+      });
+    });
+
+    document.addEventListener('click', function(){
+      nodes.forEach(function(n){ n.classList.remove('active'); });
+    });
+  }
+
+  setTimeout(init, 120);
+  window.addEventListener('resize', function(){ setTimeout(init, 60); });
+})();
+
+})();
+</script>
+</html>

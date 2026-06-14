@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OptiPlan – Strategische Finanzplanung | Spezialisten Netzwerk</title>
+<meta name="description" content="OptiPlan – Drei Dimensionen. Ein Plan. Liquidität, Vermögen und Steuern in einem kohärenten System.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--g:#8DC63F;--gd:#6FA52E;--gl:#A8D85A;--gbg:#F2FAE4;--dark:#1A1A1A;--mid:#4A4A4A;--light:#8A8A8A;--border:#E5E5E5;--offwhite:#F8F8F6}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--dark);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.65;opacity:0;animation:pageIn .6s ease .1s forwards}
+@keyframes pageIn{to{opacity:1}}
+img{display:block;max-width:100%}a{text-decoration:none;color:inherit}
+::selection{background:rgba(141,198,63,.25);color:var(--dark)}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#111}::-webkit-scrollbar-thumb{background:var(--gd);border-radius:4px}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:1000;background:var(--g);padding:0 2.5rem;box-shadow:0 2px 20px rgba(141,198,63,.25);transition:background .35s,backdrop-filter .35s}
+.nav.scrolled{background:rgba(110,165,40,.82);backdrop-filter:blur(14px)}
+.ni{max-width:1200px;margin:0 auto;height:70px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.nl img{height:42px;filter:brightness(0) invert(1)}
+.nm{display:flex;gap:2rem}
+.nm a{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .2s;position:relative}
+.nm a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#fff;border-radius:1px;transition:width .3s}
+.nm a:hover{color:#fff}.nm a:hover::after{width:100%}
+.nc{background:#fff;color:var(--gd);font-size:.68rem;font-weight:800;padding:.48rem 1.1rem;border-radius:5px;letter-spacing:.04em;transition:all .25s}
+.nc:hover{background:var(--dark);color:#fff}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(160deg,#0a1205,#0f1a08 55%,#0e130a)}
+.hbg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hbg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:.25;filter:grayscale(15%) brightness(.7);animation:hP 28s ease-in-out infinite alternate}
+@keyframes hP{0%{transform:scale(1.05) translate(0,0)}50%{transform:scale(1.1) translate(-1%,-1%)}100%{transform:scale(1.05) translate(1%,.5%)}}
+.hv{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 30% 50%,transparent 20%,rgba(0,0,0,.65) 100%);z-index:1}
+.hbar{position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,transparent,var(--g) 20%,var(--g) 80%,transparent);z-index:3}
+.hglow{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g) 40%,var(--gl) 50%,var(--g) 60%,transparent);z-index:3}
+.hi{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:6rem 2.5rem;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.hbdg{display:inline-flex;align-items:center;gap:.5rem;background:rgba(141,198,63,.12);border:1px solid rgba(141,198,63,.3);color:var(--gl);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:100px;margin-bottom:1.5rem}
+.hbdg::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g);animation:gP 2s ease-in-out infinite}
+@keyframes gP{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(141,198,63,.5)}50%{opacity:.4;box-shadow:0 0 8px 3px rgba(141,198,63,.3)}}
+.hero h1{font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:900;color:#fff;line-height:1.08;margin-bottom:1.2rem;letter-spacing:-.02em}
+.hero h1 span{color:var(--gl);background:linear-gradient(90deg,var(--gl),#c8f070,var(--gl));background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 6s ease-in-out infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.hsub{font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.85;margin-bottom:2.2rem;max-width:480px}
+.hbtns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-g{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.8rem;background:var(--g);color:#fff;font-size:.82rem;font-weight:800;border-radius:8px;transition:all .3s cubic-bezier(.22,1,.36,1);letter-spacing:.02em;min-height:48px;position:relative;overflow:hidden}
+.btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.13),transparent);transform:translateX(-100%);pointer-events:none}
+.btn-g:hover{background:var(--gd);transform:translateY(-2px);box-shadow:0 12px 30px rgba(141,198,63,.35)}
+.btn-g:hover::after{animation:btnShine .7s ease}
+@keyframes btnShine{to{transform:translateX(100%)}}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;padding:.83rem 1.6rem;background:transparent;color:rgba(255,255,255,.7);font-size:.82rem;font-weight:600;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);transition:all .3s;min-height:48px}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);color:#fff}
+
+/* Hero card (right) */
+.hc{background:#fff;border:none;border-radius:24px;padding:2.4rem 2.4rem 2rem;box-shadow:0 28px 80px rgba(0,0,0,.2),0 4px 20px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.hc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g),var(--gl),#c8f070)}
+.hct{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gd);margin-bottom:1.4rem;display:flex;align-items:center;gap:.5rem}
+.hct::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--g);box-shadow:0 0 6px var(--g)}
+.hr{display:flex;flex-direction:column;gap:1rem}
+.hr{display:flex;flex-direction:column;gap:.75rem}
+.hs{display:flex;align-items:center;gap:1rem;padding:1rem 1.1rem;background:var(--gbg);border-radius:12px;border:1px solid rgba(141,198,63,.18);transition:all .35s cubic-bezier(.22,1,.36,1)}
+.hs:hover{background:rgba(141,198,63,.12);border-color:rgba(141,198,63,.35);transform:translateX(6px);box-shadow:0 4px 18px rgba(141,198,63,.12)}
+.hsi{width:40px;height:40px;border-radius:10px;background:#fff;border:1px solid rgba(141,198,63,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .35s cubic-bezier(.22,1,.36,1);box-shadow:0 2px 8px rgba(141,198,63,.1)}
+.hs:hover .hsi{background:var(--g);border-color:var(--g);transform:scale(1.1) rotate(-5deg);box-shadow:0 6px 20px rgba(141,198,63,.4)}
+.hsi svg{width:18px;height:18px;color:var(--g);transition:all .35s;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hs:hover .hsi svg{color:#fff}
+.hsv{font-size:1rem;font-weight:800;color:var(--dark);line-height:1}
+.hsl{font-size:.62rem;color:var(--mid);margin-top:.18rem;line-height:1.4}
+.hc-footer{margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.hc-note{font-size:.6rem;color:var(--light);line-height:1.5}
+.hc-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--g);color:#fff;font-size:.7rem;font-weight:700;padding:.55rem 1.1rem;border-radius:100px;text-decoration:none;transition:all .25s;white-space:nowrap}
+.hc-btn:hover{background:var(--gd);transform:translateY(-1px);box-shadow:0 6px 20px rgba(141,198,63,.35)}
+
+/* ── SECTION UTILS ── */
+.sec{padding:clamp(4.5rem,8vw,7rem) 2.5rem}.w{max-width:1200px;margin:0 auto}.tc{text-align:center}
+.sl{display:inline-flex;align-items:center;gap:.4rem;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g);background:var(--gbg);border:1px solid rgba(141,198,63,.2);padding:.25rem .75rem;border-radius:100px;margin-bottom:1.2rem}
+.sl::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--g);animation:gP 2.5s ease-in-out infinite}
+.dl{background:rgba(141,198,63,.12)!important;border-color:rgba(141,198,63,.25)!important;color:var(--gl)!important}
+.h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;line-height:1.12;letter-spacing:-.01em;margin-bottom:.8rem}
+.h2s{font-size:.92rem;line-height:1.85;max-width:600px;margin:0 auto 3rem}
+.g{color:var(--g)}.gl{color:var(--gl)}
+
+/* SCROLL REVEAL */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.rv.visible{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}.rv.d4{transition-delay:.48s}
+
+/* ── DARK SECTION ── */
+.ds{background:linear-gradient(160deg,#0c1608,#111 55%,#0a1205);padding:clamp(5rem,9vw,8rem) 2.5rem;position:relative;overflow:hidden}
+.ds::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1000px;height:1000px;border-radius:50%;background:radial-gradient(circle,rgba(141,198,63,.07),transparent 60%);pointer-events:none}
+
+/* ── SERVICE GRID (6 process cards) ── */
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;position:relative;z-index:1}
+.sc{background:rgba(255,255,255,.03);border:1.5px solid rgba(141,198,63,.12);border-radius:16px;padding:2.2rem 1.8rem;transition:all .45s cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden;opacity:0;transform:translateY(28px)}
+.sc.visible{opacity:1;transform:none}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(141,198,63,.3),transparent)}
+.sc::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(141,198,63,.05),transparent 60%);opacity:0;transition:opacity .4s}
+.sc:hover{border-color:rgba(141,198,63,.35);transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,.35),0 0 0 1px rgba(141,198,63,.1);background:rgba(255,255,255,.05)}
+.sc:hover::after{opacity:1}
+.si{width:52px;height:52px;border-radius:13px;background:rgba(141,198,63,.08);border:1.5px solid rgba(141,198,63,.2);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;transition:all .4s cubic-bezier(.22,1,.36,1)}
+.sc:hover .si{background:var(--g);border-color:var(--g);transform:scale(1.15) rotate(-8deg);box-shadow:0 10px 35px rgba(141,198,63,.5)}
+.si svg{width:22px;height:22px;stroke:var(--gl);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:all .4s}
+.sc:hover .si svg{stroke:#fff}
+.sc h4{font-size:1rem;font-weight:800;color:#fff;margin-bottom:.6rem;line-height:1.3;transition:color .3s}
+.sc:hover h4{color:var(--gl)}
+.sc p{font-size:.78rem;color:rgba(255,255,255,.42);line-height:1.8}
+.sn{position:absolute;top:1.2rem;right:1.4rem;font-size:2.8rem;font-weight:900;color:rgba(141,198,63,.08);line-height:1;pointer-events:none;animation:numTextGlow 5s ease-in-out infinite}
+.sc:nth-child(2) .sn{animation-delay:1.3s}.sc:nth-child(3) .sn{animation-delay:2.6s}
+.sc:nth-child(5) .sn{animation-delay:1.3s}.sc:nth-child(6) .sn{animation-delay:2.6s}
+@keyframes numTextGlow{0%,85%,100%{color:rgba(141,198,63,.08);text-shadow:0 0 15px rgba(141,198,63,.1)}92%{color:rgba(141,198,63,.15);text-shadow:0 0 25px rgba(141,198,63,.4)}}
+
+/* ── 3 DIMENSIONEN ── */
+.dim-sec{background:#fff}
+.dims-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;align-items:stretch}
+.dim-card{border-radius:20px;overflow:hidden;border:1px solid var(--border);transition:all .4s cubic-bezier(.22,1,.36,1);background:#fff;display:flex;flex-direction:column}
+.dim-card:hover{box-shadow:0 20px 60px rgba(0,0,0,.08);transform:translateY(-6px);border-color:rgba(141,198,63,.25)}
+.dim-top{padding:2rem 2rem 1.5rem;border-bottom:1px solid var(--border);text-align:left;flex:1;display:flex;flex-direction:column}
+.dim-ico{width:52px;height:52px;border-radius:13px;background:var(--gbg);border:1px solid rgba(141,198,63,.18);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;transition:all .4s}
+.dim-card:hover .dim-ico{background:var(--g);border-color:var(--g)}
+.dim-ico svg{width:22px;height:22px;stroke:var(--g);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
+.dim-card:hover .dim-ico svg{stroke:#fff}
+.dim-top h3{font-size:.98rem;font-weight:900;color:#1A1A1A;margin-bottom:.45rem}
+.dim-top p{font-size:.76rem;color:var(--light);line-height:1.78}
+.dim-qs{padding:1.4rem 1.8rem;background:var(--gbg);text-align:left}
+.dim-qs-lbl{font-size:.52rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gd);margin-bottom:.7rem}
+.dim-q{display:flex;align-items:flex-start;gap:.45rem;font-size:.73rem;color:var(--mid);line-height:1.58;margin-bottom:.45rem}
+.dim-q:last-child{margin-bottom:0}
+.dim-q::before{content:'→';color:var(--g);font-weight:700;flex-shrink:0;margin-top:.04em;font-size:.7rem}
+
+/* ── RECHNER ── */
+.calc-sec{background:var(--offwhite);padding:clamp(4.5rem,8vw,7rem) 2.5rem}
+.ctabs{display:flex;gap:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:2.5rem;width:fit-content}
+.ctab{padding:.72rem 1.5rem;font-size:.74rem;font-weight:700;color:var(--light);background:#fff;border:none;cursor:pointer;transition:all .25s;font-family:inherit;white-space:nowrap}
+.ctab.active{background:var(--g);color:#fff}
+.ctab:not(.active):hover{background:var(--gbg);color:var(--gd)}
+.cbody{display:none}
+.cbody.active{display:grid;grid-template-columns:360px 1fr;gap:2.5rem;align-items:stretch}
+
+/* Input panel */
+.cpanel{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 20px rgba(0,0,0,.04)}
+.cpanel-bar{height:3px;background:linear-gradient(90deg,var(--g),var(--gl));border-radius:3px 3px 0 0}
+.cpanel-body{padding:1.8rem;flex:1;display:flex;flex-direction:column}
+.cpanel-title{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gd);margin-bottom:1.5rem}
+.cfields{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.cf{margin-bottom:1.1rem}
+.cf label{display:flex;justify-content:space-between;align-items:center;margin-bottom:.42rem}
+.cf-lbl{font-size:.66rem;font-weight:600;color:var(--mid);letter-spacing:.02em}
+.cf-val{font-size:.76rem;font-weight:800;color:#1A1A1A;background:var(--gbg);border:1px solid rgba(141,198,63,.22);padding:.1rem .5rem;border-radius:5px;min-width:72px;text-align:center;white-space:nowrap}
+.cf-range{width:100%;-webkit-appearance:none;height:3px;border-radius:2px;background:var(--border);outline:none;cursor:pointer}
+.cf-range::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:var(--g);border:2.5px solid #fff;box-shadow:0 1px 6px rgba(141,198,63,.45);cursor:pointer;transition:transform .2s}
+.cf-range::-webkit-slider-thumb:hover{transform:scale(1.18)}
+.cf-hint{font-size:.58rem;color:var(--light);margin-top:.28rem;line-height:1.4}
+.cf-select{width:100%;padding:.5rem .75rem;border-radius:7px;border:1px solid var(--border);font-family:inherit;font-size:.78rem;color:#1A1A1A;background:#fff;outline:none;cursor:pointer;transition:border-color .2s}
+.cf-select:focus{border-color:var(--g)}
+.cresult{background:linear-gradient(135deg,var(--gbg),rgba(141,198,63,.1));border:1.5px solid rgba(141,198,63,.28);border-radius:12px;padding:1.1rem 1.3rem;margin-top:1.3rem;display:flex;justify-content:space-between;align-items:center}
+.cr-lbl{font-size:.55rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gd)}
+.cr-val{font-size:1.25rem;font-weight:900;color:var(--g);white-space:nowrap;letter-spacing:-.02em}
+
+/* Chart panel */
+.chart-panel{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 20px rgba(0,0,0,.04);height:100%}
+.chart-panel-bar{height:3px;background:linear-gradient(90deg,var(--g),var(--gl));border-radius:3px 3px 0 0}
+.chart-panel-body{padding:1.8rem;flex:1;display:flex;flex-direction:column;gap:1.2rem}
+.chart-title{font-size:.82rem;font-weight:800;color:#1A1A1A}
+.chart-svg-area{flex:1;min-height:160px;position:relative}
+.chart-svg-area svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.chart-gridline{stroke:rgba(0,0,0,.05);stroke-width:1}
+.chart-label{font-size:8px;fill:rgba(0,0,0,.3);font-family:Inter,sans-serif;text-anchor:middle}
+.chart-y-label{font-size:8px;fill:rgba(0,0,0,.3);font-family:Inter,sans-serif;text-anchor:end}
+.chart-line{fill:none;stroke:var(--g);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.chart-line-alt{fill:none;stroke:rgba(220,70,70,.5);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:5,3}
+.cmetrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:auto}
+.cmet{padding:.9rem 1rem;border-radius:12px;border:1px solid rgba(141,198,63,.18);background:var(--gbg);text-align:center;transition:border-color .3s}
+.cm-val{font-size:1.05rem;font-weight:900;color:#1A1A1A;margin-bottom:.2rem;white-space:nowrap}
+.cm-lbl{font-size:.52rem;color:var(--light);text-transform:uppercase;letter-spacing:.06em;line-height:1.3}
+.cdisclaimer{font-size:.58rem;color:var(--light);margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border);line-height:1.65;text-align:center}
+
+/* ── SZENARIEN ── */
+.szen-sec{background:#fff;padding:clamp(4.5rem,8vw,7rem) 2.5rem}
+.szen-duo{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+.sz-card{border-radius:18px;overflow:hidden;border:1px solid var(--border);transition:all .35s cubic-bezier(.22,1,.36,1)}
+.sz-card:hover{box-shadow:0 16px 50px rgba(0,0,0,.07);transform:translateY(-3px)}
+.sz-card.good{border-color:rgba(141,198,63,.3)}.sz-card.bad{border-color:rgba(220,80,80,.2)}
+.sz-head{padding:1.3rem 1.8rem;display:flex;align-items:center;gap:.75rem}
+.sz-head.good{background:var(--gbg);border-bottom:1px solid rgba(141,198,63,.2)}
+.sz-head.bad{background:#FFF5F5;border-bottom:1px solid rgba(220,80,80,.1)}
+.sz-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.sz-dot.good{background:var(--g)}.sz-dot.bad{background:rgba(220,80,80,.7)}
+.sz-lbl{font-size:.55rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.sz-lbl.good{color:var(--gd)}.sz-lbl.bad{color:rgba(170,45,45,.8)}
+.sz-body{padding:1.5rem 1.8rem;display:flex;flex-direction:column;gap:.5rem}
+.sz-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--border);font-size:.78rem}
+.sz-row:last-child{border-bottom:none}
+.sz-rl{color:var(--mid)}.sz-rv{font-weight:700;color:#1A1A1A}
+.sz-rv.g{color:var(--gd)}.sz-rv.r{color:rgba(170,45,45,.8)}
+
+/* Szenario result banner */
+.szen-banner{margin-top:1.5rem;background:#fff;border:1px solid var(--border);border-radius:18px;padding:2rem 2.5rem;display:flex;align-items:center;gap:2.5rem;position:relative;overflow:hidden}
+.szen-banner::before{display:none}
+.sb-main{position:relative;z-index:1;flex-shrink:0}
+.sb-lbl{font-size:.52rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gd);margin-bottom:.35rem}
+.sb-val{font-size:2.5rem;font-weight:900;color:var(--g);letter-spacing:-.03em;line-height:1}
+.sb-sub{font-size:.72rem;color:var(--light);margin-top:.3rem}
+.sb-div{width:1px;height:70px;background:var(--border);flex-shrink:0}
+.sb-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem 2rem;flex:1;position:relative;z-index:1}
+.sb-item-lbl{font-size:.55rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--light);margin-bottom:.25rem}
+.sb-item-val{font-size:1.05rem;font-weight:900;color:var(--g)}
+
+/* ── CTA ── */
+.qs{background:#0e110a;padding:clamp(4rem,7vw,6rem) 2.5rem;position:relative;overflow:hidden}
+.qs::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(141,198,63,.07),transparent 60%);pointer-events:none}
+.qi{max-width:580px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.qi .h2{color:#fff}
+.qi p{font-size:.92rem;color:rgba(255,255,255,.45);line-height:1.85;margin:.8rem 0 2.2rem}
+
+/* ── FOOTER ── */
+.ft{background:var(--dark);padding:3.5rem 2.5rem 1.5rem}
+.fti{max-width:1200px;margin:0 auto}
+.ftt{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.ftl img{height:38px;filter:brightness(0) invert(1);opacity:.9;margin-bottom:1rem}
+.ftd{font-size:.72rem;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:1.4rem}
+.ftc{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.2rem;background:var(--g);color:#fff!important;font-size:.65rem;font-weight:700;border-radius:5px;transition:all .25s;min-height:44px}
+.ftc:hover{background:var(--gl)}
+.ftt h5{font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem}
+.ftt a{display:flex;align-items:center;font-size:.72rem;color:rgba(255,255,255,.45);margin-bottom:.55rem;transition:all .2s;min-height:32px}
+.ftt a:hover{color:rgba(255,255,255,.85);padding-left:4px}
+.ftb{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;flex-wrap:wrap;gap:.75rem}
+.ftb span,.ftbl a{font-size:.62rem;color:rgba(255,255,255,.22)}
+.ftbl{display:flex;gap:1.2rem}
+.fl{position:fixed;bottom:2rem;right:2rem;width:54px;height:54px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 28px rgba(141,198,63,.4);z-index:900;transition:transform .3s}
+.fl:hover{transform:scale(1.1)}.fl svg{width:22px;height:22px;color:#fff}
+.flr{position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(141,198,63,.3);animation:flR 2.5s ease-in-out infinite}
+@keyframes flR{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.15);opacity:0}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){.sg,.dims-wrap,.szen-duo{grid-template-columns:1fr 1fr}.cbody.active{grid-template-columns:1fr}}
+@media(max-width:768px){.hi,.sg,.dims-wrap,.szen-duo{grid-template-columns:1fr;gap:2rem}.nm{display:none}.ctabs{width:100%}.cmetrics,.cmet,.sb-grid{grid-template-columns:1fr 1fr}.szen-banner{flex-direction:column;gap:1.5rem}.sb-div{width:100%;height:1px}.ftt{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.sg,.ftt{grid-template-columns:1fr}.hi{padding:2.5rem 1.2rem}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="ni">
+    <a href="/" class="nl">
+      <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/09/preview_files_01_854.png" alt="Spezialisten Netzwerk Logo" onerror="this.style.display='none'">
+    </a>
+    <div class="nm">
+      <a href="/">Startseite</a>
+      <a href="#wie">Wie es funktioniert</a>
+      <a href="#rechner">Rechner</a>
+      <a href="#szenarien">Szenarien</a>
+    </div>
+    <a href="/kontakt.html" class="nc">Beratung anfragen ›</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" role="banner">
+  <div class="hbg">
+    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1800&q=90&fit=crop" alt="OptiPlan Finanzplanung Hintergrund">
+  </div>
+  <div class="hv"></div><div class="hbar"></div><div class="hglow"></div>
+  <div class="hi">
+    <div>
+      <div class="hbdg rv">Strategische Finanzplanung</div>
+      <h1 class="rv d1">OptiPlan<br><span>Drei Dimensionen</span><br>Ein Plan</h1>
+      <p class="hsub rv d2">Liquidität, Vermögen und Steuern in einem kohärenten System. Jede finanzielle Entscheidung — sichtbar in allen drei Dimensionen gleichzeitig.</p>
+      <div class="hbtns rv d3">
+        <a href="#rechner" class="btn-g">Jetzt berechnen ↓</a>
+        <a href="#wie" class="btn-ghost">Wie es funktioniert ↓</a>
+      </div>
+    </div>
+    <div class="hc rv d2">
+      <div class="hct">Die drei Vitalwerte</div>
+      <div class="hr">
+        <div class="hs">
+          <div class="hsi"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div><div class="hsv">Liquidität</div><div class="hsl">Wieviel Lebensstandard dauerhaft leistbar?</div></div>
+        </div>
+        <div class="hs">
+          <div class="hsi"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div><div class="hsv">Vermögen</div><div class="hsl">Wieviel Nettovermögen wirklich vorhanden?</div></div>
+        </div>
+        <div class="hs">
+          <div class="hsi"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div><div class="hsv">Steuern</div><div class="hsl">Welche Steuerspareffekte haben Anlagen?</div></div>
+        </div>
+      </div>
+      <div class="hc-footer">
+        <div class="hc-note">Kostenloses Erstgespräch<br>Keine Verpflichtung</div>
+        <a href="#kontakt" class="hc-btn">Jetzt starten →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec" style="background:var(--offwhite);padding:clamp(4rem,7vw,6.5rem) 2.5rem">
+  <div class="w">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start">
+
+      <!-- Left: header text -->
+      <div class="rv" style="position:sticky;top:90px">
+        <div class="sl" style="display:inline-flex;margin-bottom:1.2rem">Die drei Vitalwerte</div>
+        <h2 class="h2" style="font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:1rem">Liquidität.<br>Vermögen.<br><span class="g">Steuern.</span></h2>
+        <p style="font-size:.9rem;color:var(--mid);line-height:1.88;margin-bottom:2rem">Jede finanzielle Entscheidung wirkt auf alle drei Dimensionen gleichzeitig. OptiPlan macht diese Wechselwirkungen sichtbar und planbar.</p>
+        <div style="display:flex;flex-direction:column;gap:.65rem">
+          <div style="display:flex;align-items:center;gap:.75rem;font-size:.84rem;color:var(--mid)">
+            <div style="width:22px;height:22px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 12 12" fill="none" width="10" height="10"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Ganzheitliche Sicht statt Produktdenken
+          </div>
+          <div style="display:flex;align-items:center;gap:.75rem;font-size:.84rem;color:var(--mid)">
+            <div style="width:22px;height:22px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 12 12" fill="none" width="10" height="10"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Wechselwirkungen sichtbar machen
+          </div>
+          <div style="display:flex;align-items:center;gap:.75rem;font-size:.84rem;color:var(--mid)">
+            <div style="width:22px;height:22px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 12 12" fill="none" width="10" height="10"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Entscheidungen auf Basis echter Zahlen
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: 3 stacked cards -->
+      <div style="display:flex;flex-direction:column;gap:1.2rem">
+
+        <div class="rv d1" style="background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:all .4s cubic-bezier(.22,1,.36,1)">
+          <div style="padding:1.6rem 1.8rem 1.4rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem">
+            <div style="width:48px;height:48px;border-radius:12px;background:var(--gbg);border:1px solid rgba(141,198,63,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <div style="font-size:.98rem;font-weight:900;color:#1A1A1A;margin-bottom:.2rem">Liquidität</div>
+              <div style="font-size:.72rem;color:var(--light);line-height:1.5">Dauerhafter Lebensstandard und wirtschaftliche Freiheit</div>
+            </div>
+          </div>
+          <div style="padding:1.2rem 1.8rem;background:var(--gbg)">
+            <div style="font-size:.52rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gd);margin-bottom:.65rem">Zentrale Fragen</div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <div style="display:flex;align-items:flex-start;gap:.4rem;font-size:.73rem;color:var(--mid);line-height:1.55"><span style="color:var(--g);font-weight:700;flex-shrink:0">→</span>Wieviel Lebensstandard kann ich dauerhaft leisten?</div>
+              <div style="display:flex;align-items:flex-start;gap:.4rem;font-size:.73rem;color:var(--mid);line-height:1.55"><span style="color:var(--g);font-weight:700;flex-shrink:0">→</span>Ab wann bin ich wirtschaftlich frei?</div>
+              <div style="display:flex;align-items:flex-start;gap:.4rem;font-size:.73rem;color:var(--mid);line-height:1.55"><span style="color:var(--g);font-weight:700;flex-shrink:0">→</span>Wie wirken konkrete Entscheidungen auf meine Liquidität?</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rv d2" style="background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:all .4s cubic-bezier(.22,1,.36,1)">
+          <div style="padding:1.6rem 1.8rem 1.4rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem">
+            <div style="width:48px;height:48px;border-radius:12px;background:var(--gbg);border:1px solid rgba(141,198,63,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <div style="font-size:.98rem;font-weight:900;color:#1A1A1A;margin-bottom:.2rem">Vermögen</div>
+              <div style="font-size:.72rem;color:var(--light);line-height:1.5">Nettovermögen aufbauen und langfristig sichern</div>
+            </div>
+          </div>
+          <div style="padding:1.2rem 1.8rem;background:var(--gbg)">
+            <div style="font-size:.52rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gd);margin-bottom:.65rem">Zentrale Fragen</div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <div style="display:flex;align-items:flex-start;gap:.4rem;font-size:.73rem;color:var(--mid);line-height:1.55"><span style="color:var(--g);font-weight:700;flex-shrink:0">→</span>Wieviel Nettovermögen habe ich wirklich?</div>
+              <div style="display:flex;align-items:flex-start;gap:.4rem;font-size:.73rem;color:var(--mid);line-height:1.55"><span style="color:var(--g);font-weight:700;flex-shrink:0">→</span>Ab wann macht Erben und Schenken Sinn?</div>
+              <div style="display:flex;align-items:flex-start;gap:.4rem;font-size:.73rem;color:var(--mid);line-height:1.55"><span style="color:var(--g);font-weight:700;flex-shrink:0">→</span>Wie wirken Entscheidungen auf meine Vermögensentwicklung?</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rv d3" style="background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:all .4s cubic-bezier(.22,1,.36,1)">
+          <div style="padding:1.6rem 1.8rem 1.4rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem">
+            <div style="width:48px;height:48px;border-radius:12px;background:var(--gbg);border:1px solid rgba(141,198,63,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <div style="font-size:.98rem;font-weight:900;color:#1A1A1A;margin-bottom:.2rem">Steuern</div>
+              <div style="font-size:.72rem;color:var(--light);line-height:1.5">Steuerlast senken und Optimierungspotenziale nutzen</div>
+            </div>
+          </div>
+          <div style="padding:1.2rem 1.8rem;background:var(--gbg)">
+            <div style="font-size:.52rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gd);margin-bottom:.65rem">Zentrale Fragen</div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <div style="display:flex;align-items:flex-start;gap:.4rem;font-size:.73rem;color:var(--mid);line-height:1.55"><span style="color:var(--g);font-weight:700;flex-shrink:0">→</span>Welche Steuerspareffekte haben meine Anlagen?</div>
+              <div style="display:flex;align-items:flex-start;gap:.4rem;font-size:.73rem;color:var(--mid);line-height:1.55"><span style="color:var(--g);font-weight:700;flex-shrink:0">→</span>Wie hoch ist mein Grenzsteuersatz im Ruhestand?</div>
+              <div style="display:flex;align-items:flex-start;gap:.4rem;font-size:.73rem;color:var(--mid);line-height:1.55"><span style="color:var(--g);font-weight:700;flex-shrink:0">→</span>Wie wirken Entscheidungen auf meine Steuersituation?</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WIE OPTIPLAN FUNKTIONIERT -->
+<section class="ds" id="wie">
+  <div class="w tc" style="position:relative;z-index:1">
+    <div class="sl dl rv" style="display:inline-flex">Unser Ansatz</div>
+    <h2 class="h2 rv" style="color:#fff">Wie OptiPlan <span class="gl">funktioniert</span></h2>
+    <p class="h2s rv" style="color:rgba(255,255,255,.42)">Nicht erst analysieren, dann planen, dann hoffen. OptiPlan begleitet Sie vom ersten Gespräch bis zur dauerhaften Überwachung.</p>
+    <div class="sg">
+      <div class="sc rv" onclick="openProc(0)" style="cursor:pointer">
+        <div class="sn">01</div>
+        <div class="si"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <h4>Ziele und Status klären</h4>
+      </div>
+      <div class="sc rv d1" onclick="openProc(1)" style="cursor:pointer">
+        <div class="sn">02</div>
+        <div class="si"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h4>Drei Dimensionen simulieren</h4>
+      </div>
+      <div class="sc rv d2" onclick="openProc(2)" style="cursor:pointer">
+        <div class="sn">03</div>
+        <div class="si"><svg viewBox="0 0 24 24"><polyline points="22 4 12 14.01 9 11.01"/><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/></svg></div>
+        <h4>Szenarien vergleichen</h4>
+      </div>
+      <div class="sc rv d1" onclick="openProc(3)" style="cursor:pointer">
+        <div class="sn">04</div>
+        <div class="si"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h4>Umsetzen und überwachen</h4>
+      </div>
+      <div class="sc rv d2" onclick="openProc(4)" style="cursor:pointer">
+        <div class="sn">05</div>
+        <div class="si"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>Rechtssicher dokumentiert</h4>
+      </div>
+      <div class="sc rv d3" onclick="openProc(5)" style="cursor:pointer">
+        <div class="sn">06</div>
+        <div class="si"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/><path d="M8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45"/></svg></div>
+        <h4>Persönlicher Ansprechpartner</h4>
+      </div>
+    </div>
+
+    <!-- POPUP -->
+    <div id="proc-overlay" onclick="closeProc()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:2000;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)"></div>
+    <div id="proc-popup" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.94);z-index:2001;width:min(520px,92vw);background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.4);transition:all .35s cubic-bezier(.22,1,.36,1);opacity:0">
+      <div id="pp-header" style="background:linear-gradient(135deg,#0a1205,#1a2e0a);padding:1.8rem 2rem;position:relative;display:flex;align-items:center;gap:1rem">
+        <div id="pp-num" style="font-size:3rem;font-weight:900;color:rgba(141,198,63,.15);line-height:1;letter-spacing:-.04em;flex-shrink:0">01</div>
+        <div id="pp-ico" style="width:48px;height:48px;border-radius:12px;background:rgba(141,198,63,.12);border:1.5px solid rgba(141,198,63,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0"></div>
+        <h3 id="pp-title" style="font-size:1.15rem;font-weight:900;color:#fff;line-height:1.2;flex:1"></h3>
+        <button onclick="closeProc()" style="position:absolute;top:1rem;right:1rem;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div style="padding:1.8rem 2rem">
+        <p id="pp-desc" style="font-size:.88rem;color:#4A4A4A;line-height:1.85;margin-bottom:1.4rem"></p>
+        <div id="pp-bullets" style="display:flex;flex-direction:column;gap:.6rem"></div>
+      </div>
+    </div>
+
+    <script>
+    var PROC=[
+      {num:'01',title:'Ziele und Status klären',tag:'Kostenlos & unverbindlich',
+       icon:'<svg fill="none" stroke="rgba(141,198,63,.8)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>',
+       desc:'Wir erfassen Ihre vollständige finanzielle Ausgangssituation und verstehen Ihre persönlichen Ziele — im Rahmen eines kostenlosen Erstgesprächs.',
+       bullets:['Einnahmen, Ausgaben, Vermögen und Verbindlichkeiten erfassen','Persönliche Ziele und Zeitplan definieren','Individuellen Aufnahme-Bogen erstellen','Ca. 45 Minuten, online oder vor Ort — vollständig kostenlos']},
+      {num:'02',title:'Drei Dimensionen simulieren',tag:'Simultane Analyse',
+       icon:'<svg fill="none" stroke="rgba(141,198,63,.8)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="22" height="22"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>',
+       desc:'OptiPlan berechnet gleichzeitig Liquidität, Vermögen und Steuern — und macht sichtbar, wie jede Entscheidung alle drei Vitalwerte beeinflusst.',
+       bullets:['Dynamischer Finanzplan mit Prognosen bis zum Lebensende','Visualisierung aller Rücklagen und Versorgungslücken','Steueroptimierungspotenziale identifizieren','Wechselwirkungen zwischen allen drei Dimensionen darstellen']},
+      {num:'03',title:'Szenarien vergleichen',tag:'Transparente Entscheidungsbasis',
+       icon:'<svg fill="none" stroke="rgba(141,198,63,.8)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="22" height="22"><polyline points="22 4 12 14.01 9 11.01"/><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/></svg>',
+       desc:'Mehrere Strategien werden transparent gegenübergestellt. Sie sehen sofort, welche Maßnahme welchen Effekt auf Liquidität, Vermögen und Steuern hat.',
+       bullets:['Status Quo vs. Optimiert im direkten Vergleich','Konkrete Zahlen statt Versprechen','Jede Maßnahme mit messbarem Effekt auf alle drei Dimensionen','Sie entscheiden — wir setzen um']},
+      {num:'04',title:'Umsetzen und überwachen',tag:'Dauerhafte Begleitung',
+       icon:'<svg fill="none" stroke="rgba(141,198,63,.8)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+       desc:'Nach der Umsetzung überwachen wir kontinuierlich Ihre Ergebnisse und passen den Plan bei veränderten Lebensumständen oder Marktbedingungen an.',
+       bullets:['13+ Spezialisten setzen ihren Teil des Konzepts um','1 zentraler Ansprechpartner koordiniert alles','Regelmäßige Überprüfung und Anpassung','Lebenslange Partnerschaft statt einmaliger Beratung']},
+      {num:'05',title:'Rechtssicher dokumentiert',tag:'BetrAVG · BRSG · Steuerrecht',
+       icon:'<svg fill="none" stroke="rgba(141,198,63,.8)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+       desc:'Alle Maßnahmen werden nach BetrAVG, BRSG und aktueller Steuergesetzgebung rechtssicher dokumentiert und für Sie nachvollziehbar festgehalten.',
+       bullets:['Vollständige Dokumentation aller Maßnahmen','Konform mit aktueller Steuer- und Versorgungsgesetzgebung','Klare Nachvollziehbarkeit jeder Entscheidung','Schutz vor rechtlichen und steuerlichen Risiken']},
+      {num:'06',title:'Persönlicher Ansprechpartner',tag:'Ein Kontakt · Alles aus einer Hand',
+       icon:'<svg fill="none" stroke="rgba(141,198,63,.8)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="22" height="22"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/><path d="M8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45"/></svg>',
+       desc:'Ein zentraler Koordinator verbindet alle beteiligten Spezialisten. Kein Informationsverlust zwischen Beratern, kein Koordinationsaufwand für Sie.',
+       bullets:['Einziger Ansprechpartner für alle 13+ Spezialisten','Kein Aufwand für Sie bei der Koordination','Vollständige Information für jeden Spezialisten','Transparente Kommunikation auf allen Ebenen']},
+    ];
+    function openProc(idx){
+      var d=PROC[idx];
+      document.getElementById('pp-num').textContent=d.num;
+      document.getElementById('pp-ico').innerHTML=d.icon;
+      document.getElementById('pp-title').textContent=d.title;
+      document.getElementById('pp-desc').textContent=d.desc;
+      document.getElementById('pp-bullets').innerHTML=d.bullets.map(function(b){
+        return '<div style="display:flex;align-items:flex-start;gap:.6rem;font-size:.82rem;color:#4A4A4A;line-height:1.6">'
+          +'<div style="width:20px;height:20px;border-radius:50%;background:#8DC63F;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1em">'
+          +'<svg viewBox="0 0 12 12" fill="none" width="10" height="10"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+          +'</div><span>'+b+'</span></div>';
+      }).join('');
+      var o=document.getElementById('proc-overlay'),p=document.getElementById('proc-popup');
+      o.style.display='block';p.style.display='block';
+      setTimeout(function(){p.style.opacity='1';p.style.transform='translate(-50%,-50%) scale(1)';},10);
+      document.body.style.overflow='hidden';
+    }
+    function closeProc(){
+      var p=document.getElementById('proc-popup'),o=document.getElementById('proc-overlay');
+      p.style.opacity='0';p.style.transform='translate(-50%,-50%) scale(.94)';
+      setTimeout(function(){p.style.display='none';o.style.display='none';document.body.style.overflow='';},320);
+    }
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeProc();});
+    </script>
+  </div>
+</section>
+
+<!-- RECHNER -->
+<section class="calc-sec" id="rechner">
+  <div class="w">
+    <div class="tc rv">
+      <div class="sl" style="display:inline-flex">Interaktive Rechner</div>
+      <h2 class="h2">Berechnen Sie <span class="g">Ihre Situation</span></h2>
+      <p class="h2s" style="color:var(--light);margin-bottom:2rem">Vereinfachte Musterrechnungen zur Orientierung. Für Ihre individuelle Analyse sprechen Sie mit uns.</p>
+    </div>
+    <div class="ctabs rv d1">
+      <button class="ctab active" onclick="switchCalc(0)">Liquiditätsrechner</button>
+      <button class="ctab" onclick="switchCalc(1)">Vermögensrechner</button>
+      <button class="ctab" onclick="switchCalc(2)">Steuerrechner</button>
+    </div>
+
+    <!-- LIQUIDITÄT -->
+    <div class="cbody active" id="cb-0">
+      <div class="cpanel rv">
+        <div class="cpanel-bar"></div>
+        <div class="cpanel-body">
+          <div class="cpanel-title">Ihre Eingaben</div>
+          <div class="cfields">
+            <div class="cf"><label><span class="cf-lbl">Monatl. Nettoeinkommen</span><span class="cf-val" id="lv-inc">6.500 €</span></label><input class="cf-range" type="range" id="li-inc" min="2000" max="15000" step="100" value="6500" oninput="calcLiq()"></div>
+            <div class="cf"><label><span class="cf-lbl">Monatliche Ausgaben</span><span class="cf-val" id="lv-exp">4.200 €</span></label><input class="cf-range" type="range" id="li-exp" min="1500" max="12000" step="100" value="4200" oninput="calcLiq()"></div>
+            <div class="cf"><label><span class="cf-lbl">Aktuelles Alter</span><span class="cf-val" id="lv-age">42 Jahre</span></label><input class="cf-range" type="range" id="li-age" min="25" max="65" step="1" value="42" oninput="calcLiq()"></div>
+            <div class="cf"><label><span class="cf-lbl">Ruhestandsalter</span><span class="cf-val" id="lv-ret">67 Jahre</span></label><input class="cf-range" type="range" id="li-ret" min="55" max="70" step="1" value="67" oninput="calcLiq()"></div>
+            <div class="cf"><label><span class="cf-lbl">Erwartete Rente / Monat</span><span class="cf-val" id="lv-pen">1.800 €</span></label><input class="cf-range" type="range" id="li-pen" min="500" max="4000" step="50" value="1800" oninput="calcLiq()"></div>
+          </div>
+          <div class="cresult"><span class="cr-lbl">Freie Liquidität heute</span><span class="cr-val" id="lv-res">2.300 €/Mon.</span></div>
+        </div>
+      </div>
+      <div class="chart-panel rv d1">
+        <div class="chart-panel-bar"></div>
+        <div class="chart-panel-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
+            <div class="chart-title">Liquiditätsentwicklung 2025–2054</div>
+            <div style="display:flex;gap:1rem">
+              <div style="display:flex;align-items:center;gap:.35rem;font-size:.58rem;color:var(--light)"><div style="width:10px;height:10px;border-radius:2px;background:#8DC63F;flex-shrink:0"></div>Mit Empfehlung</div>
+              <div style="display:flex;align-items:center;gap:.35rem;font-size:.58rem;color:var(--light)"><div style="width:10px;height:10px;border-radius:2px;background:rgba(0,0,0,.15);flex-shrink:0"></div>Status Quo</div>
+            </div>
+          </div>
+          <div class="chart-svg-area"><svg id="liq-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 180"></svg></div>
+          <div class="cmetrics">
+            <div class="cmet"><div class="cm-val" id="lm-1">2.300 €</div><div class="cm-lbl">Monatl. Überschuss</div></div>
+            <div class="cmet"><div class="cm-val" id="lm-2">−1.200 €</div><div class="cm-lbl">Im Ruhestand (Basis)</div></div>
+            <div class="cmet"><div class="cm-val" id="lm-3">25 Jahre</div><div class="cm-lbl">Bis Ruhestand</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERMÖGEN -->
+    <div class="cbody" id="cb-1">
+      <div class="cpanel rv">
+        <div class="cpanel-bar"></div>
+        <div class="cpanel-body">
+          <div class="cpanel-title">Ihre Eingaben</div>
+          <div class="cfields">
+            <div class="cf"><label><span class="cf-lbl">Aktuelles Vermögen</span><span class="cf-val" id="vv-start">350.000 €</span></label><input class="cf-range" type="range" id="vi-start" min="10000" max="2000000" step="10000" value="350000" oninput="calcVer()"></div>
+            <div class="cf"><label><span class="cf-lbl">Monatliche Sparrate</span><span class="cf-val" id="vv-save">800 €</span></label><input class="cf-range" type="range" id="vi-save" min="0" max="5000" step="50" value="800" oninput="calcVer()"></div>
+            <div class="cf"><label><span class="cf-lbl">Rendite p.a. (optimiert)</span><span class="cf-val" id="vv-rate">5,0 %</span></label><input class="cf-range" type="range" id="vi-rate" min="1" max="10" step="0.5" value="5" oninput="calcVer()"><div class="cf-hint">Ohne Optimierung: 2 % (Tagesgeld/Festgeld)</div></div>
+            <div class="cf"><label><span class="cf-lbl">Planungszeitraum</span><span class="cf-val" id="vv-yrs">25 Jahre</span></label><input class="cf-range" type="range" id="vi-yrs" min="5" max="35" step="1" value="25" oninput="calcVer()"></div>
+          </div>
+          <div class="cresult"><span class="cr-lbl">Endvermögen (optimiert)</span><span class="cr-val" id="vv-res">1,24 Mio. €</span></div>
+        </div>
+      </div>
+      <div class="chart-panel rv d1">
+        <div class="chart-panel-bar"></div>
+        <div class="chart-panel-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
+            <div class="chart-title">Vermögensentwicklung im Vergleich</div>
+            <div style="display:flex;gap:1rem">
+              <div style="display:flex;align-items:center;gap:.35rem;font-size:.58rem;color:var(--light)"><div style="width:10px;height:10px;border-radius:2px;background:#8DC63F;flex-shrink:0"></div>Optimiert</div>
+              <div style="display:flex;align-items:center;gap:.35rem;font-size:.58rem;color:var(--light)"><div style="width:10px;height:10px;border-radius:2px;background:rgba(220,70,70,.4);flex-shrink:0"></div>Ohne Optimierung</div>
+            </div>
+          </div>
+          <div class="chart-svg-area"><svg id="ver-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 180"></svg></div>
+          <div class="cmetrics">
+            <div class="cmet"><div class="cm-val" id="vm-1">1,24 Mio.</div><div class="cm-lbl">Mit Optimierung</div></div>
+            <div class="cmet"><div class="cm-val" id="vm-2">612 T€</div><div class="cm-lbl">Ohne Optimierung</div></div>
+            <div class="cmet"><div class="cm-val" id="vm-3" style="color:var(--gd)">+ 631 T€</div><div class="cm-lbl">Mehrwert</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEUER -->
+    <div class="cbody" id="cb-2">
+      <div class="cpanel rv">
+        <div class="cpanel-bar"></div>
+        <div class="cpanel-body">
+          <div class="cpanel-title">Ihre Eingaben</div>
+          <div class="cfields">
+            <div class="cf"><label><span class="cf-lbl">Jahreseinkommen (brutto)</span><span class="cf-val" id="sv-inc">120.000 €</span></label><input class="cf-range" type="range" id="si-inc" min="30000" max="500000" step="5000" value="120000" oninput="calcSt()"></div>
+            <div class="cf"><label><span class="cf-lbl">Steueroptimiert angelegt</span><span class="cf-val" id="sv-opt">12.000 €</span></label><input class="cf-range" type="range" id="si-opt" min="0" max="50000" step="1000" value="12000" oninput="calcSt()"><div class="cf-hint">z.B. bAV, Rürup, Depot-Umschichtung</div></div>
+            <div class="cf"><label><span class="cf-lbl">Werbungskosten / Sonderausg.</span><span class="cf-val" id="sv-wk">5.000 €</span></label><input class="cf-range" type="range" id="si-wk" min="0" max="30000" step="500" value="5000" oninput="calcSt()"></div>
+            <div class="cf" style="margin-bottom:0"><label style="margin-bottom:.42rem"><span class="cf-lbl">Familienstand</span></label>
+              <select id="si-fam" class="cf-select" onchange="calcSt()">
+                <option value="1">Ledig (Einzelveranlagung)</option>
+                <option value="2" selected>Verheiratet (Splitting)</option>
+              </select>
+            </div>
+          </div>
+          <div class="cresult"><span class="cr-lbl">Steuerlast (optimiert)</span><span class="cr-val" id="sv-res">28.400 €</span></div>
+        </div>
+      </div>
+      <div class="chart-panel rv d1">
+        <div class="chart-panel-bar"></div>
+        <div class="chart-panel-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
+            <div class="chart-title">Steuerlast: Basis vs. Optimiert</div>
+            <div style="display:flex;gap:1rem">
+              <div style="display:flex;align-items:center;gap:.35rem;font-size:.58rem;color:var(--light)"><div style="width:10px;height:10px;border-radius:2px;background:#8DC63F;flex-shrink:0"></div>Optimiert</div>
+              <div style="display:flex;align-items:center;gap:.35rem;font-size:.58rem;color:var(--light)"><div style="width:10px;height:10px;border-radius:2px;background:rgba(220,70,70,.45);flex-shrink:0"></div>Basis</div>
+            </div>
+          </div>
+          <div class="chart-svg-area"><svg id="st-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 180"></svg></div>
+          <div class="cmetrics">
+            <div class="cmet"><div class="cm-val" id="sm-1">38.200 €</div><div class="cm-lbl">Ohne Optimierung</div></div>
+            <div class="cmet"><div class="cm-val" id="sm-2" style="color:var(--gd)">28.400 €</div><div class="cm-lbl">Optimiert</div></div>
+            <div class="cmet"><div class="cm-val" id="sm-3" style="color:var(--gd)">− 9.800 €</div><div class="cm-lbl">Ersparnis / Jahr</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="cdisclaimer rv">* Vereinfachte Musterrechnungen ohne Gewähr. Individuelle Ergebnisse können abweichen. Keine Steuer- oder Anlageberatung.</p>
+  </div>
+</section>
+
+<!-- SZENARIEN -->
+<section class="szen-sec" id="szenarien">
+  <div class="w">
+    <div class="tc rv">
+      <div class="sl" style="display:inline-flex">Szenarien</div>
+      <h2 class="h2">Szenarien helfen bei der <span class="g">Entscheidungsfindung</span></h2>
+      <p class="h2s" style="color:var(--light);margin-bottom:0">Oft stehen mehrere Strategien im Raum. OptiPlan macht die Auswirkung jeder Strategie auf alle drei Dimensionen transparent.</p>
+    </div>
+    <div class="szen-duo">
+      <div class="sz-card bad rv d1">
+        <div class="sz-head bad"><div class="sz-dot bad"></div><div class="sz-lbl bad">Status Quo — Ohne Optimierung</div></div>
+        <div class="sz-body">
+          <div class="sz-row"><span class="sz-rl">Freie Liquidität 2025</span><span class="sz-rv">+ 81 T€</span></div>
+          <div class="sz-row"><span class="sz-rl">Liquidität im Ruhestand</span><span class="sz-rv r">ab 2038 negativ</span></div>
+          <div class="sz-row"><span class="sz-rl">Nettovermögen 2025</span><span class="sz-rv">1,66 Mio. €</span></div>
+          <div class="sz-row"><span class="sz-rl">Nettovermögen 2054</span><span class="sz-rv">2,76 Mio. €</span></div>
+          <div class="sz-row"><span class="sz-rl">Grenzsteuersatz 2025</span><span class="sz-rv r">42 %</span></div>
+          <div class="sz-row"><span class="sz-rl">Grenzsteuersatz Ruhestand</span><span class="sz-rv">~28 %</span></div>
+          <div class="sz-row"><span class="sz-rl">Steueroptimierung</span><span class="sz-rv r">Nicht genutzt</span></div>
+        </div>
+      </div>
+      <div class="sz-card good rv d2">
+        <div class="sz-head good"><div class="sz-dot good"></div><div class="sz-lbl good">Mit Empfehlungen — Optimiert</div></div>
+        <div class="sz-body">
+          <div class="sz-row"><span class="sz-rl">Freie Liquidität 2025</span><span class="sz-rv g">+ 82 T€</span></div>
+          <div class="sz-row"><span class="sz-rl">Liquidität im Ruhestand</span><span class="sz-rv g">dauerhaft positiv</span></div>
+          <div class="sz-row"><span class="sz-rl">Nettovermögen 2025</span><span class="sz-rv">1,66 Mio. €</span></div>
+          <div class="sz-row"><span class="sz-rl">Nettovermögen 2054</span><span class="sz-rv g">3,28 Mio. €</span></div>
+          <div class="sz-row"><span class="sz-rl">Grenzsteuersatz 2025</span><span class="sz-rv">42 %</span></div>
+          <div class="sz-row"><span class="sz-rl">Grenzsteuersatz Ruhestand</span><span class="sz-rv g">~25 %</span></div>
+          <div class="sz-row"><span class="sz-rl">Steueroptimierung</span><span class="sz-rv g">+ 30 % Potenzial genutzt</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="szen-banner rv d3">
+      <div class="sb-main">
+        <div class="sb-lbl">Gesamter Mehrwert durch Optimierung</div>
+        <div class="sb-val">+ 520.000 €</div>
+        <div class="sb-sub">Zusätzliches Nettovermögen bis 2054</div>
+      </div>
+      <div class="sb-div"></div>
+      <div class="sb-grid">
+        <div><div class="sb-item-lbl">Liquiditätsvorteil / Jahr</div><div class="sb-item-val">+ 15 T€</div></div>
+        <div><div class="sb-item-lbl">Steuerersparnis</div><div class="sb-item-val">− 3 % Satz</div></div>
+        <div><div class="sb-item-lbl">bAV Netto-Vorteil</div><div class="sb-item-val">72 € / Mon.</div></div>
+        <div><div class="sb-item-lbl">Planungshorizont</div><div class="sb-item-val">30 Jahre</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="qs">
+  <div class="qi">
+    <div class="sl dl rv" style="display:inline-flex;margin-bottom:1.2rem">Kostenlos & unverbindlich</div>
+    <h2 class="h2 rv" style="color:#fff">Ihren persönlichen<br><span class="gl">OptiPlan erstellen</span></h2>
+    <p class="rv d1">Erfahren Sie, wie Ihre drei Dimensionen aktuell aufgestellt sind und wo konkretes Optimierungspotenzial besteht.</p>
+    <a href="/kontakt.html" class="btn-g rv d2">Beratung anfragen ›</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft" role="contentinfo">
+  <div class="fti">
+    <div class="ftt">
+      <div>
+        <div class="ftl"><img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/09/preview_files_01_854.png" alt="Spezialisten Netzwerk" onerror="this.style.display='none'"></div>
+        <p class="ftd">Individuelle Wohlstandsplanung durch 13+ Fachspezialisten. Strategie vor Produkt.</p>
+        <a href="/kontakt.html" class="ftc">Jetzt Kontakt aufnehmen ›</a>
+      </div>
+      <div>
+        <h5>Spezialisten-Themen</h5>
+        <a href="/kapitalanlage-immobilie.html">Kapitalanlage Immobilie</a>
+        <a href="/betriebliche-versorgung.html">Betriebliche Versorgung</a>
+        <a href="https://spezialisten-netzwerk.com/finanz-und-ruhestandsplanung/">Ruhestandsplanung</a>
+        <a href="https://spezialisten-netzwerk.com/investment-und-aif/">Investment & AIF</a>
+        <a href="https://spezialisten-netzwerk.com/kranken-und-pflegeversicherung/">Kranken & Pflege</a>
+      </div>
+      <div>
+        <h5>Weitere Themen</h5>
+        <a href="https://spezialisten-netzwerk.com/finanzanalysen/">Finanzanalysen</a>
+        <a href="https://spezialisten-netzwerk.com/gewerbliche-finanzierung/">Finanzierung</a>
+        <a href="https://spezialisten-netzwerk.com/unternehmensberatung-fuer-heilwesenberufe/">Heilwesenberufe</a>
+      </div>
+      <div>
+        <h5>Rechtliches</h5>
+        <a href="https://spezialisten-netzwerk.com/impressum/">Impressum</a>
+        <a href="https://spezialisten-netzwerk.com/datenschutzerklaerung/">Datenschutzerklärung</a>
+        <a href="/kontakt.html">Kontakt</a>
+      </div>
+    </div>
+    <div class="ftb">
+      <span>© 2026 Spezialisten-Netzwerk – Alle Rechte vorbehalten</span>
+      <div class="ftbl">
+        <a href="https://spezialisten-netzwerk.com/impressum/">Impressum</a>
+        <a href="https://spezialisten-netzwerk.com/datenschutzerklaerung/">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="/kontakt.html" class="fl" title="Kontakt aufnehmen">
+  <div class="flr"></div>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.77 4.77a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.72 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+
+<script>
+/* REVEAL */
+var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.rv,.sc').forEach(function(el){obs.observe(el);});
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',scrollY>60);},{passive:true});
+setTimeout(function(){document.querySelectorAll('.hero .rv').forEach(function(el){el.classList.add('visible');});},80);
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.onclick=function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}; });
+
+/* TAB SWITCH */
+function switchCalc(i){
+  document.querySelectorAll('.ctab').forEach(function(t,j){t.classList.toggle('active',i===j);});
+  document.querySelectorAll('.cbody').forEach(function(b,j){b.classList.toggle('active',i===j);});
+  if(i===0)calcLiq();if(i===1)calcVer();if(i===2)calcSt();
+}
+
+/* SVG HELPERS */
+function ns(tag){return document.createElementNS('http://www.w3.org/2000/svg',tag);}
+function sa(el,a){Object.keys(a).forEach(function(k){el.setAttribute(k,a[k]);});return el;}
+function svgLine(x1,y1,x2,y2,stroke,sw){return sa(ns('line'),{x1:x1,y1:y1,x2:x2,y2:y2,stroke:stroke||'rgba(0,0,0,.06)','stroke-width':sw||'1'});}
+function svgText(x,y,txt,fill,size,anchor){var t=ns('text');sa(t,{x:x,y:y,fill:fill||'rgba(0,0,0,.3)','font-size':size||'8','font-family':'Inter,sans-serif','text-anchor':anchor||'middle'});t.textContent=txt;return t;}
+
+/* LIQUIDITÄT */
+function calcLiq(){
+  var inc=+document.getElementById('li-inc').value, exp=+document.getElementById('li-exp').value;
+  var age=+document.getElementById('li-age').value, ret=+document.getElementById('li-ret').value, pen=+document.getElementById('li-pen').value;
+  document.getElementById('lv-inc').textContent=inc.toLocaleString('de-DE')+' €';
+  document.getElementById('lv-exp').textContent=exp.toLocaleString('de-DE')+' €';
+  document.getElementById('lv-age').textContent=age+' Jahre';
+  document.getElementById('lv-ret').textContent=ret+' Jahre';
+  document.getElementById('lv-pen').textContent=pen.toLocaleString('de-DE')+' €';
+  var monthly=inc-exp;
+  document.getElementById('lv-res').textContent=(monthly>=0?'+ ':'− ')+Math.abs(monthly).toLocaleString('de-DE')+' €/Mon.';
+  document.getElementById('lm-1').textContent=(monthly>=0?'+ ':'− ')+Math.abs(monthly).toLocaleString('de-DE')+' €';
+  var retNoOpt=pen-exp*1.4;
+  document.getElementById('lm-2').textContent=(retNoOpt>=0?'+ ':'− ')+Math.abs(Math.round(retNoOpt)).toLocaleString('de-DE')+' €';
+  document.getElementById('lm-3').textContent=(ret-age)+' Jahre';
+  var yrs=ret-age, vals=[], vals2=[];
+  for(var i=0;i<30;i++){
+    if(i<yrs){vals.push(Math.round(monthly*(1-i*.01)));vals2.push(Math.round(monthly*(1-i*.012)));}
+    else{vals.push(Math.round(pen*1.2-exp*(1+(i-yrs)*.02)));vals2.push(Math.round(pen-exp*(1+(i-yrs)*.02)));}
+  }
+  drawBars('liq-svg',vals,vals2,yrs);
+}
+
+function drawBars(id,vals,vals2,retIdx){
+  var svg=document.getElementById(id); svg.innerHTML='';
+  var W=560,H=180,PL=34,PR=6,PT=10,PB=20,cW=W-PL-PR,cH=H-PT-PB;
+  var all=vals.concat(vals2), maxV=Math.max.apply(null,all.map(Math.abs))*1.12||1;
+  var minV=Math.min.apply(null,all), hasNeg=minV<0;
+  var zeroY=hasNeg?PT+cH*(maxV/(maxV+Math.abs(minV))):PT+cH;
+  var N=vals.length, gap=cW/N, bW=gap*.34, bW2=gap*.28;
+  for(var g=0;g<=4;g++){var gy=PT+(cH/4)*g;svg.appendChild(svgLine(PL,gy,W-PR,gy));svg.appendChild(svgText(PL-4,gy+3,Math.round(maxV*(1-g/4)/1000)+'K','rgba(0,0,0,.3)','7','end'));}
+  if(hasNeg)svg.appendChild(svgLine(PL,zeroY,W-PR,zeroY,'rgba(0,0,0,.15)','1.5'));
+  if(retIdx<N){var rx=PL+retIdx*gap;svg.appendChild(sa(svgLine(rx,PT,rx,PT+cH,'rgba(0,0,0,.1)'),{'stroke-dasharray':'3,2'}));svg.appendChild(svgText(rx+4,PT+10,'Ruhestand','rgba(0,0,0,.22)','6.5','start'));}
+  var yr=new Date().getFullYear();
+  for(var i=0;i<N;i++){
+    var bx=PL+i*gap+(gap-bW-bW2-2)/2;
+    var v=vals[i],bh=Math.abs(v)/maxV*cH,isNeg=v<0,by=isNeg?zeroY:zeroY-bh;
+    svg.appendChild(sa(ns('rect'),{x:bx,y:by,width:bW,height:bh,rx:'2',fill:isNeg?'rgba(220,70,70,.6)':'#8DC63F'}));
+    var v2=vals2[i],bh2=Math.abs(v2)/maxV*cH,isNeg2=v2<0,by2=isNeg2?zeroY:zeroY-bh2;
+    svg.appendChild(sa(ns('rect'),{x:bx+bW+2,y:by2,width:bW2,height:bh2,rx:'2',fill:isNeg2?'rgba(220,70,70,.3)':'rgba(0,0,0,.12)'}));
+    if(i%5===0)svg.appendChild(svgText(bx+bW/2,H-3,(yr+i)+'','rgba(0,0,0,.28)','7'));
+  }
+}
+
+/* VERMÖGEN */
+function calcVer(){
+  var start=+document.getElementById('vi-start').value, save=+document.getElementById('vi-save').value*12;
+  var rate=+document.getElementById('vi-rate').value/100, yrs=+document.getElementById('vi-yrs').value;
+  var s=+document.getElementById('vi-start').value;
+  document.getElementById('vv-start').textContent=s>=1000000?(s/1000000).toFixed(2).replace('.',',')+' Mio.':s.toLocaleString('de-DE')+' €';
+  document.getElementById('vv-save').textContent=(+document.getElementById('vi-save').value).toLocaleString('de-DE')+' €';
+  document.getElementById('vv-rate').textContent=(+document.getElementById('vi-rate').value).toFixed(1).replace('.',',')+' %';
+  document.getElementById('vv-yrs').textContent=yrs+' Jahre';
+  var v1=start,v2=start,vals=[],vals2=[];
+  for(var i=0;i<=yrs;i++){vals.push(Math.round(v1));vals2.push(Math.round(v2));v1=v1*(1+rate)+save;v2=v2*(1+.02)+save;}
+  var e1=vals[vals.length-1],e2=vals2[vals2.length-1],d=e1-e2;
+  document.getElementById('vv-res').textContent=e1>=1000000?(e1/1000000).toFixed(2).replace('.',',')+' Mio. €':(e1/1000).toFixed(0)+' T€';
+  document.getElementById('vm-1').textContent=e1>=1000000?(e1/1000000).toFixed(2).replace('.',',')+' Mio.':(e1/1000).toFixed(0)+' T€';
+  document.getElementById('vm-2').textContent=e2>=1000000?(e2/1000000).toFixed(2).replace('.',',')+' Mio.':(e2/1000).toFixed(0)+' T€';
+  document.getElementById('vm-3').textContent='+ '+(d>=1000000?(d/1000000).toFixed(2).replace('.',',')+' Mio.':(d/1000).toFixed(0)+' T€');
+  drawLines('ver-svg',vals,vals2,yrs);
+}
+
+function drawLines(id,vals,vals2,yrs){
+  var svg=document.getElementById(id); svg.innerHTML='';
+  var W=560,H=180,PL=38,PR=6,PT=10,PB=20,cW=W-PL-PR,cH=H-PT-PB;
+  var maxV=Math.max.apply(null,vals)*1.06, N=vals.length;
+  function xp(i){return PL+(i/(N-1))*cW;}
+  function yp(v){return PT+cH*(1-v/maxV);}
+  for(var g=0;g<=4;g++){var gy=PT+(cH/4)*g,gv=Math.round(maxV*(1-g/4));svg.appendChild(svgLine(PL,gy,W-PR,gy));svg.appendChild(svgText(PL-4,gy+3,gv>=1000000?(gv/1000000).toFixed(1)+'M':(gv/1000).toFixed(0)+'K','rgba(0,0,0,.3)','7','end'));}
+  var p1='',p2='',a1='M'+xp(0)+','+(PT+cH),a2='M'+xp(0)+','+(PT+cH);
+  var yr=new Date().getFullYear();
+  for(var i=0;i<N;i++){p1+=(i?'L':'M')+xp(i)+','+yp(vals[i]);p2+=(i?'L':'M')+xp(i)+','+yp(vals2[i]);a1+=' L'+xp(i)+','+yp(vals[i]);a2+=' L'+xp(i)+','+yp(vals2[i]);if(i%5===0)svg.appendChild(svgText(xp(i),H-3,(yr+i)+'','rgba(0,0,0,.28)','7'));}
+  a1+=' L'+xp(N-1)+','+(PT+cH)+' Z';a2+=' L'+xp(N-1)+','+(PT+cH)+' Z';
+  svg.appendChild(sa(ns('path'),{d:a2,fill:'rgba(0,0,0,1)',opacity:'.04'}));
+  svg.appendChild(sa(ns('path'),{d:a1,fill:'#8DC63F',opacity:'.12'}));
+  svg.appendChild(sa(ns('path'),{d:p2,fill:'none',stroke:'rgba(220,70,70,.5)','stroke-width':'1.8','stroke-dasharray':'4,3','stroke-linecap':'round','stroke-linejoin':'round'}));
+  svg.appendChild(sa(ns('path'),{d:p1,fill:'none',stroke:'#8DC63F','stroke-width':'2.5','stroke-linecap':'round','stroke-linejoin':'round'}));
+}
+
+/* STEUER */
+function calcSt(){
+  var inc=+document.getElementById('si-inc').value, opt=+document.getElementById('si-opt').value, wk=+document.getElementById('si-wk').value;
+  var split=+document.getElementById('si-fam').value;
+  document.getElementById('sv-inc').textContent=inc.toLocaleString('de-DE')+' €';
+  document.getElementById('sv-opt').textContent=opt.toLocaleString('de-DE')+' €';
+  document.getElementById('sv-wk').textContent=wk.toLocaleString('de-DE')+' €';
+  function taxDE(z,sp){var t=0;var q=sp===2?z/2:z;if(q<=11784)t=0;else if(q<=17005){var y=(q-11784)/10000;t=979.18*y+1400*y*y;}else if(q<=66760){var y=(q-17005)/10000;t=192.59*y+2397*y*y+966.53;}else if(q<=277825)t=.42*q-10602.13;else t=.45*q-18936.88;return Math.round(sp===2?t*2:t);}
+  var b=Math.max(0,inc-wk), t1=taxDE(b,split), t2=taxDE(Math.max(0,b-opt),split), sav=t1-t2;
+  document.getElementById('sv-res').textContent=t2.toLocaleString('de-DE')+' €';
+  document.getElementById('sm-1').textContent=t1.toLocaleString('de-DE')+' €';
+  document.getElementById('sm-2').textContent=t2.toLocaleString('de-DE')+' €';
+  document.getElementById('sm-3').textContent='− '+sav.toLocaleString('de-DE')+' €';
+  drawStBars('st-svg',inc,t1,t2,opt,wk);
+}
+
+function drawStBars(id,inc,t1,t2,opt,wk){
+  var svg=document.getElementById(id); svg.innerHTML='';
+  var W=560,H=180,PL=16,PR=16,PT=14,PB=14;
+  var items=[
+    {lbl:'Einkommen',val:inc,color:'rgba(0,0,0,.09)',v:inc.toLocaleString('de-DE')+' €'},
+    {lbl:'Werbungskosten',val:wk,color:'rgba(96,165,250,.45)',v:'− '+wk.toLocaleString('de-DE')+' €'},
+    {lbl:'Steueroptimierung',val:opt,color:'rgba(141,198,63,.45)',v:'− '+opt.toLocaleString('de-DE')+' €'},
+    {lbl:'Steuerlast Basis',val:t1,color:'rgba(220,70,70,.45)',v:t1.toLocaleString('de-DE')+' €'},
+    {lbl:'Steuerlast optimiert',val:t2,color:'#8DC63F',v:t2.toLocaleString('de-DE')+' €'},
+  ];
+  var bH=24,gap=9,totalH=items.length*(bH+gap)-gap, startY=PT+(H-PT-PB-totalH)/2, lblW=155, barW=W-PL-PR-lblW-60;
+  items.forEach(function(it,i){
+    var y=startY+i*(bH+gap), w=Math.max(2,Math.min(it.val/inc,1)*barW);
+    svg.appendChild(svgText(PL,y+bH*.68,it.lbl,'rgba(0,0,0,.42)','7.5','start'));
+    svg.appendChild(sa(ns('rect'),{x:PL+lblW,y:y,width:w,height:bH,rx:'4',fill:it.color}));
+    svg.appendChild(svgText(PL+lblW+w+5,y+bH*.68,it.v,i===4?'#6FA52E':i===3?'rgba(170,45,45,.75)':'rgba(0,0,0,.45)','8','start'));
+  });
+}
+
+/* INIT */
+calcLiq(); calcVer(); calcSt();
+</script>
+</body>
+</html>
