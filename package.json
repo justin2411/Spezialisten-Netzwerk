@@ -1,0 +1,14 @@
+{
+  "name": "spezialisten-netzwerk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Statische Website des Spezialisten-Netzwerks – gebaut mit Eleventy (11ty).",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

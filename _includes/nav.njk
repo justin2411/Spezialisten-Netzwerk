@@ -1,0 +1,102 @@
+<!-- ════════ NAV (zentral – eine Nav für alle Seiten) ════════ -->
+<nav class="nav" id="nav" aria-label="Hauptnavigation">
+  <div class="ni">
+    <a href="/" class="nl" aria-label="Zur Startseite">
+      <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/09/preview_files_01_854.png" alt="Das Spezialisten Netzwerk" onerror="this.style.display='none'">
+    </a>
+    <div class="nm">
+      <a href="/#netzwerk">Das Netzwerk</a>
+      <a href="/#vorgehen">Vorgehen</a>
+      <div class="nav-dd">
+        <button class="dd-trigger" type="button" aria-haspopup="true" aria-expanded="false">
+          Themen
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="dd-menu" role="menu">
+          <a class="dd-item" role="menuitem" href="/kapitalanlage-immobilie">
+            <span class="dd-ico"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 10v10h14V10"/></svg></span>
+            Kapitalanlage Immobilie
+          </a>
+          <a class="dd-item" role="menuitem" href="/betriebliche-versorgung">
+            <span class="dd-ico"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.5 8 8 11 4.5-3 8-6 8-11V5l-8-3z"/></svg></span>
+            Betriebliche Versorgung
+          </a>
+          <a class="dd-item" role="menuitem" href="#">
+            <span class="dd-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            Ruhestandsplanung<span class="dd-soon">Bald</span>
+          </a>
+          <a class="dd-item" role="menuitem" href="#">
+            <span class="dd-ico"><svg viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></span>
+            Investment &amp; AIF<span class="dd-soon">Bald</span>
+          </a>
+          <a class="dd-item" role="menuitem" href="#">
+            <span class="dd-ico"><svg viewBox="0 0 24 24"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21l8.8-8.3a5 5 0 0 0 0-7.1z"/></svg></span>
+            Kranken &amp; Pflege<span class="dd-soon">Bald</span>
+          </a>
+          <a class="dd-item" role="menuitem" href="#">
+            <span class="dd-ico"><svg viewBox="0 0 24 24"><line x1="6" y1="20" x2="6" y2="12"/><line x1="12" y1="20" x2="12" y2="5"/><line x1="18" y1="20" x2="18" y2="14"/></svg></span>
+            Finanzanalysen<span class="dd-soon">Bald</span>
+          </a>
+          <a class="dd-item" role="menuitem" href="#">
+            <span class="dd-ico"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+            Finanzierung<span class="dd-soon">Bald</span>
+          </a>
+          <a class="dd-item" role="menuitem" href="#">
+            <span class="dd-ico"><svg viewBox="0 0 24 24"><polyline points="3 12 8 12 11 5 14 19 16 12 21 12"/></svg></span>
+            Heilwesenberufe<span class="dd-soon">Bald</span>
+          </a>
+        </div>
+      </div>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <button class="hb" id="hbtn" type="button" aria-label="Menü öffnen" aria-controls="mmenu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a href="/kontakt" class="nc">Kontakt aufnehmen ›</a>
+  </div>
+</nav>
+
+<!-- Mobile-Menü -->
+<div class="mm" id="mmenu" role="navigation" aria-label="Mobile Navigation">
+  <a href="/#netzwerk">Das Netzwerk</a>
+  <a href="/#vorgehen">Vorgehen</a>
+  <a href="/#faq">FAQ</a>
+  <div class="mm-label">Themen</div>
+  <div class="mm-themen">
+    <a href="/kapitalanlage-immobilie">Kapitalanlage Immobilie</a>
+    <a href="/betriebliche-versorgung">Betriebliche Versorgung</a>
+    <a href="#">Ruhestandsplanung</a>
+    <a href="#">Investment &amp; AIF</a>
+    <a href="#">Kranken &amp; Pflege</a>
+    <a href="#">Finanzanalysen</a>
+    <a href="#">Finanzierung</a>
+    <a href="#">Heilwesenberufe</a>
+  </div>
+  <a href="/kontakt" class="nc" style="margin-top:1rem">Kontakt aufnehmen ›</a>
+</div>
+
+<script>
+(function () {
+  var nav = document.getElementById('nav');
+  if (nav) {
+    window.addEventListener('scroll', function () {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  }
+  var hb = document.getElementById('hbtn');
+  var mm = document.getElementById('mmenu');
+  function closeMenu() {
+    if (mm) mm.classList.remove('open');
+    if (hb) { hb.classList.remove('open'); hb.setAttribute('aria-expanded', 'false'); }
+    document.body.style.overflow = '';
+  }
+  if (hb && mm) {
+    hb.addEventListener('click', function () {
+      var open = mm.classList.toggle('open');
+      hb.classList.toggle('open', open);
+      hb.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mm.addEventListener('click', function (e) { if (e.target === mm) closeMenu(); });
+    mm.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+  }
+})();
+</script>
