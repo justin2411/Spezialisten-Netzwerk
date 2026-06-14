@@ -585,6 +585,28 @@ a{text-decoration:none;color:inherit}
 @media(max-width:900px){.q-grid,.adv-grid{grid-template-columns:1fr 1fr}.team-g{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.q-grid,.adv-grid{grid-template-columns:1fr}.team-g{grid-template-columns:1fr 1fr}}
 
+/* ── DESIGN-POLITUR: einheitliche Karten-Designsprache (Fragen / Vorteile / Spezialisten) ── */
+.q-card,.adv-grid .vort-card,.tm{border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,.05)}
+.q-card:hover,.adv-grid .vort-card:hover,.tm:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.10)}
+
+/* ── SPEZIALISTEN: hervorgehobener Kopf (Ender) + 3×3-Raster ── */
+.team-g{grid-template-columns:repeat(3,1fr)}
+.team-lead{display:flex;max-width:660px;margin:3rem auto 1.8rem;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.05);position:relative;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s}
+.team-lead::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--g);transform:scaleY(0);transform-origin:bottom;transition:transform .4s cubic-bezier(.22,1,.36,1);z-index:3;border-radius:0 2px 2px 0}
+.team-lead:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.10)}
+.team-lead:hover::before{transform:scaleY(1)}
+.tl-photo{width:210px;flex-shrink:0;overflow:hidden;position:relative}
+.tl-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(8%) brightness(.97);transition:transform .65s cubic-bezier(.22,1,.36,1),filter .45s;display:block}
+.team-lead:hover .tl-photo img{transform:scale(1.05);filter:grayscale(0) brightness(1)}
+.tl-info{padding:1.9rem 2rem;display:flex;flex-direction:column;justify-content:center}
+.tl-badge{display:inline-flex;align-self:flex-start;align-items:center;gap:.35rem;font-size:.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gd);background:var(--gbg);border:1px solid rgba(141,198,63,.3);padding:.24rem .7rem;border-radius:100px;margin-bottom:.8rem}
+.tl-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--g)}
+.tl-name{font-size:1.3rem;font-weight:800;color:var(--dark);margin-bottom:.3rem;line-height:1.15}
+.tl-role{font-size:.78rem;color:var(--gd);font-weight:600;margin-bottom:.7rem}
+.tl-desc{font-size:.82rem;color:var(--mid);line-height:1.7;margin:0}
+@media(max-width:860px){.team-g{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.team-lead{flex-direction:column;max-width:340px}.tl-photo{width:100%;height:260px}}
+
 </style>
 
 <!-- ════════════ HTML ════════════ -->
@@ -624,17 +646,17 @@ a{text-decoration:none;color:inherit}
   <div class="hero-glow"></div>
   <div class="hero-in">
     <div class="hero-badge" id="hbadge" style="opacity:0;transform:translateY(12px)">
-      13+ Fachspezialisten · Alles aus einer Hand
+      100 % UNGEBUNDEN · KEINE PRODUKTGEBER
     </div>
     <h1 id="hh" style="opacity:0;transform:translateY(24px)">
-      Vermögensbildung<br>nach Plan<br><em>mit Sicherheit das Richtige</em>
+      Finanzielle Entscheidungen trifft man nicht allein.<br><em>Sondern mit einem Netzwerk, das nur Ihnen verpflichtet ist.</em>
     </h1>
     <p class="hero-sub" id="hs" style="opacity:0;transform:translateY(18px)">
-      Nutzen Sie unsere individuelle Wohlstandsplanung, alles unter einem Dach, um Ihre finanziellen Ziele maßgeschneidert zu erreichen!
+      13 Spezialisten, ein Plan, null Provisionsdruck. Wir beraten Sie unabhängig — und koordinieren alles, was Ihr Vermögen betrifft, aus einer Hand.
     </p>
     <div class="hero-btns" id="hb" style="opacity:0;transform:translateY(16px)">
-      <a href="/kontakt.html" class="btn-g">Kontakt aufnehmen ›</a>
-      <a href="#netzwerk-grafik" class="btn-ghost-w">Mehr erfahren ↓</a>
+      <a href="/kontakt.html" class="btn-g">Lernen Sie uns kennen ›</a>
+      <a href="#netzwerk-grafik" class="btn-ghost-w">Wie wir arbeiten ↓</a>
     </div>
     <div class="hero-proof" id="hpr" style="opacity:0;transform:translateY(14px)">
       <div class="hpr">
@@ -833,12 +855,13 @@ a{text-decoration:none;color:inherit}
       <div class="q-card rv d3"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p>Ruhestandsplanung: Wie strukturiere ich mein Vermögen am sinnvollsten?</p></div>
       <div class="q-card rv d4"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p>Vermögensnachfolge, ohne meinen Kindern Fehlanreize zu setzen — wie mache ich das?</p></div>
       <div class="q-card rv d5"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p>Reicht mein Vermögen bis an mein Lebensende?</p></div>
+      <div class="q-card rv d6"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p>Wie lege ich größere Beträge an, ohne unnötige Risiken einzugehen?</p></div>
     </div>
   </div>
 </section>
 
 <!-- VORTEILE / WARUM WIR -->
-<section class="sec sec-w" id="vorteile">
+<section class="sec sec-dark" id="vorteile">
   <div class="w">
     <div class="tc">
       <div class="sec-label rv" style="display:inline-flex">Warum wir</div>
@@ -1332,9 +1355,17 @@ a{text-decoration:none;color:inherit}
       <h2 class="h2 rv">Unsere <span class="g">Spezialisten</span></h2>
       <p class="h2-sub rv">Ein eingespieltes Netzwerk aus Fachleuten — koordiniert über einen zentralen Ansprechpartner.</p>
     </div>
+    <div class="team-lead rv">
+      <div class="tl-photo"><img loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-24T103037.476.png" alt="Ender Gülsen"></div>
+      <div class="tl-info">
+        <div class="tl-badge">Netzwerk-Manager</div>
+        <div class="tl-name">Ender Gülsen</div>
+        <div class="tl-role">Netzwerk Manager &amp; Spezialist Finanz- und Ruhestandsplanung</div>
+        <p class="tl-desc">Ihr zentraler Ansprechpartner — koordiniert das gesamte Netzwerk aus 13+ Spezialisten und sorgt dafür, dass alle Fachbereiche aus einem Guss zusammenspielen.</p>
+      </div>
+    </div>
     <div class="team-g">
-      <div class="tm rv d1"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-24T103037.476.png" alt="Ender Gülsen"><div class="tm-overlay"><div class="tm-name">Ender Gülsen</div><div class="tm-role">Netzwerk Manager &amp; Spezialist Finanz- und Ruhestandsplanung</div></div></div></div>
-      <div class="tm rv d2"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T135826.354.png" alt="Jana Hoffmann"><div class="tm-overlay"><div class="tm-name">Jana Hoffmann</div><div class="tm-role">Spezialistin Finanzierung</div></div></div></div>
+      <div class="tm rv d1"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T135826.354.png" alt="Jana Hoffmann"><div class="tm-overlay"><div class="tm-name">Jana Hoffmann</div><div class="tm-role">Spezialistin Finanzierung</div></div></div></div>
       <div class="tm rv d3"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T140743.795.png" alt="Dr. Michael Buck"><div class="tm-overlay"><div class="tm-name">Dr. Michael Buck</div><div class="tm-role">Spezialist Kranken- &amp; Pflegeversicherung</div></div></div></div>
       <div class="tm rv d4"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T125430.178.png" alt="Mathias Moews"><div class="tm-overlay"><div class="tm-name">Mathias Moews</div><div class="tm-role">Dipl.-Betriebswirt (FH) | Spezialist Finanzierungen</div></div></div></div>
       <div class="tm rv d1"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T160433.709.png" alt="Ronni Arndt"><div class="tm-overlay"><div class="tm-name">Ronni Arndt</div><div class="tm-role">Dipl.-Volkswirt | Experte betriebliche Altersversorgung (DMA)</div></div></div></div>
