@@ -607,6 +607,34 @@ a{text-decoration:none;color:inherit}
 @media(max-width:860px){.team-g{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.team-lead{flex-direction:column;max-width:340px}.tl-photo{width:100%;height:260px}}
 
+/* ════════ DESIGN-WÄRME: weichere Dunkeltöne, mehr Rundung, sanftere Schatten ════════ */
+/* 1) Dunkle Sektionen: weiches Dunkelgrün statt hartem Schwarz/Anthrazit */
+.vorg-section{background:linear-gradient(160deg,#16241a 0%,#1a2a1c 100%)}
+.sec-dark{background:linear-gradient(160deg,#16241a 0%,#1a2a1c 100%)}
+.vs-section{background:linear-gradient(160deg,#16241a 0%,#1a2a1c 100%)}
+.cta-sec{background:linear-gradient(160deg,#16241a 0%,#1a2a1c 100%)}
+.mq{background:#16241a}
+.ft{background:#16241a}
+.vorg-panel-card{background:rgba(168,216,90,.07);border-color:rgba(168,216,90,.18)}
+.vorg-tab{background:rgba(168,216,90,.04)}
+.vorg-tabs{border-color:rgba(168,216,90,.18)}
+.vorg-panel-desc{color:rgba(255,255,255,.72)}
+.vorg-feature-text span{color:rgba(255,255,255,.6)}
+.vorg-panel-badge{color:var(--gl)}
+.sec-dark .h2-sub{color:rgba(255,255,255,.6)}
+
+/* 2) OptiPlan-Rechner: warm-cremig, runder, freundliche Pills */
+.op-chart-panel{background:linear-gradient(160deg,#fbfdf7 0%,#f4faea 100%);padding:2.4rem 2.2rem 1.7rem;box-shadow:0 8px 30px rgba(60,80,30,.06)}
+.op-chart-kpi-trend{background:rgba(141,198,63,.18);border-color:rgba(141,198,63,.25)}
+.op-szen-val{border-radius:100px}
+.op-szen-val.green{background:rgba(141,198,63,.18);border-color:rgba(141,198,63,.25)}
+.op-kpi{border-radius:12px}
+
+/* 3) Ganze Seite: einheitlich runder + weiche, diffuse Schatten + sanfte Hover */
+.q-card,.adv-grid .vort-card,.tm,.team-lead,.tc-card{border-radius:16px;box-shadow:0 8px 30px rgba(60,80,30,.06);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.q-card:hover,.adv-grid .vort-card:hover,.tm:hover,.team-lead:hover,.tc-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(60,80,30,.10)}
+.btn-g{border-radius:10px}
+
 </style>
 
 <!-- ════════════ HTML ════════════ -->
@@ -1070,6 +1098,12 @@ a{text-decoration:none;color:inherit}
     var hasNeg=minV<0;
     var zeroY=hasNeg?PT+cH*(maxV/(maxV+Math.abs(minV))):PT+cH;
     svg.innerHTML='';
+    var defs=document.createElementNS('http://www.w3.org/2000/svg','defs');
+    var lg=document.createElementNS('http://www.w3.org/2000/svg','linearGradient');
+    lg.setAttribute('id','opBarGrad');lg.setAttribute('x1','0');lg.setAttribute('y1','0');lg.setAttribute('x2','0');lg.setAttribute('y2','1');
+    var gs1=document.createElementNS('http://www.w3.org/2000/svg','stop');gs1.setAttribute('offset','0');gs1.setAttribute('stop-color','#A8D85A');
+    var gs2=document.createElementNS('http://www.w3.org/2000/svg','stop');gs2.setAttribute('offset','1');gs2.setAttribute('stop-color','#8DC63F');
+    lg.appendChild(gs1);lg.appendChild(gs2);defs.appendChild(lg);svg.appendChild(defs);
 
     // Grid + zero line
     for(var g=0;g<=4;g++){
@@ -1102,7 +1136,7 @@ a{text-decoration:none;color:inherit}
       var r1=document.createElementNS('http://www.w3.org/2000/svg','rect');
       r1.setAttribute('x',bx);r1.setAttribute('y',animate?zeroY:by);
       r1.setAttribute('width',bW1);r1.setAttribute('height',animate?0.5:bh);
-      r1.setAttribute('rx',2);r1.setAttribute('fill',isNeg?d.negColor:d.color);
+      r1.setAttribute('rx',3);r1.setAttribute('fill',isNeg?d.negColor:(/8dc63f|141,198,63/i.test(d.color)?'url(#opBarGrad)':d.color));
       r1.setAttribute('class','op-bar');
       (function(yr,val,isPct2){
         r1.addEventListener('mouseenter',function(){
@@ -1122,7 +1156,7 @@ a{text-decoration:none;color:inherit}
         var r2=document.createElementNS('http://www.w3.org/2000/svg','rect');
         r2.setAttribute('x',bx+bW1+bGap);r2.setAttribute('y',animate?zeroY:by2);
         r2.setAttribute('width',bW2);r2.setAttribute('height',animate?0.5:bh2);
-        r2.setAttribute('rx',2);r2.setAttribute('fill',isNeg2?d.negColor2:d.color2);
+        r2.setAttribute('rx',3);r2.setAttribute('fill',isNeg2?d.negColor2:d.color2);
         r2.setAttribute('class','op-bar');
         (function(yr,val,isPct2){
           r2.addEventListener('mouseenter',function(){
