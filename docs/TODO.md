@@ -10,11 +10,13 @@
 - **PR #10 ist OFFEN** (Branch `claude/unterseiten-hell`): **optiplan.html** als
   **Vorlage** fürs helle Unterseiten-Design ist fertig und gepusht — wartet auf
   Justins Freigabe (Draft-PR, Vercel-Preview).
-- **2 offene Fragen aus PR #10** (vor dem Ausrollen klären):
-  1. Hero + CTA der Unterseiten bleiben als dunkle „Klammer" (wie auf der
-     Startseite: dunkler Hero oben, dunkler CTA unten) — so gewollt?
-  2. Soll das OptiPlan-Prozess-**Popup** (Modal beim Klick auf eine Karte) auch
-     gewärmt werden? (aktuell noch dunkel gelassen)
+- **Justins Design-Entscheidung steht fest (beide Fragen beantwortet):**
+  1. ✅ **Durchgehend hell, KEINE dunkle Hero-Klammer** — auch der Hero der
+     Unterseiten wird hell. Nur der **CTA-Block** unten bleibt dunkel
+     (`#16241a → #1f3324`) als einziger gewollter Akzent. Gilt für alle Unterseiten.
+  2. ✅ **Prozess-Popup wird mitgewärmt** (hell/cremig, dunkler Text, weiche Formen).
+  → In PR #10 (optiplan) bereits umgesetzt: Hero hell + Popup gewärmt. Wartet auf
+     finale Preview-Freigabe von Justin.
 - **Danach:** Muster auf die restlichen 9 anwenden — die 3 Bestandsseiten
   (Kapitalanlage, Betriebliche Versorgung, Kontakt) gleich behandeln; die 6
   Themenseiten sind designseitig schon hell → nur Konsistenz-/Lesbarkeits-Check.
