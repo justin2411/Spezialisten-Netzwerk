@@ -1,0 +1,132 @@
+---
+layout: base.njk
+title: "Ruhestandsplanung | Spezialisten Netzwerk"
+description: "[Inhalt folgt – echte Meta-Beschreibung von der Original-Seite einfügen]"
+permalink: "/ruhestandsplanung.html"
+---
+<style>
+/* ════ THEMEN-UNTERSEITE – warmes Design (Vorlage) ════ */
+.th-sec{padding:clamp(3.5rem,6vw,5.5rem) 2.5rem}
+.th-w{max-width:1080px;margin:0 auto}
+.th-sec-off{background:var(--offwhite)}
+/* Reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.rv.v{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+/* Labels + H2 */
+.th-label{display:inline-flex;align-items:center;gap:.45rem;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gl);background:rgba(141,198,63,.12);border:1px solid rgba(141,198,63,.3);padding:.3rem .9rem;border-radius:100px;margin-bottom:1.3rem}
+.th-label-d{display:inline-flex;align-items:center;gap:.45rem;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gd);background:var(--gbg);border:1px solid rgba(141,198,63,.2);padding:.3rem .9rem;border-radius:100px;margin-bottom:1rem}
+.th-label::before,.th-label-d::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g)}
+.th-h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:900;line-height:1.15;letter-spacing:-.02em;color:var(--dark);margin-bottom:1rem}
+.th-h2 .g{color:var(--g)}
+.th-lead{font-size:1rem;color:var(--mid);line-height:1.85;max-width:640px}
+/* ── HERO (weiches Dunkelgrün) ── */
+.th-hero{background:linear-gradient(160deg,#16241a 0%,#1a2a1c 100%);padding:clamp(4rem,7vw,6.5rem) 2.5rem;position:relative;overflow:hidden}
+.th-hero::after{content:'';position:absolute;top:-120px;right:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(141,198,63,.10),transparent 65%);pointer-events:none}
+.th-hero-in{max-width:1080px;margin:0 auto;position:relative;z-index:1}
+.th-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.12;letter-spacing:-.03em;color:#fff;margin-bottom:1.1rem;max-width:680px}
+.th-hero-sub{font-size:1.05rem;color:rgba(255,255,255,.72);line-height:1.8;max-width:560px;margin-bottom:2rem}
+/* ── Buttons ── */
+.btn-g{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.9rem;background:var(--g);color:#fff;font-size:.82rem;font-weight:700;border-radius:10px;transition:transform .3s ease,background .3s ease,box-shadow .3s ease;box-shadow:0 8px 28px rgba(141,198,63,.3);letter-spacing:.02em}
+.btn-g:hover{background:var(--gl);transform:translateY(-3px);box-shadow:0 14px 38px rgba(141,198,63,.4)}
+/* ── Karten-Grid ── */
+.th-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.5rem}
+.th-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.8rem;box-shadow:0 8px 30px rgba(60,80,30,.06);transition:transform .3s ease,box-shadow .3s ease}
+.th-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(60,80,30,.10)}
+.th-card-ico{width:46px;height:46px;border-radius:12px;background:var(--gbg);border:1px solid rgba(141,198,63,.2);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
+.th-card-ico svg{width:20px;height:20px;stroke:var(--g);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.th-card h4{font-size:.98rem;font-weight:800;color:var(--dark);margin-bottom:.5rem;line-height:1.3}
+.th-card p{font-size:.82rem;color:var(--mid);line-height:1.8}
+/* ── Spezialist (Ansprechpartner) ── */
+.th-spec{display:flex;gap:0;max-width:660px;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(60,80,30,.06);margin-top:2.5rem}
+.th-spec-photo{width:200px;flex-shrink:0;overflow:hidden}
+.th-spec-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;filter:grayscale(8%) brightness(.97)}
+.th-spec-info{padding:1.8rem 2rem;display:flex;flex-direction:column;justify-content:center}
+.th-spec-badge{align-self:flex-start;display:inline-flex;align-items:center;gap:.35rem;font-size:.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gd);background:var(--gbg);border:1px solid rgba(141,198,63,.3);padding:.24rem .7rem;border-radius:100px;margin-bottom:.7rem}
+.th-spec-name{font-size:1.25rem;font-weight:800;color:var(--dark);line-height:1.15}
+.th-spec-role{font-size:.78rem;font-weight:600;color:var(--gd);margin:.3rem 0 .6rem}
+.th-spec-info p{font-size:.82rem;color:var(--mid);line-height:1.7;margin:0}
+/* ── CTA (weiches Dunkelgrün) ── */
+.th-cta{background:linear-gradient(160deg,#16241a 0%,#1a2a1c 100%);padding:clamp(3.5rem,6vw,5.5rem) 2.5rem;text-align:center}
+.th-cta-in{max-width:600px;margin:0 auto}
+.th-cta h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:.8rem}
+.th-cta p{font-size:.95rem;color:rgba(255,255,255,.72);line-height:1.8;margin-bottom:1.8rem}
+/* ── Platzhalter-Kennzeichnung (NICHT echt – muss befüllt werden) ── */
+.ph{display:inline-block;color:var(--light);background:var(--offwhite);border:1px dashed var(--border);border-radius:8px;padding:.25rem .7rem;font-style:italic;font-size:.92em;line-height:1.6}
+.th-hero .ph{color:rgba(255,255,255,.72);background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.25)}
+.th-card .ph,.th-spec-info .ph{font-size:.85em}
+.th-draft{max-width:1080px;margin:1.5rem auto -1rem;padding:.8rem 1.1rem;border:1px dashed rgba(141,198,63,.5);background:var(--gbg);border-radius:10px;font-size:.74rem;color:var(--gd);line-height:1.6}
+.th-draft strong{font-weight:800}
+@media(max-width:860px){.th-grid{grid-template-columns:1fr}.th-spec{flex-direction:column;max-width:380px}.th-spec-photo{width:100%;height:260px}}
+</style>
+
+<!-- HINWEIS: GERÜST-SEITE. Alle mit [Inhalt folgt] markierten Stellen sind Platzhalter und muessen mit den echten Texten von spezialisten-netzwerk.com/finanz-und-ruhestandsplanung/ befuellt werden. -->
+<div class="th-draft"><strong>Gerüst-Seite (Vorlage):</strong> Alle mit <em>[Inhalt folgt]</em> markierten Stellen sind Platzhalter und müssen mit den echten Texten der Original-Seite befüllt werden. Echt sind hier nur: Thema, Ansprechpartner (Jonathan Lohne) und der Kontakt-Button.</div>
+
+<!-- HERO -->
+<section class="th-hero">
+  <div class="th-hero-in">
+    <div class="th-label">Spezialgebiet</div>
+    <h1>Ruhestandsplanung</h1>
+    <p class="th-hero-sub"><span class="ph">[Inhalt folgt – Hero-Claim/Einleitungssatz von der Original-Seite einfügen]</span></p>
+    <a href="/kontakt" class="btn-g">Kontakt aufnehmen ›</a>
+  </div>
+</section>
+
+<!-- ÜBERBLICK -->
+<section class="th-sec">
+  <div class="th-w">
+    <div class="th-label-d rv">Überblick</div>
+    <h2 class="th-h2 rv">Worum es geht</h2>
+    <p class="th-lead rv"><span class="ph">[Inhalt folgt – Einleitungstext der Original-Seite einfügen]</span></p>
+    <p class="th-lead rv" style="margin-top:1rem"><span class="ph">[Inhalt folgt – weiterer Absatz]</span></p>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section class="th-sec th-sec-off">
+  <div class="th-w">
+    <div class="th-label-d rv">Leistungen</div>
+    <h2 class="th-h2 rv">Was wir für Sie tun</h2>
+    <div class="th-grid">
+      <div class="th-card rv d1"><div class="th-card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4><span class="ph">[Titel folgt]</span></h4><p><span class="ph">[Inhalt folgt – Leistungstext aus dem Original]</span></p></div>
+      <div class="th-card rv d2"><div class="th-card-ico"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 10v10h14V10"/></svg></div><h4><span class="ph">[Titel folgt]</span></h4><p><span class="ph">[Inhalt folgt – Leistungstext aus dem Original]</span></p></div>
+      <div class="th-card rv d3"><div class="th-card-ico"><svg viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div><h4><span class="ph">[Titel folgt]</span></h4><p><span class="ph">[Inhalt folgt – Leistungstext aus dem Original]</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ANSPRECHPARTNER (echt) -->
+<section class="th-sec">
+  <div class="th-w">
+    <div class="th-label-d rv">Ihr Ansprechpartner</div>
+    <h2 class="th-h2 rv">Persönlich <span class="g">begleitet</span></h2>
+    <div class="th-spec rv">
+      <div class="th-spec-photo"><img loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2026/03/Design-ohne-Titel-7.png" alt="Jonathan Lohne"></div>
+      <div class="th-spec-info">
+        <span class="th-spec-badge">Netzwerk-Manager</span>
+        <div class="th-spec-name">Jonathan Lohne</div>
+        <div class="th-spec-role">Netzwerk Manager</div>
+        <p><span class="ph">[Kurzprofil/Beschreibung folgt – optional aus dem Original]</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA (echt) -->
+<section class="th-cta">
+  <div class="th-cta-in">
+    <h2>Sprechen wir über Ihre Ruhestandsplanung</h2>
+    <p>Unabhängig, koordiniert und aus einer Hand — wir begleiten Sie persönlich.</p>
+    <a href="/kontakt" class="btn-g">Kontakt aufnehmen ›</a>
+  </div>
+</section>
+
+<script>
+(function () {
+  var obs = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); } });
+  }, { threshold: .12, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.rv').forEach(function (el) { obs.observe(el); });
+})();
+</script>
