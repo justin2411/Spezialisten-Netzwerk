@@ -1,32 +1,40 @@
 # TODO.md — Offene Punkte & Roadmap
 
-> Stand: Juni 2026.
+> Stand: 15.06.2026.
 
 ---
 
-## ⚠️ Aktueller Repo-Stand (Claude Code, 15.06.2026) — Vorrang vor dem Snapshot
+## ⚠️ Aktueller Repo-Stand — Vorrang vor dem Snapshot
 
-- **✅ optiplan ist als helle Referenz fertig und nach `main` gemergt** (PR #10).
-  Damit steht das **Muster** fürs helle Unterseiten-Design: Hero hell (warmer
-  Verlauf #f4faea→#fbfdf7, dunkles Hintergrundbild aus), alle bisher dunklen
-  Sektionen hell + Text auf --dark/--mid, weiche Formen (Karten 24px, runde
-  Icon-Kreise, Pillen-Buttons mit Grün-Verlauf, weiche Schatten
-  0 10px 34px rgba(60,80,30,.07)), Rechner-Karten cremig, Prozess-Popup gewärmt.
-  **Nur der CTA-Block bleibt dunkel** (#16241a → #1f3324).
+- **✅ optiplan ist als helle Referenz fertig und auf `main`** (PR #10 gemergt).
+  Damit steht das **Muster** fürs helle Unterseiten-Design:
+  - Hero hell (warmer Verlauf `#f4faea`→`#fbfdf7`, dunkles Hintergrundbild aus,
+    Text auf `--dark`/`--mid`, grünes Wort bleibt grün, grünes Label-Pill,
+    Buttons als Grün-Pillen).
+  - Weiße „Drei Vitalwerte"-Karte rechts hebt sich per weichem Schatten
+    (`0 10px 34px rgba(60,80,30,.07)`) vom hellen Grund ab.
+  - Alle bisher dunklen Sektionen hell, weiche Formen (Karten 24px, runde
+    Icon-Kreise, Pillen-Buttons, weiche Schatten), Rechner-Karten cremig,
+    Prozess-Popup gewärmt.
+  - **Nur der CTA-Block bleibt dunkel** (`#16241a`→`#1f3324`) — einziger Akzent.
 - **Justins Design-Entscheidung steht fest:** durchgehend hell, KEINE dunkle
-  Hero-Klammer, Popup mitgewärmt. (Beide früheren Fragen sind damit beantwortet.)
-- **Als Nächstes:** dasselbe Muster auf die **9 übrigen** Unterseiten anwenden —
-  die 3 Bestandsseiten (Kapitalanlage Immobilie, Betriebliche Versorgung, Kontakt)
-  voll behandeln; die 6 Themenseiten sind über die `.th-*`-Komponenten schon hell
-  → nur Konsistenz-/Lesbarkeits-Check + ggf. Hero-Verläufe an optiplan angleichen.
-- Sonst ist `main` sauber; **keine offenen PRs**; alle 11 Seiten bauen fehlerfrei.
+  Hero-Klammer, Popup mitgewärmt. (Beide früheren Fragen sind beantwortet.)
+- `main` ist sauber, **keine offenen PRs**, alle 11 Seiten bauen fehlerfrei.
+
+### → Nächster Schritt: die 9 übrigen Unterseiten ans optiplan-Muster angleichen
+- **3 Bestandsseiten voll behandeln:** Kapitalanlage Immobilie,
+  Betriebliche Versorgung, Kontakt.
+- **6 Themenseiten:** über die `.th-*`-Komponenten schon weitgehend hell →
+  nur Konsistenz-/Lesbarkeits-Check + ggf. Hero-Verläufe an optiplan angleichen.
+- Vorgehen wie gehabt: **erst EINE Seite als Vorlage** (Vorschlag: Kapitalanlage
+  Immobilie, weil eigener Rechner wie optiplan), Preview, Justins Freigabe,
+  dann der Rest. Eigener Branch → Draft-PR → Preview → Merge.
 
 ---
 
 ## Gerade in Arbeit
-- [ ] Design der 10 Unterseiten ans helle Startseiten-Design angleichen
-      (durchgehend hell, weiche Formen, CTA darf dunkler Akzent bleiben).
-      Vorgehen: optiplan.html zuerst als Vorlage (= PR #10), dann die anderen 9.
+- [ ] Die 9 übrigen Unterseiten ans helle optiplan-Muster angleichen
+      (durchgehend hell, weiche Formen, nur CTA dunkel). optiplan (PR #10) = Vorlage.
 
 ## Kurzfristig
 - [ ] Nach dem Unterseiten-Design: Gesamt-Durchsicht aller 11 Seiten auf
@@ -63,3 +71,5 @@
       10 Personen aus dem Orbit
 - [x] 6 neue Themenseiten mit echten Inhalten gebaut
 - [x] Alle Branches sauber nach main gemergt — main = vollständiger Stand
+- [x] **optiplan als helle Referenz fertig + gemergt (PR #10)** — Muster fürs
+      Unterseiten-Design steht

@@ -2,7 +2,7 @@
 ## Spezialisten-Netzwerk Website — alles, was ein neuer Claude wissen muss
 
 > **Lies das zuerst, bevor du irgendetwas tust.** Diese Datei bringt dich
-> (einen frischen Claude Chat) in 2 Minuten auf den Stand. Stand: Juni 2026.
+> (einen frischen Claude Chat) in 2 Minuten auf den Stand. Stand: 15.06.2026.
 
 ---
 
@@ -24,9 +24,10 @@ verkauft werden — Kern-Idee: **mit dem Kunden live über die Seite gehen und
 - **Claude Code** = baut im echten Repo, committet, pusht, mergt.
 
 **Wichtig:** Du und Claude Code teilt KEINEN Speicher. Du hast nur einen
-Snapshot der Dateien von Juni 2026 — der echte aktuelle Stand liegt im Repo.
+Snapshot der Dateien — der echte aktuelle Stand liegt im Repo.
 Wenn du unsicher bist, was aktuell ist: Justin oder Claude Code fragen, nicht
-auf den Snapshot verlassen.
+auf den Snapshot verlassen. (Die TODO.md im Repo hat oben den jeweils
+aktuellen Repo-Stand — der hat Vorrang.)
 
 ---
 
@@ -63,10 +64,9 @@ lassen (führt zu harten Konflikten — wurde teuer gelernt).
 
 ---
 
-## Aktueller Stand (Juni 2026)
+## Aktueller Stand (15.06.2026)
 
-✅ **main = vollständiger, sauberer Stand.** 11 Seiten, alle gebaut, helles
-Design, keine offenen PRs (zum Übergabe-Zeitpunkt).
+✅ **main = sauber, keine offenen PRs, alle 11 Seiten bauen.**
 
 **Die 11 Seiten:** Startseite + OptiPlan + Kapitalanlage Immobilie + Betriebliche
 Versorgung + Kontakt + 6 Themenseiten (Ruhestandsplanung, Investment & AIF,
@@ -76,8 +76,13 @@ Kranken & Pflege, Finanzanalysen, Finanzierung, Heilwesenberufe).
 #fbfdf7 ↔ zartes Grün #f4faea), weiche Formen (runde Karten ~24px, Pillen-Buttons,
 weiche Schatten), nur der CTA-Block ist dunkel (#16241a) als einziger Akzent.
 
-**Gerade in Arbeit (evtl. schon fertig, wenn du das liest):** Die 10 Unterseiten
-ans helle Startseiten-Design angleichen.
+**✅ optiplan ist die fertige helle Referenz** (PR #10 gemergt): Hero auf hell
+gezogen, alle bisher dunklen Sektionen hell, Prozess-Popup gewärmt, nur CTA
+dunkel. **Damit steht das Muster fürs Unterseiten-Design.** Justins Entscheidung
+steht fest: durchgehend hell, KEINE dunkle Hero-Klammer, Popup gewärmt.
+
+**→ Was als Nächstes dran ist:** die **9 übrigen Unterseiten** ans optiplan-
+Muster angleichen (siehe unten + TODO.md).
 
 ---
 
@@ -102,7 +107,13 @@ ans helle Startseiten-Design angleichen.
 
 ## Was als Nächstes ansteht (siehe TODO.md im Repo)
 
-1. Unterseiten-Design fertig angleichen (falls noch nicht erledigt).
+1. **Die 9 übrigen Unterseiten ans optiplan-Muster angleichen** (durchgehend hell):
+   - 3 Bestandsseiten voll behandeln: Kapitalanlage Immobilie, Betriebliche
+     Versorgung, Kontakt.
+   - 6 Themenseiten: nur Konsistenz-/Lesbarkeits-Check + ggf. Hero-Verläufe
+     an optiplan angleichen.
+   - Vorgehen: erst EINE als Vorlage (Vorschlag: Kapitalanlage Immobilie,
+     eigener Rechner wie optiplan), Preview, Freigabe, dann der Rest.
 2. Supabase ans Kontaktformular (Leads erfassen) — erster echter Feature-Schritt.
 3. Bilder ins Repo holen (aktuell von der WordPress-Seite geladen).
 4. Rechtstexte (Impressum/Datenschutz) DSGVO-konform nachbauen.
@@ -121,6 +132,7 @@ oder Copy-Paste**, du bereitest sie strukturiert auf. Finanzinhalte NIE erfinden
 ## Kurzfassung für den Einstieg
 
 > "Hi Justin! Ich habe die Übergabe gelesen. Stand: Eleventy-Site mit 11 Seiten
-> auf main, helles warmes Design, Jonathan Lohne als Netzwerk-Manager. Workflow:
-> ich entwerfe + zeige Vorschau, du gibst frei, ich formuliere den Auftrag für
-> Claude Code als Copy-Block. Woran arbeiten wir heute?"
+> auf main, helles warmes Design, Jonathan Lohne als Netzwerk-Manager. optiplan
+> ist die fertige helle Referenz (PR #10) — als Nächstes die 9 übrigen Unterseiten
+> nach demselben Muster. Workflow: ich entwerfe + zeige Vorschau, du gibst frei,
+> ich formuliere den Auftrag für Claude Code als Copy-Block. Womit starten wir?"

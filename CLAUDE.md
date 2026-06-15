@@ -3,7 +3,7 @@
 > Diese Datei wird von Claude Code automatisch gelesen. Sie erklärt **wer** am
 > Projekt arbeitet, **was** das Ziel ist und **wie** der Workflow läuft.
 > Bei jeder Sitzung: erst diese Datei lesen, dann handeln.
-> **Stand: Juni 2026 — aktualisiert nach Eleventy-Umbau + Design-Überarbeitung.**
+> **Stand: 15.06.2026 — aktualisiert nach optiplan-Referenz (PR #10 gemergt).**
 
 ---
 
@@ -16,7 +16,7 @@
 | **Claude Code** | Claude im Terminal/Repo (= du) | Führt Änderungen im echten Repo aus, committet, pusht, mergt |
 
 **Wichtig:** Claude Chat und Claude Code teilen KEINEN gemeinsamen Speicher.
-Claude Chat hat nur einen Snapshot der Dateien von Juni 2026 — der echte,
+Claude Chat hat nur einen Snapshot der Dateien — der echte,
 aktuelle Stand liegt im Repo, das nur Claude Code sieht. Diese Doku-Dateien
 sind die Brücke. Bei Unsicherheit über den aktuellen Stand: im Repo nachsehen,
 nicht auf den alten Snapshot verlassen.
@@ -86,7 +86,7 @@ heilwesenberufe.*
 package.json      → build-Script
 vercel.json       → Vercel-Build-Config
 CLAUDE.md         → diese Datei (Repo-Root)
-/docs/            → WORKFLOW.md, ARCHITEKTUR.md, TODO.md
+/docs/            → WORKFLOW.md, ARCHITEKTUR.md, TODO.md, UEBERGABE-NAECHSTER-CHAT.md
 ```
 
 **Geteilte Komponenten ändern = 1 Datei statt 11.** Nav-Änderung → nur `nav.njk`.
@@ -96,7 +96,8 @@ Globale Styles/Farben → `head.njk`. Niemals Nav/Footer pro Seite duplizieren.
 
 ## 5. Wie du (Claude Code) arbeiten sollst
 
-1. **Lies vor jeder Aufgabe** CLAUDE.md + /docs/ARCHITEKTUR.md.
+1. **Lies vor jeder Aufgabe** CLAUDE.md + /docs/ARCHITEKTUR.md + /docs/TODO.md
+   (TODO oben hat den aktuellen Repo-Stand — Vorrang vor dem Snapshot).
 2. **Halte die CI strikt ein** (Farben, Fonts, Design-Tokens — siehe ARCHITEKTUR.md).
 3. **Arbeite auf eigenem Branch** → Draft-PR → Vercel-Preview. Nicht direkt auf
    `main` pushen (außer bei bewusstem Live-Modus mit Kunde).
@@ -112,20 +113,25 @@ Globale Styles/Farben → `head.njk`. Niemals Nav/Footer pro Seite duplizieren.
 
 ---
 
-## 6. Aktueller Stand (Juni 2026)
+## 6. Aktueller Stand (15.06.2026)
 
-✅ **main ist der vollständige, saubere Stand** — alle 11 Seiten, Eleventy,
-   helles/warmes Design, Mega-Menü, keine offenen PRs (zum Zeitpunkt der Übergabe).
+✅ **main ist sauber, keine offenen PRs, alle 11 Seiten bauen fehlerfrei.**
 
-- 11 Seiten bauen fehlerfrei: Startseite + OptiPlan + Kapitalanlage Immobilie +
-  Betriebliche Versorgung + Kontakt + 6 Themenseiten.
-- Nav vollständig verlinkt, keine "BALD"-Badges mehr, Themen-Mega-Menü.
-- Helles Design "aus einem Guss": warme Verläufe, weiche Formen (runde Karten,
-  Pillen-Buttons, weiche Schatten), nur CTA-Block dunkel als Akzent.
+- **optiplan ist die fertige helle Referenz** (PR #10 gemergt): Hero hell,
+  alle bisher dunklen Sektionen hell, Prozess-Popup gewärmt, nur der CTA-Block
+  dunkel (`#16241a`). Damit steht das **Muster** fürs Unterseiten-Design.
+- **Justins Design-Entscheidung steht fest:** durchgehend hell, KEINE dunkle
+  Hero-Klammer, Popup gewärmt.
+- Startseite: helles/warmes Design "aus einem Guss", Mega-Menü, Orbit-Netzwerk.
 - Spezialisten-Sektion: Jonathan Lohne als Netzwerk-Manager (Kopf), Ender Gülsen
   entfernt. 10 Personen aus dem Orbit (inkl. Duo-Punkte Finanzierung + bAV).
 
-⏳ Offen — siehe TODO.md:
+⏳ **Nächster Schritt — siehe TODO.md:**
+- Die **9 übrigen Unterseiten** ans optiplan-Muster angleichen: 3 Bestandsseiten
+  (Kapitalanlage Immobilie, Betriebliche Versorgung, Kontakt) voll behandeln;
+  6 Themenseiten nur Konsistenz-/Lesbarkeits-Check.
+
+⏳ Weiter offen (später):
 - Kontaktformular hat noch KEIN Backend (Supabase folgt).
 - Bilder werden noch von spezialisten-netzwerk.com geladen.
 - Domain-Umzug von WordPress auf Vercel (bewusster Schnitt, später).
