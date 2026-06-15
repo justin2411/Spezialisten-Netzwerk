@@ -235,6 +235,36 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}
 @media(max-width:960px){.sg,.dims-wrap,.szen-duo{grid-template-columns:1fr 1fr}.cbody.active{grid-template-columns:1fr}}
 @media(max-width:768px){.hi,.sg,.dims-wrap,.szen-duo{grid-template-columns:1fr;gap:2rem}.nm{display:none}.ctabs{width:100%}.cmetrics,.cmet,.sb-grid{grid-template-columns:1fr 1fr}.szen-banner{flex-direction:column;gap:1.5rem}.sb-div{width:100%;height:1px}.ftt{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.sg,.ftt{grid-template-columns:1fr}.hi{padding:2.5rem 1.2rem}}
+/* ════════ AUS EINEM GUSS: durchgehend hell, weiche Formen (konsistent mit Startseite) ════════ */
+.hero{background:linear-gradient(160deg,#16241a 0%,#1a2a1c 55%,#16241a 100%)}
+.qs{background:linear-gradient(160deg,#16241a 0%,#1f3324 100%)}
+.ft{background:#16241a}
+.ds{background:linear-gradient(180deg,#fbfdf7,#f4faea)}
+.calc-sec{background:linear-gradient(180deg,#f4faea,#fbfdf7)}
+.szen-sec{background:linear-gradient(180deg,#fbfdf7,#fff)}
+/* Prozess-Sektion (.ds): dunkel -> hell, Karten/Text/Icons recolorieren */
+.ds::before{background:radial-gradient(circle,rgba(141,198,63,.05),transparent 60%)}
+.sc{background:#fff;border-color:rgba(141,198,63,.18)}
+.sc:hover{background:#fff;border-color:rgba(141,198,63,.3);transform:translateY(-3px);box-shadow:0 18px 44px rgba(60,80,30,.11)}
+.sc h4{color:var(--dark)}
+.sc:hover h4{color:var(--gd)}
+.sc p{color:var(--mid)}
+.si svg{stroke:var(--g)}
+.sn{color:rgba(141,198,63,.13)}
+@keyframes numTextGlow{0%,85%,100%{color:rgba(141,198,63,.13);text-shadow:none}92%{color:rgba(141,198,63,.22);text-shadow:0 0 16px rgba(141,198,63,.25)}}
+/* Weiche Formen: runde Karten, runde Icons, weiche diffuse Schatten */
+.sc,.dim-card,.cpanel,.chart-panel,.szen-banner,.sz-card{border-radius:24px;box-shadow:0 10px 34px rgba(60,80,30,.07)}
+.dim-card{border-color:rgba(141,198,63,.18)}
+.dim-card:hover,.sz-card:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(60,80,30,.11)}
+.si,.dim-ico{border-radius:50%;background:rgba(141,198,63,.12);border-color:rgba(141,198,63,.22)}
+/* Rechner-Karten cremig + runde Pillen */
+.cpanel,.chart-panel{background:linear-gradient(160deg,#fbfdf7,#f4faea)}
+.cf-val{border-radius:100px}.cresult{border-radius:16px}.cmet{border-radius:16px}.ctabs{border-radius:100px}
+/* Buttons: Pille mit Grün-Verlauf */
+.btn-g{border-radius:100px;background:linear-gradient(145deg,#A8D85A,#8DC63F);box-shadow:0 8px 26px rgba(141,198,63,.32)}
+.btn-g:hover{background:linear-gradient(145deg,#A8D85A,#8DC63F);transform:translateY(-3px);box-shadow:0 14px 38px rgba(141,198,63,.42)}
+@media(max-width:560px){.sc,.dim-card,.cpanel,.chart-panel,.szen-banner,.sz-card{border-radius:18px}}
+
 </style>
 
 <!-- HERO -->
@@ -276,7 +306,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}
     </div>
   </div>
 </section>
-<section class="sec" style="background:var(--offwhite);padding:clamp(4rem,7vw,6.5rem) 2.5rem">
+<section class="sec" style="background:linear-gradient(180deg,#fff,#fbfdf7);padding:clamp(4rem,7vw,6.5rem) 2.5rem">
   <div class="w">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start">
 
@@ -373,9 +403,9 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}
 <!-- WIE OPTIPLAN FUNKTIONIERT -->
 <section class="ds" id="wie">
   <div class="w tc" style="position:relative;z-index:1">
-    <div class="sl dl rv" style="display:inline-flex">Unser Ansatz</div>
-    <h2 class="h2 rv" style="color:#fff">Wie OptiPlan <span class="gl">funktioniert</span></h2>
-    <p class="h2s rv" style="color:rgba(255,255,255,.42)">Nicht erst analysieren, dann planen, dann hoffen. OptiPlan begleitet Sie vom ersten Gespräch bis zur dauerhaften Überwachung.</p>
+    <div class="sl rv" style="display:inline-flex">Unser Ansatz</div>
+    <h2 class="h2 rv" style="color:var(--dark)">Wie OptiPlan <span class="g">funktioniert</span></h2>
+    <p class="h2s rv" style="color:var(--light)">Nicht erst analysieren, dann planen, dann hoffen. OptiPlan begleitet Sie vom ersten Gespräch bis zur dauerhaften Überwachung.</p>
     <div class="sg">
       <div class="sc rv" onclick="openProc(0)" style="cursor:pointer">
         <div class="sn">01</div>
