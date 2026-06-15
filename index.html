@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Das Spezialisten Netzwerk – Vermögensbildung nach Plan</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+---
+layout: base.njk
+title: "Das Spezialisten Netzwerk – Vermögensbildung nach Plan"
+permalink: "/index.html"
+---
 <style>
 :root {
   --g:       #8DC63F;
@@ -37,24 +35,6 @@ a{text-decoration:none;color:inherit}
 .pre-fill{width:0;height:100%;background:linear-gradient(90deg,var(--g),var(--gl));animation:pf 1.8s cubic-bezier(.4,0,.2,1) forwards}
 @keyframes pf{to{width:100%}}
 
-/* ── NAV ── */
-.nav{position:sticky;top:0;z-index:1000;background:var(--g);padding:0 2.5rem;box-shadow:0 2px 20px rgba(141,198,63,.25);transition:background .35s,box-shadow .35s,backdrop-filter .35s}
-.nav.scrolled{background:rgba(110,165,40,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 4px 30px rgba(0,0,0,.18)}
-.nav-inner{max-width:1200px;margin:0 auto;height:70px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
-/* Logo */
-.nav-logo{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
-.nav-logo-svg{width:36px;height:36px;flex-shrink:0}
-.nav-logo-text{line-height:1.2}
-.nav-logo-text .nl1{display:block;font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8)}
-.nav-logo-text .nl2{display:block;font-size:.58rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#fff}
-.nav-logo-img{height:42px;width:auto;display:block;filter:brightness(0) invert(1)}
-/* Nav links */
-.nav-mid{display:flex;gap:.15rem}
-.nav-mid a{padding:.42rem .95rem;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.85);border-radius:5px;transition:all .2s;letter-spacing:.01em}
-.nav-mid a:hover{color:#fff;background:rgba(255,255,255,.16)}
-/* CTA */
-.nav-cta{padding:.58rem 1.5rem;background:#fff;color:var(--gd);font-size:.72rem;font-weight:800;border-radius:5px;letter-spacing:.02em;transition:all .25s;white-space:nowrap;flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,.1)}
-.nav-cta:hover{background:rgba(255,255,255,.92);transform:translateY(-1px);box-shadow:0 5px 22px rgba(0,0,0,.14)}
 
 /* ── HERO ── */
 .hero{position:relative;overflow:hidden;min-height:88vh;display:flex;align-items:center}
@@ -426,38 +406,9 @@ a{text-decoration:none;color:inherit}
 .cta-sec .h2 .g{color:var(--gl)}
 .cta-sec p{color:rgba(255,255,255,.45);font-size:.95rem;margin:.8rem auto 2.5rem;max-width:440px}
 
-/* ── FOOTER ── */
-.ft{background:#111;padding:4rem 2.5rem 0}
-.ft-inner{max-width:1080px;margin:0 auto}
-.ft-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1.4fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
-.ft-logo{margin-bottom:.8rem}
-.ft-logo img{height:38px;width:auto;filter:brightness(0) invert(1);opacity:.85}
-.ft-logo-fallback{display:flex;align-items:center;gap:.5rem}
-.ft-logo-fallback .fl-svg{width:26px;height:26px}
-.ft-logo-fallback .fl-text{font-size:.6rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.8);line-height:1.25}
-.ft-logo-fallback .fl-text span{display:block;color:var(--g)}
-.ft-desc{font-size:.72rem;color:rgba(255,255,255,.28);line-height:1.8;max-width:240px;margin-bottom:1.1rem}
-.ft-cta{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.2rem;background:var(--g);color:#fff!important;font-size:.65rem;font-weight:700;border-radius:5px;transition:all .25s}
-.ft-cta:hover{background:var(--gl);color:#fff!important}
-.ft h5{font-size:.5rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:.9rem;padding-bottom:.4rem;border-bottom:1px solid rgba(255,255,255,.07)}
-.ft a{color:rgba(255,255,255,.35);font-size:.72rem;display:block;margin-bottom:.45rem;transition:color .2s}
-.ft a:hover{color:var(--gl)}
-.ft-bot{padding:1.3rem 0 1.6rem;display:flex;justify-content:space-between;font-size:.58rem;color:rgba(255,255,255,.18)}
-.ft-bot-links{display:flex;gap:1.2rem}
-.ft-bot a{color:rgba(255,255,255,.18);font-size:.58rem;transition:color .2s}
-.ft-bot a:hover{color:var(--g)}
-
-/* ── FLOAT ── */
-.fl-btn{position:fixed;bottom:1.5rem;right:1.5rem;width:52px;height:52px;background:var(--g);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:900;transition:all .3s;box-shadow:0 4px 24px rgba(141,198,63,.45)}
-.fl-btn:hover{background:var(--gl);transform:scale(1.08);box-shadow:0 8px 36px rgba(141,198,63,.6)}
-.fl-btn svg{width:20px;height:20px;color:#fff}
-.fl-ring{position:absolute;inset:-5px;border-radius:50%;border:1.5px solid var(--g);opacity:.3;animation:flr 2.5s ease-out infinite}
-@keyframes flr{0%{transform:scale(1);opacity:.3}100%{transform:scale(1.5);opacity:0}}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .nav{padding:0 1.2rem}
-  .nav-mid{display:none}
   .sec{padding:3.5rem 1.2rem}
   .netz-section{padding:4rem 1.5rem}
   .netz-g{grid-template-columns:1fr;gap:4rem}
@@ -570,32 +521,6 @@ a{text-decoration:none;color:inherit}
 .op-delta-lbl{font-size:.62rem;color:var(--light);line-height:1.4}
 
 </style>
-
-<!-- ════════════ HTML ════════════ -->
-
-<!-- NAV — grüner Hintergrund -->
-<nav class="nav">
-  <div class="nav-inner">
-    <!-- Logo: zeigt echtes Bild, fällt auf SVG+Text zurück -->
-    <a href="/" class="nav-logo">
-      <img class="nav-logo-img"
-           src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/09/preview_files_01_854.png"
-           alt="Das Spezialisten Netzwerk"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="nav-logo-text" style="display:none">
-        <span class="nl1">Das Spezialisten</span>
-        <span class="nl2">NETZWERK</span>
-      </div>
-    </a>
-    <div class="nav-mid">
-      <a href="#netzwerk">Das Netzwerk</a>
-      <a href="#netzwerk-grafik">Spezialisten</a>
-      <a href="#vorgehen">Vorgehen</a>
-      <a href="#faq">FAQ</a>
-    </div>
-    <a href="/kontakt.html" class="nav-cta">Kontakt aufnehmen ›</a>
-  </div>
-</nav>
 
 <!-- HERO -->
 <section class="hero">
@@ -1316,59 +1241,6 @@ a{text-decoration:none;color:inherit}
 </section>
 
 <!-- FOOTER -->
-<footer class="ft">
-  <div class="ft-inner">
-    <div class="ft-top">
-      <div>
-        <div class="ft-logo">
-          <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/09/preview_files_01_854.png"
-               alt="Das Spezialisten Netzwerk"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="ft-logo-fallback" style="display:none">
-            <svg class="fl-svg" viewBox="0 0 26 26" fill="none"><path d="M13 2L23 7.5V18.5L13 24L3 18.5V7.5L13 2Z" fill="#8DC63F" opacity=".15"/><path d="M13 2L23 7.5V18.5L13 24L3 18.5V7.5L13 2Z" stroke="#8DC63F" stroke-width="1.5"/><polyline points="8.5,13 11.5,16 17.5,10" stroke="#8DC63F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div class="fl-text">Das Spezialisten<span>Netzwerk</span></div>
-          </div>
-        </div>
-        <p class="ft-desc">Individuelle Wohlstandsplanung durch 13+ Fachspezialisten. Strategie vor Produkt.</p>
-        <a href="/kontakt.html" class="ft-cta">Jetzt Kontakt aufnehmen ›</a>
-      </div>
-      <div>
-        <h5>Spezialisten-Themen</h5>
-        <a href="/kapitalanlage-immobilie.html">Kapitalanlage Immobilie</a>
-        <a href="/betriebliche-versorgung.html">Betriebliche Versorgung</a>
-        <a href="https://spezialisten-netzwerk.com/finanz-und-ruhestandsplanung/">Ruhestandsplanung</a>
-        <a href="https://spezialisten-netzwerk.com/investment-und-aif/">Investment & AIF</a>
-        <a href="https://spezialisten-netzwerk.com/kranken-und-pflegeversicherung/">Kranken & Pflege</a>
-      </div>
-      <div>
-        <h5>Weitere Themen</h5>
-        <a href="https://spezialisten-netzwerk.com/finanzanalysen/">Finanzanalysen</a>
-        <a href="https://spezialisten-netzwerk.com/gewerbliche-finanzierung/">Finanzierung</a>
-        <a href="https://spezialisten-netzwerk.com/unternehmensberatung-fuer-heilwesenberufe/">Heilwesenberufe</a>
-      </div>
-      <div>
-        <h5>Rechtliches</h5>
-        <a href="https://spezialisten-netzwerk.com/impressum/">Impressum</a>
-        <a href="https://spezialisten-netzwerk.com/datenschutzerklaerung/">Datenschutzerklärung</a>
-        <a href="/kontakt.html">Kontakt aufnehmen</a>
-      </div>
-    </div>
-    <div class="ft-bot">
-      <span>Copyright © 2026 – Spezialisten-Netzwerk – Alle Rechte vorbehalten</span>
-      <div class="ft-bot-links">
-        <a href="https://spezialisten-netzwerk.com/impressum/">Impressum</a>
-        <a href="https://spezialisten-netzwerk.com/datenschutzerklaerung/">Datenschutzerklärung</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- FLOAT -->
-<a href="/kontakt.html" class="fl-btn" title="Kontakt aufnehmen">
-  <div class="fl-ring"></div>
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-</a>
-
 <script>
 (function(){
 
@@ -1646,4 +1518,3 @@ document.querySelectorAll('[data-vorg]').forEach(function(el){
 
 })();
 </script>
-</html>
