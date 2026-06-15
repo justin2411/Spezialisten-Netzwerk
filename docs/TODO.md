@@ -5,22 +5,21 @@
 ---
 
 ## ⚠️ Aktueller Repo-Stand (Claude Code, 15.06.2026) — Vorrang vor dem Snapshot
-> Der Snapshot von Claude Chat sagt „keine offenen PRs". Das stimmt nicht mehr:
 
-- **PR #10 ist OFFEN** (Branch `claude/unterseiten-hell`): **optiplan.html** als
-  **Vorlage** fürs helle Unterseiten-Design ist fertig und gepusht — wartet auf
-  Justins Freigabe (Draft-PR, Vercel-Preview).
-- **Justins Design-Entscheidung steht fest (beide Fragen beantwortet):**
-  1. ✅ **Durchgehend hell, KEINE dunkle Hero-Klammer** — auch der Hero der
-     Unterseiten wird hell. Nur der **CTA-Block** unten bleibt dunkel
-     (`#16241a → #1f3324`) als einziger gewollter Akzent. Gilt für alle Unterseiten.
-  2. ✅ **Prozess-Popup wird mitgewärmt** (hell/cremig, dunkler Text, weiche Formen).
-  → In PR #10 (optiplan) bereits umgesetzt: Hero hell + Popup gewärmt. Wartet auf
-     finale Preview-Freigabe von Justin.
-- **Danach:** Muster auf die restlichen 9 anwenden — die 3 Bestandsseiten
-  (Kapitalanlage, Betriebliche Versorgung, Kontakt) gleich behandeln; die 6
-  Themenseiten sind designseitig schon hell → nur Konsistenz-/Lesbarkeits-Check.
-- Sonst ist `main` sauber; alle 11 Seiten bauen fehlerfrei.
+- **✅ optiplan ist als helle Referenz fertig und nach `main` gemergt** (PR #10).
+  Damit steht das **Muster** fürs helle Unterseiten-Design: Hero hell (warmer
+  Verlauf #f4faea→#fbfdf7, dunkles Hintergrundbild aus), alle bisher dunklen
+  Sektionen hell + Text auf --dark/--mid, weiche Formen (Karten 24px, runde
+  Icon-Kreise, Pillen-Buttons mit Grün-Verlauf, weiche Schatten
+  0 10px 34px rgba(60,80,30,.07)), Rechner-Karten cremig, Prozess-Popup gewärmt.
+  **Nur der CTA-Block bleibt dunkel** (#16241a → #1f3324).
+- **Justins Design-Entscheidung steht fest:** durchgehend hell, KEINE dunkle
+  Hero-Klammer, Popup mitgewärmt. (Beide früheren Fragen sind damit beantwortet.)
+- **Als Nächstes:** dasselbe Muster auf die **9 übrigen** Unterseiten anwenden —
+  die 3 Bestandsseiten (Kapitalanlage Immobilie, Betriebliche Versorgung, Kontakt)
+  voll behandeln; die 6 Themenseiten sind über die `.th-*`-Komponenten schon hell
+  → nur Konsistenz-/Lesbarkeits-Check + ggf. Hero-Verläufe an optiplan angleichen.
+- Sonst ist `main` sauber; **keine offenen PRs**; alle 11 Seiten bauen fehlerfrei.
 
 ---
 
