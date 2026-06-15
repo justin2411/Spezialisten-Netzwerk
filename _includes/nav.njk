@@ -13,6 +13,9 @@
           <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="dd-menu" role="menu">
+          <div class="dd-inner">
+            <span class="dd-label">Spezialgebiete</span>
+            <div class="dd-grid">
           <a class="dd-item" role="menuitem" href="/kapitalanlage-immobilie">
             <span class="dd-ico"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 10v10h14V10"/></svg></span>
             Kapitalanlage Immobilie
@@ -45,6 +48,8 @@
             <span class="dd-ico"><svg viewBox="0 0 24 24"><polyline points="3 12 8 12 11 5 14 19 16 12 21 12"/></svg></span>
             Heilwesenberufe<span class="dd-soon">Bald</span>
           </a>
+            </div>
+          </div>
         </div>
       </div>
       <a href="/#faq">FAQ</a>
@@ -97,6 +102,13 @@
     });
     mm.addEventListener('click', function (e) { if (e.target === mm) closeMenu(); });
     mm.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+  }
+  // Themen-Mega-Menü: Hover-Intent mit kleiner Schließverzögerung (kein Flackern über die Nav-Lücke)
+  var dd = document.querySelector('.nav-dd');
+  if (dd) {
+    var ddTimer;
+    dd.addEventListener('mouseenter', function () { clearTimeout(ddTimer); dd.classList.add('open'); });
+    dd.addEventListener('mouseleave', function () { ddTimer = setTimeout(function () { dd.classList.remove('open'); }, 140); });
   }
 })();
 </script>

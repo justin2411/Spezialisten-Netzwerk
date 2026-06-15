@@ -27,22 +27,25 @@ a{text-decoration:none;color:inherit}
 .nc:hover{background:var(--dark);color:#fff}
 
 /* ──── Themen-Dropdown (Desktop: Hover) ──── */
-.nav-dd{position:relative;display:flex;align-items:center}
+.nav-dd{display:flex;align-items:center}
 .nav-dd .dd-trigger{display:inline-flex;align-items:center;gap:.35rem;cursor:pointer;background:none;border:none;font-family:inherit;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .2s;padding:0}
-.nav-dd .dd-trigger:hover,.nav-dd:hover .dd-trigger{color:#fff}
+.nav-dd .dd-trigger:hover,.nav-dd:hover .dd-trigger,.nav-dd.open .dd-trigger{color:#fff}
 .nav-dd .dd-trigger svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s}
-.nav-dd:hover .dd-trigger svg{transform:rotate(180deg)}
-/* unsichtbare Brücke, damit der Hover beim Übergang nicht abreißt */
-.nav-dd::after{content:'';position:absolute;top:100%;left:-1.5rem;right:-1.5rem;height:1.25rem}
-.nav-dd .dd-menu{position:absolute;top:calc(100% + 1.25rem);left:50%;transform:translateX(-50%) translateY(10px);width:400px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.18);padding:.55rem;display:grid;grid-template-columns:1fr 1fr;gap:2px;opacity:0;visibility:hidden;transition:opacity .25s,transform .25s;z-index:1001}
-.nav-dd:hover .dd-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-.nav-dd .dd-menu .dd-item{display:flex;align-items:center;gap:.65rem;padding:.6rem .65rem;border-radius:10px;color:var(--dark);font-size:.74rem;font-weight:600;line-height:1.2;letter-spacing:normal;text-transform:none;transition:background .2s,color .2s}
+.nav-dd:hover .dd-trigger svg,.nav-dd.open .dd-trigger svg{transform:rotate(180deg)}
+/* Mega-Menü: volle Breite, dockt direkt an die Nav-Unterkante an (positioniert relativ zu .nav) */
+.nav-dd .dd-menu{position:absolute;top:100%;left:0;right:0;background:#fff;box-shadow:0 12px 30px rgba(60,80,30,.10);border-radius:0 0 16px 16px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s ease,transform .25s ease;z-index:1200}
+.nav-dd:hover .dd-menu,.nav-dd.open .dd-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-dd .dd-inner{max-width:1200px;margin:0 auto;padding:2rem 2.5rem;display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center}
+.nav-dd .dd-label{font-size:.56rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gd);line-height:1.5;max-width:90px}
+.nav-dd .dd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}
+.nav-dd .dd-menu .dd-item{display:flex;align-items:center;gap:.6rem;padding:.7rem .8rem;border-radius:12px;color:var(--dark);font-size:.76rem;font-weight:600;line-height:1.25;letter-spacing:normal;text-transform:none;transition:background .25s ease,color .25s ease}
 .nav-dd .dd-menu .dd-item::after{display:none!important}
 .nav-dd .dd-menu .dd-item:hover{background:var(--gbg);color:var(--gd)}
-.nav-dd .dd-menu .dd-ico{width:32px;height:32px;border-radius:8px;background:var(--gbg);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.nav-dd .dd-menu .dd-ico{width:34px;height:34px;border-radius:9px;background:var(--gbg);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .25s ease}
 .nav-dd .dd-menu .dd-ico svg{width:16px;height:16px;stroke:var(--g);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .nav-dd .dd-menu .dd-item:hover .dd-ico{background:#fff}
-.nav-dd .dd-menu .dd-soon{margin-left:auto;font-size:.46rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--light);background:var(--offwhite);border:1px solid var(--border);padding:.12rem .32rem;border-radius:100px}
+.nav-dd .dd-menu .dd-soon{margin-left:auto;font-size:.46rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--light);background:var(--offwhite);border:1px solid var(--border);padding:.12rem .32rem;border-radius:100px;flex-shrink:0}
+@media(max-width:1024px){.nav-dd .dd-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* ──── Hamburger + Mobile-Menü ──── */
 .hb{display:none;width:44px;height:44px;border:none;background:rgba(255,255,255,.15);border-radius:8px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:background .2s;flex-shrink:0}
