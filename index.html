@@ -519,6 +519,71 @@ a{text-decoration:none;color:inherit}
 .op-szen-delta{border-top:1px solid rgba(141,198,63,.2);padding-top:.75rem;display:flex;align-items:baseline;gap:.5rem;flex-wrap:nowrap}
 .op-delta-num{font-size:1.4rem;font-weight:900;color:var(--g);letter-spacing:-.01em;white-space:nowrap;flex-shrink:0}
 .op-delta-lbl{font-size:.62rem;color:var(--light);line-height:1.4}
+/* ── NEUE SEKTIONEN: Situation (Fragen) + Vorteile (Karten) ── */
+.q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.5rem}
+.q-card{display:flex;align-items:flex-start;gap:.9rem;padding:1.5rem 1.6rem;background:#fff;border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;transition:all .35s;box-shadow:0 2px 16px rgba(0,0,0,.04)}
+.q-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--g);border-radius:0 2px 2px 0}
+.q-card:hover{box-shadow:0 8px 35px rgba(0,0,0,.08);transform:translateY(-3px)}
+.q-ico{width:26px;height:26px;border-radius:50%;background:var(--gbg);border:1px solid rgba(141,198,63,.3);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:.15em}
+.q-ico svg{width:13px;height:13px;color:var(--g)}
+.q-card p{font-size:.86rem;color:var(--mid);line-height:1.6;margin:0;font-weight:500}
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;align-items:stretch}
+.adv-grid .vort-card{padding:1.9rem 1.8rem 1.7rem}
+.adv-ico{width:46px;height:46px;border-radius:11px;background:var(--gbg);border:1px solid rgba(141,198,63,.2);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;transition:all .35s}
+.vort-card:hover .adv-ico{background:var(--g);border-color:var(--g)}
+.adv-ico svg{width:20px;height:20px;color:var(--g);transition:color .35s}
+.vort-card:hover .adv-ico svg{color:#fff}
+@media(max-width:900px){.q-grid,.adv-grid{grid-template-columns:1fr 1fr}.team-g{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.q-grid,.adv-grid{grid-template-columns:1fr}.team-g{grid-template-columns:1fr 1fr}}
+
+/* ── DESIGN-POLITUR: einheitliche Karten-Designsprache (Fragen / Vorteile / Spezialisten) ── */
+.q-card,.adv-grid .vort-card,.tm{border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,.05)}
+.q-card:hover,.adv-grid .vort-card:hover,.tm:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.10)}
+
+/* ── SPEZIALISTEN: hervorgehobener Kopf (Ender) + 3×3-Raster ── */
+.team-g{grid-template-columns:repeat(3,1fr)}
+.team-lead{display:flex;max-width:660px;margin:3rem auto 1.8rem;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.05);position:relative;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s}
+.team-lead::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--g);transform:scaleY(0);transform-origin:bottom;transition:transform .4s cubic-bezier(.22,1,.36,1);z-index:3;border-radius:0 2px 2px 0}
+.team-lead:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.10)}
+.team-lead:hover::before{transform:scaleY(1)}
+.tl-photo{width:210px;flex-shrink:0;overflow:hidden;position:relative}
+.tl-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(8%) brightness(.97);transition:transform .65s cubic-bezier(.22,1,.36,1),filter .45s;display:block}
+.team-lead:hover .tl-photo img{transform:scale(1.05);filter:grayscale(0) brightness(1)}
+.tl-info{padding:1.9rem 2rem;display:flex;flex-direction:column;justify-content:center}
+.tl-badge{display:inline-flex;align-self:flex-start;align-items:center;gap:.35rem;font-size:.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gd);background:var(--gbg);border:1px solid rgba(141,198,63,.3);padding:.24rem .7rem;border-radius:100px;margin-bottom:.8rem}
+.tl-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--g)}
+.tl-name{font-size:1.3rem;font-weight:800;color:var(--dark);margin-bottom:.3rem;line-height:1.15}
+.tl-role{font-size:.78rem;color:var(--gd);font-weight:600;margin-bottom:.7rem}
+.tl-desc{font-size:.82rem;color:var(--mid);line-height:1.7;margin:0}
+@media(max-width:860px){.team-g{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.team-lead{flex-direction:column;max-width:340px}.tl-photo{width:100%;height:260px}}
+
+/* ════════ DESIGN-WÄRME: weichere Dunkeltöne, mehr Rundung, sanftere Schatten ════════ */
+/* 1) Dunkle Sektionen: weiches Dunkelgrün statt hartem Schwarz/Anthrazit */
+.vorg-section{background:linear-gradient(160deg,#16241a 0%,#1a2a1c 100%)}
+.sec-dark{background:linear-gradient(160deg,#16241a 0%,#1a2a1c 100%)}
+.vs-section{background:linear-gradient(160deg,#16241a 0%,#1a2a1c 100%)}
+.cta-sec{background:linear-gradient(160deg,#16241a 0%,#1a2a1c 100%)}
+.mq{background:#16241a}
+.vorg-panel-card{background:rgba(168,216,90,.07);border-color:rgba(168,216,90,.18)}
+.vorg-tab{background:rgba(168,216,90,.04)}
+.vorg-tabs{border-color:rgba(168,216,90,.18)}
+.vorg-panel-desc{color:rgba(255,255,255,.72)}
+.vorg-feature-text span{color:rgba(255,255,255,.6)}
+.vorg-panel-badge{color:var(--gl)}
+.sec-dark .h2-sub{color:rgba(255,255,255,.6)}
+
+/* 2) OptiPlan-Rechner: warm-cremig, runder, freundliche Pills */
+.op-chart-panel{background:linear-gradient(160deg,#fbfdf7 0%,#f4faea 100%);padding:2.4rem 2.2rem 1.7rem;box-shadow:0 8px 30px rgba(60,80,30,.06)}
+.op-chart-kpi-trend{background:rgba(141,198,63,.18);border-color:rgba(141,198,63,.25)}
+.op-szen-val{border-radius:100px}
+.op-szen-val.green{background:rgba(141,198,63,.18);border-color:rgba(141,198,63,.25)}
+.op-kpi{border-radius:12px}
+
+/* 3) Ganze Seite: einheitlich runder + weiche, diffuse Schatten + sanfte Hover */
+.q-card,.adv-grid .vort-card,.tm,.team-lead,.tc-card{border-radius:16px;box-shadow:0 8px 30px rgba(60,80,30,.06);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.q-card:hover,.adv-grid .vort-card:hover,.tm:hover,.team-lead:hover,.tc-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(60,80,30,.10)}
+.btn-g{border-radius:10px}
 
 </style>
 
@@ -533,17 +598,17 @@ a{text-decoration:none;color:inherit}
   <div class="hero-glow"></div>
   <div class="hero-in">
     <div class="hero-badge" id="hbadge" style="opacity:0;transform:translateY(12px)">
-      13+ Fachspezialisten · Alles aus einer Hand
+      100 % UNGEBUNDEN · KEINE PRODUKTGEBER
     </div>
     <h1 id="hh" style="opacity:0;transform:translateY(24px)">
-      Vermögensbildung<br>nach Plan<br><em>mit Sicherheit das Richtige</em>
+      Finanzielle Entscheidungen trifft man nicht allein.<br><em>Sondern mit einem Netzwerk, das nur Ihnen verpflichtet ist.</em>
     </h1>
     <p class="hero-sub" id="hs" style="opacity:0;transform:translateY(18px)">
-      Nutzen Sie unsere individuelle Wohlstandsplanung, alles unter einem Dach, um Ihre finanziellen Ziele maßgeschneidert zu erreichen!
+      13 Spezialisten, ein Plan, null Provisionsdruck. Wir beraten Sie unabhängig — und koordinieren alles, was Ihr Vermögen betrifft, aus einer Hand.
     </p>
     <div class="hero-btns" id="hb" style="opacity:0;transform:translateY(16px)">
-      <a href="/kontakt.html" class="btn-g">Kontakt aufnehmen ›</a>
-      <a href="#netzwerk-grafik" class="btn-ghost-w">Mehr erfahren ↓</a>
+      <a href="/kontakt.html" class="btn-g">Lernen Sie uns kennen ›</a>
+      <a href="#netzwerk-grafik" class="btn-ghost-w">Wie wir arbeiten ↓</a>
     </div>
     <div class="hero-proof" id="hpr" style="opacity:0;transform:translateY(14px)">
       <div class="hpr">
@@ -728,6 +793,53 @@ a{text-decoration:none;color:inherit}
 
   </div>
 </section>
+<!-- SITUATION / HÄUFIGE FRAGEN -->
+<section class="sec sec-off" id="situation">
+  <div class="w">
+    <div class="tc">
+      <div class="sec-label rv" style="display:inline-flex">Ihre Situation</div>
+      <h2 class="h2 rv">Kommt Ihnen das <span class="g">bekannt</span> vor?</h2>
+      <p class="h2-sub rv">Passt sich Ihre Lebensplanung Ihrem Vermögen an? Oder Ihre Vermögensplanung Ihrem Leben? Idealerweise Letzteres.</p>
+    </div>
+    <div class="q-grid">
+      <div class="q-card rv d1"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p>Ich möchte größere Summen investieren und eine hochklassige Beratung.</p></div>
+      <div class="q-card rv d2"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p>Vermögensnachfolge: Wie reduziere ich Erbschafts- und Schenkungssteuern?</p></div>
+      <div class="q-card rv d3"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p>Ruhestandsplanung: Wie strukturiere ich mein Vermögen am sinnvollsten?</p></div>
+      <div class="q-card rv d4"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p>Vermögensnachfolge, ohne meinen Kindern Fehlanreize zu setzen — wie mache ich das?</p></div>
+      <div class="q-card rv d5"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p>Reicht mein Vermögen bis an mein Lebensende?</p></div>
+      <div class="q-card rv d6"><span class="q-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p>Wie lege ich größere Beträge an, ohne unnötige Risiken einzugehen?</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VORTEILE / WARUM WIR -->
+<section class="sec sec-dark" id="vorteile">
+  <div class="w">
+    <div class="tc">
+      <div class="sec-label rv" style="display:inline-flex">Warum wir</div>
+      <h2 class="h2 rv">Ihre <span class="g">Vorteile</span> mit uns</h2>
+      <p class="h2-sub rv">Die wichtigsten Grundlagen erstklassiger Beratung sind Interdisziplinarität, tiefes Fachwissen und Empathie. Sie müssen nicht verschiedene Spezialisten ansteuern — das Netzwerk liefert alles aus einem Guss.</p>
+    </div>
+    <div class="adv-grid">
+      <div class="vort-card rv d1">
+        <div class="adv-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.2-7 9-4-1.8-7-4.5-7-9V6l7-3z"/><polyline points="9 12 11 14 15 9.5"/></svg></div>
+        <h4>Unabhängigkeit von Produktgattungen</h4>
+        <p>Bevor wir über Produkte sprechen, sprechen wir über Ihre Strategie. Erst danach, welche Produktgattungen infrage kommen — und zum Schluss, wenn sinnvoll, das beste Produkt.</p>
+      </div>
+      <div class="vort-card rv d2">
+        <div class="adv-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg></div>
+        <h4>Zeitersparnis</h4>
+        <p>Wir halten Ihren Aufwand minimal. Der zeitliche Aufwand für Sie ist deutlich kleiner, als Sie vermutlich annehmen.</p>
+      </div>
+      <div class="vort-card rv d3">
+        <div class="adv-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <h4>Alles aus einer Hand</h4>
+        <p>Ein zentraler Ansprechpartner koordiniert 13+ Spezialisten. Kein Abstimmungsaufwand, keine Lücken zwischen Beratern.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- OPTIPLAN DYNAMIC PLANNING -->
 <section class="op-section" id="finanzplanung">
   <div class="op-inner">
@@ -910,6 +1022,12 @@ a{text-decoration:none;color:inherit}
     var hasNeg=minV<0;
     var zeroY=hasNeg?PT+cH*(maxV/(maxV+Math.abs(minV))):PT+cH;
     svg.innerHTML='';
+    var defs=document.createElementNS('http://www.w3.org/2000/svg','defs');
+    var lg=document.createElementNS('http://www.w3.org/2000/svg','linearGradient');
+    lg.setAttribute('id','opBarGrad');lg.setAttribute('x1','0');lg.setAttribute('y1','0');lg.setAttribute('x2','0');lg.setAttribute('y2','1');
+    var gs1=document.createElementNS('http://www.w3.org/2000/svg','stop');gs1.setAttribute('offset','0');gs1.setAttribute('stop-color','#A8D85A');
+    var gs2=document.createElementNS('http://www.w3.org/2000/svg','stop');gs2.setAttribute('offset','1');gs2.setAttribute('stop-color','#8DC63F');
+    lg.appendChild(gs1);lg.appendChild(gs2);defs.appendChild(lg);svg.appendChild(defs);
 
     // Grid + zero line
     for(var g=0;g<=4;g++){
@@ -942,7 +1060,7 @@ a{text-decoration:none;color:inherit}
       var r1=document.createElementNS('http://www.w3.org/2000/svg','rect');
       r1.setAttribute('x',bx);r1.setAttribute('y',animate?zeroY:by);
       r1.setAttribute('width',bW1);r1.setAttribute('height',animate?0.5:bh);
-      r1.setAttribute('rx',2);r1.setAttribute('fill',isNeg?d.negColor:d.color);
+      r1.setAttribute('rx',3);r1.setAttribute('fill',isNeg?d.negColor:(/8dc63f|141,198,63/i.test(d.color)?'url(#opBarGrad)':d.color));
       r1.setAttribute('class','op-bar');
       (function(yr,val,isPct2){
         r1.addEventListener('mouseenter',function(){
@@ -962,7 +1080,7 @@ a{text-decoration:none;color:inherit}
         var r2=document.createElementNS('http://www.w3.org/2000/svg','rect');
         r2.setAttribute('x',bx+bW1+bGap);r2.setAttribute('y',animate?zeroY:by2);
         r2.setAttribute('width',bW2);r2.setAttribute('height',animate?0.5:bh2);
-        r2.setAttribute('rx',2);r2.setAttribute('fill',isNeg2?d.negColor2:d.color2);
+        r2.setAttribute('rx',3);r2.setAttribute('fill',isNeg2?d.negColor2:d.color2);
         r2.setAttribute('class','op-bar');
         (function(yr,val,isPct2){
           r2.addEventListener('mouseenter',function(){
@@ -1186,6 +1304,37 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
+
+<!-- UNSERE SPEZIALISTEN / TEAM -->
+<section class="sec sec-w" id="team">
+  <div class="w">
+    <div class="tc">
+      <div class="sec-label rv" style="display:inline-flex">Das Team</div>
+      <h2 class="h2 rv">Unsere <span class="g">Spezialisten</span></h2>
+      <p class="h2-sub rv">Ein eingespieltes Netzwerk aus Fachleuten — koordiniert über einen zentralen Ansprechpartner.</p>
+    </div>
+    <div class="team-lead rv">
+      <div class="tl-photo"><img loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-24T103037.476.png" alt="Ender Gülsen"></div>
+      <div class="tl-info">
+        <div class="tl-badge">Netzwerk-Manager</div>
+        <div class="tl-name">Ender Gülsen</div>
+        <div class="tl-role">Netzwerk Manager &amp; Spezialist Finanz- und Ruhestandsplanung</div>
+        <p class="tl-desc">Ihr zentraler Ansprechpartner — koordiniert das gesamte Netzwerk aus 13+ Spezialisten und sorgt dafür, dass alle Fachbereiche aus einem Guss zusammenspielen.</p>
+      </div>
+    </div>
+    <div class="team-g">
+      <div class="tm rv d1"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T135826.354.png" alt="Jana Hoffmann"><div class="tm-overlay"><div class="tm-name">Jana Hoffmann</div><div class="tm-role">Spezialistin Finanzierung</div></div></div></div>
+      <div class="tm rv d3"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T140743.795.png" alt="Dr. Michael Buck"><div class="tm-overlay"><div class="tm-name">Dr. Michael Buck</div><div class="tm-role">Spezialist Kranken- &amp; Pflegeversicherung</div></div></div></div>
+      <div class="tm rv d4"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T125430.178.png" alt="Mathias Moews"><div class="tm-overlay"><div class="tm-name">Mathias Moews</div><div class="tm-role">Dipl.-Betriebswirt (FH) | Spezialist Finanzierungen</div></div></div></div>
+      <div class="tm rv d1"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T160433.709.png" alt="Ronni Arndt"><div class="tm-overlay"><div class="tm-name">Ronni Arndt</div><div class="tm-role">Dipl.-Volkswirt | Experte betriebliche Altersversorgung (DMA)</div></div></div></div>
+      <div class="tm rv d2"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T152937.141.png" alt="Joachim Hendelkes"><div class="tm-overlay"><div class="tm-name">Joachim Hendelkes</div><div class="tm-role">Dipl.-Kfm. | Spezialist Finanzanalysen</div></div></div></div>
+      <div class="tm rv d3"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/09/Design-ohne-Titel-2023-09-26T102659.165.png" alt="Christian H. Schneider"><div class="tm-overlay"><div class="tm-name">Christian H. Schneider</div><div class="tm-role">Dipl.-Kfm. | Spezialist Kapitalanlage Immobilien</div></div></div></div>
+      <div class="tm rv d4"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2024/01/Design-ohne-Titel-2024-01-22T220526.655.png" alt="Dorian Scholl"><div class="tm-overlay"><div class="tm-name">Dorian Scholl</div><div class="tm-role">Financial Planner | Spezialist Investment &amp; AIF</div></div></div></div>
+      <div class="tm rv d1"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T154944.131.png" alt="Sigrid Casanova"><div class="tm-overlay"><div class="tm-name">Sigrid Casanova</div><div class="tm-role">M.A. | Unternehmensberatung Heilwesenberufe</div></div></div></div>
+      <div class="tm rv d2"><div class="tm-img-wrap"><img class="tm-img" loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2024/05/Design-ohne-Titel.png" alt="Steffen Domes"><div class="tm-overlay"><div class="tm-name">Steffen Domes</div><div class="tm-role">Experte betriebliche Altersversorgung (DMA)</div></div></div></div>
+    </div>
+  </div>
+</section>
 
 <!-- TESTIMONIALS -->
 <section class="sec sec-off">
