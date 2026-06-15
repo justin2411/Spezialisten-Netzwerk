@@ -300,6 +300,73 @@ button{cursor:pointer;font-family:inherit}
   .ft-top{grid-template-columns:1fr}
 }
 @media(max-width:960px){.bav-main-grid{grid-template-columns:1fr}.bav-calc-panel{position:static}}
+
+/* ════════ AUS EINEM GUSS: durchgehend hell (konsistent mit Startseite/optiplan) ════════ */
+/* HERO hell */
+.bv-hero{background:linear-gradient(180deg,#f4faea,#fbfdf7)}
+.bv-hero-bg,.bv-hero-vignette,.bv-hero-bar,.bv-hero-glow{display:none}
+.bv-hero-badge{color:var(--gd);background:var(--gbg);border-color:rgba(141,198,63,.25)}
+.bv-hero h1{color:var(--dark)}
+.bv-hero h1 span{color:var(--g)}
+.bv-hero-sub{color:var(--mid)}
+.btn-ghost{color:var(--gd);border-color:rgba(141,198,63,.4)}
+.btn-ghost:hover{border-color:var(--g);color:var(--gd);background:var(--gbg)}
+.btn-g{border-radius:100px;background:linear-gradient(145deg,#A8D85A,#8DC63F);box-shadow:0 8px 26px rgba(141,198,63,.32)}
+.btn-g:hover{background:linear-gradient(145deg,#A8D85A,#8DC63F);transform:translateY(-3px);box-shadow:0 14px 38px rgba(141,198,63,.42)}
+.bv-hero-card{background:#fff;border-color:rgba(141,198,63,.2);border-radius:24px;box-shadow:0 10px 34px rgba(60,80,30,.07);backdrop-filter:none}
+.bv-hero-card-title{color:var(--gd)}
+.bv-stat{background:var(--offwhite);border-color:var(--border)}
+.bv-stat-val{color:var(--dark)}
+.bv-stat-lbl{color:var(--mid)}
+/* BAV-INFOGRAFIK-Sektion hell (Rechner + Fluss-Diagramm – nur Optik) */
+.bav-info-sec{background:linear-gradient(180deg,#fbfdf7,#f4faea)}
+.bav-info-sec::before{background:radial-gradient(circle,rgba(141,198,63,.05),transparent 60%)}
+.bav-info-sec .sec-label{color:var(--gd);background:var(--gbg);border-color:rgba(141,198,63,.25)}
+.bav-info-sec .h2{color:var(--dark)}
+.bav-info-sec .h2 .g{color:var(--g)}
+.bav-info-sec .h2-sub{color:var(--mid)}
+/* Fluss-Diagramm */
+.bav-flow-title{color:var(--gd)}
+.bav-flow-circle svg{stroke:var(--g)}
+.bav-flow-name{color:var(--dark)}
+.bav-flow-desc{color:var(--mid)}
+/* Rechner-Panel cremig */
+.bav-calc-panel{background:#fff;border-color:rgba(141,198,63,.18);border-radius:24px;box-shadow:0 10px 34px rgba(60,80,30,.07)}
+.bav-calc-header{border-bottom-color:var(--border)}
+.bav-calc-label{color:var(--gd)}
+.bav-calc-title{color:var(--dark)}
+.bav-calc-sub{color:var(--mid)}
+.bav-money-label{color:var(--mid)}
+.bav-money-bar{background:var(--offwhite);border-color:var(--border)}
+.bav-seg-netto{background:rgba(26,26,26,.08);color:var(--mid)}
+.bav-leg-item{color:var(--mid)}
+.bav-bd{border-bottom-color:var(--border)}
+.bav-bd-key{color:var(--mid)}
+.bav-bd-val.white{color:var(--dark)}
+.bav-result-label{color:var(--gd)}
+.bav-result-val{color:var(--gd)}
+.bav-result-sub{color:var(--mid)}
+.bav-result-sub span{color:var(--gd)}
+.bav-calc-cta{border-radius:100px;background:linear-gradient(145deg,#A8D85A,#8DC63F);box-shadow:0 8px 26px rgba(141,198,63,.32)}
+.bav-calc-cta:hover{background:linear-gradient(145deg,#A8D85A,#8DC63F)}
+.bav-calc-note{color:var(--light)}
+.bav-facts{background:var(--offwhite);border-color:rgba(141,198,63,.18)}
+.bav-fact-val{color:var(--gd)}
+.bav-fact-lbl{color:var(--mid)}
+.bav-legal{color:var(--mid);background:var(--offwhite);border-color:var(--border)}
+.bav-legal svg{stroke:var(--gd)}
+/* ARBEITGEBER-Sektion hell */
+.ag-sec{background:linear-gradient(180deg,#f4faea,#fbfdf7)}
+.ag-sec::before{background:radial-gradient(circle,rgba(141,198,63,.05),transparent 60%)}
+.ag-card{background:#fff;border-color:rgba(141,198,63,.18);border-radius:24px;box-shadow:0 10px 34px rgba(60,80,30,.07)}
+.ag-card:hover{border-color:rgba(141,198,63,.3);transform:translateY(-6px);box-shadow:0 22px 50px rgba(60,80,30,.12);background:#fff}
+.ag-card-center{background:rgba(141,198,63,.05)}
+.ag-card-num{color:rgba(141,198,63,.13)}
+.ag-title{color:var(--dark)}
+.ag-desc{color:var(--mid)}
+.ag-stat-val{color:var(--gd)}
+.ag-stat-lbl{color:var(--mid)}
+@media(max-width:560px){.bv-hero-card,.bav-calc-panel,.ag-card{border-radius:18px}}
 </style>
 
 <!-- HERO -->
@@ -525,9 +592,9 @@ button{cursor:pointer;font-family:inherit}
 <section class="ag-sec" id="vorgehen">
   <div class="w">
     <div class="ag-header tc rv">
-      <div class="sec-label" style="display:inline-flex;background:rgba(141,198,63,.12);border-color:rgba(141,198,63,.25);color:var(--gl)">Für Arbeitgeber</div>
-      <h2 class="h2" style="color:#fff">Die 3 wichtigsten Vorteile<br><span style="color:var(--gl)">für Ihr Unternehmen</span></h2>
-      <p class="h2-sub" style="color:rgba(255,255,255,.4)">Betriebliche Versorgung ist kein Kostenfaktor, sondern ein strategisches Investment in Ihre Mitarbeiter.</p>
+      <div class="sec-label" style="display:inline-flex;background:var(--gbg);border-color:rgba(141,198,63,.25);color:var(--gd)">Für Arbeitgeber</div>
+      <h2 class="h2" style="color:var(--dark)">Die 3 wichtigsten Vorteile<br><span style="color:var(--g)">für Ihr Unternehmen</span></h2>
+      <p class="h2-sub" style="color:var(--mid)">Betriebliche Versorgung ist kein Kostenfaktor, sondern ein strategisches Investment in Ihre Mitarbeiter.</p>
     </div>
 
     <div class="ag-cards">
