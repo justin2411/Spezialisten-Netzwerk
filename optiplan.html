@@ -236,12 +236,23 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}
 @media(max-width:768px){.hi,.sg,.dims-wrap,.szen-duo{grid-template-columns:1fr;gap:2rem}.nm{display:none}.ctabs{width:100%}.cmetrics,.cmet,.sb-grid{grid-template-columns:1fr 1fr}.szen-banner{flex-direction:column;gap:1.5rem}.sb-div{width:100%;height:1px}.ftt{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.sg,.ftt{grid-template-columns:1fr}.hi{padding:2.5rem 1.2rem}}
 /* ════════ AUS EINEM GUSS: durchgehend hell, weiche Formen (konsistent mit Startseite) ════════ */
-.hero{background:linear-gradient(160deg,#16241a 0%,#1a2a1c 55%,#16241a 100%)}
+/* Hero durchgehend hell (keine dunkle Klammer); fließt in die Sektion darunter */
+.hero{background:linear-gradient(180deg,#f4faea,#fbfdf7)}
+.hbg{display:none}.hv{display:none}
+.hbdg{color:var(--gd);background:var(--gbg);border-color:rgba(141,198,63,.25)}
+.hero h1{color:var(--dark)}
+.hero h1 span{-webkit-text-fill-color:var(--g);color:var(--g);background:none}
+.hsub{color:var(--mid)}
+.btn-ghost{color:var(--gd);border-color:rgba(141,198,63,.4)}
+.btn-ghost:hover{border-color:var(--g);color:var(--gd);background:var(--gbg)}
+.hc{box-shadow:0 10px 34px rgba(60,80,30,.07)}
+/* CTA bleibt dunkel (gewollter Akzent); Footer warm */
 .qs{background:linear-gradient(160deg,#16241a 0%,#1f3324 100%)}
 .ft{background:#16241a}
-.ds{background:linear-gradient(180deg,#fbfdf7,#f4faea)}
-.calc-sec{background:linear-gradient(180deg,#f4faea,#fbfdf7)}
-.szen-sec{background:linear-gradient(180deg,#fbfdf7,#fff)}
+/* Sektions-Rhythmus hell & fließend */
+.ds{background:linear-gradient(180deg,#f4faea,#fbfdf7)}
+.calc-sec{background:linear-gradient(180deg,#fbfdf7,#f4faea)}
+.szen-sec{background:linear-gradient(180deg,#f4faea,#fbfdf7)}
 /* Prozess-Sektion (.ds): dunkel -> hell, Karten/Text/Icons recolorieren */
 .ds::before{background:radial-gradient(circle,rgba(141,198,63,.05),transparent 60%)}
 .sc{background:#fff;border-color:rgba(141,198,63,.18)}
@@ -306,7 +317,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}
     </div>
   </div>
 </section>
-<section class="sec" style="background:linear-gradient(180deg,#fff,#fbfdf7);padding:clamp(4rem,7vw,6.5rem) 2.5rem">
+<section class="sec" style="background:linear-gradient(180deg,#fbfdf7,#f4faea);padding:clamp(4rem,7vw,6.5rem) 2.5rem">
   <div class="w">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start">
 
@@ -440,14 +451,14 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}
     </div>
 
     <!-- POPUP -->
-    <div id="proc-overlay" onclick="closeProc()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:2000;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)"></div>
-    <div id="proc-popup" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.94);z-index:2001;width:min(520px,92vw);background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.4);transition:all .35s cubic-bezier(.22,1,.36,1);opacity:0">
-      <div id="pp-header" style="background:linear-gradient(135deg,#0a1205,#1a2e0a);padding:1.8rem 2rem;position:relative;display:flex;align-items:center;gap:1rem">
-        <div id="pp-num" style="font-size:3rem;font-weight:900;color:rgba(141,198,63,.15);line-height:1;letter-spacing:-.04em;flex-shrink:0">01</div>
-        <div id="pp-ico" style="width:48px;height:48px;border-radius:12px;background:rgba(141,198,63,.12);border:1.5px solid rgba(141,198,63,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0"></div>
-        <h3 id="pp-title" style="font-size:1.15rem;font-weight:900;color:#fff;line-height:1.2;flex:1"></h3>
-        <button onclick="closeProc()" style="position:absolute;top:1rem;right:1rem;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    <div id="proc-overlay" onclick="closeProc()" style="display:none;position:fixed;inset:0;background:rgba(16,24,16,.55);z-index:2000;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)"></div>
+    <div id="proc-popup" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.94);z-index:2001;width:min(520px,92vw);background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(40,60,25,.25);transition:all .35s cubic-bezier(.22,1,.36,1);opacity:0">
+      <div id="pp-header" style="background:linear-gradient(135deg,#fbfdf7,#f4faea);border-bottom:1px solid var(--border);padding:1.8rem 2rem;position:relative;display:flex;align-items:center;gap:1rem">
+        <div id="pp-num" style="font-size:3rem;font-weight:900;color:rgba(141,198,63,.3);line-height:1;letter-spacing:-.04em;flex-shrink:0">01</div>
+        <div id="pp-ico" style="width:48px;height:48px;border-radius:50%;background:rgba(141,198,63,.12);border:1.5px solid rgba(141,198,63,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0"></div>
+        <h3 id="pp-title" style="font-size:1.15rem;font-weight:900;color:#1A1A1A;line-height:1.2;flex:1"></h3>
+        <button onclick="closeProc()" style="position:absolute;top:1rem;right:1rem;width:34px;height:34px;border-radius:50%;background:rgba(141,198,63,.1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center" onmouseover="this.style.background='rgba(141,198,63,.2)'" onmouseout="this.style.background='rgba(141,198,63,.1)'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#6FA52E" stroke-width="2.5" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
       <div style="padding:1.8rem 2rem">
