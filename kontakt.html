@@ -64,6 +64,7 @@ button{cursor:pointer;font-family:inherit}
 .ct-card-body p{font-size:.78rem;color:var(--light);line-height:1.5}
 .ct-card-body a{font-size:.82rem;font-weight:600;color:var(--g);transition:color .2s}
 .ct-card-body a:hover{color:var(--gd)}
+.ct-card-hl{font-size:.82rem;font-weight:600;color:var(--g);margin-top:.1rem}
 
 /* Trust badges */
 .ct-trust{display:flex;gap:1.5rem;padding:1.4rem 1.6rem;background:linear-gradient(135deg,rgba(141,198,63,.06),rgba(141,198,63,.02));border:1px solid rgba(141,198,63,.15);border-radius:12px}
@@ -181,16 +182,59 @@ button{cursor:pointer;font-family:inherit}
 .ct-card{border-radius:16px}
 .ct-submit{border-radius:100px;background:linear-gradient(145deg,#A8D85A,#8DC63F);box-shadow:0 8px 26px rgba(141,198,63,.32)}
 .ct-submit:hover{background:linear-gradient(145deg,#A8D85A,#8DC63F);transform:translateY(-2px);box-shadow:0 14px 38px rgba(141,198,63,.42)}
+/* ════════ Hero zweispaltig + Berater-Cluster (rechte Haelfte) ════════ */
+.ct-hero-in.ct-hero-2col{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}
+.ct-hero-2col .ct-hero-text h1,.ct-hero-2col .ct-hero-text p{max-width:none}
+.ct-cluster{position:relative;width:100%;max-width:400px;aspect-ratio:1;margin:0 0 0 auto}
+.ct-cluster-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1}
+.ct-cluster-lines line{stroke:var(--gl);stroke-width:.5;opacity:.45;animation:clusterPulse 4s ease-in-out infinite}
+.ct-cluster-center{position:absolute;left:50%;top:50%;width:30%;height:30%;transform:translate(-50%,-50%);border-radius:50%;background:linear-gradient(145deg,var(--gl),var(--g));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 14px 34px rgba(141,198,63,.4);z-index:3}
+.ct-cluster-center svg{width:36%;height:36%;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ct-cluster-center span{font-size:.46rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-top:.3rem}
+.ct-node{position:absolute;width:22%;aspect-ratio:1;transform:translate(-50%,-50%);z-index:2}
+.ct-node img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:top center;border:3px solid #fff;box-shadow:0 8px 22px rgba(60,80,30,.16);background:var(--offwhite);animation:clusterFloat 6s ease-in-out infinite}
+.ct-node-1{left:50%;top:10%}
+.ct-node-2{left:85%;top:30%}
+.ct-node-3{left:85%;top:70%}
+.ct-node-4{left:50%;top:90%}
+.ct-node-5{left:15%;top:70%}
+.ct-node-6{left:15%;top:30%}
+.ct-node-2 img{animation-delay:1s}.ct-node-3 img{animation-delay:2s}.ct-node-4 img{animation-delay:3s}.ct-node-5 img{animation-delay:4s}.ct-node-6 img{animation-delay:5s}
+@keyframes clusterFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes clusterPulse{0%,100%{opacity:.28}50%{opacity:.6}}
+@media(max-width:860px){.ct-hero-in.ct-hero-2col{grid-template-columns:1fr;gap:2.5rem}.ct-cluster{margin:0 auto;max-width:300px}}
+@media(prefers-reduced-motion:reduce){.ct-node img,.ct-cluster-lines line{animation:none}}
 </style>
 
 <!-- HERO -->
 <section class="ct-hero">
   <div class="ct-hero-bar"></div>
   <div class="ct-hero-grid"></div>
-  <div class="ct-hero-in">
-    <div class="ct-badge">Kostenlos &amp; Unverbindlich</div>
-    <h1>Jetzt Kontakt<br><span>aufnehmen</span></h1>
-    <p>Unverbindlich erfahren, wie wir Ihr Vermögen strukturieren und optimieren können. Wir melden uns innerhalb von 24 Stunden.</p>
+  <div class="ct-hero-in ct-hero-2col">
+    <div class="ct-hero-text">
+      <h1>Jetzt Kontakt<br><span>aufnehmen</span></h1>
+      <p>Unverbindlich erfahren, wie wir Ihr Vermögen strukturieren und optimieren können. Wir melden uns innerhalb von 24 Stunden.</p>
+    </div>
+    <div class="ct-cluster" aria-hidden="true">
+      <svg class="ct-cluster-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <line x1="50" y1="50" x2="50" y2="10"/>
+        <line x1="50" y1="50" x2="85" y2="30"/>
+        <line x1="50" y1="50" x2="85" y2="70"/>
+        <line x1="50" y1="50" x2="50" y2="90"/>
+        <line x1="50" y1="50" x2="15" y2="70"/>
+        <line x1="50" y1="50" x2="15" y2="30"/>
+      </svg>
+      <div class="ct-cluster-center">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Netzwerk</span>
+      </div>
+      <div class="ct-node ct-node-1"><img loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2026/03/Design-ohne-Titel-7.png" alt="Jonathan Lohne"></div>
+      <div class="ct-node ct-node-2"><img loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T140743.795.png" alt="Dr. Michael Buck"></div>
+      <div class="ct-node ct-node-3"><img loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T152937.141.png" alt="Joachim Hendelkes"></div>
+      <div class="ct-node ct-node-4"><img loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2026/03/Design-ohne-Titel-6.png" alt="Christian H. Schneider"></div>
+      <div class="ct-node ct-node-5"><img loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2024/01/Design-ohne-Titel-2024-01-22T220526.655.png" alt="Dorian Scholl"></div>
+      <div class="ct-node ct-node-6"><img loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T154944.131.png" alt="Sigrid Casanova"></div>
+    </div>
   </div>
 </section>
 
@@ -206,32 +250,32 @@ button{cursor:pointer;font-family:inherit}
     <div class="ct-cards">
       <div class="ct-card">
         <div class="ct-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.77 4.77a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.72 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </div>
         <div class="ct-card-body">
-          <h4>Telefonisch</h4>
-          <p>Mo bis Fr, 9 bis 18 Uhr</p>
-          <a href="tel:+49000000000">+49 (0) 000 000 000</a>
+          <h4>Persönlich betreut</h4>
+          <p>Ein fester Ansprechpartner für Sie</p>
+          <div class="ct-card-hl">Jonathan Lohne, Netzwerk-Manager</div>
         </div>
       </div>
       <div class="ct-card">
         <div class="ct-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M7.3 11l9.4-4M7.3 13l9.4 4"/></svg>
         </div>
         <div class="ct-card-body">
-          <h4>Per E-Mail</h4>
-          <p>Antwort innerhalb von 24h</p>
-          <a href="/cdn-cgi/l/email-protection#f09b9f9e84919b84b08380958a99919c998384959edd9e95848a8795829bde939f9d"><span class="__cf_email__" data-cfemail="33585c5d4752584773404356495a525f5a4047565d1e5d564749445641581d505c5e">[email&#160;protected]</span></a>
+          <h4>Koordiniert für Sie</h4>
+          <p>13+ Spezialisten, ein Ansprechpartner</p>
+          <div class="ct-card-hl">Alles aus einer Hand</div>
         </div>
       </div>
       <div class="ct-card">
         <div class="ct-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
         <div class="ct-card-body">
-          <h4>Erstgespräch buchen</h4>
-          <p>Kostenloses 45-Min-Gespräch</p>
-          <a href="/kontakt.html">Online Termin wählen →</a>
+          <h4>Unabhängig beraten</h4>
+          <p>Ungebunden, ohne Produktgeber</p>
+          <div class="ct-card-hl">Ihre Ziele im Mittelpunkt</div>
         </div>
       </div>
     </div>
