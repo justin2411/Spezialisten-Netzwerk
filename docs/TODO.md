@@ -1,75 +1,100 @@
 # TODO.md — Offene Punkte & Roadmap
 
-> Stand: 15.06.2026.
+> Stand: Juni 2026 — aktualisiert nach dem Netzwerk-Call (Christian, Steffen, Ronni u.a.)
+> + HORBACH Corporate Design Manual.
 
 ---
 
-## ⚠️ Aktueller Repo-Stand — Vorrang vor dem Snapshot
+## 🔴 WICHTIG — Korrekturen mit Priorität (aus dem Call)
 
-- **✅ optiplan ist als helle Referenz fertig und auf `main`** (PR #10 gemergt).
-  Damit steht das **Muster** fürs helle Unterseiten-Design:
-  - Hero hell (warmer Verlauf `#f4faea`→`#fbfdf7`, dunkles Hintergrundbild aus,
-    Text auf `--dark`/`--mid`, grünes Wort bleibt grün, grünes Label-Pill,
-    Buttons als Grün-Pillen).
-  - Weiße „Drei Vitalwerte"-Karte rechts hebt sich per weichem Schatten
-    (`0 10px 34px rgba(60,80,30,.07)`) vom hellen Grund ab.
-  - Alle bisher dunklen Sektionen hell, weiche Formen (Karten 24px, runde
-    Icon-Kreise, Pillen-Buttons, weiche Schatten), Rechner-Karten cremig,
-    Prozess-Popup gewärmt.
-  - **Nur der CTA-Block bleibt dunkel** (`#16241a`→`#1f3324`) — einziger Akzent.
-- **Justins Design-Entscheidung steht fest:** durchgehend hell, KEINE dunkle
-  Hero-Klammer, Popup mitgewärmt. (Beide früheren Fragen sind beantwortet.)
-- `main` ist sauber, **keine offenen PRs**, alle 11 Seiten bauen fehlerfrei.
+- [ ] **Markenfarbe auf HORBACH-CI umstellen** (ENTSCHEIDUNG des Netzwerks: HORBACH-
+      Wiedererkennung, Hauptzielgruppe = HORBACH-Kunden/Berater). Zentral in head.njk.
+      - Primär: HB FreshGreen #b4c800, HB Basil #697d0f, HB WarmGrey #827869, Black.
+      - Sekundär (sparsam): Amber #ecbd00, Indigo #006e96, Berry #af005f.
+      - **BFSG-Kontrastregel:** weiße Schrift NUR auf Basil/WarmGrey/Berry/Indigo/dunkel,
+        NIE auf hellem FreshGreen. Auf hellem Grün → schwarze Schrift.
+      - Schrift: Hausschrift **Assistant** (Fallback Calibri), Inter ersetzen.
+      - Weiche Formen/Rundungen bleiben (passen zu HORBACH "Mosaik des Lebens").
 
-### → Nächster Schritt: die 9 übrigen Unterseiten ans optiplan-Muster angleichen
-- **3 Bestandsseiten voll behandeln:** Kapitalanlage Immobilie,
-  Betriebliche Versorgung, Kontakt.
-- **6 Themenseiten:** über die `.th-*`-Komponenten schon weitgehend hell →
-  nur Konsistenz-/Lesbarkeits-Check + ggf. Hero-Verläufe an optiplan angleichen.
-- Vorgehen wie gehabt: **erst EINE Seite als Vorlage** (Vorschlag: Kapitalanlage
-  Immobilie, weil eigener Rechner wie optiplan), Preview, Justins Freigabe,
-  dann der Rest. Eigener Branch → Draft-PR → Preview → Merge.
+- [ ] **bAV-Seite (Betriebliche Versorgung) zurücksetzen/überarbeiten.**
+      Steffen & Ronni: Inhalte wurden frei erfunden statt vom Original übernommen,
+      **Rechner ist inhaltlich FALSCH**. Bis zur Überarbeitung auf die alten
+      Original-Inhalte zurückgreifen. Steffen/Ronni liefern später korrekten Input.
+      → Original-Inhalte per Screenshot nötig.
+
+- [ ] **Testimonials / Mandantenstimmen RAUSNEHMEN** (Startseite).
+      Es gibt keine echten; erfundene schaden mehr als sie nutzen. Erst wieder rein,
+      wenn echte, verlinkte Stimmen vorliegen (z.B. Trustpilot / HORBACH-Feedbackseite).
+
+- [ ] **Spezialisten-Fotos fixen:** Kinn nicht abschneiden (betrifft Mathias Moews + Jana
+      Hoffmann), einheitliche Größe, idealerweise alle freigestellt für einheitlichen Look.
+      (Matze wünscht außerdem ein neues Bild — liefert er.)
 
 ---
 
-## Gerade in Arbeit
-- [ ] Die 9 übrigen Unterseiten ans helle optiplan-Muster angleichen
-      (durchgehend hell, weiche Formen, nur CTA dunkel). optiplan (PR #10) = Vorlage.
+## 🟡 Kleinere Anpassungen (aus dem Call)
 
-## Kurzfristig
-- [ ] Nach dem Unterseiten-Design: Gesamt-Durchsicht aller 11 Seiten auf
-      Konsistenz + Mobile.
-- [ ] Lesbarkeit aller von dunkel→hell gewechselten Sektionen final prüfen.
+- [ ] "KI-haftige" Labels/Badges oben auf der Startseite evtl. entfernen
+      (wirken zu sehr nach KI).
+- [ ] Hero-Hintergründe teils noch etwas zu dunkel → weiter aufhellen.
+- [ ] Netzwerk-Manager oben auf Startseite: Jonathan allein ODER Jonathan + Joachim beide?
+      → Justin klärt mit dem Netzwerk.
+- [ ] Slider/Durchlauf-Element auf der Startseite: drin lassen oder raus? (offen, Feedback abwarten)
 
-## Mittelfristig
-- [ ] **Supabase** anbinden → Kontaktformular (submitForm in kontakt.html)
-      speichert Leads. Erster "echter" Feature-Schritt.
-- [ ] Bilder ins Repo holen (Unabhängigkeit von der WordPress-Seite —
-      aktuell laden Fotos/Logo von spezialisten-netzwerk.com).
-- [ ] Eigene Test-Domain auf Vercel hängen.
-- [ ] Visual-Regression-Tests (Playwright-Screenshots), bevor Auto-Merge.
+---
 
-## Langfristig / Dienstleistung
-- [ ] Rechtstexte (Impressum/Datenschutz) auf dem neuen Stack nachbauen —
-      DSGVO-konform (Finanzdienstleister!).
-- [ ] Domain-Umzug von WordPress (Divi) auf Vercel — bewusster Schnitt.
-- [ ] Live-Editing-Flow mit echtem Kunden testen (WORKFLOW.md, Live-Modus).
-- [ ] Service-Paket definieren: Umfang, Preis, Wartung, Haftungsgrenzen.
+## 🟢 Struktur / Funktion (aus dem Call, mittelfristig)
+
+- [ ] **Kontaktformular-Logik:**
+      - Hauptseite/allgemein → Anfrage geht an Netzwerk-Manager (Jonathan + Joachim,
+        beide E-Mails hinterlegt).
+      - Themen-Unterseiten → Anfrage geht DIREKT an den jeweiligen Spezialisten.
+      - Unterseiten brauchen EIGENE Themen-Reiter (nicht alle Themen anteasern, nur
+        die der Seite). Spezialisten liefern ihre Themen selbst.
+- [ ] **E-Mail-Betreff/Inhalt kennzeichnen:** klar erkennbar, dass die Anfrage von der
+      Spezialisten-Netzwerk-Seite kommt (Betreff individuell anpassbar).
+- [ ] **Supabase** ans Kontaktformular (Leads erfassen) — Backend fehlt noch.
+- [ ] Spezialisten liefern per Sprachmemo/Text Input für ihre Unterseiten
+      (Rechner, Themen, Inhalte). Justin gibt es an Claude Code weiter.
+
+---
+
+## ⚙️ Technik / Live-Gang (vor echtem Launch)
+
+- [ ] Bilder ins Repo holen (aktuell von spezialisten-netzwerk.com geladen).
+- [ ] Rechtstexte: Impressum/Datenschutz/Cookies DSGVO-konform (Finanzdienstleister!).
+      Formular verlinkt schon darauf — Seiten müssen existieren.
+- [ ] Eigene Domain / Domain-Umzug WordPress(Divi) → Vercel (bewusster Schnitt).
+- [ ] Visual-Regression-Tests (Playwright) vor Auto-Merge.
+- [ ] Service-Paket definieren: Umfang, Preis, Wartung, Haftung.
+
+---
+
+## Arbeitsweise mit dem Netzwerk (NEU, aus dem Call)
+Die Spezialisten schicken Änderungswünsche per **Sprachmemo/WhatsApp/E-Mail** an Justin.
+Justin gibt sie an Claude Code → Preview → Freigabe → live. Spezialisten sollen
+"groß denken" (lieber zu viel wünschen, Claude baut, dann aussortieren).
 
 ---
 
 ## Erledigt ✅
-- [x] 5 Seiten als statische Site aufbereitet, untereinander verlinkt
-- [x] GitHub-Repo + Vercel verbunden, Auto-Deploy aktiv
-- [x] Eleventy-Komponenten-System (head/nav/footer/float/base Includes)
-- [x] Multi-Page-Nav mit Themen-Mega-Menü (vollbreit, dockt an Nav an)
-- [x] Hero überarbeitet (Variante A, warm/nahbar, Ungebunden-Botschaft)
-- [x] 3 neue Startseiten-Sektionen (Fragen, Vorteile, Spezialisten)
-- [x] Warmes/helles Design "aus einem Guss" (Startseite): weiche Formen,
-      sanfte Verläufe, nur CTA dunkel
-- [x] Spezialisten korrigiert: Jonathan Lohne als Kopf, Ender Gülsen raus,
-      10 Personen aus dem Orbit
-- [x] 6 neue Themenseiten mit echten Inhalten gebaut
-- [x] Alle Branches sauber nach main gemergt — main = vollständiger Stand
-- [x] **optiplan als helle Referenz fertig + gemergt (PR #10)** — Muster fürs
-      Unterseiten-Design steht
+- [x] Eleventy-Umbau, Komponenten-System (Includes), GitHub + Vercel Auto-Deploy
+- [x] 11 Seiten gebaut, Nav mit Themen-Mega-Menü
+- [x] Helles/warmes Design "aus einem Guss", weiche Formen, nur CTA dunkel
+- [x] Spezialisten: Jonathan Lohne als Kopf, Ender Gülsen raus, 10 aus dem Orbit
+- [x] 6 Themenseiten mit echten Inhalten (außer bAV — siehe oben)
+- [x] Unterseiten ans helle Design angeglichen
+- [x] Footer-Button kompakter, Themenseiten-Heroes zweispaltig
+- [x] Spezialisten-Karten überarbeitet (Name/Rolle sichtbar, Hover-Hervorhebung)
+- [x] Kontakt-Kacheln: Netzwerk-Manager statt Platzhalter-Daten
+- [x] Netzwerk-Grafik (Berater-Cluster) im Kontakt-Hero
+
+---
+
+## ⚠️ Wichtige Design-Referenz: HORBACH Corporate Design
+- Hausschrift: **Assistant** (Fallback Calibri).
+- Primärfarben: FreshGreen #b4c800, WarmGrey #827869, Black. Basil #697d0f (dunkles Grün).
+- Sekundär (sparsam): Amber #ecbd00, Indigo #006e96, Berry #af005f.
+- **BFSG-Kontrast:** weiße Schrift nie auf hellem FreshGreen — nur auf Basil/dunkel.
+- Designsprache: "Mosaik des Lebens" = gerundete Quadrate, helle freundliche Bildwelten.
+- Logo-Schutzzone beachten, keine Logo-Farbänderungen.
