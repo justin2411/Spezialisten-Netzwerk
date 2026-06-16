@@ -116,6 +116,21 @@ a{text-decoration:none;color:inherit}
 .th-hero-sub{font-size:1.05rem;color:var(--mid);line-height:1.8;max-width:600px;margin-bottom:2rem}
 .th-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.9rem;background:linear-gradient(145deg,#A8D85A,#8DC63F);color:#fff;font-size:.82rem;font-weight:700;border-radius:100px;transition:transform .3s ease,box-shadow .3s ease;box-shadow:0 8px 26px rgba(141,198,63,.32);letter-spacing:.02em}
 .th-btn:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(141,198,63,.42)}
+/* Zweispaltiger Themen-Hero (Vorbild: Bestandsseiten) */
+.th-hero-in.th-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.th-hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.th-btn-ghost{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.7rem;background:transparent;color:var(--gd);font-size:.82rem;font-weight:700;border-radius:100px;border:1.5px solid rgba(141,198,63,.4);transition:all .3s ease;letter-spacing:.02em}
+.th-btn-ghost:hover{border-color:var(--g);background:var(--gbg);transform:translateY(-3px)}
+.th-hero-card{background:#fff;border:1px solid rgba(141,198,63,.2);border-radius:24px;padding:2rem 2.2rem;box-shadow:0 10px 34px rgba(60,80,30,.07)}
+.th-hero-card-title{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gd);margin-bottom:1.3rem}
+.th-hero-card-row{display:flex;align-items:flex-start;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border)}
+.th-hero-card-row:first-of-type{padding-top:0}
+.th-hero-card-row:last-child{border-bottom:none;padding-bottom:0}
+.th-hero-card-ico{width:42px;height:42px;border-radius:50%;background:rgba(141,198,63,.12);border:1px solid rgba(141,198,63,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.th-hero-card-ico svg{width:19px;height:19px;stroke:var(--g);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.th-hero-card-h{font-size:.9rem;font-weight:800;color:var(--dark);line-height:1.25;margin-bottom:.15rem}
+.th-hero-card-p{font-size:.78rem;color:var(--mid);line-height:1.55}
+@media(max-width:860px){.th-hero-in.th-hero-grid{grid-template-columns:1fr;gap:2.5rem}}
 .th-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.5rem}
 .th-card{background:#fff;border:1px solid var(--border);border-radius:24px;padding:2.1rem 1.9rem;box-shadow:0 10px 34px rgba(60,80,30,.07);transition:transform .3s ease,box-shadow .3s ease}
 .th-card:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(60,80,30,.12)}
