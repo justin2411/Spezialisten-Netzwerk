@@ -197,7 +197,7 @@ permalink: "/kapitalanlage-immobilie.html"
     <div class="ki-intro">
       <div class="ki-pic rv">
         <div class="ki-pic-frame">
-          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1000&q=85&fit=crop" alt="Helle, moderne Wohnung als Kapitalanlage" loading="lazy">
+          <img src="/assets/img/stock/wohnraum.webp" alt="Helle, moderne Wohnung als Kapitalanlage" loading="lazy">
           <span class="ki-chip">Strategie · Steuervorteile · Schutz</span>
         </div>
         <div class="ki-badge"><b>30+</b><span>Jahre Erfahrung</span></div>
@@ -706,11 +706,12 @@ var chartState = null;
 function drawChart(ekArr, wertArr, cfArr, hd, ek){
   var svg = document.getElementById('immo-svg');
   svg.innerHTML = '';
-  var W=640, H=320, PL=70, PR=16, PT=16, PB=34;
+  var W=640, H=320;
+  // Achsenschrift auf schmalen Bildschirmen lesbar halten (rein optisch)
+  var fs = Math.min(24, Math.max(13, Math.round(13*W/(svg.clientWidth||W)))), FS = String(fs);
+  var PL=Math.round(Math.max(58, fs*3.6)), PR=Math.round(Math.max(16, fs*1.1)), PT=16, PB=Math.round(Math.max(30, fs*1.6));
   var cW=W-PL-PR, cH=H-PT-PB;
   var N = hd+1;
-  // Achsenschrift auf schmalen Bildschirmen lesbar halten (rein optisch)
-  var FS = String(Math.min(26, Math.max(13, Math.round(13*W/(svg.clientWidth||W)))));
 
   var allVals = wertArr.concat(cfArr.map(function(v){return Math.max(0,v);}));
   var maxV = Math.max.apply(null, allVals) * 1.1 || 1;

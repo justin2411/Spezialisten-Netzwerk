@@ -11,7 +11,7 @@
       <a href="{{ t.url }}" class="sn-topic rv d{{ loop.index }}">
         <div class="sn-topic-top">
           <span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24">{{ t.icon | safe }}</svg></span>
-          <span class="sn-avatars">{% for p in t.people %}<img src="{{ site.team[p].img }}" alt="{{ site.team[p].name }}" loading="lazy" style="object-position:{{ site.team[p].pos or 'top' }}">{% endfor %}</span>
+          <span class="sn-avatars">{% for p in t.people %}<img src="{{ site.team[p].img }}" alt="{{ site.team[p].name }}" style="object-position:{{ site.team[p].pos or 'top' }}">{% endfor %}</span>
         </div>
         <h4>{{ t.title }}</h4>
         <p>{{ t.teaser }}</p>
