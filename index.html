@@ -37,14 +37,17 @@ permalink: "/index.html"
 .hx-badge.b2{right:-10px;top:-38px;animation:snFloat 8s ease-in-out infinite -3s}
 .hx-badge .dot{width:12px;height:12px;border-radius:50%;background:var(--g);box-shadow:0 0 0 5px var(--g100)}
 
-/* Themen-Laufband */
-.mq{background:var(--g);overflow:hidden;padding:1rem 0;position:relative}
-.mq-tr{display:flex;gap:1rem;width:max-content;animation:mq 42s linear infinite}
+/* Themen-Laufband (dezent, hochwertig) */
+.mq{position:relative;overflow:hidden;padding:1.6rem 0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.mq-tr{display:flex;align-items:center;width:max-content;animation:mq 60s linear infinite}
 .mq:hover .mq-tr{animation-play-state:paused}
-.mq a{display:inline-flex;align-items:center;gap:.6rem;font-size:1.02rem;font-weight:800;color:var(--ink);background:rgba(255,255,255,.45);padding:.5rem 1.1rem .5rem .6rem;border-radius:999px;white-space:nowrap;transition:background .2s}
-.mq a:hover{background:#fff}
-.mq a span{width:30px;height:30px;border-radius:9px;background:#fff;display:flex;align-items:center;justify-content:center}
-.mq a svg{width:16px;height:16px;stroke:var(--gd);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mq a{display:inline-flex;align-items:center;gap:.75rem;font-size:1.08rem;font-weight:700;color:var(--ink);white-space:nowrap;padding:0 2.2rem;position:relative;transition:color .25s}
+.mq a::after{content:'';position:absolute;right:-5px;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:3px;background:var(--g);transform:rotate(45deg);opacity:.85}
+.mq a:hover{color:var(--gd)}
+.mq a span{width:40px;height:40px;border-radius:12px;background:var(--g100);display:flex;align-items:center;justify-content:center;transition:background .25s,transform .35s var(--ease)}
+.mq a:hover span{background:var(--g);transform:rotate(-8deg)}
+.mq a svg{width:19px;height:19px;stroke:var(--gd);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.mq a:hover svg{stroke:var(--ink)}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* Netzwerk-Orbit */
