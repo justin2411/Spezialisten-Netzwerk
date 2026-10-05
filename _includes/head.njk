@@ -136,7 +136,7 @@ button{font-family:inherit}
 .sn-hero .sn-h1{margin-bottom:1.3rem}
 .sn-hero .sn-lead{margin-bottom:2.1rem}
 .sn-crumbs{display:flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:600;color:var(--muted);margin-bottom:1.6rem}
-.sn-crumbs a{color:var(--gd)}.sn-crumbs a:hover{text-decoration:underline}
+.sn-crumbs a{color:var(--gd);display:inline-flex;align-items:center;min-height:44px}.sn-crumbs a:hover{text-decoration:underline}
 .sn-crumbs span{opacity:.5}
 .sn-hero-card{position:relative;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--sp-card);box-shadow:var(--sh-lg)}
 .sn-hero-card-title{font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gd);margin-bottom:1.1rem}
@@ -313,6 +313,7 @@ button{font-family:inherit}
   .sn-person-photo{min-height:340px}
   .sn-cta{grid-template-columns:1fr}
 }
+@media(max-width:380px){.sn-eyebrow{font-size:.74rem;letter-spacing:.06em}}
 @media(max-width:620px){
   body{font-size:16px}
   .sn-grid-2,.sn-grid-3,.sn-grid-4,.sn-topics{grid-template-columns:1fr}
@@ -321,13 +322,24 @@ button{font-family:inherit}
   .sn-btns .sn-btn{flex:1 1 100%}
   .sn-person-body{padding:1.6rem}
   .fl{display:none}
+  .sn-card{padding:calc(var(--sp-card)*.75)}
+  .sn-grid-3>.sn-card,.sn-grid-2>.sn-card{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:1rem;align-items:start}
+  .sn-grid-3>.sn-card>.sn-ico,.sn-grid-2>.sn-card>.sn-ico{width:44px;height:44px;border-radius:12px;margin:0;grid-row:span 3}
+  .sn-grid-3>.sn-card>.sn-ico svg,.sn-grid-2>.sn-card>.sn-ico svg{width:21px;height:21px}
+  .sn-grid-3>.sn-card>.sn-ico::after,.sn-grid-2>.sn-card>.sn-ico::after{width:10px;height:10px;right:-3px;top:-3px}
+  .sn-grid-3>.sn-card>:not(.sn-ico),.sn-grid-2>.sn-card>:not(.sn-ico){grid-column:2}
+  .sn-topic{padding:calc(var(--sp-card)*.75)}
+  .sn-topic p{font-size:1rem}
+  .sn-hero{padding:calc(var(--sp-sec)*.6) 0 calc(var(--sp-sec)*.8)}
+  .sn-cta .sn-mosaic{opacity:.25}
+  .ftt a:not(.sn-btn){padding:.6rem 0}
+  .ftt .sn-btn{width:100%}
   .ftt{grid-template-columns:1fr 1fr;gap:2rem 1.2rem}
   .ftt>div:first-child{grid-column:1/-1}
   .ftt>div:last-child{grid-column:1/-1}
   .ft .sn-mosaic{opacity:.35}
   .mm-themen{grid-template-columns:minmax(0,1fr)}
   .sn-hero .sn-mosaic{display:none}
-  .sn-cta .sn-mosaic{opacity:.5}
   .sn-hero-person{width:100%;border-radius:22px}
   .sn-crumbs{flex-wrap:wrap}
 }

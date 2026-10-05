@@ -15,7 +15,7 @@ permalink: "/kranken-pflege.html"
 .kp-portrait .sn-tile{z-index:0}
 .kp-portrait-tag{position:absolute;z-index:2;left:-14px;bottom:28px;background:#fff;border-radius:var(--r-sm);padding:.8rem 1.1rem;box-shadow:var(--sh);border:1px solid var(--line)}
 .kp-portrait-tag b{display:block;color:var(--ink);font-size:1rem}
-.kp-portrait-tag small{color:var(--gdd);font-weight:700;font-size:.85rem}
+.kp-portrait-tag small{display:block;color:var(--gdd);font-weight:700;font-size:.85rem;line-height:1.4}
 .kp-mission .sn-quote{text-align:left;margin:0;padding:calc(var(--sp-card)*1.5) var(--sp-card) var(--sp-card);display:flex;flex-direction:column;justify-content:center}
 .kp-mission .sn-quote::before{left:var(--sp-card);transform:none}
 .kp-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-gap)}
@@ -26,6 +26,10 @@ permalink: "/kranken-pflege.html"
 .kp-pillar h3{font-size:1.2rem;font-weight:800;color:var(--ink);margin-bottom:.4rem}
 .kp-pillar p{color:var(--text);line-height:1.7}
 @media(max-width:900px){.kp-portrait{margin:0 auto}.kp-mission{grid-template-columns:minmax(0,1fr);row-gap:calc(var(--sp-gap)*2.5)}.kp-pillars{grid-template-columns:1fr}}
+@media(max-width:620px){.kp-portrait-tag{left:var(--sp-gap);bottom:var(--sp-gap);max-width:calc(100% - 2*var(--sp-gap))}}
+/* Mobil-Feinschliff (seitenlokal): Hero-Spalte darf nicht über lange Wörter hinauswachsen, H1 skaliert auf schmalen Geräten */
+@media(max-width:900px){.sn-hero-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:620px){.sn-hero .sn-h1{font-size:clamp(2.1rem,9.4vw,2.4rem)}.sn-hero-row strong{hyphens:auto;overflow-wrap:break-word}}
 </style>
 <section class="sn-hero">
   {% include "hero-mosaic.njk" %}

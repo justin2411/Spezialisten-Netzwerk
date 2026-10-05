@@ -158,6 +158,40 @@ permalink: "/kapitalanlage-immobilie.html"
   .ki-pop-head{padding:1.6rem 1.4rem 1.3rem}
   .ki-pop-body{padding:1.4rem}
   #gp-title{font-size:1.4rem;padding-right:2.5rem}
+  /* Mobil: Rechner ohne doppelten Rahmen, damit Regler & Werte die volle Breite nutzen */
+  .ki-calc{padding:0;border:none;background:transparent;box-shadow:none;border-radius:0}
+  .calc-inputs{padding:1.4rem 1.2rem;box-shadow:var(--sh-sm)}
+  .immo-calc-note{border-top:none;padding-top:0}
+  .ci-field{margin-bottom:.8rem}
+  .ci-field label{margin-bottom:0}
+  .ci-hint{margin-top:0}
+  .ci-hint,.co-legend-item{font-size:.95rem}
+  .ci-result-sub{font-size:1rem}
+  .co-card-lbl{font-size:.92rem}
+  .co-chart-wrap{padding:1.2rem 1rem 1rem}
+  /* Hero-Link als volle Tap-Fläche */
+  .ki-hero-link{min-height:44px;margin-top:.6rem}
+  /* Sechs Gründe: kompakt — Icon links, Text rechts, Nummer unten rechts */
+  .ki-grund{display:grid;grid-template-columns:auto 1fr;column-gap:1rem;align-items:start}
+  .ki-grund .sn-ico{grid-row:1/span 2;margin:0}
+  .ki-gtitle{grid-column:2;font-size:1.2rem;margin:.1rem 0 .45rem;hyphens:auto;-webkit-hyphens:auto}
+  .ki-gtag{grid-column:2;justify-self:start;margin:0}
+  .ki-grund .sn-topic-go{grid-column:2;margin-top:.9rem;min-height:24px}
+  .ki-gnum{top:auto;bottom:1.3rem;right:1.4rem;font-size:2.3rem}
+  .ki-person .sn-person-photo{min-height:340px}
+  /* Vorteile: kompakt, Icon links neben Titel + Text */
+  .ki-vt .sn-card{display:grid;grid-template-columns:auto 1fr;column-gap:1rem;align-items:start}
+  .ki-vt .sn-ico{grid-row:1/span 2;margin:0}
+  .ki-vt .sn-card h3{margin:.1rem 0 .3rem}
+}
+/* Touch/Tablet: Regler mit 44px hoher Tap-Fläche (Spur bleibt 10px, Griff größer) */
+@media(max-width:900px){
+  .ci-range{height:44px;background:transparent;box-shadow:none}
+  .ci-range::-webkit-slider-runnable-track{height:10px;border-radius:999px;background:linear-gradient(90deg,var(--g) 0,var(--g) var(--p),#fff var(--p),#fff 100%);box-shadow:inset 0 0 0 1px var(--g200)}
+  .ci-range::-webkit-slider-thumb{width:30px;height:30px;margin-top:-10px}
+  .ci-range::-moz-range-track{height:10px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--g200)}
+  .ci-range::-moz-range-progress{height:10px;border-radius:999px;background:var(--g)}
+  .ci-range::-moz-range-thumb{width:22px;height:22px}
 }
 </style>
 
@@ -227,7 +261,7 @@ permalink: "/kapitalanlage-immobilie.html"
       <h2 class="sn-h2 rv">Professionelle Investments mit <span class="sn-hl">geprüfter Qualität</span></h2>
       <p class="sn-lead rv">Zielorientierung, Individualität und verlässliche Prozesse.</p>
     </div>
-    <div class="sn-grid-3">
+    <div class="sn-grid-3 ki-vt">
       <div class="sn-card rv d1"><div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Produktqualität</h3><p>Engmaschige Prüfung nach höchsten Kriterien.</p></div>
       <div class="sn-card rv d2"><div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Verbraucherschutz</h3><p>Klare Dokumentation und transparente Information.</p></div>
       <div class="sn-card rv d3"><div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Erfahrene Beratung</h3><p>Über 30 Jahre Immobilien- und Finanzerfahrung.</p></div>
@@ -704,9 +738,10 @@ var chartState = null;
 function drawChart(ekArr, wertArr, cfArr, hd, ek){
   var svg = document.getElementById('immo-svg');
   svg.innerHTML = '';
-  var W=640, H=320;
-  // Achsenschrift auf schmalen Bildschirmen lesbar halten (rein optisch)
-  var fs = Math.min(24, Math.max(13, Math.round(13*W/(svg.clientWidth||W)))), FS = String(fs);
+  var W=640, cw0=svg.clientWidth||W, H=cw0<480?440:320;
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  // Achsenschrift auf schmalen Bildschirmen lesbar halten (rein optisch; mobil höheres Diagramm, ~13px Schrift)
+  var fs = Math.min(30, Math.max(13, Math.round(13.5*W/cw0))), FS = String(fs);
   var PL=Math.round(Math.max(58, fs*3.6)), PR=Math.round(Math.max(16, fs*1.1)), PT=16, PB=Math.round(Math.max(30, fs*1.6));
   var cW=W-PL-PR, cH=H-PT-PB;
   var N = hd+1;
@@ -797,7 +832,7 @@ function drawChart(ekArr, wertArr, cfArr, hd, ek){
   hoverBound = true;
   var tip = document.getElementById('co-tooltip');
   var wrap = document.getElementById('co-chart-wrap');
-  svg.addEventListener('mousemove', function(e){
+  function showTip(e){
     var s = chartState; if(!s) return;
     var r = svg.getBoundingClientRect();
     var wr = wrap.getBoundingClientRect();
@@ -812,12 +847,21 @@ function drawChart(ekArr, wertArr, cfArr, hd, ek){
       +'Kum. Cashflow: '+(s.cfArr[idx]>=0?'+ ':'− ')+Math.abs(Math.round(s.cfArr[idx])).toLocaleString('de-DE')+' €';
     var ox = e.clientX - wr.left, oy = e.clientY - wr.top;
     var tx = (relX > .5) ? ox - tip.offsetWidth - 14 : ox + 14;
+    tx = Math.max(6, Math.min(wr.width - tip.offsetWidth - 6, tx)); // Tooltip bleibt in der Box (mobil)
     tip.style.left = tx+'px'; tip.style.top = Math.max(8, oy - 60)+'px'; tip.style.opacity='1';
-  });
-  svg.addEventListener('mouseleave', function(){ tip.style.opacity='0'; });
+  }
+  svg.addEventListener('mousemove', showTip);
+  svg.addEventListener('click', showTip); // Tippen auf dem Handy zeigt die Jahreswerte
+  // Touch: Tooltip nach dem Tippen stehen lassen, beim Tippen außerhalb ausblenden
+  var lastTouch = 0;
+  svg.addEventListener('touchstart', function(){ lastTouch = Date.now(); }, {passive:true});
+  document.addEventListener('touchstart', function(e){ if(!svg.contains(e.target)) tip.style.opacity='0'; }, {passive:true});
+  svg.addEventListener('mouseleave', function(){ if(Date.now() - lastTouch < 1000) return; tip.style.opacity='0'; });
 }
 
 calcImmo();
+/* Diagramm bei Größenänderung (z. B. Drehen des Handys) neu zeichnen */
+var rzT; window.addEventListener('resize', function(){ clearTimeout(rzT); rzT = setTimeout(calcImmo, 150); });
 
 })();
 </script>

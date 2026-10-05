@@ -170,6 +170,7 @@ permalink: "/optiplan.html"
   .cmetrics{grid-template-columns:1fr}
   .cmet{display:flex;justify-content:space-between;align-items:center;gap:1rem;text-align:left}
   .cmet .cm-val{order:2;margin:0;font-size:1.2rem}
+  .cmet{padding:.75rem 1rem}
   .op-sz-head,.op-sz-body{padding-left:1.2rem;padding-right:1.2rem}
   .sz-row{font-size:.98rem;flex-wrap:wrap;gap:.3rem .8rem}
   .sz-rv{white-space:nowrap;margin-left:auto}
@@ -182,6 +183,34 @@ permalink: "/optiplan.html"
   .op-pop-head{padding:1.5rem 3.6rem 1.4rem 1.3rem;gap:.8rem}
   .op-pop-num{font-size:2.3rem}
   .op-pop-body{padding:1.4rem 1.3rem 1.6rem}
+  .op-pop-x{width:44px;height:44px;top:.8rem;right:.8rem}
+  /* Popup-Kopf: Nummer + Icon oben, Titel darunter in voller Breite */
+  .op-pop-head{flex-wrap:wrap;row-gap:.9rem}
+  .op-pop-head>div:not(.op-pop-num):not(.sn-ico){flex-basis:100%}
+  .op-pop-head h3{padding-right:0}
+  /* Mobil: Überschrift im Standardmaß der h2 */
+  .op-dims-intro .sn-h2{font-size:clamp(1.9rem,8vw,2.1rem)}
+  /* Prozess-Karten kompakt: Icon links, Text rechts, Nummer unten rechts */
+  .op-step{display:grid;grid-template-columns:auto 1fr;column-gap:1rem;align-items:start}
+  .op-step .sn-ico{grid-row:1/span 2;margin:0}
+  .op-step h3{grid-column:2;margin:.1rem 0 .3rem;hyphens:auto;-webkit-hyphens:auto}
+  .op-step-tag{grid-column:2;margin:0;font-size:1rem}
+  .op-step-go{grid-column:2;margin-top:.9rem;font-size:1rem}
+  .op-step-n{top:auto;bottom:1.3rem;right:1.4rem;font-size:2.3rem;color:var(--g200)}
+  /* Rechner: Regler mit 44px Tap-Fläche, Abstände ausgleichen */
+  .cfields{gap:.6rem}
+  .cf label{margin-bottom:0}
+  .cf-range{height:44px}
+  .cf-range::-webkit-slider-thumb{width:28px;height:28px;margin-top:-11px}
+  .cf-range::-moz-range-thumb{width:20px;height:20px}
+  .cf-hint{margin-top:0;font-size:.95rem}
+  .op-legend span{font-size:.95rem}
+  /* Mehrwert-Banner: kein Leerraum zwischen Kennzahl und Liste */
+  .op-banner{gap:var(--sp-stack);padding:1.6rem 1.2rem}
+  .sb-sub{font-size:1rem}
+  .sb-item-lbl{font-size:.85rem}
+  .op-vital-row span.op-q{font-size:1rem}
+  .op-hc-note{font-size:1rem}
 }
 /* Weiße Schrift auf Grün (Kundenentscheidung) */
 .cresult .cr-lbl,.cresult .cr-val{color:#fff}
@@ -345,7 +374,7 @@ permalink: "/optiplan.html"
       </button>
       <button type="button" class="op-step rv d3" onclick="openProc(5)" aria-haspopup="dialog">
         <span class="op-step-n" aria-hidden="true">06</span>
-        <span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/><path d="M8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45"/></svg></span>
+        <span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
         <h3>Persönlicher Ansprechpartner</h3>
         <span class="op-step-tag">Ein Kontakt · Alles aus einer Hand</span>
         <span class="op-step-go">Details ansehen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
@@ -547,7 +576,7 @@ var PROC_ICONS=[
   '<polyline points="22 4 12 14.01 9 11.01"/><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>',
   '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
   '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
-  '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/><path d="M8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45"/>'
+  '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>'
 ];
 var PROC=[
   {num:'01',title:'Ziele und Status klären',tag:'Kostenlos & unverbindlich',
@@ -643,15 +672,15 @@ function calcLiq(){
 
 function drawBars(id,vals,vals2,retIdx){
   var svg=document.getElementById(id), s=svgSize(svg), W=s.W, H=s.H;
-  var compact=W<480, PL=compact?52:64, PR=8, PT=14, PB=26, cW=W-PL-PR, cH=H-PT-PB;
+  var compact=W<480, PL=compact?56:64, PR=8, PT=14, PB=26, cW=W-PL-PR, cH=H-PT-PB;
   var all=vals.concat(vals2), hi=Math.max(0,Math.max.apply(null,all)), lo=Math.min(0,Math.min.apply(null,all));
   if(hi===lo)hi=1;
   var step=niceStep(hi-lo,compact?4:5), top=Math.ceil(hi/step)*step, bot=Math.floor(lo/step)*step;
   function y(v){return PT+cH*(top-v)/(top-bot);}
-  for(var g=bot;g<=top+1e-6;g+=step){var gy=y(g);svg.appendChild(svgLine(PL,gy,W-PR,gy,g===0?'#b5ab9b':C.grid,g===0?'1.5':'1'));svg.appendChild(svgText(PL-8,gy+4,fmtEur(g),C.axis,compact?'11':'12','end'));}
+  for(var g=bot;g<=top+1e-6;g+=step){var gy=y(g);svg.appendChild(svgLine(PL,gy,W-PR,gy,g===0?'#b5ab9b':C.grid,g===0?'1.5':'1'));svg.appendChild(svgText(PL-8,gy+4,fmtEur(g),C.axis,compact?'12.5':'12','end'));}
   var N=vals.length, gap=cW/N, bW=gap*.42, bW2=gap*.34, zeroY=y(0);
   if(retIdx<N){var rx=PL+retIdx*gap;svg.appendChild(sa(svgLine(rx,PT,rx,PT+cH,C.greyD,'1.5'),{'stroke-dasharray':'4,3'}));
-    var lbl=svgText(rx+(retIdx>N*.7?-6:6),PT+12,'Ruhestand',C.ink,compact?'11':'12',retIdx>N*.7?'end':'start','800');svg.appendChild(lbl);}
+    var lbl=svgText(rx+(retIdx>N*.7?-6:6),PT+12,'Ruhestand',C.ink,compact?'12.5':'12',retIdx>N*.7?'end':'start','800');svg.appendChild(lbl);}
   var yr=new Date().getFullYear(), every=compact?6:5;
   for(var i=0;i<N;i++){
     var bx=PL+i*gap+(gap-bW-bW2-1)/2;
@@ -659,7 +688,7 @@ function drawBars(id,vals,vals2,retIdx){
     svg.appendChild(sa(ns('rect'),{x:bx,y:isNeg?zeroY:y(v),width:bW,height:Math.abs(y(v)-zeroY),rx:Math.min(3,bW/3),fill:isNeg?C.amber:C.lime}));
     var v2=vals2[i],isNeg2=v2<0;
     svg.appendChild(sa(ns('rect'),{x:bx+bW+1,y:isNeg2?zeroY:y(v2),width:bW2,height:Math.abs(y(v2)-zeroY),rx:Math.min(3,bW2/3),fill:isNeg2?C.amberL:C.grey}));
-    if(i%every===0)svg.appendChild(svgText(PL+i*gap+gap/2,H-6,(yr+i)+'',C.axis,compact?'11':'12'));
+    if(i%every===0)svg.appendChild(svgText(PL+i*gap+gap/2,H-6,(yr+i)+'',C.axis,compact?'12.5':'12'));
   }
 }
 
@@ -684,14 +713,14 @@ function calcVer(){
 
 function drawLines(id,vals,vals2,yrs){
   var svg=document.getElementById(id), s=svgSize(svg), W=s.W, H=s.H;
-  var compact=W<480, PL=compact?58:70, PR=compact?10:16, PT=14, PB=26, cW=W-PL-PR, cH=H-PT-PB;
+  var compact=W<480, PL=compact?62:70, PR=compact?10:16, PT=14, PB=26, cW=W-PL-PR, cH=H-PT-PB;
   var hi=Math.max(Math.max.apply(null,vals),Math.max.apply(null,vals2))||1, step=niceStep(hi,4), top=Math.ceil(hi/step)*step, N=vals.length;
   function xp(i){return PL+(i/(N-1))*cW;}
   function yp(v){return PT+cH*(1-v/top);}
-  for(var g=0;g<=top+1e-6;g+=step){var gy=yp(g);svg.appendChild(svgLine(PL,gy,W-PR,gy,g===0?'#b5ab9b':C.grid,g===0?'1.5':'1'));svg.appendChild(svgText(PL-8,gy+4,fmtEur(g),C.axis,compact?'11':'12','end'));}
+  for(var g=0;g<=top+1e-6;g+=step){var gy=yp(g);svg.appendChild(svgLine(PL,gy,W-PR,gy,g===0?'#b5ab9b':C.grid,g===0?'1.5':'1'));svg.appendChild(svgText(PL-8,gy+4,fmtEur(g),C.axis,compact?'12.5':'12','end'));}
   var p1='',p2='',a1='M'+xp(0)+','+(PT+cH);
   var yr=new Date().getFullYear(), every=(compact&&N>20)?10:5;
-  for(var i=0;i<N;i++){p1+=(i?'L':'M')+xp(i)+','+yp(vals[i]);p2+=(i?'L':'M')+xp(i)+','+yp(vals2[i]);a1+=' L'+xp(i)+','+yp(vals[i]);if(i%every===0)svg.appendChild(svgText(xp(i),H-6,(yr+i)+'',C.axis,compact?'11':'12',i===0?'start':'middle'));}
+  for(var i=0;i<N;i++){p1+=(i?'L':'M')+xp(i)+','+yp(vals[i]);p2+=(i?'L':'M')+xp(i)+','+yp(vals2[i]);a1+=' L'+xp(i)+','+yp(vals[i]);if(i%every===0)svg.appendChild(svgText(xp(i),H-6,(yr+i)+'',C.axis,compact?'12.5':'12',i===0?'start':'middle'));}
   a1+=' L'+xp(N-1)+','+(PT+cH)+' Z';
   var defs=ns('defs'),lg=sa(ns('linearGradient'),{id:id+'-g',x1:'0',y1:'0',x2:'0',y2:'1'});
   lg.appendChild(sa(ns('stop'),{offset:'0','stop-color':C.lime,'stop-opacity':'.45'}));

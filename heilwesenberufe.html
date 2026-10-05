@@ -15,11 +15,11 @@ permalink: "/heilwesenberufe.html"
 .hw-duo-box b{display:block;font-size:1.2rem;color:var(--ink)}
 .hw-duo-plus{width:48px;height:48px;border-radius:14px;background:var(--g);color:#fff;font-size:1.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;transform:rotate(45deg)}
 .hw-duo-plus span{transform:rotate(-45deg)}
-.hw-svc{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-gap)}
+.hw-svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-gap)}
 .hw-svc-item{display:flex;align-items:center;gap:1.1rem;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:var(--sp-card);box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s,border-color .3s}
 .hw-svc-item:hover{transform:translateY(-5px);box-shadow:var(--sh);border-color:var(--g)}
 .hw-svc-item .sn-ico{margin-bottom:0}
-.hw-svc-item h3{font-size:1.08rem;font-weight:800;color:var(--ink);line-height:1.3}
+.hw-svc-item h3{min-width:0;font-size:1.08rem;font-weight:800;color:var(--ink);line-height:1.3;hyphens:auto;overflow-wrap:break-word}
 .hw-svc-item:hover .sn-ico{transform:rotate(-6deg);background:var(--g200)}
 .hw-approach{display:grid;grid-template-columns:1.15fr .85fr;gap:calc(var(--sp-gap)*2.5);align-items:stretch}
 .hw-approach-text p{font-size:1.06rem;line-height:1.8;color:var(--text)}
@@ -30,8 +30,12 @@ permalink: "/heilwesenberufe.html"
 .hw-panel-foot{margin-top:auto;padding-top:1.3rem;border-top:1px solid var(--g200);font-weight:700;color:var(--ink);line-height:1.6}
 .hw-net{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:var(--sp-stack)}
 .hw-net span{padding:.45rem .95rem;border-radius:999px;background:var(--amber50);border:1px solid var(--amber);font-size:.92rem;font-weight:700;color:var(--ink)}
-@media(max-width:900px){.hw-intro,.hw-approach{grid-template-columns:minmax(0,1fr)}.hw-svc{grid-template-columns:1fr 1fr}}
-@media(max-width:620px){.hw-svc{grid-template-columns:1fr}.hw-duo{grid-template-columns:1fr;justify-items:center}.hw-duo-box{width:100%}}
+@media(max-width:900px){.hw-intro,.hw-approach{grid-template-columns:minmax(0,1fr)}.hw-svc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.hw-svc{grid-template-columns:minmax(0,1fr)}.hw-svc-item{padding:calc(var(--sp-card)*.75)}.hw-svc-item h3{font-size:1.02rem}.hw-duo{grid-template-columns:minmax(0,1fr);justify-items:center;gap:calc(var(--sp-gap)*.75)}.hw-duo-box{width:100%;display:flex;align-items:center;justify-content:flex-start;gap:1rem;text-align:left;padding:calc(var(--sp-card)*.75) var(--sp-card)}.hw-duo-box .sn-ico{margin:0}.hw-duo-plus{width:40px;height:40px;border-radius:12px;font-size:1.5rem}.hw-h2-long{font-size:1.7rem;text-wrap:balance}}
+.sn-hero-card .sn-hero-row{align-items:center}
+/* Mobil-Feinschliff (seitenlokal): Hero-Spalte darf nicht über lange Wörter hinauswachsen, H1 skaliert auf schmalen Geräten */
+@media(max-width:900px){.sn-hero-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:620px){.sn-hero .sn-h1{font-size:clamp(2.1rem,9.4vw,2.4rem)}.sn-hero-row strong{hyphens:auto;overflow-wrap:break-word}}
 </style>
 <section class="sn-hero">
   {% include "hero-mosaic.njk" %}
@@ -55,7 +59,7 @@ permalink: "/heilwesenberufe.html"
         <div class="sn-hero-card-title">Was wir übernehmen</div>
         <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.2 12 6.8 16.5 4.2"/></svg></span><div><strong>Praxiskauf und Praxisübernahme</strong></div></div>
         <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div><strong>Praxisfinanzierung</strong></div></div>
-        <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/></svg></span><div><strong>Betriebswirtschaftliche Analysen</strong></div></div>
+        <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/></svg></span><div><strong>Betriebs&shy;wirtschaftliche Analysen</strong></div></div>
       </div>
     </div>
   </div>
@@ -66,7 +70,7 @@ permalink: "/heilwesenberufe.html"
     <div class="hw-intro">
       <div>
         <div class="sn-eyebrow rv">Warum es zählt</div>
-        <h2 class="sn-h2 rv">Die Wichtigkeit einer Unternehmens&shy;beratung für <span class="sn-hl">Heilwesenberufe</span></h2>
+        <h2 class="sn-h2 hw-h2-long rv">Die Wichtigkeit einer Unternehmens&shy;beratung für <span class="sn-hl">Heilwesenberufe</span></h2>
         <p class="sn-lead rv d1">Selbstständige Ärzte sind Mediziner und Unternehmer zugleich. Praxiserfolg braucht medizinisches und wirtschaftliches Know-how.</p>
       </div>
       <div class="hw-duo rv d2" aria-hidden="true">
@@ -87,7 +91,7 @@ permalink: "/heilwesenberufe.html"
     <div class="hw-svc">
       <div class="hw-svc-item rv d1"><span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.2 12 6.8 16.5 4.2"/></svg></span><h3>Praxiskauf und Praxisübernahme</h3></div>
       <div class="hw-svc-item rv d2"><span class="sn-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><h3>Praxisfinanzierung</h3></div>
-      <div class="hw-svc-item rv d3"><span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/></svg></span><h3>Betriebswirtschaftliche Analysen</h3></div>
+      <div class="hw-svc-item rv d3"><span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/></svg></span><h3>Betriebs&shy;wirtschaftliche Analysen</h3></div>
       <div class="hw-svc-item rv d4"><span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><line x1="12" y1="11" x2="12" y2="15"/><line x1="10" y1="13" x2="14" y2="13"/></svg></span><h3>Gründung von Privatpraxen</h3></div>
       <div class="hw-svc-item rv d5"><span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span><h3>Praxisabgabe und &#8209;verkauf</h3></div>
       <div class="hw-svc-item rv d6"><span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21l8.8-8.3a5 5 0 0 0 0-7.1z"/></svg></span><h3>Langfristige Betreuung</h3></div>

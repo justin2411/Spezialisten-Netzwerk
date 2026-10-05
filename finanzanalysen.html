@@ -23,8 +23,11 @@ permalink: "/finanzanalysen.html"
 .fa-hub .sn-card:nth-child(odd){text-align:right}
 .fa-core{position:absolute;left:50%;top:50%;margin:-65px 0 0 -65px;z-index:2;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 30% 25%,var(--gl),var(--g) 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem;box-shadow:0 0 0 12px var(--g100),0 0 0 13px var(--g200),var(--sh-lg);font-weight:800;color:var(--ink);line-height:1.2;font-size:.9rem}
 .fa-core svg{width:30px;height:30px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-bottom:.35rem}
-@media(max-width:900px){.fa-proc{grid-template-columns:1fr}.fa-proc-l{position:static}.fa-hub{grid-template-columns:1fr;gap:var(--sp-gap)}.fa-hub .sn-card:nth-child(odd){text-align:left}.fa-hub .sn-card{min-height:0}.fa-core{position:relative;left:auto;top:auto;margin:0 auto;order:-1}}
-@media(max-width:620px){.fa-proc .sn-steps{grid-template-columns:1fr}}
+@media(max-width:900px){.fa-proc{grid-template-columns:1fr}.fa-proc-l{position:static}.fa-hub{grid-template-columns:1fr;gap:var(--sp-gap)}.fa-hub .sn-card:nth-child(odd){text-align:left}.fa-hub .sn-card{min-height:0}.fa-core{position:relative;left:auto;top:auto;margin:0 auto var(--sp-gap);order:-1}}
+@media(max-width:620px){.fa-proc .sn-steps{grid-template-columns:1fr}.fa-h2-long{font-size:1.7rem;text-wrap:balance}}
+/* Mobil-Feinschliff (seitenlokal): Hero-Spalte darf nicht über lange Wörter hinauswachsen, H1 skaliert auf schmalen Geräten */
+@media(max-width:900px){.sn-hero-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:620px){.sn-hero .sn-h1{font-size:clamp(2.1rem,9.4vw,2.4rem)}.sn-hero-row strong{hyphens:auto;overflow-wrap:break-word}}
 /* Weiße Schrift auf Grün (Kundenentscheidung) */
 .fa-core,.fa-core *{color:#fff}
 .fa-core svg{stroke:#fff}
@@ -62,7 +65,7 @@ permalink: "/finanzanalysen.html"
   <div class="sn-wrap">
     <div class="sn-head sn-tc">
       <div class="sn-eyebrow rv">dynamische Finanzanalyse</div>
-      <h2 class="sn-h2 rv">Wir finden gemeinsam Antworten und die <span class="sn-hl">richtigen Fragen</span> für Ihren finanziellen Erfolg</h2>
+      <h2 class="sn-h2 fa-h2-long rv">Wir finden gemeinsam Antworten und die <span class="sn-hl">richtigen Fragen</span> für Ihren finanziellen Erfolg</h2>
       <p class="sn-lead rv">Transparenz, Sicherheit und Effizienz, entlang von drei Dimensionen.</p>
     </div>
     <div class="sn-grid-3">
