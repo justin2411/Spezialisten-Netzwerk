@@ -11,7 +11,7 @@ permalink: "/kontakt.html"
 /* ════════ KONTAKT — seitenspezifisch (Präfix .ct-), nutzt Variablen aus head.njk ════════ */
 
 /* ── Hero: Netzwerk-Cluster ── */
-.ct-hero-pills{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
+.ct-hero-pills{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
 .ct-pill{display:inline-flex;align-items:center;gap:.5rem;font-size:.95rem;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:.45rem 1rem .45rem .5rem;box-shadow:var(--sh-sm)}
 .ct-pill i{width:24px;height:24px;border-radius:8px;background:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .ct-pill svg{width:14px;height:14px;stroke:var(--ink);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
@@ -38,17 +38,16 @@ permalink: "/kontakt.html"
 .ct-net-tile{position:absolute;border-radius:28%;transform:rotate(45deg);z-index:1}
 
 /* ── Hauptbereich ── */
-.ct-main{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-areas:"top form" "bottom form";grid-template-rows:auto 1fr;column-gap:clamp(2rem,5vw,4.5rem);row-gap:1.4rem;align-items:stretch}
+.ct-main{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-areas:"top form" "bottom form";grid-template-rows:auto 1fr;column-gap:calc(var(--sp-gap)*2.5);row-gap:var(--sp-stack);align-items:stretch}
 .ct-info-bottom{display:flex;flex-direction:column}
 .ct-info-bottom .ct-tiles{flex:1}
 .ct-info-bottom .ct-tile{flex:1}
 .ct-form-card{align-self:stretch;display:flex;flex-direction:column;justify-content:center}
 .ct-info-top{grid-area:top}.ct-info-bottom{grid-area:bottom}.ct-form-card{grid-area:form}
-.ct-info-top .ct-contact{margin-bottom:0}
-.ct-info-top .sn-lead{margin-bottom:2rem}
+.ct-info-top .sn-lead{margin-bottom:var(--sp-head)}
 
 /* Personen-Karte Ansprechpartner */
-.ct-contact{display:flex;gap:1.3rem;align-items:center;background:linear-gradient(150deg,var(--g100),#fff 75%);border:1px solid var(--g200);border-radius:var(--r-lg);padding:1.3rem;box-shadow:var(--sh);margin-bottom:1.6rem}
+.ct-contact{display:flex;gap:1.3rem;align-items:center;background:linear-gradient(150deg,var(--g100),#fff 75%);border:1px solid var(--g200);border-radius:var(--r-lg);padding:var(--sp-card);box-shadow:var(--sh)}
 .ct-contact-photo{position:relative;flex-shrink:0;width:118px;height:118px}
 .ct-contact-photo img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:30%;border:4px solid #fff;box-shadow:var(--sh-sm);background:var(--g200)}
 .ct-contact-photo::after{content:'';position:absolute;right:-6px;top:-6px;width:26px;height:26px;border-radius:8px;background:var(--g);transform:rotate(45deg);box-shadow:0 0 0 3px #fff}
@@ -58,8 +57,8 @@ permalink: "/kontakt.html"
 .ct-contact-txt{font-size:.98rem;color:var(--text);margin-top:.4rem;line-height:1.5}
 
 /* Kontakt-Kacheln */
-.ct-tiles{display:flex;flex-direction:column;gap:1.4rem}
-.ct-tile{display:flex;gap:1rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.2rem;box-shadow:var(--sh-sm);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
+.ct-tiles{display:flex;flex-direction:column;gap:var(--sp-gap)}
+.ct-tile{display:flex;gap:1rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:var(--sp-card);box-shadow:var(--sh-sm);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
 .ct-tile:hover{transform:translateX(6px);box-shadow:var(--sh);border-color:var(--g200)}
 .ct-tile h3{font-size:1.08rem;font-weight:800;color:var(--ink);line-height:1.25}
 .ct-tile p{font-size:.96rem;color:var(--muted);line-height:1.45}
@@ -67,10 +66,10 @@ permalink: "/kontakt.html"
 
 
 /* ── Formular-Karte ── */
-.ct-form-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:clamp(1.6rem,4vw,2.8rem);scroll-margin-top:100px}
-.ct-form-card::before{content:'';position:absolute;left:clamp(1.6rem,4vw,2.8rem);right:clamp(1.6rem,4vw,2.8rem);top:0;height:6px;border-radius:0 0 8px 8px;background:linear-gradient(90deg,var(--g),var(--gl),var(--amber))}
+.ct-form-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:var(--sp-card);scroll-margin-top:100px}
+.ct-form-card::before{content:'';position:absolute;left:var(--sp-card);right:var(--sp-card);top:0;height:6px;border-radius:0 0 8px 8px;background:linear-gradient(90deg,var(--g),var(--gl),var(--amber))}
 .ct-form-deco{position:absolute;right:-18px;top:-18px;width:120px;height:120px;pointer-events:none}
-.ct-form-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1.6rem}
+.ct-form-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:var(--sp-stack)}
 .ct-form-title{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:800;color:var(--ink);line-height:1.1;letter-spacing:-.02em;margin-bottom:.5rem}
 .ct-form-sub{font-size:1.02rem;color:var(--text);line-height:1.6}
 .ct-free{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;width:86px;height:86px;border-radius:26px;background:var(--g);color:#fff;font-weight:800;text-align:center;line-height:1.05;font-size:.82rem;transform:rotate(6deg);box-shadow:0 12px 26px rgba(180,200,0,.4)}
@@ -119,9 +118,9 @@ permalink: "/kontakt.html"
 .ct-success .sn-btns{justify-content:center}
 
 /* ── Team-Streifen ── */
-.ct-team{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1.2rem}
+.ct-team{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--sp-gap)}
 .ct-tm-name,.ct-tm-role{overflow-wrap:anywhere;hyphens:auto}
-.ct-tm{color:inherit;display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.5rem 1rem 1.3rem;box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s,border-color .3s}
+.ct-tm{color:inherit;display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:var(--sp-card) calc(var(--sp-card)/2);box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s,border-color .3s}
 .ct-tm:hover{transform:translateY(-6px);box-shadow:var(--sh);border-color:var(--g)}
 .ct-tm-img{position:relative;width:112px;height:112px;margin-bottom:1rem}
 .ct-tm-img img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:50%;border:4px solid #fff;box-shadow:0 0 0 3px var(--g200),0 10px 22px rgba(79,94,11,.14);background:var(--g100);transition:box-shadow .3s}
@@ -142,8 +141,8 @@ permalink: "/kontakt.html"
 }
 @media(max-width:620px){
   .ct-row{grid-template-columns:1fr}
-  .ct-team{grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
-  .ct-tm{padding:1.2rem .7rem 1rem}
+  .ct-team{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ct-tm{padding:var(--sp-gap) calc(var(--sp-gap)/2)}
   .ct-tm-img{width:88px;height:88px}
   .ct-tm-name{font-size:.98rem}
   .ct-tm-role{font-size:.8rem}

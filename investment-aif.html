@@ -8,31 +8,30 @@ permalink: "/investment-aif.html"
 {%- set p = site.team.scholl -%}
 <style>
 /* Seitenspezifisch: Investment & AIF (Präfix iv-) */
-.iv-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:1.4rem}
-.iv-big{display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;border-radius:var(--r);padding:2rem 1.9rem;background:linear-gradient(150deg,var(--g) 0%,var(--gl) 100%);color:#fff;box-shadow:0 18px 40px rgba(150,170,0,.25);transition:transform .35s var(--ease)}
+.iv-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-gap);margin-top:var(--sp-stack)}
+.iv-big{display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;border-radius:var(--r);padding:var(--sp-card);background:linear-gradient(150deg,var(--g) 0%,var(--gl) 100%);color:#fff;box-shadow:0 18px 40px rgba(150,170,0,.25);transition:transform .35s var(--ease)}
 .iv-big:hover{transform:translateY(-6px)}
 .iv-big::after{content:'';position:absolute;right:-26px;bottom:-26px;width:110px;height:110px;border-radius:28%;transform:rotate(45deg);background:rgba(255,255,255,.35)}
 .iv-big>*{position:relative;z-index:1}
 .iv-big small{display:block;font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gdd);margin-bottom:.8rem}
 .iv-big b{display:block;font-size:clamp(2.8rem,5vw,3.8rem);font-weight:800;line-height:1;letter-spacing:-.03em}
 .iv-big span{display:block;margin-top:.5rem;font-size:1.1rem;font-weight:700}
-.iv-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.iv-split{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--sp-gap)*2.5);align-items:center}
 .iv-proof .sn-card{display:flex;flex-direction:column;justify-content:center}
 .iv-proof .sn-card .sn-ico{flex-shrink:0}
-.sn-person-body .sn-btns{margin-top:1.5rem}
 .iv-split .sn-lead+.sn-lead{margin-top:1.1rem}
-.iv-panel{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:2.2rem;box-shadow:var(--sh)}
+.iv-panel{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--sp-card);box-shadow:var(--sh)}
 .iv-panel p{font-size:1.02rem;line-height:1.75;color:var(--text)}
 .iv-panel p+p{margin-top:1rem}
 .iv-panel h3{margin-bottom:.9rem}
-.iv-chips{display:flex;flex-wrap:wrap;gap:.55rem;margin:0 0 1.6rem}
+.iv-chips{display:flex;flex-wrap:wrap;gap:.55rem;margin:0 0 var(--sp-stack)}
 .iv-chip{display:inline-flex;align-items:center;padding:.45rem .95rem;border-radius:999px;background:var(--g100);border:1px solid var(--g200);font-size:.92rem;font-weight:700;color:var(--gdd)}
 .iv-chip--amber{background:var(--amber50);border-color:var(--amber);color:var(--ink)}
-.iv-note{margin-top:1.6rem;padding:1.2rem 1.4rem;border-radius:var(--r-sm);background:var(--g50);border-left:4px solid var(--g);font-weight:700;color:var(--ink);line-height:1.6}
+.iv-note{margin-top:var(--sp-stack);padding:1.2rem 1.4rem;border-radius:var(--r-sm);background:var(--g50);border-left:4px solid var(--g);font-weight:700;color:var(--ink);line-height:1.6}
 .iv-quote cite{display:flex;align-items:center;justify-content:center;gap:.8rem}
 .iv-quote cite img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--g100)}
 @media(max-width:900px){.iv-proof{grid-template-columns:1fr 1fr}.iv-proof .sn-card{grid-column:1/-1}.iv-split{grid-template-columns:1fr}}
-@media(max-width:620px){.iv-proof{grid-template-columns:1fr}.iv-panel{padding:1.6rem}}
+@media(max-width:620px){.iv-proof{grid-template-columns:1fr}}
 /* Weiße Schrift auf Grün (Kundenentscheidung) */
 .iv-big,.iv-big small,.iv-big b,.iv-big span{color:#fff}
 .iv-big{background:var(--g)}
