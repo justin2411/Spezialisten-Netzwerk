@@ -1,12 +1,17 @@
 module.exports = function (eleventyConfig) {
-  // Statische Assets (falls später Bilder/JS ins Repo kommen) unverändert kopieren.
-  // Aktuell werden Bilder noch extern geladen – Platzhalter für die Zukunft:
-  // eleventyConfig.addPassthroughCopy("assets");
+  // Bilder, Logo, Favicon liegen im Repo und werden unverändert kopiert.
+  eleventyConfig.addPassthroughCopy("assets");
+
+  // Andere Themen als das aktuelle (für Querverweise), max. n Stück.
+  eleventyConfig.addFilter("otherThemes", (themen, key, n) =>
+    themen.filter((t) => t.key !== key).slice(0, n || 4)
+  );
 
   return {
     dir: {
       input: ".",
       includes: "_includes",
+      data: "_data",
       output: "_site",
     },
     // Seiten sind .html mit Front-Matter und nutzen das Nunjucks-Layout base.njk.

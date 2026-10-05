@@ -4,79 +4,155 @@ title: "Investment, AIF und ELTIF | Spezialisten Netzwerk"
 description: "Investmentanlagen als zentraler Baustein Ihrer Finanz- und Ruhestandsplanung: für Vermögensaufbau, Vermögenserhalt und Vermögensübertragung."
 permalink: "/investment-aif.html"
 ---
-<section class="th-hero">
-  <div class="th-hero-in th-hero-grid">
-    <div class="th-hero-left">
-      <div class="th-label">Spezialgebiet</div>
-      <h1>Investment, AIF und ELTIF</h1>
-      <p class="th-hero-sub">Investmentanlagen als zentraler Baustein Ihrer Finanz- und Ruhestandsplanung: für Vermögensaufbau, Vermögenserhalt und Vermögensübertragung.</p>
-      <div class="th-hero-btns">
-        <a href="/kontakt" class="th-btn">Kostenlos beraten lassen ›</a>
-        <a href="/#vorgehen" class="th-btn-ghost">Unser Vorgehen ›</a>
+{%- set currentTheme = "investment" -%}
+{%- set p = site.team.scholl -%}
+<style>
+/* Seitenspezifisch: Investment & AIF (Präfix iv-) */
+.iv-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-gap);margin-top:var(--sp-stack)}
+.iv-big{display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;border-radius:var(--r);padding:var(--sp-card);background:linear-gradient(150deg,var(--g) 0%,var(--gl) 100%);color:#fff;box-shadow:0 18px 40px rgba(150,170,0,.25);transition:transform .35s var(--ease)}
+.iv-big:hover{transform:translateY(-6px)}
+.iv-big::after{content:'';position:absolute;right:-26px;bottom:-26px;width:110px;height:110px;border-radius:28%;transform:rotate(45deg);background:rgba(255,255,255,.35)}
+.iv-big>*{position:relative;z-index:1}
+.iv-big small{display:block;font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gdd);margin-bottom:.8rem}
+.iv-big b{display:block;font-size:clamp(2.8rem,5vw,3.8rem);font-weight:800;line-height:1;letter-spacing:-.03em}
+.iv-big span{display:block;margin-top:.5rem;font-size:1.1rem;font-weight:700}
+.iv-split{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--sp-gap)*2.5);align-items:center}
+.iv-proof .sn-card{display:flex;flex-direction:column;justify-content:center}
+.iv-proof .sn-card .sn-ico{flex-shrink:0}
+.iv-split .sn-lead+.sn-lead{margin-top:1.1rem}
+.iv-panel{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--sp-card);box-shadow:var(--sh)}
+.iv-panel p{font-size:1.02rem;line-height:1.75;color:var(--text)}
+.iv-panel p+p{margin-top:1rem}
+.iv-panel h3{margin-bottom:.9rem}
+.iv-chips{display:flex;flex-wrap:wrap;gap:.55rem;margin:0 0 var(--sp-stack)}
+.iv-chip{display:inline-flex;align-items:center;padding:.45rem .95rem;border-radius:999px;background:var(--g100);border:1px solid var(--g200);font-size:.92rem;font-weight:700;color:var(--gdd)}
+.iv-chip--amber{background:var(--amber50);border-color:var(--amber);color:var(--ink)}
+.iv-note{margin-top:var(--sp-stack);padding:1.2rem 1.4rem;border-radius:var(--r-sm);background:var(--g50);border-left:4px solid var(--g);font-weight:700;color:var(--ink);line-height:1.6}
+.iv-nb{white-space:nowrap}
+.iv-quote cite{display:flex;align-items:center;justify-content:center;gap:.8rem}
+.iv-quote cite img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--g100)}
+@media(max-width:900px){.iv-proof{grid-template-columns:1fr 1fr}.iv-proof .sn-card{grid-column:1/-1}.iv-split{grid-template-columns:1fr}}
+@media(max-width:620px){
+  .iv-proof{grid-template-columns:1fr;gap:calc(var(--sp-gap)/2)}
+  .iv-big{padding:calc(var(--sp-card)*.75)}
+  .iv-big b{font-size:2.6rem}
+  .iv-big::after{width:84px;height:84px;right:-22px;bottom:-22px}
+  .iv-panel{padding:calc(var(--sp-card)*.75)}
+  .iv-note{padding:1rem 1.1rem}
+}
+/* Weiße Schrift auf Grün (Kundenentscheidung) */
+.iv-big,.iv-big small,.iv-big b,.iv-big span{color:#fff}
+.iv-big{background:var(--g)}
+</style>
+<section class="sn-hero">
+  {% include "hero-mosaic.njk" %}
+  <div class="sn-wrap">
+    <div class="sn-hero-grid">
+      <div>
+        <nav class="sn-crumbs rv" aria-label="Brotkrumen"><a href="/">Startseite</a><span>/</span>Themen<span>/</span>Investment &amp; AIF</nav>
+        <div class="sn-eyebrow rv">Spezialgebiet</div>
+        <h1 class="sn-h1 rv d1">Investment <span class="sn-hl">AIF</span> und ELTIF</h1>
+        <p class="sn-lead rv d2">Zentraler Baustein Ihrer Planung: für Vermögensaufbau, <span class="iv-nb">-erhalt</span> und <span class="iv-nb">-übertragung</span>.</p>
+        <div class="sn-btns rv d3">
+          <a href="/kontakt" class="sn-btn">Kostenlos beraten lassen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="/#vorgehen" class="sn-btn sn-btn--ghost">Unser Vorgehen</a>
+        </div>
+        <div class="sn-hero-person rv d4">
+          <img src="{{ p.img }}" alt="{{ p.name }}">
+          <div><b>{{ p.name }}</b><small>Ihr Spezialist · {{ p.role }}</small></div>
+        </div>
+      </div>
+      <div class="sn-hero-card rv d2">
+        <div class="sn-hero-card-title">Ihre Vorteile mit uns</div>
+        <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></span><div><strong>Individuelle Beratung</strong><span>Passgenaue Konzepte, persönlicher Ansprechpartner.</span></div></div>
+        <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span><div><strong>Unsere Lösungen für</strong><span>Vermögensaufbau, <span class="iv-nb">-erhalt</span> und <span class="iv-nb">-übertragung</span>.</span></div></div>
+        <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><polyline points="8.5 13 7 22 12 19 17 22 15.5 13"/></svg></span><div><strong>Professionalität</strong><span>Erfahrenes Investment-Team, Qualität und Aktualität.</span></div></div>
       </div>
     </div>
-    <div class="th-hero-card">
-      <div class="th-hero-card-title">Ihre Vorteile mit uns</div>
-      <div class="th-hero-card-row"><div class="th-hero-card-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div><div><div class="th-hero-card-h">Individuelle Beratung</div><div class="th-hero-card-p">Passgenaue Konzepte, persönlicher Ansprechpartner.</div></div></div>
-      <div class="th-hero-card-row"><div class="th-hero-card-ico"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><div><div class="th-hero-card-h">Unsere Lösungen für</div><div class="th-hero-card-p">Vermögensaufbau, -erhalt und -übertragung.</div></div></div>
-      <div class="th-hero-card-row"><div class="th-hero-card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><polyline points="8.5 13 7 22 12 19 17 22 15.5 13"/></svg></div><div><div class="th-hero-card-h">Professionalität</div><div class="th-hero-card-p">Erfahrenes Investment-Team, Qualität und Aktualität.</div></div></div>
+  </div>
+</section>
+
+<section class="sn-sec">
+  <div class="sn-wrap">
+    <div class="sn-head sn-tc">
+      <div class="sn-eyebrow rv">Warum wir</div>
+      <h2 class="sn-h2 rv">Diese Vorteile haben Sie <span class="sn-hl">mit uns</span></h2>
+    </div>
+    <div class="sn-grid-3">
+      <div class="sn-card rv d1"><div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div><h3>Individuelle Beratung</h3><p>Passgenaue Konzepte, nachhaltige Begleitung, persönlicher Ansprechpartner.</p></div>
+      <div class="sn-card rv d2"><div class="sn-ico"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><h3>Unsere Lösungen für</h3><p>Vermögensaufbau, <span class="iv-nb">-erhalt</span>, Ruhestandsplanung und <span class="iv-nb">-übertragung</span>.</p></div>
+      <div class="sn-card rv d3"><div class="sn-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><polyline points="8.5 13 7 22 12 19 17 22 15.5 13"/></svg></div><h3>Professionalität</h3><p>Qualität und Aktualität durch ein erfahrenes Investment-Team.</p></div>
+    </div>
+    <div class="iv-proof">
+      <div class="iv-big rv d1"><small>Geprüfte Produktauswahl</small><b>12.000+</b><span>offene Fonds</span></div>
+      <div class="iv-big rv d2"><small>Geprüfte Produktpartner</small><b>90+</b><span>Investment-Gesellschaften</span></div>
+      <div class="sn-card sn-card--lime rv d3"><div class="sn-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></div><h3>Geprüfte Anlage-Möglichkeiten</h3><p>Zugang zu institutionellen Investments.</p></div>
     </div>
   </div>
 </section>
 
-<section class="th-sec">
-  <div class="th-w">
-    <div class="th-label-d th-rv">Warum wir</div>
-    <h2 class="th-h2 th-rv">Diese Vorteile haben Sie <span class="g">mit uns</span></h2>
-    <div class="th-grid">
-      <div class="th-card th-rv d1"><div class="th-card-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div><h4>Individuelle Beratung</h4><p>Passgenaue Konzepte, nachhaltige Begleitung, persönlicher Ansprechpartner.</p></div>
-      <div class="th-card th-rv d2"><div class="th-card-ico"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><h4>Unsere Lösungen für</h4><p>Vermögensaufbau, Vermögenserhalt, Ruhestandplanung und Vermögensübertragung.</p></div>
-      <div class="th-card th-rv d3"><div class="th-card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><polyline points="8.5 13 7 22 12 19 17 22 15.5 13"/></svg></div><h4>Professionalität</h4><p>Qualität und Aktualität durch ein erfahrenes Investment-Team.</p></div>
-      <div class="th-card th-rv d1"><div class="th-card-ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h4>Geprüfte Produktauswahl</h4><p><span class="big">12.000+</span>offene Fonds</p></div>
-      <div class="th-card th-rv d2"><div class="th-card-ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/><path d="M9 9v0M9 13v0M9 17v0"/></svg></div><h4>Geprüfte Produktpartner</h4><p><span class="big">90+</span>Investment-Gesellschaften</p></div>
-      <div class="th-card th-rv d3"><div class="th-card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></div><h4>Geprüfte Anlage-Möglichkeiten</h4><p>Zugang zu institutionellen Investments.</p></div>
+<section class="sn-sec sn-sec--tint">
+  <div class="sn-wrap">
+    <div class="iv-split">
+      <div>
+        <div class="sn-eyebrow rv">Hintergrund</div>
+        <h2 class="sn-h2 rv">Finanzplanung mit <span class="sn-hl">Ziel</span></h2>
+        <p class="sn-lead rv d1">Investmentanlagen sind ein zentraler Baustein Ihrer Planung: für Vermögensaufbau, <span class="iv-nb">-verzehr</span> und <span class="iv-nb">-übertragung</span>.</p>
+        <p class="sn-lead rv d2">Ihr Anlagekonzept braucht professionelle Expertise in Planung und Umsetzung. Unser Vorgehen schafft Klarheit und Zielorientierung.</p>
+      </div>
+      <div class="iv-panel rv d2">
+        <h3 class="sn-h3">Wesentliche Aspekte</h3>
+        <div class="iv-chips">
+          <span class="iv-chip">Flexibilität</span><span class="iv-chip">Verfügbarkeit</span><span class="iv-chip">Performance</span><span class="iv-chip">Sicherheit</span><span class="iv-chip">Nachhaltigkeit</span>
+        </div>
+        <h3 class="sn-h3">Alternative Investmentstrategien</h3>
+        <div class="iv-chips">
+          <span class="iv-chip iv-chip--amber">Immobilien</span><span class="iv-chip iv-chip--amber">Infrastruktur</span><span class="iv-chip iv-chip--amber">Private Equity</span>
+        </div>
+        <p>Passende Anlagebausteine, laufende Begleitung mit regelmäßigen Reportings. Dazu institutionelle Strategien wie Immobilien, Infrastruktur und Private Equity.</p>
+        <div class="iv-note">Maßgeschneiderte Konzepte für Ihr Vermögen: Erreichen Sie Ihre Ziele mit Ihrem HORBACH-Spezialistennetzwerk!</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="th-sec th-sec-off">
-  <div class="th-w">
-    <div class="th-label-d th-rv">Hintergrund</div>
-    <h2 class="th-h2 th-rv">Finanzplanung mit <span class="g">Ziel</span></h2>
-    <p class="th-lead th-rv">Investmentanlagen dienen Ihnen als zentraler Baustein Ihrer persönlichen Finanz- und Ruhestandsplanung und bieten Ihnen ein attraktives Universum aus professionellen Lösungen für den Vermögensaufbau, den Vermögensverzehr und die Vermögensübertragung.</p>
-    <p class="th-lead th-rv">Kundenwünsche sind vielfältig und individuell. Für die Gestaltung Ihres Anlagekonzepts benötigen Sie professionelle Expertise bei Planung und Umsetzung. Dabei sind Flexibilität, Verfügbarkeit, Performance, Sicherheit und Nachhaltigkeit wesentliche Aspekte unserer Dienstleistung. Unsere kundenorientierte Vorgehensweise verschafft Ihnen Klarheit und Zielorientierung zu jeder Zeit.</p>
-    <p class="th-lead th-rv">Sie erhalten Zugang zu den für Sie geeigneten Anlagebausteinen und eine nachhaltige Begleitung über den gesamten Anlagezeitraum mit regelmäßigen Reportings und Updates. Neben dem Segment klassischer Anlagen stehen Ihnen zusätzlich Alternative Investmentstrategien aus dem Bereich institutioneller Investments wie Immobilien, Infrastruktur und Private Equity zur Verfügung.</p>
-    <p class="th-lead th-rv">Nutzen Sie unsere Expertise und Erfahrung mit maßgeschneiderten Konzepten für Ihr individuelles Vermögensmanagement und erreichen Sie Ihre Ziele mit Ihrem HORBACH-Spezialistennetzwerk!</p>
+<section class="sn-sec sn-sec--lime">
+  <div class="sn-wrap">
+    <blockquote class="sn-quote iv-quote rv">
+      <p>„Alle Menschen verdienen finanziellen Schutz und wirtschaftliche Freiheit. Das sollen auch Sie mit Ihren Investments erreichen!“</p>
+      <cite><img src="{{ p.img }}" alt="" loading="lazy">{{ p.name }}</cite>
+    </blockquote>
   </div>
 </section>
 
-<section class="th-sec">
-  <div class="th-w">
-    <div class="th-label-d th-rv">Ihr Ansprechpartner</div>
-    <h2 class="th-h2 th-rv">Ihr Spezialist <span class="g">Investment &amp; AIF</span></h2>
-    <div class="th-specs">
-      <div class="th-spec th-rv">
-        <div class="th-spec-photo"><img loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2024/01/Design-ohne-Titel-2024-01-22T220526.655.png" alt="Dorian Scholl"></div>
-        <div class="th-spec-info">
-          <span class="th-spec-badge">Spezialist</span>
-          <div class="th-spec-name">Dorian Scholl</div>
-          <div class="th-spec-role">Spezialist: Investment und AIF</div>
-          <ul class="th-ul">
+<section class="sn-sec">
+  <div class="sn-wrap">
+    <div class="sn-head sn-tc">
+      <div class="sn-eyebrow rv">Ihr Ansprechpartner</div>
+      <h2 class="sn-h2 rv">Ihr Spezialist <span class="sn-hl">Investment &amp; AIF</span></h2>
+    </div>
+    <div class="sn-narrow">
+      <div class="sn-person rv">
+        <div class="sn-person-photo"><img loading="lazy" src="{{ p.img }}" alt="{{ p.name }}"></div>
+        <div class="sn-person-body">
+          <span class="sn-badge">Spezialist</span>
+          <div class="sn-person-name">{{ p.name }}</div>
+          <div class="sn-person-role">Spezialist: Investment und AIF</div>
+          <ul class="sn-check">
             <li>geb. 1969, Financial Planner Frankfurt School of Finance and Management</li>
             <li>seit 2005 einer der TOP-Spezialisten der HORBACH Wirtschaftsberatung</li>
             <li>Familienmensch, Sportler und Musikliebhaber</li>
           </ul>
-          <p class="th-spec-philo">„Alle Menschen verdienen finanziellen Schutz und wirtschaftliche Freiheit. Bei allem, was ich tue, ist es mir wichtig, dass auch Sie dies mit Ihren Investments erreichen!"</p>
+          <div class="sn-btns"><a href="/kontakt" class="sn-btn sn-btn--sm">Gespräch vereinbaren</a></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="th-cta">
-  <div class="th-cta-in">
-    <h2>Bereit für Ihr individuelles Anlagekonzept?</h2>
-    <p>Maßgeschneidert, professionell begleitet und auf Ihre Ziele ausgerichtet.</p>
-    <a href="/kontakt" class="th-btn">Kontakt aufnehmen ›</a>
-  </div>
-</section>
+{% include "themen-links.njk" %}
+
+{%- set ctaTitle = "Bereit für Ihr individuelles Anlagekonzept?" -%}
+{%- set ctaText = "Maßgeschneidert, professionell begleitet, auf Ihre Ziele ausgerichtet." -%}
+{%- set ctaBtn = "Kontakt aufnehmen" -%}
+{% include "cta.njk" %}

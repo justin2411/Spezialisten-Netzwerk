@@ -1,30 +1,34 @@
-<!-- ════════ FOOTER (zentral, 4 Spalten) ════════ -->
+<!-- ════════ FOOTER (zentral) ════════ -->
 <footer class="ft" role="contentinfo">
-  <div class="fti">
+  <div class="sn-mosaic" style="right:-40px;bottom:40px;width:260px;height:260px;opacity:.55" aria-hidden="true">
+    <span class="sn-tile t3" style="width:70px;height:70px;left:40px;top:60px"></span>
+    <span class="sn-tile t2" style="width:70px;height:70px;left:120px;top:0"></span>
+    <span class="sn-tile t1" style="width:70px;height:70px;left:120px;top:110px;animation-delay:-3s"></span>
+    <span class="sn-tile t5" style="width:70px;height:70px;left:200px;top:55px;animation-delay:-5s"></span>
+  </div>
+  <div class="sn-wrap">
     <div class="ftt">
       <div>
-        <div class="ftl"><img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/09/preview_files_01_854.png" alt="Spezialisten Netzwerk" onerror="this.style.display='none'"></div>
-        <p class="ftd">Individuelle Wohlstandsplanung durch 13+ Fachspezialisten. Strategie vor Produkt.</p>
-        <a href="/kontakt" class="ftc">Jetzt Kontakt aufnehmen ›</a>
+        <div class="ftl"><img src="/assets/img/logo.png" alt="Das Spezialisten Netzwerk" width="210" height="44"></div>
+        <p class="ftd">Individuelle Wohlstandsplanung durch 13+ Fachspezialisten. Ungebunden, vernetzt, Strategie vor Produkt.</p>
+        <a href="/kontakt" class="sn-btn sn-btn--sm">Jetzt Kontakt aufnehmen</a>
       </div>
       <div>
-        <h5>Spezialisten-Themen</h5>
-        <a href="/kapitalanlage-immobilie">Kapitalanlage Immobilie</a>
-        <a href="/betriebliche-versorgung">Betriebliche Versorgung</a>
-        <a href="https://spezialisten-netzwerk.com/finanz-und-ruhestandsplanung/">Ruhestandsplanung</a>
-        <a href="https://spezialisten-netzwerk.com/investment-und-aif/">Investment &amp; AIF</a>
-        <a href="https://spezialisten-netzwerk.com/kranken-und-pflegeversicherung/">Kranken &amp; Pflege</a>
+        <h5>Themen</h5>
+        {%- for t in site.themen | batch(4) | first %}
+        <a href="{{ t.url }}">{{ t.title }}</a>
+        {%- endfor %}
       </div>
       <div>
         <h5>Weitere Themen</h5>
-        <a href="https://spezialisten-netzwerk.com/finanzanalysen/">Finanzanalysen</a>
-        <a href="https://spezialisten-netzwerk.com/gewerbliche-finanzierung/">Finanzierung</a>
-        <a href="https://spezialisten-netzwerk.com/unternehmensberatung-fuer-heilwesenberufe/">Heilwesenberufe</a>
+        {%- for t in site.themen | batch(4) | last %}
+        <a href="{{ t.url }}">{{ t.title }}</a>
+        {%- endfor %}
       </div>
       <div>
-        <h5>Rechtliches</h5>
-        <a href="https://spezialisten-netzwerk.com/impressum/">Impressum</a>
-        <a href="https://spezialisten-netzwerk.com/datenschutzerklaerung/">Datenschutzerklärung</a>
+        <h5>Netzwerk</h5>
+        <a href="/optiplan">OptiPlan</a>
+        <a href="/#team">Unsere Spezialisten</a>
         <a href="/kontakt">Kontakt</a>
       </div>
     </div>
