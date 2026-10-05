@@ -27,14 +27,14 @@ const team = {
 };
 
 const themen = [
-  { key: 'immobilie', title: 'Kapitalanlage Immobilie', short: 'Immobilien', url: '/kapitalanlage-immobilie', icon: icons.immobilie, people: ['schneider'], teaser: 'Ihr nachhaltiger Vermögensmultiplikator: Inflationsschutz, Steuervorteile, Vermögensübertragung.' },
-  { key: 'bav', title: 'Betriebliche Versorgung', short: 'Betr. Versorgung', url: '/betriebliche-versorgung', icon: icons.bav, people: ['arndt', 'domes'], teaser: 'Versorgung über den Betrieb: für Unternehmen und ihre Mitarbeitenden.' },
-  { key: 'ruhestand', title: 'Ruhestandsplanung', short: 'Ruhestand', url: '/ruhestandsplanung', icon: icons.ruhestand, people: ['lohne'], teaser: 'Vernetzt, neutral und transparent: Ihre Vermögensentwicklung im Blick.' },
-  { key: 'investment', title: 'Investment & AIF', short: 'Investment & AIF', url: '/investment-aif', icon: icons.investment, people: ['scholl'], teaser: 'Investmentanlagen für Vermögensaufbau, -erhalt und -übertragung.' },
-  { key: 'kranken', title: 'Kranken & Pflege', short: 'Kranken & Pflege', url: '/kranken-pflege', icon: icons.kranken, people: ['buck'], teaser: 'Die bestmögliche Absicherung im Krankheitsfall, unabhängig beraten.' },
-  { key: 'analyse', title: 'Finanzanalysen', short: 'Finanzanalysen', url: '/finanzanalysen', icon: icons.analyse, people: ['hendelkes'], teaser: 'Transparenz, Sicherheit und Effizienz für Ihre Entscheidungen.' },
-  { key: 'finanzierung', title: 'Finanzierung', short: 'Finanzierung', url: '/finanzierung', icon: icons.finanzierung, people: ['hoffmann', 'moews'], teaser: 'Ein fester Ansprechpartner und Zugriff auf rund 600 Finanzierungspartner.' },
-  { key: 'heilwesen', title: 'Heilwesenberufe', short: 'Heilwesen', url: '/heilwesenberufe', icon: icons.heilwesen, people: ['casanova'], teaser: 'Wirtschaftliche Begleitung von der Praxisgründung bis zur Praxisabgabe.' }
+  { key: 'immobilie', title: 'Kapitalanlage Immobilie', short: 'Immobilien', url: '/kapitalanlage-immobilie', icon: icons.immobilie, people: ['schneider'], teaser: 'Inflationsschutz, Steuervorteile, Vermögensaufbau.' },
+  { key: 'bav', title: 'Betriebliche Versorgung', short: 'Betr. Versorgung', url: '/betriebliche-versorgung', icon: icons.bav, people: ['arndt', 'domes'], teaser: 'Vorsorge über den Betrieb.' },
+  { key: 'ruhestand', title: 'Ruhestandsplanung', short: 'Ruhestand', url: '/ruhestandsplanung', icon: icons.ruhestand, people: ['lohne'], teaser: 'Ihr Vermögen im Ruhestand im Blick.' },
+  { key: 'investment', title: 'Investment & AIF', short: 'Investment & AIF', url: '/investment-aif', icon: icons.investment, people: ['scholl'], teaser: 'Vermögen aufbauen, erhalten, übertragen.' },
+  { key: 'kranken', title: 'Kranken & Pflege', short: 'Kranken & Pflege', url: '/kranken-pflege', icon: icons.kranken, people: ['buck'], teaser: 'Bestmöglich abgesichert im Krankheitsfall.' },
+  { key: 'analyse', title: 'Finanzanalysen', short: 'Finanzanalysen', url: '/finanzanalysen', icon: icons.analyse, people: ['hendelkes'], teaser: 'Klarheit für Ihre Entscheidungen.' },
+  { key: 'finanzierung', title: 'Finanzierung', short: 'Finanzierung', url: '/finanzierung', icon: icons.finanzierung, people: ['hoffmann', 'moews'], teaser: 'Ein Ansprechpartner, rund 600 Partner.' },
+  { key: 'heilwesen', title: 'Heilwesenberufe', short: 'Heilwesen', url: '/heilwesenberufe', icon: icons.heilwesen, people: ['casanova'], teaser: 'Von der Praxisgründung bis zur Abgabe.' }
 ];
 
 module.exports = { icons, team, themen, phoneHref: '/kontakt' };
