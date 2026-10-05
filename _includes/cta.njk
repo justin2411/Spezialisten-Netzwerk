@@ -13,7 +13,7 @@
         <p>{{ ctaText or "Das Erstgespräch ist vollständig kostenfrei und unverbindlich. Wir lernen Ihre Situation kennen und zeigen Ihnen transparent, ob und wie wir helfen können." }}</p>
       </div>
       <div class="sn-btns">
-        <a href="/kontakt" class="sn-btn">{{ ctaBtn or "Kostenfreies Erstgespräch" }} <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="/kontakt{% if currentTheme %}?thema={{ currentTheme }}{% endif %}" class="sn-btn">{{ ctaBtn or "Kostenfreies Erstgespräch" }} <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </div>

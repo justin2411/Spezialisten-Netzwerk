@@ -4,83 +4,148 @@ title: "Unternehmensberatung für Heilberufe | Spezialisten Netzwerk"
 description: "Als Arzt sind Sie auch Unternehmer. Wir begleiten Sie wirtschaftlich, von der Praxisgründung bis zur Praxisabgabe."
 permalink: "/heilwesenberufe.html"
 ---
-<section class="th-hero">
-  <div class="th-hero-in th-hero-grid">
-    <div class="th-hero-left">
-      <div class="th-label">Spezialgebiet</div>
-      <h1>Unternehmensberatung für Heilberufe</h1>
-      <p class="th-hero-sub">Als Arzt sind Sie auch Unternehmer. Wir begleiten Sie wirtschaftlich, von der Praxisgründung bis zur Praxisabgabe.</p>
-      <div class="th-hero-btns">
-        <a href="/kontakt" class="th-btn">Kostenlos beraten lassen ›</a>
-        <a href="/#vorgehen" class="th-btn-ghost">Unser Vorgehen ›</a>
+{%- set currentTheme = "heilwesen" -%}
+{%- set p = site.team.casanova -%}
+<style>
+/* Seitenspezifisch: Heilwesenberufe (Präfix hw-) */
+.hw-intro{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.hw-duo{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:.8rem}
+.hw-duo-box{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.8rem 1.4rem;text-align:center;box-shadow:var(--sh)}
+.hw-duo-box .sn-ico{margin:0 auto 1rem}
+.hw-duo-box b{display:block;font-size:1.2rem;color:var(--ink)}
+.hw-duo-plus{width:48px;height:48px;border-radius:14px;background:var(--g);color:var(--ink);font-size:1.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;transform:rotate(45deg)}
+.hw-duo-plus span{transform:rotate(-45deg)}
+.hw-svc{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.hw-svc-item{display:flex;align-items:center;gap:1.1rem;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.3rem 1.4rem;box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s,border-color .3s}
+.hw-svc-item:hover{transform:translateY(-5px);box-shadow:var(--sh);border-color:var(--g)}
+.hw-svc-item .sn-ico{margin-bottom:0}
+.hw-svc-item h3{font-size:1.08rem;font-weight:800;color:var(--ink);line-height:1.3}
+.hw-svc-item:hover .sn-ico{transform:rotate(-6deg);background:var(--g200)}
+.hw-approach{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.hw-approach-text p{font-size:1.06rem;line-height:1.8;color:var(--text)}
+.hw-approach-text p+p{margin-top:1.1rem}
+.hw-panel{background:linear-gradient(160deg,var(--g100),#fff 75%);border:1px solid var(--g200);border-radius:var(--r-lg);padding:2.2rem;box-shadow:var(--sh)}
+.hw-panel .sn-h3{margin-bottom:1.1rem}
+.hw-panel-foot{margin-top:1.4rem;padding-top:1.3rem;border-top:1px solid var(--g200);font-weight:700;color:var(--ink);line-height:1.6}
+.hw-net{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
+.hw-net span{padding:.45rem .95rem;border-radius:999px;background:var(--amber50);border:1px solid var(--amber);font-size:.92rem;font-weight:700;color:var(--ink)}
+@media(max-width:900px){.hw-intro,.hw-approach{grid-template-columns:1fr}.hw-svc{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.hw-svc{grid-template-columns:1fr}.hw-duo{grid-template-columns:1fr;justify-items:center}.hw-duo-box{width:100%}}
+</style>
+<section class="sn-hero">
+  {% include "hero-mosaic.njk" %}
+  <div class="sn-wrap">
+    <div class="sn-hero-grid">
+      <div>
+        <nav class="sn-crumbs rv" aria-label="Brotkrumen"><a href="/">Startseite</a><span>/</span>Themen<span>/</span>Heilwesenberufe</nav>
+        <div class="sn-eyebrow rv">Spezialgebiet</div>
+        <h1 class="sn-h1 rv d1">Unternehmens&shy;beratung für <span class="sn-hl">Heilberufe</span></h1>
+        <p class="sn-lead rv d2">Als Arzt sind Sie auch Unternehmer. Wir begleiten Sie wirtschaftlich, von der Praxisgründung bis zur Praxisabgabe.</p>
+        <div class="sn-btns rv d3">
+          <a href="/kontakt" class="sn-btn">Kostenlos beraten lassen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="/#vorgehen" class="sn-btn sn-btn--ghost">Unser Vorgehen</a>
+        </div>
+        <div class="sn-hero-person rv d4">
+          <img src="{{ p.img }}" alt="{{ p.name }}">
+          <div><b>{{ p.name }}, M.A.</b><small>Ihre Spezialistin · Unternehmensberatung</small></div>
+        </div>
+      </div>
+      <div class="sn-hero-card rv d2">
+        <div class="sn-hero-card-title">Was wir übernehmen</div>
+        <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.2 12 6.8 16.5 4.2"/></svg></span><div><strong>Praxiskauf und Praxisübernahme</strong></div></div>
+        <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div><strong>Praxisfinanzierung</strong></div></div>
+        <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/></svg></span><div><strong>Betriebswirtschaftliche Analysen</strong></div></div>
       </div>
     </div>
-    <div class="th-hero-card">
-      <div class="th-hero-card-title">Was wir übernehmen</div>
-      <div class="th-hero-card-row"><div class="th-hero-card-ico"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.2 12 6.8 16.5 4.2"/></svg></div><div><div class="th-hero-card-h">Praxiskauf und Praxisübernahme</div></div></div>
-      <div class="th-hero-card-row"><div class="th-hero-card-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><div class="th-hero-card-h">Praxisfinanzierung</div></div></div>
-      <div class="th-hero-card-row"><div class="th-hero-card-ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/></svg></div><div><div class="th-hero-card-h">Betriebswirtschaftliche Analysen</div></div></div>
+  </div>
+</section>
+
+<section class="sn-sec">
+  <div class="sn-wrap">
+    <div class="hw-intro">
+      <div>
+        <div class="sn-eyebrow rv">Warum es zählt</div>
+        <h2 class="sn-h2 rv">Die Wichtigkeit einer Unternehmensberatung für <span class="sn-hl">Heilwesenberufe</span></h2>
+        <p class="sn-lead rv d1">Ärzte und Ärztinnen, die den Schritt in die Selbstständigkeit wagen, sind ab diesem Zeitpunkt nicht mehr nur Mediziner, sondern auch gleichzeitig Unternehmer. Die eigene Praxis erfolgreich zu leiten, erfordert nicht nur fundiertes medizinisches Wissen, sondern ist auch maßgeblich von wirtschaftlichem Erfolg geprägt.</p>
+      </div>
+      <div class="hw-duo rv d2" aria-hidden="true">
+        <div class="hw-duo-box"><div class="sn-ico"><svg viewBox="0 0 24 24"><polyline points="3 12 8 12 11 5 14 19 16 12 21 12"/></svg></div><b>Mediziner</b></div>
+        <div class="hw-duo-plus"><span>+</span></div>
+        <div class="hw-duo-box"><div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div><b>Unternehmer</b></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="th-sec">
-  <div class="th-w">
-    <div class="th-label-d th-rv">Warum es zählt</div>
-    <h2 class="th-h2 th-rv">Die Wichtigkeit einer Unternehmensberatung für <span class="g">Heilwesenberufe</span></h2>
-    <p class="th-lead th-rv">Ärzte und Ärztinnen, die den Schritt in die Selbstständigkeit wagen, sind ab diesem Zeitpunkt nicht mehr nur Mediziner, sondern auch gleichzeitig Unternehmer. Die eigene Praxis erfolgreich zu leiten, erfordert nicht nur fundiertes medizinisches Wissen, sondern ist auch maßgeblich von wirtschaftlichem Erfolg geprägt.</p>
-  </div>
-</section>
-
-<section class="th-sec th-sec-off">
-  <div class="th-w">
-    <div class="th-label-d th-rv">Leistungen</div>
-    <h2 class="th-h2 th-rv">Was wir für Sie <span class="g">übernehmen</span></h2>
-    <div class="th-grid">
-      <div class="th-card th-rv d1"><div class="th-card-ico"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.2 12 6.8 16.5 4.2"/></svg></div><h4>Praxiskauf und Praxisübernahme</h4></div>
-      <div class="th-card th-rv d2"><div class="th-card-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h4>Praxisfinanzierung</h4></div>
-      <div class="th-card th-rv d3"><div class="th-card-ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/></svg></div><h4>Betriebswirtschaftliche Analysen</h4></div>
-      <div class="th-card th-rv d1"><div class="th-card-ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><line x1="12" y1="11" x2="12" y2="15"/><line x1="10" y1="13" x2="14" y2="13"/></svg></div><h4>Gründung von Privatpraxen</h4></div>
-      <div class="th-card th-rv d2"><div class="th-card-ico"><svg viewBox="0 0 24 24"><path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><h4>Praxisabgabe und -verkauf</h4></div>
-      <div class="th-card th-rv d3"><div class="th-card-ico"><svg viewBox="0 0 24 24"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21l8.8-8.3a5 5 0 0 0 0-7.1z"/></svg></div><h4>Langfristige Betreuung</h4></div>
+<section class="sn-sec sn-sec--lime">
+  <div class="sn-wrap">
+    <div class="sn-head sn-tc">
+      <div class="sn-eyebrow rv">Leistungen</div>
+      <h2 class="sn-h2 rv">Was wir für Sie <span class="sn-hl">übernehmen</span></h2>
+    </div>
+    <div class="hw-svc">
+      <div class="hw-svc-item rv d1"><span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.2 12 6.8 16.5 4.2"/></svg></span><h3>Praxiskauf und Praxisübernahme</h3></div>
+      <div class="hw-svc-item rv d2"><span class="sn-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><h3>Praxisfinanzierung</h3></div>
+      <div class="hw-svc-item rv d3"><span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/></svg></span><h3>Betriebswirtschaftliche Analysen</h3></div>
+      <div class="hw-svc-item rv d4"><span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><line x1="12" y1="11" x2="12" y2="15"/><line x1="10" y1="13" x2="14" y2="13"/></svg></span><h3>Gründung von Privatpraxen</h3></div>
+      <div class="hw-svc-item rv d5"><span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span><h3>Praxisabgabe und &#8209;verkauf</h3></div>
+      <div class="hw-svc-item rv d6"><span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21l8.8-8.3a5 5 0 0 0 0-7.1z"/></svg></span><h3>Langfristige Betreuung</h3></div>
     </div>
   </div>
 </section>
 
-<section class="th-sec">
-  <div class="th-w">
-    <div class="th-label-d th-rv">Unser Ansatz</div>
-    <h2 class="th-h2 th-rv">Von der ersten Idee bis zur <span class="g">erfolgreichen Umsetzung</span></h2>
-    <p class="th-lead th-rv">Die Bewältigung dieser Herausforderung besteht darin, komplexe Sachverhalte von der Grundidee bis zur Umsetzung der Praxisgründung zu beherrschen. Unsere Ärzte schätzen die fachlich fundierte Beratung und die individuelle Betreuung von der ersten Idee bis zur erfolgreichen Umsetzung des Vorhabens. Dabei werden sie mit fachlicher Kompetenz und langjähriger Erfahrung in enger Zusammenarbeit mit unserem Netzwerk wie Banken, Steuerberatern, Anwälten und dem Spezialisten-Netzwerk unterstützt. Wir übernehmen die wirtschaftliche Prüfung, die Berechnung einer Mindestumsatzplanung, die Rentabilitätsvorschau usw. sowie die Praxisbewertung. Wir entwickeln ein maßgeschneidertes betriebswirtschaftliches Konzept und sorgen für die Sicherstellung der richtigen Finanzierung.</p>
+<section class="sn-sec">
+  <div class="sn-wrap">
+    <div class="hw-approach">
+      <div class="hw-approach-text">
+        <div class="sn-eyebrow rv">Unser Ansatz</div>
+        <h2 class="sn-h2 rv">Von der ersten Idee bis zur <span class="sn-hl">erfolgreichen Umsetzung</span></h2>
+        <p class="rv d1">Die Bewältigung dieser Herausforderung besteht darin, komplexe Sachverhalte von der Grundidee bis zur Umsetzung der Praxisgründung zu beherrschen. Unsere Ärzte schätzen die fachlich fundierte Beratung und die individuelle Betreuung von der ersten Idee bis zur erfolgreichen Umsetzung des Vorhabens.</p>
+        <p class="rv d2">Dabei werden sie mit fachlicher Kompetenz und langjähriger Erfahrung in enger Zusammenarbeit mit unserem Netzwerk wie Banken, Steuerberatern, Anwälten und dem Spezialisten-Netzwerk unterstützt.</p>
+        <div class="hw-net rv d3"><span>Banken</span><span>Steuerberater</span><span>Anwälte</span><span>Spezialisten-Netzwerk</span></div>
+      </div>
+      <div class="hw-panel rv d2">
+        <h3 class="sn-h3">Wir übernehmen</h3>
+        <ul class="sn-check">
+          <li>die wirtschaftliche Prüfung</li>
+          <li>die Berechnung einer Mindestumsatzplanung</li>
+          <li>die Rentabilitätsvorschau usw.</li>
+          <li>sowie die Praxisbewertung</li>
+        </ul>
+        <div class="hw-panel-foot">Wir entwickeln ein maßgeschneidertes betriebswirtschaftliches Konzept und sorgen für die Sicherstellung der richtigen Finanzierung.</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="th-sec th-sec-off">
-  <div class="th-w">
-    <div class="th-label-d th-rv">Ihre Ansprechpartnerin</div>
-    <h2 class="th-h2 th-rv">Ihre Spezialistin <span class="g">Unternehmensberatung</span></h2>
-    <div class="th-specs">
-      <div class="th-spec th-rv">
-        <div class="th-spec-photo"><img loading="lazy" src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T154944.131.png" alt="Sigrid Casanova"></div>
-        <div class="th-spec-info">
-          <span class="th-spec-badge">Spezialistin</span>
-          <div class="th-spec-name">Sigrid Casanova, M.A.</div>
-          <div class="th-spec-role">Spezialist: Unternehmensberatung</div>
-          <ul class="th-ul">
+<section class="sn-sec sn-sec--tint">
+  <div class="sn-wrap">
+    <div class="sn-head sn-tc">
+      <div class="sn-eyebrow rv">Ihre Ansprechpartnerin</div>
+      <h2 class="sn-h2 rv">Ihre Spezialistin <span class="sn-hl">Unternehmensberatung</span></h2>
+    </div>
+    <div class="sn-narrow">
+      <div class="sn-person rv">
+        <div class="sn-person-photo"><img loading="lazy" src="{{ p.img }}" alt="{{ p.name }}"></div>
+        <div class="sn-person-body">
+          <span class="sn-badge">Spezialistin</span>
+          <div class="sn-person-name">{{ p.name }}, M.A.</div>
+          <div class="sn-person-role">Spezialist: Unternehmensberatung</div>
+          <ul class="sn-check">
             <li>seit 1998 eine der TOP-Beraterinnen der HORBACH Wirtschaftsberatung</li>
             <li>zertifizierte Beraterin für Heilberufe</li>
           </ul>
-          <p class="th-spec-philo">„Meine Beratungsphilosophie gründet auf dem Prinzip der partnerschaftlichen Zusammenarbeit, bei der Vertrauen und Fachkompetenz im Mittelpunkt stehen."</p>
+          <div class="sn-quote-line">„Meine Beratungsphilosophie gründet auf dem Prinzip der partnerschaftlichen Zusammenarbeit, bei der Vertrauen und Fachkompetenz im Mittelpunkt stehen.“</div>
+          <div class="sn-btns" style="margin-top:1.5rem"><a href="/kontakt" class="sn-btn sn-btn--sm">Gespräch vereinbaren</a></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="th-cta">
-  <div class="th-cta-in">
-    <h2>Stärken Sie Ihre Praxis unternehmerisch</h2>
-    <p>Von der Gründung bis zur Abgabe: fachlich fundiert und individuell betreut.</p>
-    <a href="/kontakt" class="th-btn">Kontakt aufnehmen ›</a>
-  </div>
-</section>
+{% include "themen-links.njk" %}
+
+{%- set ctaTitle = "Stärken Sie Ihre Praxis unternehmerisch" -%}
+{%- set ctaText = "Von der Gründung bis zur Abgabe: fachlich fundiert und individuell betreut." -%}
+{%- set ctaBtn = "Kontakt aufnehmen" -%}
+{% include "cta.njk" %}
