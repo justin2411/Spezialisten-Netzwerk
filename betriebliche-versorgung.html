@@ -40,8 +40,8 @@ permalink: "/betriebliche-versorgung.html"
 .bv-intro-text .sn-check{margin:1.6rem 0 2.2rem}
 
 /* So funktioniert bAV: Fluss + Rechner */
-.bv-main{display:grid;grid-template-columns:1fr .92fr;gap:clamp(2rem,4vw,3.5rem);align-items:start}
-.bv-flow{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(1.6rem,3vw,2.4rem);box-shadow:var(--sh)}
+.bv-main{display:grid;grid-template-columns:1fr .92fr;gap:clamp(2rem,4vw,3.5rem);align-items:stretch}
+.bv-flow{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(1.6rem,3vw,2.4rem);box-shadow:var(--sh)}
 .bv-flow-title{font-size:.85rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gd);margin-bottom:1.6rem}
 .bv-flow-item{display:flex;gap:1.3rem;align-items:stretch}
 .bv-flow-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:64px}
@@ -57,10 +57,12 @@ permalink: "/betriebliche-versorgung.html"
 .bv-flow-item:nth-child(3) .bv-flow-vline::after{animation-delay:.8s}
 @keyframes bvPulse{0%{top:-100%}100%{top:200%}}
 .bv-flow-content{flex:1;padding:.2rem 0 1.8rem}
+/* Bündig mit Rechner: Schritte 1+2 dehnen sich (Linie wächst mit), Fakten + Hinweis sitzen unten (.bv-facts margin-top:auto) */
+.bv-flow-item:nth-child(2),.bv-flow-item:nth-child(3){flex:1 0 auto}
 .bv-flow-tag{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--gdd);background:var(--g100);padding:.2rem .7rem;border-radius:999px;margin-bottom:.45rem}
 .bv-flow-name{font-size:1.25rem;font-weight:800;color:var(--ink);line-height:1.25;margin-bottom:.35rem}
 .bv-flow-desc{font-size:1rem;color:var(--text);line-height:1.7}
-.bv-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:.6rem}
+.bv-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:auto}
 .bv-fact{background:var(--g50);border:1px solid var(--g200);border-radius:var(--r-sm);padding:1.1rem .8rem;text-align:center}
 .bv-fact b{display:block;font-size:1.65rem;font-weight:800;color:var(--gd);line-height:1;letter-spacing:-.02em;margin-bottom:.4rem}
 .bv-fact span{font-size:.9rem;color:var(--text);line-height:1.4;display:block}
@@ -68,7 +70,7 @@ permalink: "/betriebliche-versorgung.html"
 .bv-legal svg{width:20px;height:20px;flex-shrink:0;stroke:var(--gd);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;margin-top:.1rem}
 
 /* Rechner */
-.bv-calc{position:sticky;top:100px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-lg);overflow:hidden}
+.bv-calc{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-lg);overflow:hidden}
 .bv-calc-notice{display:flex;gap:.8rem;align-items:flex-start;background:var(--amber50);border-bottom:1px solid #f3e3a0;padding:1rem 1.5rem;font-size:.95rem;line-height:1.55;color:var(--ink)}
 .bv-calc-notice svg{width:22px;height:22px;flex-shrink:0;stroke:#8a6d00;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:.05rem}
 .bv-calc-notice b{display:block;font-weight:800}
@@ -76,7 +78,7 @@ permalink: "/betriebliche-versorgung.html"
 .bv-calc-label{display:inline-block;font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gdd);background:#fff;border:1px solid var(--g200);padding:.25rem .75rem;border-radius:999px;margin-bottom:.7rem}
 .bv-calc-title{font-size:1.35rem;font-weight:800;color:var(--ink);line-height:1.25}
 .bv-calc-sub{font-size:.95rem;color:var(--muted);margin-top:.35rem}
-.bv-calc-body{padding:1.5rem 1.7rem 1.7rem}
+.bv-calc-body{flex:1;padding:1.5rem 1.7rem 1.7rem}
 .bv-money-label{font-size:.85rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem}
 .bv-money-bar{position:relative;height:50px;border-radius:14px;overflow:hidden;background:var(--cream);border:1px solid var(--line)}
 .bv-seg{position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:var(--ink);white-space:nowrap;overflow:hidden}

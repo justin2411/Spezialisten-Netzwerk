@@ -24,14 +24,15 @@ permalink: "/finanzierung.html"
 .fz-stat span{display:block;margin-top:.3rem;font-size:.98rem;color:var(--ink);line-height:1.5}
 .fz-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
 .fz-what{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
-.fz-what .sn-card{padding:2.4rem 2.2rem}
 .fz-what-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem}
 .fz-what-head .sn-ico{margin-bottom:0}
 .fz-what-head h3{font-size:1.4rem;font-weight:800;color:var(--ink);margin:0}
-.fz-persons{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
-.fz-persons .sn-person{grid-template-columns:1fr}
-.fz-persons .sn-person-photo{min-height:380px}
+.fz-persons{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.fz-persons .sn-person{grid-template-columns:1fr;grid-template-rows:380px 1fr}
+.fz-persons .sn-person-photo{min-height:0;height:380px}
 .fz-persons .sn-person-body{justify-content:flex-start}
+.fz-persons .sn-quote-line{margin-top:auto}
+.fz-persons .sn-check{margin-bottom:1.2rem}
 @media(max-width:900px){.fz-why{grid-template-columns:1fr}.fz-big{flex-direction:row}.fz-what,.fz-persons{grid-template-columns:1fr}}
 @media(max-width:620px){.fz-big{flex-direction:column}.fz-cards{grid-template-columns:1fr}.fz-hero-duo{border-radius:var(--r)}}
 </style>
