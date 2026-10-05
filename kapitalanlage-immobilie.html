@@ -173,17 +173,12 @@ permalink: "/kapitalanlage-immobilie.html"
   /* Hero-Link als volle Tap-Fläche */
   .ki-hero-link{min-height:44px;margin-top:.6rem}
   /* Sechs Gründe: kompakt — Icon links, Text rechts, Nummer unten rechts */
-  .ki-grund{display:grid;grid-template-columns:auto 1fr;column-gap:1rem;align-items:start}
-  .ki-grund .sn-ico{grid-row:1/span 2;margin:0}
+  /* (Raster Icon links / Text rechts kommt aus head.njk: .sn-grid-3>.sn-card) */
   .ki-gtitle{grid-column:2;font-size:1.2rem;margin:.1rem 0 .45rem;hyphens:auto;-webkit-hyphens:auto}
   .ki-gtag{grid-column:2;justify-self:start;margin:0}
   .ki-grund .sn-topic-go{grid-column:2;margin-top:.9rem;min-height:24px}
   .ki-gnum{top:auto;bottom:1.3rem;right:1.4rem;font-size:2.3rem}
   .ki-person .sn-person-photo{min-height:340px}
-  /* Vorteile: kompakt, Icon links neben Titel + Text */
-  .ki-vt .sn-card{display:grid;grid-template-columns:auto 1fr;column-gap:1rem;align-items:start}
-  .ki-vt .sn-ico{grid-row:1/span 2;margin:0}
-  .ki-vt .sn-card h3{margin:.1rem 0 .3rem}
 }
 /* Touch/Tablet: Regler mit 44px hoher Tap-Fläche (Spur bleibt 10px, Griff größer) */
 @media(max-width:900px){
@@ -262,7 +257,7 @@ permalink: "/kapitalanlage-immobilie.html"
       <h2 class="sn-h2 rv">Professionelle Investments mit <span class="sn-hl">geprüfter Qualität</span></h2>
       <p class="sn-lead rv">Zielorientierung, Individualität und verlässliche Prozesse.</p>
     </div>
-    <div class="sn-grid-3 ki-vt">
+    <div class="sn-grid-3">
       <div class="sn-card rv d1"><div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Produktqualität</h3><p>Engmaschige Prüfung nach höchsten Kriterien.</p></div>
       <div class="sn-card rv d2"><div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Verbraucherschutz</h3><p>Klare Dokumentation und transparente Information.</p></div>
       <div class="sn-card rv d3"><div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Erfahrene Beratung</h3><p>Über 30 Jahre Immobilien- und Finanzerfahrung.</p></div>
