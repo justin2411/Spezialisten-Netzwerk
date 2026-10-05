@@ -22,28 +22,28 @@ permalink: "/optiplan.html"
 .op-hc-note b{color:var(--ink)}
 
 /* ── Drei Vitalwerte (Dimensionen) ── */
-.op-dims{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.op-dims{display:grid;grid-template-columns:.9fr 1.1fr;gap:calc(var(--sp-gap)*2.5);align-items:start}
 .op-dims-intro{position:sticky;top:110px}
 .op-dims-intro .sn-h2{font-size:clamp(2.2rem,4.2vw,3.3rem);line-height:1.08}
-.op-dims-intro .sn-lead{margin-bottom:1.8rem}
-.op-dim-list{display:flex;flex-direction:column;gap:1.2rem}
+.op-dims-intro .sn-lead{margin-bottom:var(--sp-stack)}
+.op-dim-list{display:flex;flex-direction:column;gap:var(--sp-gap)}
 .op-dim{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
 .op-dim:hover{transform:translateY(-5px);box-shadow:var(--sh);border-color:var(--g200)}
-.op-dim-top{display:flex;align-items:center;gap:1.1rem;padding:1.5rem 1.7rem}
+.op-dim-top{display:flex;align-items:center;gap:1.1rem;padding:var(--sp-card)}
 .op-dim-top .sn-ico{margin-bottom:0}
 .op-dim-top h3{font-size:1.3rem;font-weight:800;color:var(--ink);line-height:1.2}
 .op-dim-top p{font-size:1rem;color:var(--muted);line-height:1.5;margin-top:.15rem}
 .op-dim-n{margin-left:auto;font-size:2.2rem;font-weight:800;color:var(--g200);letter-spacing:-.03em;line-height:1;align-self:flex-start}
 .op-dim:hover .op-dim-n{color:var(--g)}
-.op-dim-qs{padding:1.2rem 1.7rem 1.4rem;background:linear-gradient(160deg,var(--g100),var(--g50))}
+.op-dim-qs{padding:var(--sp-card);background:linear-gradient(160deg,var(--g100),var(--g50))}
 .op-qs-lbl{font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gdd);margin-bottom:.6rem}
 .op-q-list{list-style:none;display:flex;flex-direction:column;gap:.45rem}
 .op-q-list li{position:relative;padding-left:1.6rem;font-size:1rem;line-height:1.55;color:var(--text)}
 .op-q-list li::before{content:'';position:absolute;left:0;top:.42em;width:.95rem;height:.7rem;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12' fill='none' stroke='%23697d0f' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 6h13M9 1l5 5-5 5'/%3E%3C/svg%3E") center/contain no-repeat}
 
 /* ── Prozess (6 Schritte, klickbar) ── */
-.op-proc{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.op-step{position:relative;display:flex;flex-direction:column;align-items:flex-start;text-align:left;width:100%;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.9rem 1.8rem 1.6rem;box-shadow:var(--sh-sm);cursor:pointer;font:inherit;color:inherit;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
+.op-proc{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-gap)}
+.op-step{position:relative;display:flex;flex-direction:column;align-items:flex-start;text-align:left;width:100%;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:var(--sp-card);box-shadow:var(--sh-sm);cursor:pointer;font:inherit;color:inherit;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
 .op-step:hover{transform:translateY(-6px);box-shadow:var(--sh);border-color:var(--g)}
 .op-step:hover .sn-ico{transform:rotate(-6deg);background:var(--g)}
 .op-step:hover .sn-ico svg{stroke:var(--ink)}
@@ -59,7 +59,7 @@ permalink: "/optiplan.html"
 /* Popup */
 .op-overlay{display:none;position:fixed;inset:0;background:rgba(28,32,16,.45);z-index:2000;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .op-pop{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.94);z-index:2001;width:min(560px,92vw);max-height:90vh;overflow:auto;background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh-lg);transition:opacity .35s var(--ease),transform .35s var(--ease);opacity:0}
-.op-pop-head{position:relative;display:flex;align-items:center;gap:1rem;padding:1.8rem 4rem 1.6rem 2rem;background:radial-gradient(400px 200px at 100% 0%,rgba(214,228,106,.55),transparent 70%),linear-gradient(160deg,var(--g100),var(--g50));border-bottom:1px solid var(--g200)}
+.op-pop-head{position:relative;display:flex;align-items:center;gap:1rem;padding:var(--sp-card) 4rem var(--sp-card) var(--sp-card);background:radial-gradient(400px 200px at 100% 0%,rgba(214,228,106,.55),transparent 70%),linear-gradient(160deg,var(--g100),var(--g50));border-bottom:1px solid var(--g200)}
 .op-pop-num{font-size:3rem;font-weight:800;color:var(--gd);line-height:1;letter-spacing:-.04em;flex-shrink:0}
 .op-pop-head .sn-ico{margin-bottom:0;background:#fff}
 .op-pop-head h3{font-size:1.35rem;font-weight:800;color:var(--ink);line-height:1.2}
@@ -67,11 +67,11 @@ permalink: "/optiplan.html"
 .op-pop-x{position:absolute;top:1rem;right:1rem;width:40px;height:40px;border-radius:12px;background:#fff;border:1px solid var(--g200);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
 .op-pop-x:hover{background:var(--g)}
 .op-pop-x svg{width:16px;height:16px;stroke:var(--ink);stroke-width:2.6;fill:none;stroke-linecap:round}
-.op-pop-body{padding:1.7rem 2rem 2rem}
+.op-pop-body{padding:var(--sp-card)}
 .op-pop-body>p{font-size:1.05rem;color:var(--text);line-height:1.75;margin-bottom:1.3rem}
 
 /* ── Rechner ── */
-.op-tabs{display:inline-grid;grid-template-columns:repeat(3,auto);gap:.35rem;padding:.4rem;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:var(--sh-sm);margin:0 auto 2.4rem}
+.op-tabs{display:inline-grid;grid-template-columns:repeat(3,auto);gap:.35rem;padding:.4rem;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:var(--sh-sm);margin:0 auto var(--sp-stack)}
 .op-tabs-wrap{text-align:center}
 .op-tab{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.8rem 1.5rem;font-size:1rem;font-weight:800;color:var(--text);background:transparent;border:none;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
 .op-tab svg{width:19px;height:19px;stroke:var(--gd);fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
@@ -79,9 +79,9 @@ permalink: "/optiplan.html"
 .op-tab.active{background:var(--g);color:#fff;box-shadow:0 8px 20px rgba(180,200,0,.35)}
 .op-tab.active svg{stroke:var(--ink)}
 .cbody{display:none}
-.cbody.active{display:grid;grid-template-columns:380px 1fr;gap:1.6rem;align-items:stretch}
+.cbody.active{display:grid;grid-template-columns:380px 1fr;gap:var(--sp-gap);align-items:stretch}
 
-.op-panel{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);padding:1.9rem;display:flex;flex-direction:column;min-width:0}
+.op-panel{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);padding:var(--sp-card);display:flex;flex-direction:column;min-width:0}
 .op-panel-title{display:flex;align-items:center;gap:.7rem;font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gdd);margin-bottom:1.5rem}
 .op-panel-title::before{content:'';width:12px;height:12px;border-radius:3px;background:var(--g);transform:rotate(45deg);flex-shrink:0}
 .cfields{flex:1;display:flex;flex-direction:column;gap:1.25rem}
@@ -99,11 +99,11 @@ permalink: "/optiplan.html"
 .cf-hint{font-size:.88rem;color:var(--muted);margin-top:.2rem;line-height:1.45}
 .cf-select{width:100%;padding:.75rem 1rem;border-radius:var(--r-sm);border:1px solid var(--g200);font-family:inherit;font-size:1rem;font-weight:600;color:var(--ink);background:var(--g50);cursor:pointer;transition:border-color .2s}
 .cf-select:focus{border-color:var(--gd)}
-.cresult{margin-top:1.6rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.2rem 1.4rem;border-radius:var(--r);background:radial-gradient(300px 120px at 100% 0%,rgba(255,255,255,.6),transparent 70%),linear-gradient(135deg,#d3e04a,var(--g));box-shadow:0 12px 28px rgba(180,200,0,.3)}
+.cresult{margin-top:var(--sp-stack);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.2rem 1.4rem;border-radius:var(--r);background:radial-gradient(300px 120px at 100% 0%,rgba(255,255,255,.6),transparent 70%),linear-gradient(135deg,#d3e04a,var(--g));box-shadow:0 12px 28px rgba(180,200,0,.3)}
 .cr-lbl{font-size:.85rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
 .cr-val{font-size:1.6rem;font-weight:800;color:var(--ink);white-space:nowrap;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 
-.op-chart{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);padding:1.9rem;display:flex;flex-direction:column;gap:1.2rem;min-width:0}
+.op-chart{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);padding:var(--sp-card);display:flex;flex-direction:column;gap:var(--sp-stack);min-width:0}
 .op-chart-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem 1.2rem}
 .chart-title{font-size:1.2rem;font-weight:800;color:var(--ink);line-height:1.25}
 .op-legend{display:flex;gap:.5rem 1.1rem;flex-wrap:wrap}
@@ -113,27 +113,27 @@ permalink: "/optiplan.html"
 .op-legend i.dash{height:0;border-top:3px dashed #827869;border-radius:0;width:18px}
 .chart-svg-area{flex:1;min-height:280px;position:relative}
 .chart-svg-area svg{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible}
-.cmetrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.cmetrics{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-gap)}
 .cmet{padding:1rem 1.1rem;border-radius:var(--r-sm);background:var(--g50);border:1px solid var(--g200);text-align:center}
 .cm-val{font-size:1.35rem;font-weight:800;color:var(--ink);margin-bottom:.2rem;white-space:nowrap;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
 .cm-lbl{font-size:.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;line-height:1.35}
 .cmet--hi{background:var(--g100);border-color:var(--g)}
 .cmet--hi .cm-val{color:var(--gdd)}
-.cdisclaimer{font-size:.92rem;color:var(--muted);margin-top:2rem;line-height:1.6;text-align:center}
+.cdisclaimer{font-size:.92rem;color:var(--muted);margin-top:var(--sp-stack);line-height:1.6;text-align:center}
 
 /* ── Szenarien ── */
-.op-szen{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.op-szen{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-gap)}
 .op-sz{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .op-sz:hover{transform:translateY(-4px);box-shadow:var(--sh)}
 .op-sz--good{border-color:var(--g);box-shadow:var(--sh)}
-.op-sz-head{display:flex;align-items:center;gap:.8rem;padding:1.3rem 1.8rem}
+.op-sz-head{display:flex;align-items:center;gap:.8rem;padding:1.3rem var(--sp-card)}
 .op-sz--bad .op-sz-head{background:#f6f3ee;border-bottom:1px solid #ebe5da}
 .op-sz--good .op-sz-head{background:linear-gradient(135deg,#d3e04a,var(--g))}
 .op-sz-dot{width:14px;height:14px;border-radius:4px;transform:rotate(45deg);flex-shrink:0}
 .op-sz--bad .op-sz-dot{background:#b5ab9b}
 .op-sz--good .op-sz-dot{background:#fff}
 .op-sz-lbl{font-size:.88rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink)}
-.op-sz-body{padding:.6rem 1.8rem 1.2rem}
+.op-sz-body{padding:calc(var(--sp-card) - .75rem) var(--sp-card)}
 .sz-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--line);font-size:1.02rem}
 .sz-row:last-child{border-bottom:none}
 .sz-rl{color:var(--text)}
@@ -141,12 +141,12 @@ permalink: "/optiplan.html"
 .sz-rv.g{color:var(--gdd);background:var(--g100);padding:.1rem .6rem;border-radius:999px}
 .sz-rv.r{color:#8a5a00;background:var(--amber50);padding:.1rem .6rem;border-radius:999px}
 
-.op-banner{position:relative;overflow:hidden;margin-top:1.4rem;display:grid;grid-template-columns:minmax(320px,.8fr) 1.2fr;gap:clamp(1.5rem,4vw,3rem);align-items:center;padding:clamp(1.8rem,4vw,2.6rem) clamp(1.5rem,4vw,3rem);border-radius:var(--r-lg);background:radial-gradient(500px 240px at 100% 0%,rgba(236,189,0,.18),transparent 60%),linear-gradient(160deg,var(--g100),#fff 80%);border:1px solid var(--g200);box-shadow:var(--sh)}
+.op-banner{position:relative;overflow:hidden;margin-top:var(--sp-gap);display:grid;grid-template-columns:minmax(320px,.8fr) 1.2fr;gap:calc(var(--sp-gap)*2.5);align-items:center;padding:var(--sp-card);border-radius:var(--r-lg);background:radial-gradient(500px 240px at 100% 0%,rgba(236,189,0,.18),transparent 60%),linear-gradient(160deg,var(--g100),#fff 80%);border:1px solid var(--g200);box-shadow:var(--sh)}
 .op-banner>*{min-width:0}
 .sb-lbl{font-size:.85rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--gdd);margin-bottom:.4rem}
 .sb-val{white-space:nowrap;font-size:clamp(2.4rem,5vw,3.6rem);font-weight:800;color:var(--gd);letter-spacing:-.03em;line-height:1}
 .sb-sub{font-size:1rem;color:var(--muted);margin-top:.5rem;font-weight:600}
-.sb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+.sb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-gap)}
 .sb-grid>div{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);padding:1rem 1.1rem;box-shadow:var(--sh-sm)}
 .sb-item-lbl{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:.3rem;line-height:1.3}
 .sb-item-val{font-size:1.3rem;font-weight:800;color:var(--gdd);line-height:1.2}
