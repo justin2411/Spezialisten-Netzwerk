@@ -18,15 +18,16 @@ permalink: "/index.html"
 .hx-chip span{font-size:.9rem;color:var(--muted);font-weight:600}
 .hx-chip .sn-ico--sm{width:42px;height:42px}
 /* Team-Mosaik */
-.hx-mosaic{position:relative;margin:2.5rem 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;transform:rotate(-4deg)}
-.hx-col{display:flex;flex-direction:column;gap:14px}
-.hx-col:nth-child(2){margin-top:58px}
-.hx-col:nth-child(3){margin-top:22px}
-.hx-t{position:relative;aspect-ratio:1/1.12;border-radius:26px;overflow:hidden;background:linear-gradient(160deg,var(--g200),var(--g100));box-shadow:var(--sh);transition:transform .5s var(--ease)}
+.hx-mosaic{position:relative;margin:2.5rem 0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;transform:rotate(-4deg)}
+.hx-col{display:flex;flex-direction:column;gap:12px}
+.hx-col:nth-child(2){margin-top:46px}
+.hx-col:nth-child(4){margin-top:62px}
+.hx-col:nth-child(3){margin-top:16px}
+.hx-t{position:relative;aspect-ratio:1/1.15;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,var(--g200),var(--g100));box-shadow:var(--sh);transition:transform .5s var(--ease)}
 .hx-t img{width:100%;height:100%;object-fit:cover;object-position:top center;transform:rotate(4deg) scale(1.1)}
 .hx-t:hover{transform:translateY(-6px) scale(1.03)}
-.hx-t.c1{background:var(--g);aspect-ratio:1/.8;display:flex;align-items:center;justify-content:center}
-.hx-t.c2{background:var(--amber);aspect-ratio:1/.62}
+.hx-t.c1{background:var(--g);display:flex;align-items:center;justify-content:center}
+.hx-t.c2{background:var(--amber)}
 .hx-t.c3{background:var(--gl);aspect-ratio:1/.7}
 .hx-t.c1 svg{width:46%;height:46%;transform:rotate(4deg)}
 .hx-badge{position:absolute;z-index:2;background:#fff;border-radius:20px;box-shadow:var(--sh-lg);padding:.85rem 1.1rem;display:flex;align-items:center;gap:.8rem}
@@ -200,19 +201,24 @@ permalink: "/index.html"
       <div class="rv d2" style="position:relative">
         <div class="hx-mosaic" aria-hidden="true">
           <div class="hx-col">
-            <div class="hx-t"><img src="{{ T.scholl.img }}" alt=""></div>
-            <div class="hx-t c2"></div>
-            <div class="hx-t"><img src="{{ T.casanova.img }}" alt=""></div>
+            <div class="hx-t"><img src="{{ T.hendelkes.img }}" alt="" style="object-position:{{ T.hendelkes.pos or 'top center' }}"></div>
+            <div class="hx-t"><img src="{{ T.casanova.img }}" alt="" style="object-position:{{ T.casanova.pos or 'top center' }}"></div>
+            <div class="hx-t"><img src="{{ T.arndt.img }}" alt="" style="object-position:{{ T.arndt.pos or 'top center' }}"></div>
           </div>
           <div class="hx-col">
             <div class="hx-t c1"><svg viewBox="0 0 64 64"><g transform="rotate(45 32 32)"><rect x="10" y="10" width="20" height="20" rx="6" fill="#fff" opacity=".55"/><rect x="34" y="10" width="20" height="20" rx="6" fill="#fff" opacity=".8"/><rect x="10" y="34" width="20" height="20" rx="6" fill="#fff" opacity=".8"/><rect x="34" y="34" width="20" height="20" rx="6" fill="#fff"/></g></svg></div>
-            <div class="hx-t"><img src="{{ T.lohne.img }}" alt=""></div>
-            <div class="hx-t"><img src="{{ T.hoffmann.img }}" alt=""></div>
+            <div class="hx-t"><img src="{{ T.lohne.img }}" alt="" style="object-position:{{ T.lohne.pos or 'top center' }}"></div>
+            <div class="hx-t"><img src="{{ T.hoffmann.img }}" alt="" style="object-position:{{ T.hoffmann.pos or 'top center' }}"></div>
           </div>
           <div class="hx-col">
-            <div class="hx-t"><img src="{{ T.hendelkes.img }}" alt=""></div>
-            <div class="hx-t"><img src="{{ T.schneider.img }}" alt=""></div>
-            <div class="hx-t c3"></div>
+            <div class="hx-t"><img src="{{ T.scholl.img }}" alt="" style="object-position:{{ T.scholl.pos or 'top center' }}"></div>
+            <div class="hx-t"><img src="{{ T.schneider.img }}" alt="" style="object-position:{{ T.schneider.pos or 'top center' }}"></div>
+            <div class="hx-t c2"></div>
+          </div>
+          <div class="hx-col">
+            <div class="hx-t"><img src="{{ T.buck.img }}" alt="" style="object-position:{{ T.buck.pos or 'top center' }}"></div>
+            <div class="hx-t"><img src="{{ T.moews.img }}" alt="" style="object-position:{{ T.moews.pos or 'top center' }}"></div>
+            <div class="hx-t"><img src="{{ T.domes.img }}" alt="" style="object-position:{{ T.domes.pos or 'top center' }}"></div>
           </div>
         </div>
       </div>
