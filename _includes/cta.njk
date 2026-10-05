@@ -1,0 +1,20 @@
+{#- Heller CTA-Block. Optional vorher setzen: ctaTitle, ctaText, ctaBtn -#}
+<section class="sn-cta-wrap">
+  <div class="sn-wrap">
+    <div class="sn-cta rv">
+      <div class="sn-mosaic" style="right:30px;top:-20px;width:300px;height:100%" aria-hidden="true">
+        <span class="sn-tile t3" style="width:90px;height:90px;left:20px;top:40px"></span>
+        <span class="sn-tile t4" style="width:56px;height:56px;left:150px;top:10px;animation-delay:-2s"></span>
+        <span class="sn-tile t2" style="width:110px;height:110px;left:140px;top:120px;animation-delay:-4s"></span>
+        <span class="sn-tile t5" style="width:60px;height:60px;left:40px;top:200px;animation-delay:-6s"></span>
+      </div>
+      <div>
+        <h2>{{ ctaTitle or "Lassen Sie uns über Ihre Ziele sprechen." }}</h2>
+        <p>{{ ctaText or "Das Erstgespräch ist vollständig kostenfrei und unverbindlich. Wir lernen Ihre Situation kennen und zeigen Ihnen transparent, ob und wie wir helfen können." }}</p>
+      </div>
+      <div class="sn-btns">
+        <a href="/kontakt" class="sn-btn">{{ ctaBtn or "Kostenfreies Erstgespräch" }} <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>

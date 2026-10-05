@@ -3,16 +3,27 @@
 {% include "head.njk" %}
 <body>
 {% include "nav.njk" %}
+<main id="main">
 {{ content | safe }}
+</main>
 {% include "footer.njk" %}
+{% include "float-button.njk" %}
 <script>
 (function () {
-  var els = document.querySelectorAll('.th-rv');
-  if (!els.length) return;
+  // Scroll-Reveal für .rv / .th-rv
+  var els = document.querySelectorAll('.rv,.th-rv');
+  if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('v'); }); return; }
   var o = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('v'); o.unobserve(e.target); } });
-  }, { threshold: .12, rootMargin: '0px 0px -30px 0px' });
+  }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
   els.forEach(function (el) { o.observe(el); });
+  // FAQ-Akkordeon (.sn-fq)
+  document.querySelectorAll('.sn-fq button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var fq = b.parentElement, open = !fq.classList.contains('open');
+      fq.classList.toggle('open', open); b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
 })();
 </script>
 </body>
