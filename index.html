@@ -93,7 +93,8 @@ permalink: "/index.html"
 .vg-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-gap);margin-bottom:var(--sp-stack);position:relative}
 .vg-tab{position:relative;display:flex;align-items:center;gap:.9rem;padding:1.1rem 1.2rem;background:#fff;border:2px solid var(--line);border-radius:var(--r);cursor:pointer;text-align:left;transition:all .35s var(--ease);overflow:hidden}
 .vg-tab .n{flex-shrink:0;width:50px;height:50px;border-radius:15px;background:var(--g100);color:var(--gdd);font-weight:800;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all .35s var(--ease)}
-.vg-tab b{font-size:1.05rem;color:var(--ink);line-height:1.2}
+.vg-tab b{font-size:1rem;color:var(--ink);line-height:1.2;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+.vg-tab>span:last-child{min-width:0}
 .vg-tab small{display:block;font-size:.85rem;color:var(--muted);font-weight:600}
 .vg-tab::after{content:'';position:absolute;left:0;bottom:0;height:4px;width:100%;background:var(--g);transform:scaleX(0);transform-origin:left}
 .vg-tab.active{border-color:var(--g);box-shadow:var(--sh)}
