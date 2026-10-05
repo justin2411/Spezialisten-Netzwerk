@@ -76,7 +76,7 @@ permalink: "/kapitalanlage-immobilie.html"
 .co-chart-legend{display:flex;gap:.6rem 1.1rem;flex-wrap:wrap}
 .co-legend-item{display:flex;align-items:center;gap:.4rem;font-size:.9rem;color:var(--muted);font-weight:600}
 .co-legend-dot{width:12px;height:12px;border-radius:4px;flex-shrink:0}
-#immo-svg{width:100%;display:block;flex:1;min-height:200px}
+#immo-svg{width:100%;height:auto;display:block;margin:auto 0}
 .co-tooltip{position:absolute;background:#fff;border:1px solid var(--g200);border-radius:12px;padding:.55rem .8rem;font-size:.9rem;color:var(--text);line-height:1.5;pointer-events:none;opacity:0;transition:opacity .15s;z-index:20;white-space:nowrap;box-shadow:var(--sh)}
 .co-tooltip strong{color:var(--gd);display:block;font-size:1rem;margin-bottom:2px}
 .co-breakdown{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
@@ -323,7 +323,7 @@ permalink: "/kapitalanlage-immobilie.html"
                 <div class="co-legend-item"><div class="co-legend-dot" style="background:#ecbd00"></div>Kumulierter Cashflow</div>
               </div>
             </div>
-            <svg id="immo-svg" viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagramm: Vermögensentwicklung über die Haltedauer"></svg>
+            <svg id="immo-svg" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagramm: Vermögensentwicklung über die Haltedauer"></svg>
           </div>
 
           <div class="co-breakdown">
@@ -706,9 +706,11 @@ var chartState = null;
 function drawChart(ekArr, wertArr, cfArr, hd, ek){
   var svg = document.getElementById('immo-svg');
   svg.innerHTML = '';
-  var W=640, H=220, PL=54, PR=14, PT=14, PB=26;
+  var W=640, H=320, PL=70, PR=16, PT=16, PB=34;
   var cW=W-PL-PR, cH=H-PT-PB;
   var N = hd+1;
+  // Achsenschrift auf schmalen Bildschirmen lesbar halten (rein optisch)
+  var FS = String(Math.min(26, Math.max(13, Math.round(13*W/(svg.clientWidth||W)))));
 
   var allVals = wertArr.concat(cfArr.map(function(v){return Math.max(0,v);}));
   var maxV = Math.max.apply(null, allVals) * 1.1 || 1;
@@ -728,7 +730,7 @@ function drawChart(ekArr, wertArr, cfArr, hd, ek){
     svg.appendChild(line);
     var lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
     lbl.setAttribute('x',PL-8); lbl.setAttribute('y',gy+4);
-    lbl.setAttribute('font-size','11'); lbl.setAttribute('font-weight','600'); lbl.setAttribute('fill',C.label);
+    lbl.setAttribute('font-size',FS); lbl.setAttribute('font-weight','600'); lbl.setAttribute('fill',C.label);
     lbl.setAttribute('text-anchor','end'); lbl.setAttribute('font-family',C.font);
     var gvStr = gv>=1000000?(gv/1000000).toFixed(1).replace('.',',')+'M':(gv>=1000?Math.round(gv/1000)+'K':'0');
     lbl.textContent = gvStr; svg.appendChild(lbl);
@@ -785,7 +787,7 @@ function drawChart(ekArr, wertArr, cfArr, hd, ek){
   for(var y=0; y<=hd; y+=step){
     var xt = document.createElementNS('http://www.w3.org/2000/svg','text');
     xt.setAttribute('x', xp(y)); xt.setAttribute('y', H-5);
-    xt.setAttribute('font-size','11'); xt.setAttribute('font-weight','600'); xt.setAttribute('fill',C.label);
+    xt.setAttribute('font-size',FS); xt.setAttribute('font-weight','600'); xt.setAttribute('fill',C.label);
     xt.setAttribute('text-anchor','middle'); xt.setAttribute('font-family',C.font);
     xt.textContent = 'J'+y; svg.appendChild(xt);
   }
