@@ -66,6 +66,7 @@ permalink: "/index.html"
 .orb-c .logo{width:72%;margin:0 auto .6rem}
 .orb-c>div{transition:opacity .25s}
 .orb-c.swap>div{opacity:0}
+.orb-c .orb-go{margin-top:1rem}
 .orb-n{position:absolute;transform:translate(-50%,-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:.5rem;width:150px;text-align:center}
 .orb-n .tile{width:76px;height:76px;border-radius:24px;background:#fff;border:2px solid var(--g200);box-shadow:var(--sh);display:flex;align-items:center;justify-content:center;transition:transform .35s var(--ease),background .3s,border-color .3s}
 .orb-n .tile svg{width:30px;height:30px;stroke:var(--gd);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
@@ -555,6 +556,7 @@ permalink: "/index.html"
   var c = document.getElementById('orb-c'), cin = document.getElementById('orb-c-in');
   if (c && cin) {
     var initial = cin.innerHTML, timer;
+    var touch = matchMedia('(hover: none)').matches;
     function show(html) {
       c.classList.add('swap');
       clearTimeout(timer);
@@ -565,10 +567,22 @@ permalink: "/index.html"
       var ppl = t.people.map(function (k) { return TEAM[k]; });
       var html = '<div class="ppl big' + (ppl.length > 1 ? ' duo' : '') + '">' + ppl.map(function (p) { return '<img src="' + p.img + '" alt="" style="object-position:' + (p.pos || 'top') + '">'; }).join('') + '</div>' +
         '<b>' + t.title + '</b><small>' + ppl.map(function (p) { return p.name; }).join(' &amp; ') + '</small>';
-      var on = function () { document.querySelectorAll('.orb-n.on').forEach(function (x) { x.classList.remove('on'); }); n.classList.add('on'); show(html); };
+      ppl.forEach(function (p) { new Image().src = p.img; });
+      var on = function (extra) { document.querySelectorAll('.orb-n.on').forEach(function (x) { x.classList.remove('on'); }); n.classList.add('on'); show(html + (extra || '')); };
       var off = function () { n.classList.remove('on'); show(initial); };
-      n.addEventListener('mouseenter', on); n.addEventListener('focus', on);
-      n.addEventListener('mouseleave', off); n.addEventListener('blur', off);
+      if (touch) {
+        // Handy: 1. Tippen zeigt den Spezialisten, 2. Tippen öffnet die Unterseite
+        n.addEventListener('click', function (e) {
+          if (n.classList.contains('on')) return;
+          e.preventDefault();
+          on('<a class="sn-btn sn-btn--sm orb-go" href="' + t.url + '">Zur Seite <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>');
+          var r = c.getBoundingClientRect();
+          if (r.top < 70 || r.bottom > innerHeight) c.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      } else {
+        n.addEventListener('mouseenter', function () { on(); }); n.addEventListener('focus', function () { on(); });
+        n.addEventListener('mouseleave', off); n.addEventListener('blur', off);
+      }
     });
   }
 
