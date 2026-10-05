@@ -13,16 +13,17 @@ permalink: "/finanzanalysen.html"
 .fa-dim-top .sn-num{font-size:2.6rem;color:var(--gl);-webkit-text-stroke:1.5px var(--gd)}
 .fa-dim h3{font-size:1.3rem}
 .fa-dim p{flex:1}
-.fa-proc{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.fa-proc{display:grid;grid-template-columns:.85fr 1.15fr;gap:calc(var(--sp-gap)*2.5);align-items:start}
 .fa-proc-l{position:sticky;top:110px}
 .fa-proc .sn-steps{grid-template-columns:1fr 1fr}
+.fa-proc-l .sn-btns{margin-top:var(--sp-stack)}
 .fa-proc .sn-step p{font-weight:700;color:var(--ink)}
-.fa-hub{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:1.4rem 9rem}
+.fa-hub{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-gap) 9rem} /* Spalten-Lücke = Platz für den Kreis in der Mitte */
 .fa-hub .sn-card{min-height:170px}
 .fa-hub .sn-card:nth-child(odd){text-align:right}
 .fa-core{position:absolute;left:50%;top:50%;margin:-65px 0 0 -65px;z-index:2;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 30% 25%,var(--gl),var(--g) 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem;box-shadow:0 0 0 12px var(--g100),0 0 0 13px var(--g200),var(--sh-lg);font-weight:800;color:var(--ink);line-height:1.2;font-size:.9rem}
 .fa-core svg{width:30px;height:30px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-bottom:.35rem}
-@media(max-width:900px){.fa-proc{grid-template-columns:1fr}.fa-proc-l{position:static}.fa-hub{grid-template-columns:1fr;gap:1.2rem}.fa-hub .sn-card:nth-child(odd){text-align:left}.fa-hub .sn-card{min-height:0}.fa-core{position:relative;left:auto;top:auto;margin:0 auto 1.6rem;order:-1}}
+@media(max-width:900px){.fa-proc{grid-template-columns:1fr}.fa-proc-l{position:static}.fa-hub{grid-template-columns:1fr;gap:var(--sp-gap)}.fa-hub .sn-card:nth-child(odd){text-align:left}.fa-hub .sn-card{min-height:0}.fa-core{position:relative;left:auto;top:auto;margin:0 auto;order:-1}}
 @media(max-width:620px){.fa-proc .sn-steps{grid-template-columns:1fr}}
 /* Weiße Schrift auf Grün (Kundenentscheidung) */
 .fa-core,.fa-core *{color:#fff}
@@ -79,7 +80,7 @@ permalink: "/finanzanalysen.html"
         <div class="sn-eyebrow rv">So gehen wir vor</div>
         <h2 class="sn-h2 rv">Der Weg zu klaren <span class="sn-hl">Entscheidungen</span></h2>
         <p class="sn-lead rv d1">Transparenz, Sicherheit und Effizienz: mit der dynamischen Finanzanalyse.</p>
-        <div class="sn-btns rv d2" style="margin-top:1.8rem"><a href="/kontakt" class="sn-btn">Kostenlos beraten lassen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="sn-btns rv d2"><a href="/kontakt" class="sn-btn">Kostenlos beraten lassen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div>
       <div class="sn-steps">
         <div class="sn-step rv d1"><p>Ziele, Motive und Fragen klären</p></div>
@@ -130,7 +131,7 @@ permalink: "/finanzanalysen.html"
             <li>glücklich verheiratet mit 2 Kindern</li>
           </ul>
           <div class="sn-quote-line">„Transparente, ehrliche Finanzlösungen, ausgerichtet auf die Ziele meiner Kunden.“</div>
-          <div class="sn-btns" style="margin-top:1.5rem"><a href="/kontakt" class="sn-btn sn-btn--sm">Gespräch vereinbaren</a></div>
+          <div class="sn-btns"><a href="/kontakt" class="sn-btn sn-btn--sm">Gespräch vereinbaren</a></div>
         </div>
       </div>
     </div>
