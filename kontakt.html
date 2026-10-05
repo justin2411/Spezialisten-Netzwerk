@@ -28,17 +28,21 @@ permalink: "/kontakt.html"
 .ct-net-center svg{width:34%;height:auto;stroke:var(--ink);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .ct-net-center b{font-size:clamp(.95rem,1.8vw,1.2rem);font-weight:800;line-height:1;letter-spacing:-.01em}
 .ct-net-center small{font-size:clamp(.72rem,1.2vw,.82rem);font-weight:700;color:#2c3108}
-.ct-node{position:absolute;width:17%;aspect-ratio:1;translate:-50% -50%;z-index:3;animation:snFloat 8s ease-in-out infinite}
+.ct-node{position:absolute;width:17%;aspect-ratio:1;margin:-8.5% 0 0 -8.5%;z-index:3;animation:snFloat 8s ease-in-out infinite}
 .ct-node img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:32%;border:4px solid #fff;background:var(--g100);box-shadow:0 12px 28px rgba(79,94,11,.18);transition:transform .35s var(--ease)}
 .ct-node:hover img{transform:scale(1.08) rotate(-3deg)}
 .ct-node:nth-child(odd) img{border-radius:50%}
-.ct-node--lead{width:21%}
+.ct-node--lead{width:21%;margin:-10.5% 0 0 -10.5%}
 .ct-node--lead img{border-color:var(--g);border-width:5px}
 .ct-node--lead span{position:absolute;left:50%;bottom:-.7rem;translate:-50% 0;white-space:nowrap;font-size:.72rem;font-weight:800;letter-spacing:.04em;color:var(--ink);background:var(--g);padding:.18rem .6rem;border-radius:999px;box-shadow:var(--sh-sm)}
 .ct-net-tile{position:absolute;border-radius:28%;transform:rotate(45deg);z-index:1}
 
 /* ── Hauptbereich ── */
-.ct-main{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-areas:"top form" "bottom form";column-gap:clamp(2rem,5vw,4.5rem);row-gap:1.6rem;align-items:start}
+.ct-main{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-areas:"top form" "bottom form";column-gap:clamp(2rem,5vw,4.5rem);row-gap:1.6rem;align-items:stretch}
+.ct-info-bottom{display:flex;flex-direction:column}
+.ct-info-bottom .ct-tiles{flex:1}
+.ct-info-bottom .ct-tile{flex:1}
+.ct-form-card{align-self:start}
 .ct-info-top{grid-area:top}.ct-info-bottom{grid-area:bottom}.ct-form-card{grid-area:form}
 .ct-info-top .ct-contact{margin-bottom:0}
 .ct-info-top .sn-lead{margin-bottom:2rem}
@@ -61,12 +65,6 @@ permalink: "/kontakt.html"
 .ct-tile p{font-size:.96rem;color:var(--muted);line-height:1.45}
 .ct-tile em{display:inline-block;margin-top:.3rem;font-style:normal;font-size:.85rem;font-weight:800;color:var(--gdd);background:var(--g100);padding:.12rem .6rem;border-radius:999px}
 
-/* Vertrauens-Zahlen */
-.ct-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-top:1.6rem}
-.ct-stat{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.15rem 1.3rem;box-shadow:var(--sh-sm)}
-.ct-stat::before{content:'';position:absolute;right:-14px;top:-14px;width:44px;height:44px;border-radius:12px;background:var(--g100);transform:rotate(45deg)}
-.ct-stat b{position:relative;display:block;font-size:2rem;font-weight:800;color:var(--gd);line-height:1;letter-spacing:-.02em;margin-bottom:.3rem}
-.ct-stat span{position:relative;font-size:.95rem;font-weight:700;color:var(--muted)}
 
 /* ── Formular-Karte ── */
 .ct-form-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:clamp(1.6rem,4vw,2.8rem);scroll-margin-top:100px}
@@ -122,7 +120,7 @@ permalink: "/kontakt.html"
 /* ── Team-Streifen ── */
 .ct-team{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1.2rem}
 .ct-tm-name,.ct-tm-role{overflow-wrap:anywhere;hyphens:auto}
-.ct-tm{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.5rem 1rem 1.3rem;box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s,border-color .3s}
+.ct-tm{color:inherit;display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.5rem 1rem 1.3rem;box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s,border-color .3s}
 .ct-tm:hover{transform:translateY(-6px);box-shadow:var(--sh);border-color:var(--g)}
 .ct-tm-img{position:relative;width:112px;height:112px;margin-bottom:1rem}
 .ct-tm-img img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:50%;border:4px solid #fff;box-shadow:0 0 0 3px var(--g200),0 10px 22px rgba(79,94,11,.14);background:var(--g100);transition:box-shadow .3s}
@@ -181,10 +179,10 @@ permalink: "/kontakt.html"
         </div>
       </div>
 
-      <div class="ct-net rv d2" aria-hidden="true">
-        <span class="ct-net-tile" style="width:9%;height:9%;left:84%;top:4%;background:var(--amber);opacity:.85"></span>
-        <span class="ct-net-tile" style="width:6%;height:6%;left:4%;top:86%;background:var(--g)"></span>
-        <span class="ct-net-tile" style="width:12%;height:12%;left:-2%;top:2%;background:var(--g100)"></span>
+      <div class="ct-net rv d2">
+        <span aria-hidden="true" class="ct-net-tile" style="width:9%;height:9%;left:84%;top:4%;background:var(--amber);opacity:.85"></span>
+        <span aria-hidden="true" class="ct-net-tile" style="width:6%;height:6%;left:4%;top:86%;background:var(--g)"></span>
+        <span aria-hidden="true" class="ct-net-tile" style="width:12%;height:12%;left:-2%;top:2%;background:var(--g100)"></span>
         <div class="ct-net-orbit"></div>
         <div class="ct-net-orbit ct-net-orbit--in"></div>
         <svg class="ct-net-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -199,10 +197,10 @@ permalink: "/kontakt.html"
         </div>
         {%- for key, m in site.team %}
         {%- set xy = ring[loop.index0] %}
-        <div class="ct-node{% if key == 'lohne' %} ct-node--lead{% endif %}" style="left:{{ xy[0] }}%;top:{{ xy[1] }}%;animation-delay:-{{ loop.index0 * 0.9 }}s">
+        <a href="{{ m.url }}" title="{{ m.name }}" aria-label="{{ m.name }}" class="ct-node{% if key == 'lohne' %} ct-node--lead{% endif %}" style="left:{{ xy[0] }}%;top:{{ xy[1] }}%;animation-delay:-{{ loop.index0 * 0.9 }}s">
           <img src="{{ m.img }}" alt="" style="object-position:{{ m.pos or 'top' }}">
           {%- if key == 'lohne' %}<span>Ihr Ansprechpartner</span>{% endif %}
-        </div>
+        </a>
         {%- endfor %}
       </div>
     </div>
@@ -244,13 +242,6 @@ permalink: "/kontakt.html"
             <span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
             <div><h3>Unabhängig beraten</h3><p>Ungebunden, ohne Produktgeber</p><em>Ihre Ziele im Mittelpunkt</em></div>
           </div>
-        </div>
-
-        <div class="ct-stats">
-          <div class="ct-stat rv d1"><b>6.000+</b><span>Kunden</span></div>
-          <div class="ct-stat rv d2"><b>13</b><span>Spezialisten</span></div>
-          <div class="ct-stat rv d3"><b>100%</b><span>Zufriedenheit</span></div>
-          <div class="ct-stat rv d4"><b>235</b><span>Jahre Erfahrung</span></div>
         </div>
       </div>
 
@@ -328,7 +319,7 @@ permalink: "/kontakt.html"
             <i style="--x:0px;--y:-120px;background:var(--g200)"></i>
           </div>
           <div class="ct-success-icon"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17 19 7.5"/></svg></div>
-          <h3 id="ct-success-title">Vielen Dank!</h3>
+          <h3 id="ct-success-title">Vielen Dank</h3>
           <p>Ihre Anfrage ist bei uns eingegangen. Wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen.</p>
           <div class="ct-success-who">
             <img src="{{ lohne.img }}" alt="">
@@ -355,12 +346,12 @@ permalink: "/kontakt.html"
     </div>
     <div class="ct-team">
       {%- for key, m in site.team %}
-      <div class="ct-tm{% if key == 'lohne' %} ct-tm--lead{% endif %} rv d{{ (loop.index0 % 5) + 1 }}">
+      <a href="{{ m.url }}" class="ct-tm{% if key == 'lohne' %} ct-tm--lead{% endif %} rv d{{ (loop.index0 % 5) + 1 }}">
         <div class="ct-tm-img"><img src="{{ m.img }}" alt="{{ m.name }}" loading="lazy" style="object-position:{{ m.pos or 'top' }}"></div>
         <div class="ct-tm-name">{{ m.name }}</div>
         <div class="ct-tm-role">{{ m.role }}</div>
         {%- if key == 'lohne' %}<span class="sn-badge">Ihr Ansprechpartner</span>{% endif %}
-      </div>
+      </a>
       {%- endfor %}
     </div>
   </div>
@@ -390,7 +381,7 @@ function submitForm(e) {
   var area = document.getElementById('ct-form-area');
   var success = document.getElementById('ct-success');
   var name = (document.getElementById('vorname').value || '').trim();
-  if (name) document.getElementById('ct-success-title').textContent = 'Vielen Dank, ' + name + '!';
+  if (name) document.getElementById('ct-success-title').textContent = 'Vielen Dank ' + name;
   area.style.display = 'none';
   success.classList.add('show');
   var card = document.getElementById('formular');

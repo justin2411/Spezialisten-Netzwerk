@@ -14,16 +14,16 @@ const icons = {
 };
 
 const team = {
-  lohne: { name: 'Jonathan Lohne', role: 'Netzwerk Manager', img: '/assets/img/team/jonathan-lohne.webp' },
-  hoffmann: { name: 'Jana Hoffmann', role: 'Spezialistin Finanzierung', img: '/assets/img/team/jana-hoffmann.webp' },
-  moews: { name: 'Mathias Moews', role: 'Dipl.-Betriebswirt | Finanzierungen', img: '/assets/img/team/mathias-moews.webp', pos: '48% 30%' },
-  buck: { name: 'Dr. Michael Buck', role: 'Kranken- & Pflegeversicherung', img: '/assets/img/team/michael-buck.webp' },
-  hendelkes: { name: 'Joachim Hendelkes', role: 'Dipl.-Kfm. | Finanzanalysen', img: '/assets/img/team/joachim-hendelkes.webp' },
-  schneider: { name: 'Christian H. Schneider', role: 'Dipl.-Kfm. | Kapitalanlage Immobilien', img: '/assets/img/team/christian-schneider.webp' },
-  scholl: { name: 'Dorian Scholl', role: 'Financial Planner | Investment & AIF', img: '/assets/img/team/dorian-scholl.webp' },
-  casanova: { name: 'Sigrid Casanova', role: 'M.A. | Unternehmensberatung Heilwesen', img: '/assets/img/team/sigrid-casanova.webp' },
-  arndt: { name: 'Ronni Arndt', role: 'Dipl.-Volkswirt | bAV / DMA', img: '/assets/img/team/ronni-arndt.webp' },
-  domes: { name: 'Steffen Domes', role: 'Experte bAV / DMA', img: '/assets/img/team/steffen-domes.webp' }
+  lohne: { name: 'Jonathan Lohne', role: 'Netzwerk Manager', url: '/ruhestandsplanung', img: '/assets/img/team/jonathan-lohne.webp' },
+  hoffmann: { name: 'Jana Hoffmann', role: 'Spezialistin Finanzierung', url: '/finanzierung', img: '/assets/img/team/jana-hoffmann.webp' },
+  moews: { name: 'Mathias Moews', role: 'Dipl.-Betriebswirt | Finanzierungen', url: '/finanzierung', img: '/assets/img/team/mathias-moews.webp', pos: '48% 30%' },
+  buck: { name: 'Dr. Michael Buck', role: 'Kranken- & Pflegeversicherung', url: '/kranken-pflege', img: '/assets/img/team/michael-buck.webp' },
+  hendelkes: { name: 'Joachim Hendelkes', role: 'Dipl.-Kfm. | Finanzanalysen', url: '/finanzanalysen', img: '/assets/img/team/joachim-hendelkes.webp' },
+  schneider: { name: 'Christian H. Schneider', role: 'Dipl.-Kfm. | Kapitalanlage Immobilien', url: '/kapitalanlage-immobilie', img: '/assets/img/team/christian-schneider.webp' },
+  scholl: { name: 'Dorian Scholl', role: 'Financial Planner | Investment & AIF', url: '/investment-aif', img: '/assets/img/team/dorian-scholl.webp' },
+  casanova: { name: 'Sigrid Casanova', role: 'M.A. | Unternehmensberatung Heilwesen', url: '/heilwesenberufe', img: '/assets/img/team/sigrid-casanova.webp' },
+  arndt: { name: 'Ronni Arndt', role: 'Dipl.-Volkswirt | bAV / DMA', url: '/betriebliche-versorgung', img: '/assets/img/team/ronni-arndt.webp' },
+  domes: { name: 'Steffen Domes', role: 'Experte bAV / DMA', url: '/betriebliche-versorgung', img: '/assets/img/team/steffen-domes.webp' }
 };
 
 const themen = [
