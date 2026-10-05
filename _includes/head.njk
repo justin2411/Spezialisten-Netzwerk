@@ -277,7 +277,7 @@ button{font-family:inherit}
 .mm-themen a{display:flex;align-items:center;gap:.6rem;background:#fff;border:1px solid var(--line);border-radius:16px;padding:.8rem;font-size:.95rem;font-weight:700;color:var(--ink);line-height:1.2}
 .mm-themen .sn-ico--sm{width:36px;height:36px;border-radius:10px}
 .mm-themen .sn-ico--sm svg{width:18px;height:18px}
-.mm .nc{display:flex;justify-content:center;margin-top:1.6rem;padding:1rem}
+.mm .nc{display:flex;justify-content:center;margin-top:1.6rem;padding:1rem;color:#fff}
 
 /* ════════ FOOTER ════════ */
 .ft{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--g50),var(--g100));border-top:1px solid var(--line);padding:clamp(3.5rem,7vw,5rem) 0 1.6rem}
@@ -320,7 +320,16 @@ button{font-family:inherit}
   .nav .nc{display:none}
   .sn-btns .sn-btn{flex:1 1 100%}
   .sn-person-body{padding:1.6rem}
-  .fl{width:54px;height:54px;bottom:1rem;right:1rem}
+  .fl{display:none}
+  .ftt{grid-template-columns:1fr 1fr;gap:2rem 1.2rem}
+  .ftt>div:first-child{grid-column:1/-1}
+  .ftt>div:last-child{grid-column:1/-1}
+  .ft .sn-mosaic{opacity:.35}
+  .mm-themen{grid-template-columns:minmax(0,1fr)}
+  .sn-hero .sn-mosaic{display:none}
+  .sn-cta .sn-mosaic{opacity:.5}
+  .sn-hero-person{width:100%;border-radius:22px}
+  .sn-crumbs{flex-wrap:wrap}
 }
 </style>
 </head>
