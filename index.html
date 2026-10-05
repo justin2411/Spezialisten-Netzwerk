@@ -57,6 +57,8 @@ permalink: "/index.html"
 .orb-c .ppl{display:flex;justify-content:center;margin-bottom:.7rem}
 .orb-c .ppl img{width:76px;height:76px;border-radius:50%;object-fit:cover;object-position:top;border:4px solid #fff;box-shadow:var(--sh-sm);margin-left:-14px;background:var(--g100)}
 .orb-c .ppl img:first-child{margin-left:0}
+.orb-c .ppl.big img{width:132px;height:132px;border-width:5px}
+.orb-c .ppl.big.duo img{width:108px;height:108px}
 .orb-c b{font-size:1.05rem;color:var(--ink);line-height:1.25;display:block}
 .orb-c small{font-size:.86rem;color:var(--gd);font-weight:700;line-height:1.35;display:block;margin-top:.2rem}
 .orb-c .logo{width:72%;margin:0 auto .6rem}
@@ -241,7 +243,7 @@ permalink: "/index.html"
           <img class="logo" src="/assets/img/logo.png" alt="Das Spezialisten Netzwerk">
           <div class="ppl"><img src="{{ T.lohne.img }}" alt=""></div>
           <b>{{ T.lohne.name }}</b>
-          <small>Netzwerk Manager · koordiniert alle Fachbereiche</small>
+          <small>Netzwerk Manager</small>
         </div>
       </div>
       {%- set pos = [[50,10],[78.3,21.7],[90,50],[78.3,78.3],[50,90],[21.7,78.3],[10,50],[21.7,21.7]] %}
@@ -501,7 +503,7 @@ permalink: "/index.html"
     document.querySelectorAll('.orb-n').forEach(function (n) {
       var t = THEMEN[+n.getAttribute('data-i')];
       var ppl = t.people.map(function (k) { return TEAM[k]; });
-      var html = '<div class="ppl">' + ppl.map(function (p) { return '<img src="' + p.img + '" alt="" style="object-position:' + (p.pos || 'top') + '">'; }).join('') + '</div>' +
+      var html = '<div class="ppl big' + (ppl.length > 1 ? ' duo' : '') + '">' + ppl.map(function (p) { return '<img src="' + p.img + '" alt="" style="object-position:' + (p.pos || 'top') + '">'; }).join('') + '</div>' +
         '<b>' + t.title + '</b><small>' + ppl.map(function (p) { return p.name; }).join(' &amp; ') + '</small>';
       var on = function () { document.querySelectorAll('.orb-n.on').forEach(function (x) { x.classList.remove('on'); }); n.classList.add('on'); show(html); };
       var off = function () { n.classList.remove('on'); show(initial); };
