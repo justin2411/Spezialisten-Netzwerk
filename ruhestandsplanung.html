@@ -6,6 +6,10 @@ permalink: "/ruhestandsplanung.html"
 ---
 {%- set currentTheme = "ruhestand" -%}
 {%- set p = site.team.lohne -%}
+<style>
+/* Seitenspezifisch: Abstand Button in der Personen-Karte (statt Inline-Style) */
+.sn-person-body .sn-btns{margin-top:1.5rem}
+</style>
 <section class="sn-hero">
   {% include "hero-mosaic.njk" %}
   <div class="sn-wrap">
@@ -65,7 +69,7 @@ permalink: "/ruhestandsplanung.html"
           <div class="sn-person-name">{{ p.name }}</div>
           <div class="sn-person-role">{{ p.role }}</div>
           <p>Ihr zentraler Ansprechpartner für die Ruhestandsplanung. Er koordiniert das Netzwerk und holt passende Spezialisten hinzu.</p>
-          <div class="sn-btns" style="margin-top:1.5rem"><a href="/kontakt" class="sn-btn sn-btn--sm">Gespräch vereinbaren</a></div>
+          <div class="sn-btns"><a href="/kontakt" class="sn-btn sn-btn--sm">Gespräch vereinbaren</a></div>
         </div>
       </div>
     </div>

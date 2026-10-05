@@ -22,7 +22,7 @@ permalink: "/kontakt.html"
 .ct-net-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .ct-net-lines line{stroke:var(--gl);stroke-width:.5;stroke-linecap:round;stroke-dasharray:1.4 1.6;animation:ctDash 6s linear infinite}
 @keyframes ctDash{to{stroke-dashoffset:-12}}
-.ct-net-center{position:absolute;left:50%;top:50%;width:30%;aspect-ratio:1;translate:-50% -50%;border-radius:30%;background:linear-gradient(145deg,#c9da1f,var(--g) 55%,#a8bc00);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;box-shadow:0 22px 50px rgba(150,170,0,.42),inset 0 -5px 0 rgba(0,0,0,.07);z-index:2}
+.ct-net-center{position:absolute;left:50%;top:50%;width:30%;aspect-ratio:1;translate:-50% -50%;border-radius:30%;background:linear-gradient(145deg,#c9da1f,var(--g) 55%,#a8bc00);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;box-shadow:0 22px 50px rgba(150,170,0,.42),inset 0 -5px 0 rgba(0,0,0,.07);z-index:2}
 .ct-net-center::after{content:'';position:absolute;inset:-12px;border-radius:34%;border:2px solid rgba(180,200,0,.35);animation:ctPulse 3.2s ease-in-out infinite}
 @keyframes ctPulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.08);opacity:0}}
 .ct-net-center svg{width:34%;height:auto;stroke:var(--ink);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
@@ -34,7 +34,7 @@ permalink: "/kontakt.html"
 .ct-node:nth-child(odd) img{border-radius:50%}
 .ct-node--lead{width:21%;margin:-10.5% 0 0 -10.5%}
 .ct-node--lead img{border-color:var(--g);border-width:5px}
-.ct-node--lead span{position:absolute;left:50%;bottom:-.7rem;translate:-50% 0;white-space:nowrap;font-size:.72rem;font-weight:800;letter-spacing:.04em;color:var(--ink);background:var(--g);padding:.18rem .6rem;border-radius:999px;box-shadow:var(--sh-sm)}
+.ct-node--lead span{position:absolute;left:50%;bottom:-.7rem;translate:-50% 0;white-space:nowrap;font-size:.72rem;font-weight:800;letter-spacing:.04em;color:#fff;background:var(--g);padding:.18rem .6rem;border-radius:999px;box-shadow:var(--sh-sm)}
 .ct-net-tile{position:absolute;border-radius:28%;transform:rotate(45deg);z-index:1}
 
 /* ── Hauptbereich ── */
@@ -73,7 +73,7 @@ permalink: "/kontakt.html"
 .ct-form-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1.6rem}
 .ct-form-title{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:800;color:var(--ink);line-height:1.1;letter-spacing:-.02em;margin-bottom:.5rem}
 .ct-form-sub{font-size:1.02rem;color:var(--text);line-height:1.6}
-.ct-free{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;width:86px;height:86px;border-radius:26px;background:var(--g);color:var(--ink);font-weight:800;text-align:center;line-height:1.05;font-size:.82rem;transform:rotate(6deg);box-shadow:0 12px 26px rgba(180,200,0,.4)}
+.ct-free{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;width:86px;height:86px;border-radius:26px;background:var(--g);color:#fff;font-weight:800;text-align:center;line-height:1.05;font-size:.82rem;transform:rotate(6deg);box-shadow:0 12px 26px rgba(180,200,0,.4)}
 .ct-free b{font-size:1.3rem}
 
 .ct-form{display:flex;flex-direction:column;gap:1.1rem}
@@ -157,6 +157,9 @@ permalink: "/kontakt.html"
   .ct-hero-pills .ct-pill{font-size:.9rem}
 }
 @media (prefers-reduced-motion:reduce){.ct-node,.ct-net-lines line,.ct-net-center::after{animation:none}}
+/* Weiße Schrift auf Grün (Kundenentscheidung) */
+.ct-net-center small{color:rgba(255,255,255,.92)}
+.ct-net-center svg{stroke:#fff}
 </style>
 
 <!-- HERO -->

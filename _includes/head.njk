@@ -121,7 +121,8 @@ button{font-family:inherit}
 /* ──── Seiten-Hero (Unterseiten) ──── */
 .sn-hero{position:relative;overflow:hidden;padding:clamp(3.5rem,8vw,6.5rem) 0 clamp(4rem,8vw,7rem);background:radial-gradient(1000px 520px at 85% -10%,rgba(214,228,106,.55),transparent 60%),radial-gradient(700px 420px at -5% 105%,rgba(236,189,0,.16),transparent 60%),linear-gradient(180deg,var(--g50),#fff)}
 .sn-hero .sn-wrap{position:relative;z-index:1}
-.sn-hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.sn-hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4.5rem);align-items:stretch}
+.sn-hero-grid>.sn-hero-card{display:flex;flex-direction:column;justify-content:center}
 .sn-hero .sn-h1{margin-bottom:1.3rem}
 .sn-hero .sn-lead{margin-bottom:2.1rem}
 .sn-crumbs{display:flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:600;color:var(--muted);margin-bottom:1.6rem}
@@ -150,6 +151,7 @@ button{font-family:inherit}
 .sn-person-role{font-size:1rem;font-weight:700;color:var(--gd);margin:.3rem 0 1rem}
 .sn-person-body p{font-size:1.02rem;line-height:1.75;color:var(--text)}
 .sn-person-body p+p{margin-top:.8rem}
+.sn-person-body .sn-btns{margin-top:1.5rem}
 .sn-quote-line{margin-top:1.2rem;padding:1rem 1.2rem;background:var(--g50);border-left:4px solid var(--g);border-radius:0 14px 14px 0;font-style:italic;color:var(--text)}
 .sn-persons{display:flex;flex-direction:column;gap:1.6rem}
 
@@ -287,8 +289,10 @@ button{font-family:inherit}
 @keyframes flR{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.12);opacity:0}}
 
 /* ════════ RESPONSIVE ════════ */
-@media(max-width:1080px){
+@media(max-width:1180px){
   .nav .nm{display:none}.nav .hb{display:flex}
+}
+@media(max-width:1080px){
   .sn-grid-4,.sn-topics{grid-template-columns:repeat(2,1fr)}
   .ftt{grid-template-columns:1fr 1fr}
 }

@@ -15,7 +15,7 @@ permalink: "/finanzierung.html"
 .fz-hero-duo small{font-size:.85rem;color:var(--gdd);font-weight:600}
 .fz-why{display:grid;grid-template-columns:.9fr 2fr;gap:1.4rem}
 .fz-big{display:flex;flex-direction:column;gap:1.4rem}
-.fz-stat{position:relative;overflow:hidden;flex:1;border-radius:var(--r);padding:2rem 1.9rem;background:linear-gradient(150deg,var(--g) 0%,var(--gl) 100%);color:var(--ink);box-shadow:0 18px 40px rgba(150,170,0,.25);display:flex;flex-direction:column;justify-content:flex-end}
+.fz-stat{position:relative;overflow:hidden;flex:1;border-radius:var(--r);padding:2rem 1.9rem;background:linear-gradient(150deg,var(--g) 0%,var(--gl) 100%);color:#fff;box-shadow:0 18px 40px rgba(150,170,0,.25);display:flex;flex-direction:column;justify-content:flex-end}
 .fz-stat--amber{background:linear-gradient(150deg,var(--amber) 0%,#f6d860 100%);box-shadow:0 18px 40px rgba(236,189,0,.22)}
 .fz-stat::after{content:'';position:absolute;right:-24px;top:-24px;width:100px;height:100px;border-radius:28%;transform:rotate(45deg);background:rgba(255,255,255,.35)}
 .fz-stat>*{position:relative;z-index:1}
@@ -35,6 +35,9 @@ permalink: "/finanzierung.html"
 .fz-persons .sn-check{margin-bottom:1.2rem}
 @media(max-width:900px){.fz-why{grid-template-columns:1fr}.fz-big{flex-direction:row}.fz-what,.fz-persons{grid-template-columns:1fr}}
 @media(max-width:620px){.fz-big{flex-direction:column}.fz-cards{grid-template-columns:1fr}.fz-hero-duo{border-radius:var(--r)}}
+/* Weiße Schrift auf Grün (Kundenentscheidung) */
+.fz-stat,.fz-stat b,.fz-stat strong,.fz-stat span{color:#fff}
+.fz-stat{background:var(--g)}
 </style>
 <section class="sn-hero">
   {% include "hero-mosaic.njk" %}

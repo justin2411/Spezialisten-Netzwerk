@@ -76,7 +76,7 @@ permalink: "/optiplan.html"
 .op-tab{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.8rem 1.5rem;font-size:1rem;font-weight:800;color:var(--text);background:transparent;border:none;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
 .op-tab svg{width:19px;height:19px;stroke:var(--gd);fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 .op-tab:not(.active):hover{background:var(--g50);color:var(--gdd)}
-.op-tab.active{background:var(--g);color:var(--ink);box-shadow:0 8px 20px rgba(180,200,0,.35)}
+.op-tab.active{background:var(--g);color:#fff;box-shadow:0 8px 20px rgba(180,200,0,.35)}
 .op-tab.active svg{stroke:var(--ink)}
 .cbody{display:none}
 .cbody.active{display:grid;grid-template-columns:380px 1fr;gap:1.6rem;align-items:stretch}
@@ -183,6 +183,12 @@ permalink: "/optiplan.html"
   .op-pop-num{font-size:2.3rem}
   .op-pop-body{padding:1.4rem 1.3rem 1.6rem}
 }
+/* Weiße Schrift auf Grün (Kundenentscheidung) */
+.cresult .cr-lbl,.cresult .cr-val{color:#fff}
+.op-sz--good .op-sz-head,.op-sz--good .op-sz-lbl{color:#fff}
+.op-sz--good .op-sz-head svg{stroke:#fff}
+.cresult{background:var(--g)}
+.op-sz--good .op-sz-head{background:var(--g)}
 </style>
 
 <!-- HERO -->
@@ -366,7 +372,7 @@ permalink: "/optiplan.html"
 <!-- RECHNER -->
 <section class="sn-sec sn-sec--tint" id="rechner">
   <div class="sn-wrap">
-    <div class="sn-head sn-tc" style="margin-bottom:2rem">
+    <div class="sn-head sn-tc">
       <div class="sn-eyebrow rv">Interaktive Rechner</div>
       <h2 class="sn-h2 rv">Berechnen Sie <span class="sn-hl">Ihre Situation</span></h2>
       <p class="sn-lead rv">Vereinfachte Musterrechnungen zur Orientierung.</p>
