@@ -3,7 +3,9 @@
 > Diese Datei wird von Claude Code automatisch gelesen. Sie erklärt **wer** am
 > Projekt arbeitet, **was** das Ziel ist und **wie** der Workflow läuft.
 > Bei jeder Sitzung: erst diese Datei lesen, dann handeln.
-> **Stand: 15.06.2026 — aktualisiert nach optiplan-Referenz (PR #10 gemergt).**
+> **Stand: 05.10.2026 — Redesign „hell & fröhlich“ (Branch claude/redesign-hell-froehlich).**
+>
+> **Design-System aktuell:** `_includes/head.njk` (Klassen `.sn-*`, Schrift Assistant, HORBACH-Grün, Mosaik-Kacheln wie im Logo, CTA hell-limette statt dunkel). Inhalte Team/Themen zentral in `_data/site.js`. Bilder liegen lokal unter `/assets/img`. Bausteine: `hero-mosaic.njk`, `themen-links.njk`, `cta.njk`. Referenz-Unterseite: `ruhestandsplanung.html`. Angaben unten zu #8DC63F / Inter / dunklem CTA sind veraltet.
 
 ---
 
@@ -142,6 +144,6 @@ Globale Styles/Farben → `head.njk`. Niemals Nav/Footer pro Seite duplizieren.
 ## 7. Wichtige inhaltliche Fakten (nicht verändern ohne Absprache)
 
 - **Netzwerk-Manager: Jonathan Lohne** (NICHT mehr Ender Gülsen).
-- **Unternehmensfarbe Grün** (`--g #8DC63F`) ist fix — nie ändern.
+- **Unternehmensfarbe: HORBACH FreshGreen** (`--g #b4c800`, Basil `--gd #697d0f`) — fix. Auf FreshGreen nur dunkle Schrift (BFSG).
 - **Ungebunden / unabhängig** ist die Kernbotschaft ("Vertrauen statt verkaufen").
 - Finanzaussagen, Renditezahlen, Rechtstexte: nur mit Justins Freigabe.

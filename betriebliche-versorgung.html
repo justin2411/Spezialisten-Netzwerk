@@ -1,776 +1,218 @@
 ---
 layout: base.njk
 title: "Betriebliche Versorgung | Spezialisten Netzwerk"
+description: "Betriebliche Versorgung: IST-Analyse, individuelles Benefit-Modell, Budget-Kalkulation, Mitarbeiterberatung, rechtssichere Dokumentation und laufende Betreuung."
 permalink: "/betriebliche-versorgung.html"
 ---
+{#- Inhalte 1:1 von spezialisten-netzwerk.com/betriebliche-versorgung übernommen (Wunsch Arndt/Domes, 11/2026).
+    Nur das Design ist angepasst. Bitte keine Inhalte ergänzen ohne Freigabe der Spezialisten. -#}
+{%- set currentTheme = "bav" -%}
+{%- set ra = site.team.arndt -%}
+{%- set sd = site.team.domes -%}
+
 <style>
-:root{--g:#8DC63F;--gd:#6FA52E;--gl:#A8D85A;--gbg:#F2FAE4;--dark:#1A1A1A;--mid:#4A4A4A;--light:#8A8A8A;--border:#E5E5E5;--offwhite:#F8F8F6}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;color:var(--dark);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.65}
-img{display:block;max-width:100%}
-a{text-decoration:none;color:inherit}
-button{cursor:pointer;font-family:inherit}
+/* ════════ Betriebliche Versorgung — seitenspezifisch (nutzt Tokens aus head.njk) ════════ */
+.bv-hero{padding:calc(var(--sp-sec)*.75) 0}
+.bv-hero .sn-h1{margin-bottom:0;hyphens:manual;-webkit-hyphens:manual}
 
-/* ── NAV ── */
-.nav{position:sticky;top:0;z-index:1000;background:var(--g);padding:0 2.5rem;box-shadow:0 2px 20px rgba(141,198,63,.25);transition:background .35s,backdrop-filter .35s}
-.nav.scrolled{background:rgba(110,165,40,.82);backdrop-filter:blur(14px)}
-.nav-inner{max-width:1200px;margin:0 auto;height:70px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
-.nav-logo img{height:42px;filter:brightness(0) invert(1)}
-.nav-mid{display:flex;gap:2rem}
-.nav-mid a{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .2s}
-.nav-mid a:hover,.nav-mid a.active{color:#fff}
-.nav-cta{background:#fff;color:var(--gd);font-size:.68rem;font-weight:800;padding:.48rem 1.1rem;border-radius:5px;letter-spacing:.04em;transition:all .25s;white-space:nowrap}
-.nav-cta:hover{background:var(--dark);color:#fff}
+/* Grafik mit Prozentsätzen (Quelle: StepStone Jobstudie 2020) */
+.bv-study{display:grid;grid-template-columns:1fr 1.15fr;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--g200);background:#fff}
+.bv-study-quote{position:relative;overflow:hidden;background:radial-gradient(420px 260px at 90% 0%,rgba(255,255,255,.3),transparent 60%),linear-gradient(140deg,#c9da1f,var(--g) 55%,#a8bc00);padding:var(--sp-card);display:flex;align-items:center}
+.bv-study-quote .sn-tile{background:rgba(255,255,255,.28)}
+.bv-study-quote p{position:relative;z-index:1;font-size:clamp(1.35rem,2.4vw,1.85rem);font-weight:800;line-height:1.35;color:#fff;letter-spacing:-.01em;text-shadow:0 1px 2px rgba(60,70,0,.25)}
+.bv-study-data{padding:var(--sp-card);display:flex;flex-direction:column;justify-content:center;background:linear-gradient(160deg,#fff 40%,var(--g50))}
+.bv-rings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-gap)}
+.bv-ring{display:flex;align-items:center;gap:1rem}
+.bv-ring-c{--p:50;position:relative;width:96px;height:96px;flex-shrink:0;border-radius:50%;background:conic-gradient(var(--g) calc(var(--p)*1%),var(--g100) 0)}
+.bv-ring-c::after{content:'';position:absolute;inset:11px;border-radius:50%;background:#fff}
+.bv-ring-c b{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;font-size:1.12rem;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.bv-ring span{font-size:1.02rem;font-weight:700;color:var(--text);line-height:1.35}
+.bv-source{margin-top:var(--sp-stack);font-size:.9rem;color:var(--muted);text-align:right}
 
-/* ── HERO ── */
-.bv-hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(160deg,#0a1205,#0f1a08 55%,#0e130a)}
-.bv-hero-bg{position:absolute;inset:0;z-index:0}
-.bv-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 50%;opacity:.35;filter:grayscale(10%) brightness(.8)}
-.bv-hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 30% 50%,transparent 20%,rgba(0,0,0,.6) 100%);z-index:1}
-.bv-hero-bar{position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,transparent,var(--g) 20%,var(--g) 80%,transparent);z-index:3}
-.bv-hero-glow{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g) 40%,var(--gl) 50%,var(--g) 60%,transparent);z-index:3}
-.bv-hero-in{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:6rem 2.5rem;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.bv-hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(141,198,63,.12);border:1px solid rgba(141,198,63,.3);color:var(--gl);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:100px;margin-bottom:1.5rem}
-.bv-hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g);animation:badgePulse 2s ease-in-out infinite}
-@keyframes badgePulse{0%,100%{opacity:1}50%{opacity:.3}}
-.bv-hero h1{font-size:clamp(2.4rem,4.5vw,3.6rem);font-weight:900;color:#fff;line-height:1.08;margin-bottom:1.2rem;letter-spacing:-.02em}
-.bv-hero h1 span{color:var(--gl)}
-.bv-hero-sub{font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.85;margin-bottom:2.2rem;max-width:480px}
-.bv-hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-g{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.8rem;background:var(--g);color:#fff;font-size:.82rem;font-weight:800;border-radius:8px;transition:all .3s cubic-bezier(.22,1,.36,1);letter-spacing:.02em}
-.btn-g:hover{background:var(--gd);transform:translateY(-2px);box-shadow:0 12px 30px rgba(141,198,63,.35)}
-.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;padding:.83rem 1.6rem;background:transparent;color:rgba(255,255,255,.7);font-size:.82rem;font-weight:600;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);transition:all .3s}
-.btn-ghost:hover{border-color:rgba(255,255,255,.5);color:#fff}
-/* Hero right, stats card */
-.bv-hero-card{background:rgba(255,255,255,.04);border:1.5px solid rgba(141,198,63,.2);border-radius:20px;padding:2.2rem;backdrop-filter:blur(10px)}
-.bv-hero-card-title{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(141,198,63,.7);margin-bottom:1.5rem}
-.bv-stat-row{display:flex;flex-direction:column;gap:1rem}
-.bv-stat{display:flex;align-items:center;gap:1rem;padding:.9rem 1rem;background:rgba(255,255,255,.03);border-radius:10px;border:1px solid rgba(255,255,255,.05)}
-.bv-stat-ico{width:40px;height:40px;border-radius:9px;background:rgba(141,198,63,.12);border:1px solid rgba(141,198,63,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.bv-stat-ico svg{width:18px;height:18px;color:var(--g)}
-.bv-stat-val{font-size:1.2rem;font-weight:900;color:#fff;line-height:1}
-.bv-stat-lbl{font-size:.62rem;color:rgba(255,255,255,.4);margin-top:.15rem}
+/* Wie gehen wir vor */
+.bv-steps .sn-card{display:flex;flex-direction:column}
+.bv-steps .sn-card h3{margin-bottom:.6rem}
 
-/* ── BAV INFOGRAFIK, Premium Dark ── */
-.bav-info-sec{background:linear-gradient(160deg,#0c1608,#111 55%,#0a1205);padding:clamp(5rem,9vw,8rem) 2.5rem;position:relative;overflow:hidden}
-.bav-info-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1000px;height:1000px;border-radius:50%;background:radial-gradient(circle,rgba(141,198,63,.07),transparent 60%);pointer-events:none}
-.bav-info-sec .sec-label{background:rgba(141,198,63,.12);border-color:rgba(141,198,63,.25);color:var(--gl)}
-.bav-info-sec .h2{color:#fff}
-.bav-info-sec .h2 .g{color:var(--gl)}
-.bav-info-sec .h2-sub{color:rgba(255,255,255,.4)}
-.bav-infographic{position:relative;z-index:1}
+/* Video */
+.bv-video{max-width:1000px;margin:0 auto;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-lg);border:1px solid var(--g200);background:#000;aspect-ratio:16/9}
+.bv-video video{display:block;width:100%;height:100%;object-fit:cover}
 
-/* ── MAIN GRID: flow left, calc right ── */
-.bav-main-grid{display:grid;grid-template-columns:1fr .85fr;gap:3rem;align-items:start;margin-top:3.5rem}
+/* Zahlen */
+.bv-counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-gap)}
+.bv-count{position:relative;overflow:hidden;border-radius:var(--r);padding:var(--sp-card);text-align:center;background:linear-gradient(140deg,#c9da1f,var(--g) 55%,#a8bc00);box-shadow:0 18px 40px rgba(150,170,0,.25)}
+.bv-count b{display:block;font-size:clamp(2.4rem,4.5vw,3.3rem);font-weight:800;line-height:1.05;color:#fff;letter-spacing:-.02em;text-shadow:0 1px 2px rgba(60,70,0,.25)}
+.bv-count span{display:block;margin-top:.5rem;font-size:1.08rem;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(60,70,0,.25)}
 
-/* FLOW DIAGRAM */
-.bav-flow-wrap{display:flex;flex-direction:column;gap:0}
-.bav-flow-title{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(141,198,63,.6);margin-bottom:1.5rem}
+/* Spezialisten */
+.bv-persons .sn-person-photo{min-height:340px}
+.bv-spec{font-size:1rem;font-weight:700;color:var(--gd);line-height:1.4;margin-bottom:.4rem}
+.bv-persons .sn-person-name{margin-bottom:1rem}
 
-/* Node */
-.bav-flow-item{display:flex;gap:1.5rem;align-items:flex-start;position:relative}
-.bav-flow-item:not(:last-child){margin-bottom:0;padding-bottom:0}
-/* Vertical connector */
-.bav-flow-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:56px}
-.bav-flow-circle{width:56px;height:56px;border-radius:50%;background:rgba(141,198,63,.08);border:2px solid rgba(141,198,63,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .45s cubic-bezier(.22,1,.36,1);position:relative;z-index:1}
-.bav-flow-circle svg{width:22px;height:22px;stroke:var(--gl);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:all .35s}
-.bav-flow-item:hover .bav-flow-circle{background:var(--g);border-color:var(--g);transform:scale(1.12);box-shadow:0 0 40px rgba(141,198,63,.5),0 0 80px rgba(141,198,63,.15)}
-.bav-flow-item:hover .bav-flow-circle svg{stroke:#fff;transform:scale(1.1)}
-/* Center node special */
-.bav-flow-circle.hub{width:72px;height:72px;background:linear-gradient(135deg,rgba(141,198,63,.25),rgba(141,198,63,.08));border:2px solid rgba(141,198,63,.5);box-shadow:0 0 30px rgba(141,198,63,.2)}
-.bav-flow-circle.hub svg{width:28px;height:28px;stroke:var(--g)}
-/* Connector line */
-.bav-flow-vline{width:2px;flex:1;min-height:32px;background:linear-gradient(180deg,rgba(141,198,63,.3),rgba(141,198,63,.05));margin:4px auto;position:relative;overflow:hidden}
-.bav-flow-vline::after{content:'';position:absolute;top:-100%;left:0;right:0;height:40%;background:linear-gradient(180deg,transparent,var(--g),transparent);animation:vlinePulse 2.5s ease-in-out infinite}
-@keyframes vlinePulse{0%{top:-100%}100%{top:200%}}
-.bav-flow-item:nth-child(2) .bav-flow-vline::after{animation-delay:.6s}
-.bav-flow-item:nth-child(3) .bav-flow-vline::after{animation-delay:1.2s}
-
-.bav-flow-content{flex:1;padding:.3rem 0 1.8rem}
-.bav-flow-tag{display:inline-flex;align-items:center;gap:.3rem;font-size:.48rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g);background:rgba(141,198,63,.1);border:1px solid rgba(141,198,63,.2);padding:.18rem .6rem;border-radius:100px;margin-bottom:.5rem}
-.bav-flow-name{font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:.3rem;line-height:1.2}
-.bav-flow-desc{font-size:.78rem;color:rgba(255,255,255,.42);line-height:1.65}
-/* Benefit chips */
-
-
-/* ── RECHNUNG ── */
-.bav-calc-panel{background:rgba(255,255,255,.03);border:1.5px solid rgba(141,198,63,.18);border-radius:20px;overflow:hidden;position:sticky;top:100px}
-.bav-calc-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(141,198,63,.5),transparent)}
-.bav-calc-header{padding:1.4rem 1.6rem 1rem;border-bottom:1px solid rgba(255,255,255,.05)}
-.bav-calc-label{font-size:.52rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(141,198,63,.6);margin-bottom:.5rem}
-.bav-calc-title{font-size:.95rem;font-weight:900;color:#fff;line-height:1.25}
-.bav-calc-sub{font-size:.7rem;color:rgba(255,255,255,.35);margin-top:.3rem}
-.bav-calc-body{padding:1.4rem 1.6rem}
-
-/* Brutto → Netto visual */
-.bav-money-flow{margin-bottom:1.4rem}
-.bav-money-label{font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.8rem}
-.bav-money-bar{height:48px;background:rgba(255,255,255,.04);border-radius:10px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.06)}
-.bav-money-seg{position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;transition:width .8s cubic-bezier(.22,1,.36,1);white-space:nowrap}
-.bav-seg-netto{left:0;background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);width:64%}
-.bav-seg-tax{background:rgba(59,130,246,.35);color:#93c5fd;width:13%}
-.bav-seg-sv{background:rgba(168,85,247,.35);color:#d8b4fe;width:10%}
-.bav-seg-bav{right:0;background:linear-gradient(90deg,var(--gd),var(--g));color:#fff;width:13%;border-radius:0 10px 10px 0}
-/* Bar legend */
-.bav-bar-legend{display:flex;gap:1rem;margin-top:.7rem;flex-wrap:wrap}
-.bav-leg-item{display:flex;align-items:center;gap:.35rem;font-size:.58rem;color:rgba(255,255,255,.4)}
-.bav-leg-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
-
-/* Savings breakdown */
-.bav-breakdown{display:flex;flex-direction:column;gap:0;margin-bottom:1.3rem}
-.bav-bd{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.75rem}
-.bav-bd:last-child{border-bottom:none}
-.bav-bd-key{color:rgba(255,255,255,.5);display:flex;align-items:center;gap:.5rem}
-.bav-bd-key svg{width:14px;height:14px;flex-shrink:0}
-.bav-bd-val{font-weight:700}
-.bav-bd-val.plus{color:var(--gl)}
-.bav-bd-val.minus{color:rgba(220,80,80,.7)}
-.bav-bd-val.white{color:#fff;font-size:.88rem}
-
-/* Result box */
-.bav-result-box{background:linear-gradient(135deg,rgba(141,198,63,.15),rgba(141,198,63,.05));border:1.5px solid rgba(141,198,63,.3);border-radius:14px;padding:1.1rem;text-align:center;margin-bottom:1.2rem}
-.bav-result-label{font-size:.55rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(141,198,63,.7);margin-bottom:.4rem}
-.bav-result-val{font-size:2.4rem;font-weight:900;color:var(--gl);line-height:1;letter-spacing:-.02em}
-.bav-result-sub{font-size:.68rem;color:rgba(255,255,255,.35);margin-top:.4rem}
-.bav-result-sub span{color:var(--gl);font-weight:700}
-
-/* CTA */
-.bav-calc-cta{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.95rem;background:var(--g);color:#fff;font-size:.82rem;font-weight:800;border-radius:10px;text-decoration:none;transition:all .3s cubic-bezier(.22,1,.36,1);letter-spacing:.02em;border:none}
-.bav-calc-cta:hover{background:var(--gd);transform:translateY(-2px);box-shadow:0 12px 36px rgba(141,198,63,.4)}
-.bav-calc-cta svg{width:16px;height:16px;transition:transform .3s}
-.bav-calc-cta:hover svg{transform:translateX(3px)}
-.bav-calc-note{font-size:.56rem;color:rgba(255,255,255,.2);text-align:center;margin-top:.7rem;line-height:1.5}
-
-/* bav step num */
-.bav-flow-step-num{position:absolute;top:-5px;right:-5px;width:18px;height:18px;border-radius:50%;background:var(--g);color:#fff;font-size:.48rem;font-weight:900;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 2px 8px rgba(141,198,63,.4)}
-
-/* Key facts row */
-.bav-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:.5rem;padding:1.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(141,198,63,.12);border-radius:14px}
-.bav-fact-item{text-align:center}
-.bav-fact-val{font-size:1.5rem;font-weight:900;color:var(--gl);line-height:1;margin-bottom:.3rem}
-.bav-fact-lbl{font-size:.6rem;color:rgba(255,255,255,.35);line-height:1.4}
-
-/* Legal note */
-.bav-legal{display:flex;align-items:flex-start;gap:.6rem;margin-top:1.2rem;font-size:.68rem;color:rgba(255,255,255,.28);line-height:1.6;padding:.9rem 1rem;border-radius:10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04)}
-.bav-legal svg{flex-shrink:0;stroke:rgba(141,198,63,.4);margin-top:.1rem}
-
-/* ── SECTION UTILS ── */
-.sec{padding:clamp(4.5rem,8vw,7rem) 2.5rem}
-.w{max-width:1200px;margin:0 auto}
-.tc{text-align:center}
-.sec-label{display:inline-flex;align-items:center;gap:.4rem;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g);background:var(--gbg);border:1px solid rgba(141,198,63,.2);padding:.25rem .75rem;border-radius:100px;margin-bottom:1.2rem}
-.sec-label::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--g)}
-.h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;line-height:1.12;letter-spacing:-.01em;margin-bottom:.8rem}
-.h2-sub{font-size:.92rem;color:var(--mid);line-height:1.85;max-width:600px;margin:0 auto 3rem}
-.g{color:var(--g)}
-
-/* ── INTRO SPLIT — Premium ── */
-.intro-sec{background:#fff;padding:clamp(5rem,9vw,8rem) 2.5rem;overflow:hidden}
-.intro-g{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
-/* Image side with wow frame */
-.intro-img-outer{position:relative}
-.intro-img-outer::before{content:'';position:absolute;bottom:-16px;right:-16px;width:100%;height:100%;border-radius:20px;background:var(--g);opacity:.12;z-index:0}
-.intro-img-outer::after{content:'';position:absolute;top:-16px;left:-16px;width:55%;height:55%;border-radius:20px;border:2px solid var(--g);opacity:.18;z-index:0;pointer-events:none}
-.intro-img-wrap{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.14);z-index:1}
-.intro-img-wrap img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 30%;display:block;transition:transform .6s cubic-bezier(.22,1,.36,1);filter:brightness(.95)}
-.intro-img-outer:hover .intro-img-wrap img{transform:scale(1.03)}
-.intro-img-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:45%;background:linear-gradient(transparent,rgba(0,0,0,.55))}
-.intro-badge{position:absolute;bottom:1.6rem;left:1.6rem;z-index:2;background:var(--g);color:#fff;padding:.9rem 1.3rem;border-radius:10px;box-shadow:0 10px 32px rgba(141,198,63,.45);font-size:.62rem;font-weight:700;display:flex;align-items:center;gap:.45rem}
-.intro-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.6);animation:badgePulse 2s ease-in-out infinite}
-/* Floating stat badge top-right */
-.intro-stat-badge{position:absolute;top:-1rem;right:-1rem;z-index:3;background:#fff;border:1.5px solid rgba(141,198,63,.25);border-radius:12px;padding:.9rem 1.1rem;box-shadow:0 12px 36px rgba(0,0,0,.1);text-align:center;min-width:90px}
-.intro-stat-badge strong{display:block;font-size:1.5rem;font-weight:900;color:var(--g);line-height:1}
-.intro-stat-badge span{font-size:.55rem;font-weight:600;color:var(--light);letter-spacing:.04em;text-transform:uppercase}
-/* Text side */
-.intro-text{display:flex;flex-direction:column;align-items:flex-start}
-.intro-text .sec-label{display:inline-flex;margin-bottom:1.2rem}
-.intro-text .h2{text-align:left;margin-bottom:1.2rem;font-size:clamp(2rem,3.5vw,3rem)}
-.intro-text p{font-size:.92rem;color:var(--mid);line-height:1.9;margin-bottom:1rem}
-.ck-list{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin:1.2rem 0 2rem}
-.ck-list li{display:grid;grid-template-columns:22px 1fr;align-items:start;gap:.65rem;font-size:.85rem;color:var(--mid);line-height:1.6}
-.ck-ico{width:20px;height:20px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.18em}
-.ck-ico svg{width:10px;height:10px}
-
-/* ── VORGEHEN (steps) ── */
-.steps-section{background:linear-gradient(160deg,#0e130a,#111 55%,#0a1205);position:relative;overflow:hidden}
-.steps-section::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(141,198,63,.06),transparent 60%);pointer-events:none}
-.steps-section .sec-label{background:rgba(141,198,63,.12);border-color:rgba(141,198,63,.25);color:var(--gl)}
-.steps-section .h2{color:#fff}
-.steps-section .h2-sub{color:rgba(255,255,255,.4)}
-.steps-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;position:relative;z-index:1}
-.step-card{background:rgba(255,255,255,.03);border:1.5px solid rgba(141,198,63,.12);border-radius:16px;padding:2rem;transition:all .4s cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden;opacity:0;transform:translateY(24px)}
-.step-card.visible{opacity:1;transform:none}
-.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(141,198,63,.3),transparent)}
-.step-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(141,198,63,.04),transparent 60%);opacity:0;transition:opacity .4s}
-.step-card:hover{border-color:rgba(141,198,63,.3);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.3)}
-.step-card:hover::after{opacity:1}
-.step-ico{width:52px;height:52px;border-radius:12px;background:rgba(141,198,63,.1);border:1.5px solid rgba(141,198,63,.25);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem}
-.step-ico svg{width:22px;height:22px;color:var(--g)}
-.step-card h4{font-size:.95rem;font-weight:800;color:#fff;margin-bottom:.6rem;line-height:1.3}
-.step-card p{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.8}
-
-/* ── VORTEILE ARBEITGEBER ── */
-.ag-sec{background:linear-gradient(160deg,#0c1608,#111 55%,#0a1205);padding:clamp(5rem,9vw,8rem) 2.5rem;position:relative;overflow:hidden}
-.ag-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(141,198,63,.06),transparent 60%);pointer-events:none}
-.ag-header{margin-bottom:4rem}
-.ag-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;position:relative;z-index:1}
-.ag-card{background:rgba(255,255,255,.03);border:1.5px solid rgba(141,198,63,.12);border-radius:20px;padding:2.5rem 2rem 2rem;position:relative;overflow:hidden;transition:all .45s cubic-bezier(.22,1,.36,1);opacity:0;transform:translateY(28px)}
-.ag-card.visible{opacity:1;transform:none}
-.ag-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(141,198,63,.35),transparent)}
-.ag-card:hover{border-color:rgba(141,198,63,.3);transform:translateY(-8px);box-shadow:0 30px 70px rgba(0,0,0,.35),0 0 0 1px rgba(141,198,63,.1);background:rgba(255,255,255,.05)}
-.ag-card-center{border-color:rgba(141,198,63,.25);background:rgba(141,198,63,.05)}
-.ag-card-center::before{background:linear-gradient(90deg,transparent,rgba(141,198,63,.6),transparent)}
-.ag-card-num{position:absolute;top:1.5rem;right:1.8rem;font-size:3.5rem;font-weight:900;color:rgba(141,198,63,.06);line-height:1;letter-spacing:-.02em;pointer-events:none}
-.ag-icon-wrap{width:80px;height:80px;margin-bottom:1.8rem}
-.ag-ring{animation:ringDraw 2s cubic-bezier(.22,1,.36,1) forwards;stroke-dashoffset:245}
-@keyframes ringDraw{to{stroke-dashoffset:0}}
-.ag-card:nth-child(2) .ag-ring{animation-delay:.3s}
-.ag-card:nth-child(3) .ag-ring{animation-delay:.6s}
-.ag-title{font-size:1.15rem;font-weight:900;color:#fff;margin-bottom:.8rem;line-height:1.2}
-.ag-desc{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.85;margin-bottom:1.5rem}
-.ag-stat{display:flex;align-items:center;gap:.7rem;padding:1rem 1.2rem;background:rgba(141,198,63,.08);border:1px solid rgba(141,198,63,.15);border-radius:10px;flex-wrap:nowrap}
-.ag-stat-val{font-size:1.2rem;font-weight:900;color:var(--gl);white-space:nowrap;flex-shrink:0}
-.ag-stat-lbl{font-size:.62rem;color:rgba(255,255,255,.4);line-height:1.3}
-@media(max-width:820px){.ag-cards{grid-template-columns:1fr}}
-
-/* ── SPEZIALISTEN ── */
-.spec-g{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:3.5rem}
-.spec-card{background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.06);transition:all .4s cubic-bezier(.22,1,.36,1);opacity:0;transform:translateY(20px)}
-.spec-card.visible{opacity:1;transform:none}
-.spec-card:hover{box-shadow:0 20px 60px rgba(0,0,0,.1);transform:translateY(-5px)}
-.spec-img-wrap{position:relative;height:320px;overflow:hidden;background:#f5f5f3}
-.spec-portrait{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block;transition:transform .5s cubic-bezier(.22,1,.36,1)}
-.spec-card:hover .spec-portrait{transform:scale(1.03)}
-.spec-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.65) 100%)}
-.spec-overlay{position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.5rem;z-index:2}
-.spec-field{display:inline-flex;align-items:center;gap:.3rem;font-size:.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g);background:rgba(141,198,63,.2);border:1px solid rgba(141,198,63,.4);padding:.22rem .65rem;border-radius:100px;margin-bottom:.4rem}
-.spec-name{font-size:1.5rem;font-weight:900;color:#fff;line-height:1.1}
-.spec-body{padding:1.6rem 1.8rem;text-align:left}
-.spec-title{font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g);margin-bottom:1rem}
-.spec-facts{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.4rem}
-.spec-fact{display:grid;grid-template-columns:10px 1fr;gap:.6rem;font-size:.8rem;color:var(--mid);line-height:1.5;align-items:start}
-.spec-fact-dot{width:8px;height:8px;border-radius:50%;background:var(--g);margin-top:.38em;flex-shrink:0}
-.spec-quote{font-size:.8rem;color:var(--mid);line-height:1.8;font-style:italic;padding:1rem 1.2rem;background:var(--gbg);border-left:3px solid var(--g);border-radius:0 8px 8px 0;text-align:left}
-
-/* ── QUOTE CTA ── */
-.quote-section{background:linear-gradient(160deg,#0e130a,#111 60%,#0a1205);padding:clamp(4rem,7vw,6rem) 2.5rem;position:relative;overflow:hidden}
-.quote-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(141,198,63,.07),transparent 60%);pointer-events:none}
-.quote-inner{max-width:780px;margin:0 auto;text-align:center;position:relative;z-index:1}
-.quote-mark{font-size:5rem;line-height:.5;color:var(--g);opacity:.25;font-weight:900;margin-bottom:1rem;display:block}
-.quote-text{font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:600;color:#fff;line-height:1.65;font-style:italic;margin-bottom:2.5rem}
-.quote-author{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:3rem}
-.quote-author-img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid rgba(141,198,63,.4);box-shadow:0 4px 18px rgba(141,198,63,.2)}
-.quote-author-info strong{display:block;font-size:.82rem;font-weight:800;color:#fff}
-.quote-author-info span{font-size:.68rem;color:rgba(255,255,255,.45)}
-
-/* ── FOOTER ── (kanonisch hell aus head.njk; kein .ft-Override mehr) */
-.ft-inner{max-width:1200px;margin:0 auto}
-.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
-.ft-logo img{height:38px;filter:brightness(0) invert(1);opacity:.9;margin-bottom:1rem}
-.ft-desc{font-size:.72rem;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:1.4rem}
-.ft-cta{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.2rem;background:var(--g);color:#fff!important;font-size:.65rem;font-weight:700;border-radius:5px;transition:all .25s}
-.ft-cta:hover{background:var(--gl)}
-.ft-top h5{font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem}
-.ft-top a{display:block;font-size:.72rem;color:rgba(255,255,255,.45);margin-bottom:.55rem;transition:color .2s}
-.ft-top a:hover{color:rgba(255,255,255,.85)}
-.ft-bot{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;flex-wrap:wrap;gap:.75rem}
-.ft-bot span,.ft-bot-links a{font-size:.62rem;color:rgba(255,255,255,.22)}
-.ft-bot-links{display:flex;gap:1.2rem}
-.fl-btn{position:fixed;bottom:2rem;right:2rem;width:54px;height:54px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 28px rgba(141,198,63,.4);z-index:900;transition:transform .3s}
-.fl-btn:hover{transform:scale(1.1)}
-.fl-btn svg{width:22px;height:22px;color:#fff}
-.fl-ring{position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(141,198,63,.3);animation:flRing 2.5s ease-in-out infinite}
-@keyframes flRing{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.15);opacity:0}}
-
-/* Scroll reveal */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
-.rv.visible{opacity:1;transform:none}
-.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
+/* Abschluss */
+.bv-cta h2{font-size:clamp(1.35rem,2.4vw,1.8rem);line-height:1.35;letter-spacing:-.01em;margin-bottom:0}
 
 @media(max-width:900px){
-  .bv-hero-in,.intro-g,.spec-g{grid-template-columns:1fr;gap:2.5rem}
-  .intro-img-outer{margin:16px}
-  .steps-g{grid-template-columns:1fr 1fr}
-  .ft-top{grid-template-columns:1fr 1fr}
-  .nav-mid{display:none}
+  .bv-study{grid-template-columns:minmax(0,1fr)}
+  .bv-counts{grid-template-columns:minmax(0,1fr)}
 }
-@media(max-width:560px){
-  .steps-g{grid-template-columns:1fr}
-  .ft-top{grid-template-columns:1fr}
+@media(max-width:620px){
+  .bv-rings{grid-template-columns:minmax(0,1fr);gap:1rem}
+  .bv-ring-c{width:84px;height:84px}
+  .bv-ring-c::after{inset:9px}
+  .bv-ring-c b{font-size:1rem}
+  .bv-source{text-align:left}
+  .bv-hero{padding:2.5rem 0}
+  .bv-persons .sn-person-photo{min-height:0;aspect-ratio:1/1}
 }
-@media(max-width:960px){.bav-main-grid{grid-template-columns:1fr}.bav-calc-panel{position:static}}
-
-/* ════════ AUS EINEM GUSS: durchgehend hell (konsistent mit Startseite/optiplan) ════════ */
-/* HERO hell */
-.bv-hero{background:linear-gradient(180deg,#f4faea,#fbfdf7)}
-.bv-hero-bg,.bv-hero-vignette,.bv-hero-bar,.bv-hero-glow{display:none}
-.bv-hero-badge{color:var(--gd);background:var(--gbg);border-color:rgba(141,198,63,.25)}
-.bv-hero h1{color:var(--dark)}
-.bv-hero h1 span{color:var(--g)}
-.bv-hero-sub{color:var(--mid)}
-.btn-ghost{color:var(--gd);border-color:rgba(141,198,63,.4)}
-.btn-ghost:hover{border-color:var(--g);color:var(--gd);background:var(--gbg)}
-.btn-g{border-radius:100px;background:linear-gradient(145deg,#A8D85A,#8DC63F);box-shadow:0 8px 26px rgba(141,198,63,.32)}
-.btn-g:hover{background:linear-gradient(145deg,#A8D85A,#8DC63F);transform:translateY(-3px);box-shadow:0 14px 38px rgba(141,198,63,.42)}
-.bv-hero-card{background:#fff;border-color:rgba(141,198,63,.2);border-radius:24px;box-shadow:0 10px 34px rgba(60,80,30,.07);backdrop-filter:none}
-.bv-hero-card-title{color:var(--gd)}
-.bv-stat{background:var(--offwhite);border-color:var(--border)}
-.bv-stat-val{color:var(--dark)}
-.bv-stat-lbl{color:var(--mid)}
-/* BAV-INFOGRAFIK-Sektion hell (Rechner + Fluss-Diagramm – nur Optik) */
-.bav-info-sec{background:linear-gradient(180deg,#fbfdf7,#f4faea)}
-.bav-info-sec::before{background:radial-gradient(circle,rgba(141,198,63,.05),transparent 60%)}
-.bav-info-sec .sec-label{color:var(--gd);background:var(--gbg);border-color:rgba(141,198,63,.25)}
-.bav-info-sec .h2{color:var(--dark)}
-.bav-info-sec .h2 .g{color:var(--g)}
-.bav-info-sec .h2-sub{color:var(--mid)}
-/* Fluss-Diagramm */
-.bav-flow-title{color:var(--gd)}
-.bav-flow-circle svg{stroke:var(--g)}
-.bav-flow-name{color:var(--dark)}
-.bav-flow-desc{color:var(--mid)}
-/* Rechner-Panel cremig */
-.bav-calc-panel{background:#fff;border-color:rgba(141,198,63,.18);border-radius:24px;box-shadow:0 10px 34px rgba(60,80,30,.07)}
-.bav-calc-header{border-bottom-color:var(--border)}
-.bav-calc-label{color:var(--gd)}
-.bav-calc-title{color:var(--dark)}
-.bav-calc-sub{color:var(--mid)}
-.bav-money-label{color:var(--mid)}
-.bav-money-bar{background:var(--offwhite);border-color:var(--border)}
-.bav-seg-netto{background:rgba(26,26,26,.08);color:var(--mid)}
-.bav-leg-item{color:var(--mid)}
-.bav-bd{border-bottom-color:var(--border)}
-.bav-bd-key{color:var(--mid)}
-.bav-bd-val.white{color:var(--dark)}
-.bav-result-label{color:var(--gd)}
-.bav-result-val{color:var(--gd)}
-.bav-result-sub{color:var(--mid)}
-.bav-result-sub span{color:var(--gd)}
-.bav-calc-cta{border-radius:100px;background:linear-gradient(145deg,#A8D85A,#8DC63F);box-shadow:0 8px 26px rgba(141,198,63,.32)}
-.bav-calc-cta:hover{background:linear-gradient(145deg,#A8D85A,#8DC63F)}
-.bav-calc-note{color:var(--light)}
-.bav-facts{background:var(--offwhite);border-color:rgba(141,198,63,.18)}
-.bav-fact-val{color:var(--gd)}
-.bav-fact-lbl{color:var(--mid)}
-.bav-legal{color:var(--mid);background:var(--offwhite);border-color:var(--border)}
-.bav-legal svg{stroke:var(--gd)}
-/* ARBEITGEBER-Sektion hell */
-.ag-sec{background:linear-gradient(180deg,#f4faea,#fbfdf7)}
-.ag-sec::before{background:radial-gradient(circle,rgba(141,198,63,.05),transparent 60%)}
-.ag-card{background:#fff;border-color:rgba(141,198,63,.18);border-radius:24px;box-shadow:0 10px 34px rgba(60,80,30,.07)}
-.ag-card:hover{border-color:rgba(141,198,63,.3);transform:translateY(-6px);box-shadow:0 22px 50px rgba(60,80,30,.12);background:#fff}
-.ag-card-center{background:rgba(141,198,63,.05)}
-.ag-card-num{color:rgba(141,198,63,.13)}
-.ag-title{color:var(--dark)}
-.ag-desc{color:var(--mid)}
-.ag-stat-val{color:var(--gd)}
-.ag-stat-lbl{color:var(--mid)}
-@media(max-width:560px){.bv-hero-card,.bav-calc-panel,.ag-card{border-radius:18px}}
 </style>
 
 <!-- HERO -->
-<section class="bv-hero">
-  <div class="bv-hero-bg">
-    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=90&fit=crop&crop=center"
-         alt="Modernes Büro">
+<section class="sn-hero bv-hero">
+  {% include "hero-mosaic.njk" %}
+  <div class="sn-wrap">
+    <nav class="sn-crumbs rv" aria-label="Brotkrumen"><a href="/">Startseite</a><span>/</span>Themen<span>/</span>Betriebliche Versorgung</nav>
+    <h1 class="sn-h1 rv d1">Betriebliche <span class="sn-hl">Versorgung</span></h1>
   </div>
-  <div class="bv-hero-vignette"></div>
-  <div class="bv-hero-bar"></div>
-  <div class="bv-hero-glow"></div>
-  <div class="bv-hero-in">
-    <div class="bv-hero-left">
-      <div class="bv-hero-badge">Spezialisten-Thema</div>
-      <h1>Betriebliche<br><span>Versorgung</span></h1>
-      <p class="bv-hero-sub">Moderne betriebliche Altersversorgung und Gesundheitslösungen, individuell entwickelt, rechtssicher dokumentiert und dauerhaft betreut.</p>
-      <div class="bv-hero-btns">
-        <a href="/kontakt.html" class="btn-g">
-          Kostenlos beraten lassen
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-        <a href="#vorgehen" class="btn-ghost">Unser Vorgehen ↓</a>
+</section>
+
+<!-- GRAFIK: StepStone Jobstudie 2020 -->
+<section class="sn-sec">
+  <div class="sn-wrap">
+    <figure class="bv-study rv">
+      <div class="bv-study-quote">
+        <div class="sn-mosaic" aria-hidden="true" style="inset:0">
+          <span class="sn-tile" style="width:110px;height:110px;right:-30px;top:-30px"></span>
+          <span class="sn-tile" style="width:60px;height:60px;right:60px;bottom:30px;animation-delay:-3s"></span>
+        </div>
+        <p>„Mitarbeiter aller Altersgruppen benennen eine attraktive betriebliche Altersversorgung als Nr. 1 Benefit bei ihrem Arbeitgeber“</p>
       </div>
+      <div class="bv-study-data">
+        <div class="bv-rings">
+          <div class="bv-ring"><div class="bv-ring-c" style="--p:40.4"><b>40,4 %</b></div><span>Unter 30-Jährige</span></div>
+          <div class="bv-ring"><div class="bv-ring-c" style="--p:43.3"><b>43,3 %</b></div><span>30- bis 40-Jährige</span></div>
+          <div class="bv-ring"><div class="bv-ring-c" style="--p:52.4"><b>52,4 %</b></div><span>40- bis 50-Jährige</span></div>
+          <div class="bv-ring"><div class="bv-ring-c" style="--p:54"><b>54,0 %</b></div><span>Ab 50-Jährige</span></div>
+        </div>
+        <figcaption class="bv-source">Quelle: StepStone Jobstudie 2020</figcaption>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- WIE GEHEN WIR VOR -->
+<section class="sn-sec sn-sec--tint" id="vorgehen">
+  <div class="sn-wrap">
+    <div class="sn-head sn-tc">
+      <h2 class="sn-h2 rv">Wie gehen <span class="sn-hl">wir vor</span></h2>
     </div>
-    <div class="bv-hero-card">
-      <div class="bv-hero-card-title">Was wir für Sie leisten</div>
-      <div class="bv-stat-row">
-        <div class="bv-stat">
-          <div class="bv-stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div><div class="bv-stat-val">100%</div><div class="bv-stat-lbl">Individuelle Mitarbeiterberatung</div></div>
-        </div>
-        <div class="bv-stat">
-          <div class="bv-stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div><div class="bv-stat-val">100%</div><div class="bv-stat-lbl">Rechtssichere Dokumentation</div></div>
-        </div>
-        <div class="bv-stat">
-          <div class="bv-stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div><div class="bv-stat-val">Dauerhaft</div><div class="bv-stat-lbl">Persönliche Betreuung & Administration</div></div>
-        </div>
+    <div class="sn-grid-3 bv-steps">
+      <div class="sn-card rv d1">
+        <div class="sn-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <h3>Ausführliche IST-Analyse</h3>
+        <p>Neueinführung, Optimierung oder Zielanpassung? Wir prüfen mit Ihnen die genaue Ausgangssituation, um den exakten Handlungsbedarf zu ermitteln.</p>
+      </div>
+      <div class="sn-card rv d2">
+        <div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8-4.3-4.1 5.9-.9z"/></svg></div>
+        <h3>Individuelles Benefit-Modell</h3>
+        <p>Ihr Unternehmen und Ihre Belegschaft sind einzigartig. Deswegen gibt es bei uns keinen Standard, sondern immer nur individuell entworfene Lösungen.</p>
+      </div>
+      <div class="sn-card rv d3">
+        <div class="sn-ico"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg></div>
+        <h3>Budget-Kalkulation</h3>
+        <p>Sie erhalten von uns vorab eine Kosten-Kalkulation aller angedachten Maßnahmen, damit diese auch sicher in Ihr verfügbares Budget passen.</p>
+      </div>
+      <div class="sn-card rv d1">
+        <div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Individuelle Mitarbeiterberatung</h3>
+        <p>Jeder Mitarbeiter hat einen anderen Bedarf und eigene Ziele. Deshalb beraten wir immer individuell, um die volle Wirkung Ihres neuen Benefits zu entfalten.</p>
+      </div>
+      <div class="sn-card rv d2">
+        <div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg></div>
+        <h3>Rechtssichere Dokumentation</h3>
+        <p>BetrAVG, BRSG, AGG und Nachweisgesetz: Wir ermöglichen Ihnen eine rechtssichere Dokumentation, um alle gesetzlichen Vorgaben zu erfüllen.</p>
+      </div>
+      <div class="sn-card rv d3">
+        <div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
+        <h3>Laufende persönliche Betreuung</h3>
+        <p>Jeder Benefit muss verwaltet werden. Wir unterstützen Sie dauerhaft bei der kompletten Administration unter Nutzung modernster IT-Systeme.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- INTRO SPLIT -->
-<section class="intro-sec">
-  <div class="w">
-    <div class="intro-g">
-      <div class="intro-img-outer rv">
-        <div class="intro-img-wrap">
-          <img src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/08/company-58-header-3.png"
-               onerror="this.src='https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80&fit=crop'"
-               alt="Betriebliche Versorgung Beratung">
-          <div class="intro-badge">bAV · DMA · Gesundheitslösungen</div>
-        </div>
-        <div class="intro-stat-badge">
-          <strong>100%</strong>
-          <span>Ungebunden</span>
-        </div>
-      </div>
-      <div class="intro-text rv d1">
-        <div class="sec-label">Was ist betriebliche Versorgung?</div>
-        <h2 class="h2">Mehr als nur<br><span class="g">Altersvorsorge</span></h2>
-        <p>Betriebliche Versorgung umfasst alle Maßnahmen, mit denen Arbeitgeber ihren Mitarbeitern zusätzliche finanzielle Absicherung und Gesundheitsleistungen bieten. Steueroptimiert, rechtssicher und individuell.</p>
-        <p>Als ungebundene Spezialisten entwickeln wir für Ihr Unternehmen maßgeschneiderte Konzepte, die Arbeitgeber und Arbeitnehmer gleichermaßen entlasten und langfristig binden.</p>
-        <ul class="ck-list">
-          <li><div class="ck-ico"><svg viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Betriebliche Altersversorgung (bAV) nach BetrAVG</li>
-          <li><div class="ck-ico"><svg viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Betriebliche Krankenversicherung (bKV)</li>
-          <li><div class="ck-ico"><svg viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Direktversicherung, Pensionskasse, Unterstützungskasse</li>
-          <li><div class="ck-ico"><svg viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Steuervorteile für Arbeitgeber und Arbeitnehmer</li>
-          <li><div class="ck-ico"><svg viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Mitarbeiterbindung und Recruiting-Vorteil</li>
-        </ul>
-        <a href="/kontakt.html" class="btn-g" style="display:inline-flex">Beratung anfragen ›</a>
-      </div>
+<!-- VIDEO -->
+<section class="sn-sec">
+  <div class="sn-wrap">
+    <div class="bv-video rv">
+      <video controls preload="none" playsinline poster="/assets/img/bav/video-poster.webp">
+        <source src="/assets/video/bav-erklaervideo.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </section>
 
-<!-- BAV INFOGRAFIK -->
-<section class="bav-info-sec" id="so-funktioniert">
-  <div class="w">
-    <div class="tc rv">
-      <div class="sec-label" style="display:inline-flex">So funktioniert bAV</div>
-      <h2 class="h2">Betriebliche Versorgung  <br><span class="g">einfach erklärt</span></h2>
-      <p class="h2-sub">Vom Bruttogehalt direkt in Ihre Altersvorsorge, steueroptimiert, sozialabgabenfrei und mit Arbeitgeberzuschuss.</p>
-    </div>
-
-    <div class="bav-main-grid">
-
-      <!-- LEFT: Animated Flow -->
-      <div class="bav-flow-wrap rv">
-        <div class="bav-flow-title">Der Weg Ihres Beitrags</div>
-
-        <!-- Step 1 -->
-        <div class="bav-flow-item">
-          <div class="bav-flow-left">
-            <div class="bav-flow-circle">
-              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-              <div class="bav-flow-step-num">1</div>
-            </div>
-            <div class="bav-flow-vline"></div>
-          </div>
-          <div class="bav-flow-content">
-            <div class="bav-flow-tag">Schritt 1</div>
-            <div class="bav-flow-name">Arbeitgeber</div>
-            <div class="bav-flow-desc">Ihr Arbeitgeber wandelt einen Teil Ihres Bruttogehalts direkt um, bevor Steuern und Sozialabgaben berechnet werden. Zusätzlich zahlt er 15% AG-Zuschuss (BRSG).</div>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="bav-flow-item">
-          <div class="bav-flow-left">
-            <div class="bav-flow-circle hub">
-              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <div class="bav-flow-step-num">2</div>
-            </div>
-            <div class="bav-flow-vline"></div>
-          </div>
-          <div class="bav-flow-content">
-            <div class="bav-flow-tag">Schritt 2</div>
-            <div class="bav-flow-name">bAV-Vertrag</div>
-            <div class="bav-flow-desc">Direktversicherung, Pensionskasse oder Pensionsfonds, der Vertrag wächst steuerfrei und sozialabgabenfrei bis zu 302 € monatlich. Rechtssicher nach BetrAVG.</div>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="bav-flow-item">
-          <div class="bav-flow-left">
-            <div class="bav-flow-circle">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
-              <div class="bav-flow-step-num">3</div>
-            </div>
-          </div>
-          <div class="bav-flow-content">
-            <div class="bav-flow-tag">Im Rentenalter</div>
-            <div class="bav-flow-name">Arbeitnehmer</div>
-            <div class="bav-flow-desc">Sie erhalten eine lebenslange Betriebsrente oder Einmalzahlung, das Ergebnis jahrelanger steueroptimierter Einzahlungen mit Arbeitgeberbeteiligung.</div>
-          </div>
-        </div>
-
-        <!-- Key facts -->
-        <div class="bav-facts">
-          <div class="bav-fact-item">
-            <div class="bav-fact-val">302 €</div>
-            <div class="bav-fact-lbl">Steuer &amp; SV-freier Höchstbetrag / Monat</div>
-          </div>
-          <div class="bav-fact-item">
-            <div class="bav-fact-val">15%</div>
-            <div class="bav-fact-lbl">Pflicht-Zuschuss des Arbeitgebers (BRSG)</div>
-          </div>
-          <div class="bav-fact-item">
-            <div class="bav-fact-val">100%</div>
-            <div class="bav-fact-lbl">Ungebundene Produktauswahl durch uns</div>
-          </div>
-        </div>
-
-        <!-- Legal note -->
-        <div class="bav-legal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Geregelt durch BetrAVG, BRSG, AGG und Nachweisgesetz, wir sorgen für rechtssichere Dokumentation.
-        </div>
-
-      </div>
-
-      <!-- RIGHT: Premium Rechnung -->
-      <div class="bav-calc-panel rv d1">
-        <div class="bav-calc-header">
-          <div class="bav-calc-label">Beispielrechnung</div>
-          <div class="bav-calc-title">200 € Beitrag, was kostet Sie das wirklich?</div>
-          <div class="bav-calc-sub">Bruttogehalt 4.000 € · Steuerklasse I · mit AG-Zuschuss</div>
-        </div>
-        <div class="bav-calc-body">
-          <div class="bav-money-flow">
-            <div class="bav-money-label">Zusammensetzung Ihres Bruttogehalts</div>
-            <div class="bav-money-bar">
-              <div class="bav-money-seg bav-seg-netto">Netto</div>
-              <div class="bav-money-seg bav-seg-tax" style="left:64%">Steuer</div>
-              <div class="bav-money-seg bav-seg-sv" style="left:77%">SV</div>
-              <div class="bav-money-seg bav-seg-bav">bAV</div>
-            </div>
-            <div class="bav-bar-legend">
-              <div class="bav-leg-item"><div class="bav-leg-dot" style="background:rgba(255,255,255,.2)"></div>Nettolohn</div>
-              <div class="bav-leg-item"><div class="bav-leg-dot" style="background:#3b82f6"></div>Steuervorteil</div>
-              <div class="bav-leg-item"><div class="bav-leg-dot" style="background:#a855f7"></div>SV-Vorteil</div>
-              <div class="bav-leg-item"><div class="bav-leg-dot" style="background:var(--g)"></div>bAV-Beitrag</div>
-            </div>
-          </div>
-          <div class="bav-breakdown">
-            <div class="bav-bd">
-              <div class="bav-bd-key"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Beitrag Altersvorsorge</div>
-              <div class="bav-bd-val white">200 €</div>
-            </div>
-            <div class="bav-bd">
-              <div class="bav-bd-key"><svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8" stroke="#60a5fa"/></svg>Steuervorteil (ca. 26%)</div>
-              <div class="bav-bd-val plus">− 52 €</div>
-            </div>
-            <div class="bav-bd">
-              <div class="bav-bd-key"><svg viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>SV-Ersparnis (ca. 10%)</div>
-              <div class="bav-bd-val plus">− 20 €</div>
-            </div>
-            <div class="bav-bd">
-              <div class="bav-bd-key"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gl)" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>AG-Zuschuss (15% BRSG)</div>
-              <div class="bav-bd-val plus">+ 30 €</div>
-            </div>
-          </div>
-          <div class="bav-result-box">
-            <div class="bav-result-label">Ihre tatsächliche Netto-Belastung</div>
-            <div class="bav-result-val">128 €</div>
-            <div class="bav-result-sub">statt 200 €, Sie sparen <span>72 € pro Monat</span></div>
-          </div>
-          <a href="/kontakt.html" class="bav-calc-cta">
-            Individuelle Berechnung anfragen
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-          <p class="bav-calc-note">* Vereinfachte Musterrechnung. Individuelle Ergebnisse können abweichen.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- VORTEILE ARBEITGEBER -->
-<section class="ag-sec" id="vorgehen">
-  <div class="w">
-    <div class="ag-header tc rv">
-      <div class="sec-label" style="display:inline-flex;background:var(--gbg);border-color:rgba(141,198,63,.25);color:var(--gd)">Für Arbeitgeber</div>
-      <h2 class="h2" style="color:var(--dark)">Die 3 wichtigsten Vorteile<br><span style="color:var(--g)">für Ihr Unternehmen</span></h2>
-      <p class="h2-sub" style="color:var(--mid)">Betriebliche Versorgung ist kein Kostenfaktor, sondern ein strategisches Investment in Ihre Mitarbeiter.</p>
-    </div>
-
-    <div class="ag-cards">
-
-      <!-- Card 1 -->
-      <div class="ag-card rv">
-        <div class="ag-card-num">01</div>
-        <div class="ag-card-inner">
-          <div class="ag-icon-wrap">
-            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="40" cy="40" r="39" stroke="rgba(141,198,63,.2)" stroke-width="2"/>
-              <circle cx="40" cy="40" r="39" stroke="url(#g1)" stroke-width="2" stroke-dasharray="245" stroke-dashoffset="0" class="ag-ring"/>
-              <defs><linearGradient id="g1" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse"><stop stop-color="#8DC63F"/><stop offset="1" stop-color="#A8D85A" stop-opacity="0"/></linearGradient></defs>
-              <path d="M25 40c0-8.3 6.7-15 15-15s15 6.7 15 15-6.7 15-15 15" stroke="#8DC63F" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M32 34h16M32 40h10M32 46h13" stroke="#8DC63F" stroke-width="1.6" stroke-linecap="round"/>
-              <circle cx="53" cy="53" r="8" fill="rgba(141,198,63,.15)" stroke="#8DC63F" stroke-width="1.5"/>
-              <path d="M50 53l2 2 4-4" stroke="#8DC63F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="ag-title">Steuer und SV-Ersparnis</h3>
-          <p class="ag-desc">Beiträge zur bAV sind für Sie als Arbeitgeber vollständig absetzbar. Zusätzlich sparen Sie Sozialversicherungsabgaben auf umgewandelte Entgeltbestandteile bis 302 € monatlich.</p>
-          <div class="ag-stat"><span class="ag-stat-val">bis zu 20%</span><span class="ag-stat-lbl">Ersparnis auf Ihren Lohnnebenkosten</span></div>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="ag-card ag-card-center rv d1">
-        <div class="ag-card-num">02</div>
-        <div class="ag-card-inner">
-          <div class="ag-icon-wrap">
-            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="40" cy="40" r="39" stroke="rgba(141,198,63,.2)" stroke-width="2"/>
-              <circle cx="40" cy="40" r="39" stroke="url(#g2)" stroke-width="2" stroke-dasharray="245" stroke-dashoffset="60" class="ag-ring"/>
-              <defs><linearGradient id="g2" x1="0" y1="80" x2="80" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#8DC63F"/><stop offset="1" stop-color="#A8D85A" stop-opacity="0"/></linearGradient></defs>
-              <circle cx="30" cy="32" r="7" stroke="#8DC63F" stroke-width="1.8"/>
-              <circle cx="50" cy="32" r="7" stroke="#8DC63F" stroke-width="1.8"/>
-              <path d="M18 52c0-6.6 5.4-12 12-12h20c6.6 0 12 5.4 12 12" stroke="#8DC63F" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M38 46l2 2 4-4" stroke="#8DC63F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="ag-title">Mitarbeiterbindung</h3>
-          <p class="ag-desc">Attraktive Benefits sind heute ein entscheidender Faktor bei der Wahl des Arbeitgebers. bAV und Gesundheitslösungen stärken die Bindung qualifizierter Mitarbeiter langfristig.</p>
-          <div class="ag-stat"><span class="ag-stat-val">73%</span><span class="ag-stat-lbl">der Mitarbeiter schätzen bAV als wichtigen Benefit</span></div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="ag-card rv d2">
-        <div class="ag-card-num">03</div>
-        <div class="ag-card-inner">
-          <div class="ag-icon-wrap">
-            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="40" cy="40" r="39" stroke="rgba(141,198,63,.2)" stroke-width="2"/>
-              <circle cx="40" cy="40" r="39" stroke="url(#g3)" stroke-width="2" stroke-dasharray="245" stroke-dashoffset="120" class="ag-ring"/>
-              <defs><linearGradient id="g3" x1="80" y1="0" x2="0" y2="80" gradientUnits="userSpaceOnUse"><stop stop-color="#8DC63F"/><stop offset="1" stop-color="#A8D85A" stop-opacity="0"/></linearGradient></defs>
-              <path d="M25 55V35l15-10 15 10v20" stroke="#8DC63F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="34" y="43" width="12" height="12" rx="1" stroke="#8DC63F" stroke-width="1.6"/>
-              <path d="M30 35h20" stroke="#8DC63F" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M40 25v-5M35 22l5-5 5 5" stroke="#8DC63F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="ag-title">Vollständige Administration</h3>
-          <p class="ag-desc">Wir übernehmen die gesamte Verwaltung Ihres bAV-Modells: rechtssichere Dokumentation nach BetrAVG, individuelle Mitarbeiterberatung und laufende Betreuung aller Verträge.</p>
-          <div class="ag-stat"><span class="ag-stat-val">0 Aufwand</span><span class="ag-stat-lbl">für Sie als Arbeitgeber nach Einrichtung</span></div>
-        </div>
-      </div>
-
+<!-- ZAHLEN -->
+<section class="sn-sec sn-sec--tint">
+  <div class="sn-wrap">
+    <div class="bv-counts">
+      <div class="bv-count rv d1"><b>200+</b><span>Arbeitgeber beraten</span></div>
+      <div class="bv-count rv d2"><b>30 Jahre</b><span>Erfahrung mit betriebl. Versorgung</span></div>
+      <div class="bv-count rv d3"><b>10.000+</b><span>Arbeitnehmer beraten</span></div>
     </div>
   </div>
 </section>
 
 <!-- SPEZIALISTEN -->
-<section class="sec" style="background:var(--offwhite)">
-  <div class="w tc">
-    <div class="sec-label rv" style="display:inline-flex">Ihre Spezialisten</div>
-    <h2 class="h2 rv">Experten für<br><span class="g">betriebliche Versorgung</span></h2>
-    <p class="h2-sub rv">Zwei der erfahrensten bAV-Spezialisten Deutschlands, mit über 40 Jahren kombinierter Praxiserfahrung.</p>
-    <div class="spec-g">
-
-      <!-- Ronni Arndt -->
-      <div class="spec-card rv">
-        <div class="spec-img-wrap">
-          <img class="spec-portrait"
-               src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T160433.709.png"
-               onerror="this.style.background='var(--gbg)'" alt="Ronni Arndt">
-          <div class="spec-overlay">
-            <div class="spec-field">bAV · DMA</div>
-            <div class="spec-name">Ronni Arndt</div>
-          </div>
-        </div>
-        <div class="spec-body">
-          <div class="spec-title">Experte: Betriebliche Altersversorgung / Gesundheitslösungen</div>
-          <div class="spec-facts">
-            <div class="spec-fact"><div class="spec-fact-dot"></div><span>Jahrgang 1974, Diplom-Volkswirt / Bankkaufmann / Fachberater für Finanzdienstleistungen (IHK)</span></div>
-            <div class="spec-fact"><div class="spec-fact-dot"></div><span>Seit 2003 einer der TOP-Berater der HORBACH Wirtschaftsberatung</span></div>
-            <div class="spec-fact"><div class="spec-fact-dot"></div><span>Hat vor seiner Beraterkarriere selbst Unternehmen gegründet und geleitet</span></div>
-          </div>
-          <div class="spec-quote">„Ich verbinde meine eigenen Erfahrungen als Unternehmer mit meinen Fachkenntnissen im Finanzwesen, um für Arbeitgeber attraktive und moderne betriebliche Versorgungsmodelle zu etablieren."</div>
+<section class="sn-sec">
+  <div class="sn-wrap">
+    <div class="sn-head sn-tc">
+      <h2 class="sn-h2 rv"><span class="sn-hl">Spezialisten</span></h2>
+    </div>
+    <div class="sn-persons bv-persons">
+      <div class="sn-person rv">
+        <div class="sn-person-photo"><img loading="lazy" src="{{ ra.img }}" alt="{{ ra.name }}"></div>
+        <div class="sn-person-body">
+          <div class="bv-spec">Experte: betriebliche Altersversorgung / Gesundheitslösungen</div>
+          <div class="sn-person-name">{{ ra.name }}</div>
+          <ul class="sn-check">
+            <li>Jahrgang 1974, Diplom-Volkswirt / Bankkaufmann / Fachberater für Finanzdienstleistungen (IHK)</li>
+            <li>seit 2003 einer der TOP-Berater der HORBACH Wirtschaftsberatung</li>
+            <li>hat vor seiner Beraterkarriere selbst Unternehmen gegründet und geleitet</li>
+          </ul>
+          <div class="sn-quote-line">Beratungsphilosophie: „Ich verbinde meine eigenen Erfahrungen als Unternehmer mit meinen Fachkenntnissen im Finanzwesen, um für Arbeitgeber attraktive und moderne betriebliche Versorgungsmodelle zu etablieren.“</div>
         </div>
       </div>
-
-      <!-- Steffen Domes -->
-      <div class="spec-card rv d1">
-        <div class="spec-img-wrap">
-          <img class="spec-portrait"
-               src="https://spezialisten-netzwerk.com/wp-content/uploads/2024/05/Design-ohne-Titel.png"
-               onerror="this.style.background='var(--gbg)'" alt="Steffen Domes">
-          <div class="spec-overlay">
-            <div class="spec-field">bAV · DMA</div>
-            <div class="spec-name">Steffen Domes</div>
-          </div>
-        </div>
-        <div class="spec-body">
-          <div class="spec-title">Experte: Betriebliche Altersversorgung / Gesundheitslösungen</div>
-          <div class="spec-facts">
-            <div class="spec-fact"><div class="spec-fact-dot"></div><span>Jahrgang 1976, Studium der Betriebswirtschaftslehre in Berlin</span></div>
-            <div class="spec-fact"><div class="spec-fact-dot"></div><span>Seit 2007 einer der TOP-Berater der HORBACH Wirtschaftsberatung</span></div>
-            <div class="spec-fact"><div class="spec-fact-dot"></div><span>Spezialist für transparente und rechtssichere Versorgungsmodelle</span></div>
-          </div>
-          <div class="spec-quote">„Seriöse und transparente Beratung ist der wichtigste Katalysator für den Erfolg betrieblicher Versorgungsmodelle."</div>
+      <div class="sn-person rv">
+        <div class="sn-person-photo"><img loading="lazy" src="{{ sd.img }}" alt="{{ sd.name }}"></div>
+        <div class="sn-person-body">
+          <div class="bv-spec">Experte: betriebliche Altersversorgung / Gesundheitslösungen</div>
+          <div class="sn-person-name">{{ sd.name }}</div>
+          <ul class="sn-check">
+            <li>Jahrgang 1976, Studium der Betriebswirtschaftslehre in Berlin</li>
+            <li>seit 2007 einer der TOP-Berater der HORBACH Wirtschaftsberatung</li>
+          </ul>
+          <div class="sn-quote-line">Beratungsphilosophie: „Seriöse und transparente Beratung ist der wichtigste Katalysator für den Erfolg betrieblicher Versorgungsmodelle.“</div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- QUOTE CTA -->
-<section class="quote-section">
-  <div class="quote-inner">
-    <span class="quote-mark rv">"</span>
-    <p class="quote-text rv">Gerne kommen wir für eine erste Besprechung Ihrer Situation zu Ihnen ins Unternehmen oder beraten Sie deutschlandweit per Video-Meeting. Nehmen Sie jetzt gerne Kontakt mit uns auf.</p>
-    <div class="quote-author rv d1">
-      <img class="quote-author-img"
-           src="https://spezialisten-netzwerk.com/wp-content/uploads/2023/10/Design-ohne-Titel-2023-10-23T160433.709.png"
-           onerror="this.style.display='none'" alt="Ronni Arndt">
-      <div class="quote-author-info">
-        <strong>Ronni Arndt &amp; Steffen Domes</strong>
-        <span>Experten Betriebliche Versorgung</span>
+<!-- ABSCHLUSS -->
+<section class="sn-cta-wrap">
+  <div class="sn-wrap">
+    <div class="sn-cta bv-cta rv">
+      <div class="sn-mosaic" style="right:30px;top:-20px;width:300px;height:100%" aria-hidden="true">
+        <span class="sn-tile t3" style="width:90px;height:90px;left:20px;top:40px"></span>
+        <span class="sn-tile t4" style="width:56px;height:56px;left:150px;top:10px;animation-delay:-2s"></span>
+        <span class="sn-tile t2" style="width:110px;height:110px;left:140px;top:120px;animation-delay:-4s"></span>
+      </div>
+      <div>
+        <h2>„Gerne kommen wir für eine erste Besprechung Ihrer Situation zu Ihnen ins Unternehmen oder beraten Sie deutschlandweit per Video-Meeting. Nehmen Sie jetzt gerne Kontakt mit uns auf.“</h2>
+      </div>
+      <div class="sn-btns">
+        <a href="/kontakt?thema=bav" class="sn-btn">Kontakt aufnehmen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
-    <a href="/kontakt.html" class="btn-g rv d2">
-      Jetzt Kontakt aufnehmen
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
   </div>
 </section>
-
-<!-- FOOTER -->
-<script>
-/* BAV PILLS scroll reveal with stagger */
-document.querySelectorAll('.bav-pill').forEach(function(el){
-  var obs2 = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        var delay = +el.dataset.delay || 0;
-        setTimeout(function(){ el.classList.add('visible'); }, delay);
-        obs2.disconnect();
-      }
-    });
-  },{threshold:.2});
-  obs2.observe(el);
-});
-
-/* Nav scroll */
-var nav = document.getElementById('nav');
-window.addEventListener('scroll',function(){ nav.classList.toggle('scrolled', scrollY>60); },{passive:true});
-
-/* Scroll reveal */
-var obs = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
-},{threshold:.15});
-document.querySelectorAll('.rv,.step-card,.spec-card').forEach(function(el){ obs.observe(el); });
-
-/* Smooth scroll */
-document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.onclick=function(e){ e.preventDefault(); var t=document.querySelector(this.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth',block:'start'}); };
-});
-</script>

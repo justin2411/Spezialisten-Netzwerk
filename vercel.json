@@ -2,5 +2,62 @@
   "buildCommand": "npx @11ty/eleventy",
   "outputDirectory": "_site",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/finanz-und-ruhestandsplanung{/}?",
+      "destination": "/ruhestandsplanung",
+      "permanent": true
+    },
+    {
+      "source": "/immobilien-finanzierung{/}?",
+      "destination": "/finanzierung",
+      "permanent": true
+    },
+    {
+      "source": "/gewerbliche-finanzierung{/}?",
+      "destination": "/finanzierung",
+      "permanent": true
+    },
+    {
+      "source": "/kranken-und-pflegeversicherung{/}?",
+      "destination": "/kranken-pflege",
+      "permanent": true
+    },
+    {
+      "source": "/investment-und-aif{/}?",
+      "destination": "/investment-aif",
+      "permanent": true
+    },
+    {
+      "source": "/unternehmensberatung-fuer-heilwesenberufe{/}?",
+      "destination": "/heilwesenberufe",
+      "permanent": true
+    },
+    {
+      "source": "/get-to-know{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/tasks{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/testing-hotspot-image{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/start-2{/}?",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/hauptseite-neu{/}?",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
 }
