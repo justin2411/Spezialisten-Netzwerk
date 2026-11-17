@@ -10,6 +10,8 @@ permalink: "/kapitalanlage-immobilie.html"
 /* ════════ Kapitalanlage Immobilie — seitenspezifisch (Präfix .ki-) ════════
    Nutzt die Tokens aus head.njk. Keine Overrides für .nav/.ft/.fl/.sn-*. */
 
+/* Hero: Kennzahlen in der Hero-Karte */
+.ki-hv{display:block;font-size:1.55rem;font-weight:800;color:var(--gd);line-height:1.1;letter-spacing:-.01em;margin-bottom:.15rem}
 
 /* Intro: Bild + Text */
 .ki-intro{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--sp-gap)*2.5);align-items:center}
@@ -68,7 +70,6 @@ permalink: "/kapitalanlage-immobilie.html"
 .ki-quote-person small{display:block;color:var(--gdd);font-weight:700;font-size:.92rem;text-align:left}
 
 /* Responsive */
-@media(max-width:1200px){.ki-calc-grid{grid-template-columns:1fr}.co-cards{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:900px){
   .ki-intro{grid-template-columns:1fr}
   .ki-pic-frame{min-height:340px}
@@ -77,15 +78,6 @@ permalink: "/kapitalanlage-immobilie.html"
   .ki-person .sn-person-photo{min-height:380px}
 }
 @media(max-width:620px){
-  .co-breakdown{grid-template-columns:1fr}
-  .co-cards{gap:.6rem}
-  .co-card{padding:.9rem .6rem}
-  .co-card-val{font-size:1.1rem}
-  .calc-inputs{padding:1.3rem}
-  .ki-calc{padding:.8rem;border-radius:var(--r)}
-  .ki-hebel{flex-wrap:wrap;gap:.6rem 1rem}
-  .ki-hebel-track{order:3;flex-basis:100%}
-  .co-chart-wrap{padding:1.1rem .8rem .8rem}
   .ki-pic::before{right:-8px;bottom:-8px}
   .ki-pop-head{padding:1.6rem 1.4rem 1.3rem}
   .ki-pop-body{padding:1.4rem}

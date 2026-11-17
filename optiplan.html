@@ -70,114 +70,14 @@ permalink: "/optiplan.html"
 .op-pop-body{padding:var(--sp-card)}
 .op-pop-body>p{font-size:1.05rem;color:var(--text);line-height:1.75;margin-bottom:1.3rem}
 
-/* ── Rechner ── */
-.op-tabs{display:inline-grid;grid-template-columns:repeat(3,auto);gap:.35rem;padding:.4rem;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:var(--sh-sm);margin:0 auto var(--sp-stack)}
-.op-tabs-wrap{text-align:center}
-.op-tab{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.8rem 1.5rem;font-size:1rem;font-weight:800;color:var(--text);background:transparent;border:none;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
-.op-tab svg{width:19px;height:19px;stroke:var(--gd);fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.op-tab:not(.active):hover{background:var(--g50);color:var(--gdd)}
-.op-tab.active{background:var(--g);color:#fff;box-shadow:0 8px 20px rgba(180,200,0,.35)}
-.op-tab.active svg{stroke:var(--ink)}
-.cbody{display:none}
-.cbody.active{display:grid;grid-template-columns:380px 1fr;gap:var(--sp-gap);align-items:stretch}
-
-.op-panel{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);padding:var(--sp-card);display:flex;flex-direction:column;min-width:0}
-.op-panel-title{display:flex;align-items:center;gap:.7rem;font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gdd);margin-bottom:1.5rem}
-.op-panel-title::before{content:'';width:12px;height:12px;border-radius:3px;background:var(--g);transform:rotate(45deg);flex-shrink:0}
-.cfields{flex:1;display:flex;flex-direction:column;gap:1.25rem}
-.cf label{display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-bottom:.55rem}
-.cf-lbl{font-size:.98rem;font-weight:700;color:var(--ink);line-height:1.3}
-.cf-val{font-size:1rem;font-weight:800;color:var(--gdd);background:var(--g100);border:1px solid var(--g200);padding:.2rem .75rem;border-radius:999px;min-width:84px;text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}
-.cf-range{width:100%;height:28px;cursor:pointer;accent-color:#b4c800;background:transparent}
-.cf-range::-webkit-slider-runnable-track{height:8px;border-radius:99px;background:linear-gradient(90deg,var(--g) var(--p,50%),var(--g100) var(--p,50%));border:1px solid var(--g200)}
-.cf-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;margin-top:-9px;border-radius:50%;background:var(--g);border:4px solid #fff;box-shadow:0 2px 10px rgba(105,125,15,.35);transition:transform .2s}
-.cf-range{-webkit-appearance:none;appearance:none}
-.cf-range:hover::-webkit-slider-thumb{transform:scale(1.12)}
-.cf-range::-moz-range-track{height:8px;border-radius:99px;background:var(--g100);border:1px solid var(--g200)}
-.cf-range::-moz-range-progress{height:8px;border-radius:99px;background:var(--g)}
-.cf-range::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--g);border:4px solid #fff;box-shadow:0 2px 10px rgba(105,125,15,.35)}
-.cf-hint{font-size:.88rem;color:var(--muted);margin-top:.2rem;line-height:1.45}
-.cf-select{width:100%;padding:.75rem 1rem;border-radius:var(--r-sm);border:1px solid var(--g200);font-family:inherit;font-size:1rem;font-weight:600;color:var(--ink);background:var(--g50);cursor:pointer;transition:border-color .2s}
-.cf-select:focus{border-color:var(--gd)}
-.cresult{margin-top:var(--sp-stack);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.2rem 1.4rem;border-radius:var(--r);background:radial-gradient(300px 120px at 100% 0%,rgba(255,255,255,.6),transparent 70%),linear-gradient(135deg,#d3e04a,var(--g));box-shadow:0 12px 28px rgba(180,200,0,.3)}
-.cr-lbl{font-size:.85rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
-.cr-val{font-size:1.6rem;font-weight:800;color:var(--ink);white-space:nowrap;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-
-.op-chart{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);padding:var(--sp-card);display:flex;flex-direction:column;gap:var(--sp-stack);min-width:0}
-.op-chart-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem 1.2rem}
-.chart-title{font-size:1.2rem;font-weight:800;color:var(--ink);line-height:1.25}
-.op-legend{display:flex;gap:.5rem 1.1rem;flex-wrap:wrap}
-.op-legend span{display:inline-flex;align-items:center;gap:.45rem;font-size:.9rem;font-weight:600;color:var(--muted)}
-.op-legend i{width:14px;height:14px;border-radius:4px;flex-shrink:0}
-.op-legend i.ln{height:4px;border-radius:2px}
-.op-legend i.dash{height:0;border-top:3px dashed #827869;border-radius:0;width:18px}
-.chart-svg-area{flex:1;min-height:280px;position:relative}
-.chart-svg-area svg{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible}
-.cmetrics{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-gap)}
-.cmet{padding:1rem 1.1rem;border-radius:var(--r-sm);background:var(--g50);border:1px solid var(--g200);text-align:center}
-.cm-val{font-size:1.35rem;font-weight:800;color:var(--ink);margin-bottom:.2rem;white-space:nowrap;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
-.cm-lbl{font-size:.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;line-height:1.35}
-.cmet--hi{background:var(--g100);border-color:var(--g)}
-.cmet--hi .cm-val{color:var(--gdd)}
-.cdisclaimer{font-size:.92rem;color:var(--muted);margin-top:var(--sp-stack);line-height:1.6;text-align:center}
-
-/* ── Szenarien ── */
-.op-szen{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-gap)}
-.op-sz{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
-.op-sz:hover{transform:translateY(-4px);box-shadow:var(--sh)}
-.op-sz--good{border-color:var(--g);box-shadow:var(--sh)}
-.op-sz-head{display:flex;align-items:center;gap:.8rem;padding:1.3rem var(--sp-card)}
-.op-sz--bad .op-sz-head{background:#f6f3ee;border-bottom:1px solid #ebe5da}
-.op-sz--good .op-sz-head{background:linear-gradient(135deg,#d3e04a,var(--g))}
-.op-sz-dot{width:14px;height:14px;border-radius:4px;transform:rotate(45deg);flex-shrink:0}
-.op-sz--bad .op-sz-dot{background:#b5ab9b}
-.op-sz--good .op-sz-dot{background:#fff}
-.op-sz-lbl{font-size:.88rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink)}
-.op-sz-body{padding:calc(var(--sp-card) - .75rem) var(--sp-card)}
-.sz-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--line);font-size:1.02rem}
-.sz-row:last-child{border-bottom:none}
-.sz-rl{color:var(--text)}
-.sz-rv{font-weight:800;color:var(--ink);text-align:right}
-.sz-rv.g{color:var(--gdd);background:var(--g100);padding:.1rem .6rem;border-radius:999px}
-.sz-rv.r{color:#8a5a00;background:var(--amber50);padding:.1rem .6rem;border-radius:999px}
-
-.op-banner{position:relative;overflow:hidden;margin-top:var(--sp-gap);display:grid;grid-template-columns:minmax(320px,.8fr) 1.2fr;gap:calc(var(--sp-gap)*2.5);align-items:center;padding:var(--sp-card);border-radius:var(--r-lg);background:radial-gradient(500px 240px at 100% 0%,rgba(236,189,0,.18),transparent 60%),linear-gradient(160deg,var(--g100),#fff 80%);border:1px solid var(--g200);box-shadow:var(--sh)}
-.op-banner>*{min-width:0}
-.sb-lbl{font-size:.85rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--gdd);margin-bottom:.4rem}
-.sb-val{white-space:nowrap;font-size:clamp(2.4rem,5vw,3.6rem);font-weight:800;color:var(--gd);letter-spacing:-.03em;line-height:1}
-.sb-sub{font-size:1rem;color:var(--muted);margin-top:.5rem;font-weight:600}
-.sb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-gap)}
-.sb-grid>div{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);padding:1rem 1.1rem;box-shadow:var(--sh-sm)}
-.sb-item-lbl{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:.3rem;line-height:1.3}
-.sb-item-val{font-size:1.3rem;font-weight:800;color:var(--gdd);line-height:1.2}
-
 /* ── Responsive ── */
-@media(max-width:1080px){
-  .cbody.active{grid-template-columns:1fr}
-  .op-banner{grid-template-columns:1fr}
-}
 @media(max-width:900px){
   .op-dims{grid-template-columns:1fr}
   .op-dims-intro{position:static}
-  .op-proc,.op-szen{grid-template-columns:1fr 1fr}
+  .op-proc{grid-template-columns:1fr 1fr}
 }
 @media(max-width:620px){
-  .op-proc,.op-szen{grid-template-columns:1fr}
-  .op-tabs{display:grid;grid-template-columns:repeat(3,1fr);width:100%;border-radius:var(--r)}
-  .op-tab{flex-direction:column;gap:.3rem;padding:.7rem .3rem;font-size:.88rem;border-radius:16px;line-height:1.2;hyphens:manual}
-  .op-panel,.op-chart{padding:1.4rem 1.2rem;border-radius:var(--r)}
-  .chart-svg-area{min-height:250px}
-  .cmetrics{grid-template-columns:1fr}
-  .cmet{display:flex;justify-content:space-between;align-items:center;gap:1rem;text-align:left}
-  .cmet .cm-val{order:2;margin:0;font-size:1.2rem}
-  .cmet{padding:.75rem 1rem}
-  .op-sz-head,.op-sz-body{padding-left:1.2rem;padding-right:1.2rem}
-  .sz-row{font-size:1rem;flex-wrap:wrap;gap:.3rem .8rem}
-  .sz-rv{white-space:nowrap;margin-left:auto}
-  .sb-grid{grid-template-columns:1fr;gap:.6rem}
-  .sb-grid>div{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.85rem 1rem}
-  .sb-item-lbl{margin:0}
-  .sb-item-val{font-size:1.15rem;white-space:nowrap}
+  .op-proc{grid-template-columns:1fr}
   .op-dim-top{padding:1.3rem 1.2rem}
   .op-dim-qs{padding:1.1rem 1.2rem 1.3rem}
   .op-pop-head{padding:1.5rem 3.6rem 1.4rem 1.3rem;gap:.8rem}
@@ -199,29 +99,9 @@ permalink: "/optiplan.html"
   .op-step-tag{grid-column:2;margin:0;font-size:1rem}
   .op-step-go{grid-column:2;margin-top:.9rem;font-size:1rem}
   .op-step-n{top:auto;bottom:1.3rem;right:1.4rem;font-size:2.3rem;color:var(--g200)}
-  /* Rechner: Regler mit 44px Tap-Fläche, Abstände ausgleichen */
-  .cfields{gap:.6rem}
-  .cf-lbl{font-size:1rem}
-  .op-tab{font-size:.92rem}
-  .cf label{margin-bottom:0}
-  .cf-range{height:44px}
-  .cf-range::-webkit-slider-thumb{width:28px;height:28px;margin-top:-11px}
-  .cf-range::-moz-range-thumb{width:20px;height:20px}
-  .cf-hint{margin-top:0;font-size:.95rem}
-  .op-legend span{font-size:.95rem}
-  /* Mehrwert-Banner: kein Leerraum zwischen Kennzahl und Liste */
-  .op-banner{gap:var(--sp-stack);padding:1.6rem 1.2rem}
-  .sb-sub{font-size:1rem}
-  .sb-item-lbl{font-size:.85rem}
   .op-vital-row span.op-q{font-size:1rem}
   .op-hc-note{font-size:1rem}
 }
-/* Weiße Schrift auf Grün (Kundenentscheidung) */
-.cresult .cr-lbl,.cresult .cr-val{color:#fff}
-.op-sz--good .op-sz-head,.op-sz--good .op-sz-lbl{color:#fff}
-.op-sz--good .op-sz-head svg{stroke:#fff}
-.cresult{background:var(--g)}
-.op-sz--good .op-sz-head{background:var(--g)}
 </style>
 
 <!-- HERO -->
@@ -235,8 +115,8 @@ permalink: "/optiplan.html"
         <h1 class="sn-h1 rv d1">OptiPlan<br><span class="sn-hl">Drei Dimensionen</span><br>Ein Plan</h1>
         <p class="sn-lead rv d2">Liquidität, Vermögen und Steuern in einem System. Jede Entscheidung in allen drei Dimensionen sichtbar.</p>
         <div class="sn-btns rv d3">
-          <a href="#rechner" class="sn-btn">Jetzt berechnen <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
-          <a href="#wie" class="sn-btn sn-btn--ghost">Wie es funktioniert</a>
+          <a href="#wie" class="sn-btn">Wie es funktioniert <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          <a href="/kontakt" class="sn-btn sn-btn--ghost">Beratung anfragen</a>
         </div>
       </div>
       <div class="sn-hero-card rv d2">
@@ -244,19 +124,19 @@ permalink: "/optiplan.html"
         <div class="op-vital">
           <div class="op-vital-row">
             <span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
-            <div><strong>Liquidität</strong><span class="op-q">Wieviel Lebensstandard dauerhaft leistbar?</span></div>
+            <div><strong>Liquidität</strong><span class="op-q">Wie viel Lebensstandard dauerhaft leistbar?</span></div>
           </div>
           <div class="op-vital-row">
             <span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
-            <div><strong>Vermögen</strong><span class="op-q">Wieviel Nettovermögen wirklich vorhanden?</span></div>
+            <div><strong>Vermögen</strong><span class="op-q">Wie viel Nettovermögen wirklich vorhanden?</span></div>
           </div>
           <div class="op-vital-row">
             <span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
-            <div><strong>Steuern</strong><span class="op-q">Welche Steuerspareffekte haben Anlagen?</span></div>
+            <div><strong>Steuern</strong><span class="op-q">Wie wirken sich Anlagen steuerlich aus?</span></div>
           </div>
         </div>
         <div class="op-hc-foot">
-          <div class="op-hc-note"><b>Kostenloses Erstgespräch</b><br>Keine Verpflichtung</div>
+          <div class="op-hc-note"><b>Kostenfreies Erstgespräch</b><br>Keine Verpflichtung</div>
           <a href="/kontakt" class="sn-btn sn-btn--sm">Jetzt starten <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
@@ -289,7 +169,7 @@ permalink: "/optiplan.html"
           <div class="op-dim-qs">
             <div class="op-qs-lbl">Zentrale Fragen</div>
             <ul class="op-q-list">
-              <li>Wieviel Lebensstandard kann ich dauerhaft leisten?</li>
+              <li>Wie viel Lebensstandard kann ich dauerhaft leisten?</li>
               <li>Ab wann bin ich wirtschaftlich frei?</li>
               <li>Wie wirken Entscheidungen auf meine Liquidität?</li>
             </ul>
@@ -305,8 +185,8 @@ permalink: "/optiplan.html"
           <div class="op-dim-qs">
             <div class="op-qs-lbl">Zentrale Fragen</div>
             <ul class="op-q-list">
-              <li>Wieviel Nettovermögen habe ich wirklich?</li>
-              <li>Ab wann macht Erben und Schenken Sinn?</li>
+              <li>Wie viel Nettovermögen habe ich wirklich?</li>
+              <li>Ab wann sind Vererben und Schenken sinnvoll?</li>
               <li>Wie wirken Entscheidungen auf meine Vermögensentwicklung?</li>
             </ul>
           </div>
@@ -315,13 +195,13 @@ permalink: "/optiplan.html"
         <article class="op-dim rv d3">
           <div class="op-dim-top">
             <span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
-            <div><h3>Steuern</h3><p>Steuerlast senken, Potenziale nutzen</p></div>
+            <div><h3>Steuern</h3><p>Steuerliche Wirkung sichtbar machen</p></div>
             <span class="op-dim-n" aria-hidden="true">03</span>
           </div>
           <div class="op-dim-qs">
             <div class="op-qs-lbl">Zentrale Fragen</div>
             <ul class="op-q-list">
-              <li>Welche Steuerspareffekte haben meine Anlagen?</li>
+              <li>Wie wirken sich meine Anlagen steuerlich aus?</li>
               <li>Wie hoch ist mein Grenzsteuersatz im Ruhestand?</li>
               <li>Wie wirken Entscheidungen auf meine Steuersituation?</li>
             </ul>
@@ -345,7 +225,7 @@ permalink: "/optiplan.html"
         <span class="op-step-n" aria-hidden="true">01</span>
         <span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
         <h3>Ziele und Status klären</h3>
-        <span class="op-step-tag">Kostenlos &amp; unverbindlich</span>
+        <span class="op-step-tag">Kostenfrei &amp; unverbindlich</span>
         <span class="op-step-go">Details ansehen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </button>
       <button type="button" class="op-step rv d2" onclick="openProc(1)" aria-haspopup="dialog">
@@ -372,8 +252,8 @@ permalink: "/optiplan.html"
       <button type="button" class="op-step rv d2" onclick="openProc(4)" aria-haspopup="dialog">
         <span class="op-step-n" aria-hidden="true">05</span>
         <span class="sn-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-        <h3>Rechtssicher dokumentiert</h3>
-        <span class="op-step-tag">BetrAVG · BRSG · Steuerrecht</span>
+        <h3>Sauber dokumentiert</h3>
+        <span class="op-step-tag">Nachvollziehbar</span>
         <span class="op-step-go">Details ansehen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </button>
       <button type="button" class="op-step rv d3" onclick="openProc(5)" aria-haspopup="dialog">
@@ -402,173 +282,10 @@ permalink: "/optiplan.html"
   </div>
 </div>
 
-<!-- RECHNER -->
-<section class="sn-sec sn-sec--tint" id="rechner">
-  <div class="sn-wrap">
-    <div class="sn-head sn-tc">
-      <div class="sn-eyebrow rv">Interaktive Rechner</div>
-      <h2 class="sn-h2 rv">Berechnen Sie <span class="sn-hl">Ihre Situation</span></h2>
-      <p class="sn-lead rv">Vereinfachte Musterrechnungen zur Orientierung.</p>
-    </div>
-    <div class="op-tabs-wrap rv d1">
-      <div class="op-tabs" role="tablist" aria-label="Rechner auswählen">
-        <button type="button" class="op-tab ctab active" role="tab" aria-selected="true" aria-controls="cb-0" onclick="switchCalc(0)"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span>Liquiditäts&shy;rechner</span></button>
-        <button type="button" class="op-tab ctab" role="tab" aria-selected="false" aria-controls="cb-1" onclick="switchCalc(1)"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><span>Vermögens&shy;rechner</span></button>
-        <button type="button" class="op-tab ctab" role="tab" aria-selected="false" aria-controls="cb-2" onclick="switchCalc(2)"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span>Steuer&shy;rechner</span></button>
-      </div>
-    </div>
-
-    <!-- LIQUIDITÄT -->
-    <div class="cbody active" id="cb-0" role="tabpanel">
-      <div class="op-panel">
-        <div class="op-panel-title">Ihre Eingaben</div>
-        <div class="cfields">
-          <div class="cf"><label for="li-inc"><span class="cf-lbl">Monatl. Nettoeinkommen</span><span class="cf-val" id="lv-inc">6.500 €</span></label><input class="cf-range" type="range" id="li-inc" min="2000" max="15000" step="100" value="6500" oninput="calcLiq()"></div>
-          <div class="cf"><label for="li-exp"><span class="cf-lbl">Monatliche Ausgaben</span><span class="cf-val" id="lv-exp">4.200 €</span></label><input class="cf-range" type="range" id="li-exp" min="1500" max="12000" step="100" value="4200" oninput="calcLiq()"></div>
-          <div class="cf"><label for="li-age"><span class="cf-lbl">Aktuelles Alter</span><span class="cf-val" id="lv-age">42 Jahre</span></label><input class="cf-range" type="range" id="li-age" min="25" max="65" step="1" value="42" oninput="calcLiq()"></div>
-          <div class="cf"><label for="li-ret"><span class="cf-lbl">Ruhestandsalter</span><span class="cf-val" id="lv-ret">67 Jahre</span></label><input class="cf-range" type="range" id="li-ret" min="55" max="70" step="1" value="67" oninput="calcLiq()"></div>
-          <div class="cf"><label for="li-pen"><span class="cf-lbl">Erwartete Rente / Monat</span><span class="cf-val" id="lv-pen">1.800 €</span></label><input class="cf-range" type="range" id="li-pen" min="500" max="4000" step="50" value="1800" oninput="calcLiq()"></div>
-        </div>
-        <div class="cresult"><span class="cr-lbl">Freie Liquidität heute</span><span class="cr-val" id="lv-res">2.300 €/Mon.</span></div>
-      </div>
-      <div class="op-chart">
-        <div class="op-chart-head">
-          <div class="chart-title">Liquiditätsentwicklung 2025 bis 2054</div>
-          <div class="op-legend">
-            <span><i style="background:#b4c800"></i>Mit Empfehlung</span>
-            <span><i style="background:#cbc3b6"></i>Status Quo</span>
-            <span><i style="background:#ecbd00"></i>Fehlbetrag</span>
-          </div>
-        </div>
-        <div class="chart-svg-area"><svg id="liq-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Balkendiagramm: Liquiditätsentwicklung mit Empfehlung und Status Quo"></svg></div>
-        <div class="cmetrics">
-          <div class="cmet cmet--hi"><div class="cm-val" id="lm-1">2.300 €</div><div class="cm-lbl">Monatl. Überschuss</div></div>
-          <div class="cmet"><div class="cm-val" id="lm-2">−1.200 €</div><div class="cm-lbl">Im Ruhestand (Basis)</div></div>
-          <div class="cmet"><div class="cm-val" id="lm-3">25 Jahre</div><div class="cm-lbl">Bis Ruhestand</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- VERMÖGEN -->
-    <div class="cbody" id="cb-1" role="tabpanel">
-      <div class="op-panel">
-        <div class="op-panel-title">Ihre Eingaben</div>
-        <div class="cfields">
-          <div class="cf"><label for="vi-start"><span class="cf-lbl">Aktuelles Vermögen</span><span class="cf-val" id="vv-start">350.000 €</span></label><input class="cf-range" type="range" id="vi-start" min="10000" max="2000000" step="10000" value="350000" oninput="calcVer()"></div>
-          <div class="cf"><label for="vi-save"><span class="cf-lbl">Monatliche Sparrate</span><span class="cf-val" id="vv-save">800 €</span></label><input class="cf-range" type="range" id="vi-save" min="0" max="5000" step="50" value="800" oninput="calcVer()"></div>
-          <div class="cf"><label for="vi-rate"><span class="cf-lbl">Rendite p.a. (optimiert)</span><span class="cf-val" id="vv-rate">5,0 %</span></label><input class="cf-range" type="range" id="vi-rate" min="1" max="10" step="0.5" value="5" oninput="calcVer()"><div class="cf-hint">Ohne Optimierung: 2 % (Tagesgeld/Festgeld)</div></div>
-          <div class="cf"><label for="vi-yrs"><span class="cf-lbl">Planungszeitraum</span><span class="cf-val" id="vv-yrs">25 Jahre</span></label><input class="cf-range" type="range" id="vi-yrs" min="5" max="35" step="1" value="25" oninput="calcVer()"></div>
-        </div>
-        <div class="cresult"><span class="cr-lbl">Endvermögen (optimiert)</span><span class="cr-val" id="vv-res">1,24 Mio. €</span></div>
-      </div>
-      <div class="op-chart">
-        <div class="op-chart-head">
-          <div class="chart-title">Vermögensentwicklung im Vergleich</div>
-          <div class="op-legend">
-            <span><i class="ln" style="background:#697d0f"></i>Optimiert</span>
-            <span><i class="dash"></i>Ohne Optimierung</span>
-          </div>
-        </div>
-        <div class="chart-svg-area"><svg id="ver-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Liniendiagramm: Vermögensentwicklung optimiert und ohne Optimierung"></svg></div>
-        <div class="cmetrics">
-          <div class="cmet"><div class="cm-val" id="vm-1">1,24 Mio.</div><div class="cm-lbl">Mit Optimierung</div></div>
-          <div class="cmet"><div class="cm-val" id="vm-2">612 T€</div><div class="cm-lbl">Ohne Optimierung</div></div>
-          <div class="cmet cmet--hi"><div class="cm-val" id="vm-3">+ 631 T€</div><div class="cm-lbl">Mehrwert</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEUER -->
-    <div class="cbody" id="cb-2" role="tabpanel">
-      <div class="op-panel">
-        <div class="op-panel-title">Ihre Eingaben</div>
-        <div class="cfields">
-          <div class="cf"><label for="si-inc"><span class="cf-lbl">Jahreseinkommen (brutto)</span><span class="cf-val" id="sv-inc">120.000 €</span></label><input class="cf-range" type="range" id="si-inc" min="30000" max="500000" step="5000" value="120000" oninput="calcSt()"></div>
-          <div class="cf"><label for="si-opt"><span class="cf-lbl">Steueroptimiert angelegt</span><span class="cf-val" id="sv-opt">12.000 €</span></label><input class="cf-range" type="range" id="si-opt" min="0" max="50000" step="1000" value="12000" oninput="calcSt()"><div class="cf-hint">z.B. bAV, Rürup, Depot-Umschichtung</div></div>
-          <div class="cf"><label for="si-wk"><span class="cf-lbl">Werbungskosten / Sonderausg.</span><span class="cf-val" id="sv-wk">5.000 €</span></label><input class="cf-range" type="range" id="si-wk" min="0" max="30000" step="500" value="5000" oninput="calcSt()"></div>
-          <div class="cf"><label for="si-fam"><span class="cf-lbl">Familienstand</span></label>
-            <select id="si-fam" class="cf-select" onchange="calcSt()">
-              <option value="1">Ledig (Einzelveranlagung)</option>
-              <option value="2" selected>Verheiratet (Splitting)</option>
-            </select>
-          </div>
-        </div>
-        <div class="cresult"><span class="cr-lbl">Steuerlast (optimiert)</span><span class="cr-val" id="sv-res">28.400 €</span></div>
-      </div>
-      <div class="op-chart">
-        <div class="op-chart-head">
-          <div class="chart-title">Steuerlast: Basis vs. Optimiert</div>
-          <div class="op-legend">
-            <span><i style="background:#697d0f"></i>Optimiert</span>
-            <span><i style="background:#ecbd00"></i>Basis</span>
-          </div>
-        </div>
-        <div class="chart-svg-area"><svg id="st-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Balkendiagramm: Einkommen, Abzüge und Steuerlast Basis gegenüber optimiert"></svg></div>
-        <div class="cmetrics">
-          <div class="cmet"><div class="cm-val" id="sm-1">38.200 €</div><div class="cm-lbl">Ohne Optimierung</div></div>
-          <div class="cmet"><div class="cm-val" id="sm-2">28.400 €</div><div class="cm-lbl">Optimiert</div></div>
-          <div class="cmet cmet--hi"><div class="cm-val" id="sm-3">− 9.800 €</div><div class="cm-lbl">Ersparnis / Jahr</div></div>
-        </div>
-      </div>
-    </div>
-    <p class="cdisclaimer rv">* Vereinfachte Musterrechnungen ohne Gewähr. Individuelle Ergebnisse können abweichen. Keine Steuer- oder Anlageberatung.</p>
-  </div>
-</section>
-
-<!-- SZENARIEN -->
-<section class="sn-sec" id="szenarien">
-  <div class="sn-wrap">
-    <div class="sn-head sn-tc">
-      <div class="sn-eyebrow rv">Szenarien</div>
-      <h2 class="sn-h2 rv">Szenarien helfen bei der <span class="sn-hl">Entscheidungs&shy;findung</span></h2>
-      <p class="sn-lead rv">Wie wirkt jede Strategie auf alle drei Dimensionen? OptiPlan zeigt es.</p>
-    </div>
-    <div class="op-szen">
-      <div class="op-sz op-sz--bad rv d1">
-        <div class="op-sz-head"><span class="op-sz-dot"></span><div class="op-sz-lbl">Status Quo ohne Optimierung</div></div>
-        <div class="op-sz-body">
-          <div class="sz-row"><span class="sz-rl">Freie Liquidität 2025</span><span class="sz-rv">+ 81 T€</span></div>
-          <div class="sz-row"><span class="sz-rl">Liquidität im Ruhestand</span><span class="sz-rv r">ab 2038 negativ</span></div>
-          <div class="sz-row"><span class="sz-rl">Nettovermögen 2025</span><span class="sz-rv">1,66 Mio. €</span></div>
-          <div class="sz-row"><span class="sz-rl">Nettovermögen 2054</span><span class="sz-rv">2,76 Mio. €</span></div>
-          <div class="sz-row"><span class="sz-rl">Grenzsteuersatz 2025</span><span class="sz-rv r">42 %</span></div>
-          <div class="sz-row"><span class="sz-rl">Grenzsteuersatz Ruhestand</span><span class="sz-rv">~28 %</span></div>
-          <div class="sz-row"><span class="sz-rl">Steueroptimierung</span><span class="sz-rv r">Nicht genutzt</span></div>
-        </div>
-      </div>
-      <div class="op-sz op-sz--good rv d2">
-        <div class="op-sz-head"><span class="op-sz-dot"></span><div class="op-sz-lbl">Mit Empfehlungen, optimiert</div></div>
-        <div class="op-sz-body">
-          <div class="sz-row"><span class="sz-rl">Freie Liquidität 2025</span><span class="sz-rv g">+ 82 T€</span></div>
-          <div class="sz-row"><span class="sz-rl">Liquidität im Ruhestand</span><span class="sz-rv g">dauerhaft positiv</span></div>
-          <div class="sz-row"><span class="sz-rl">Nettovermögen 2025</span><span class="sz-rv">1,66 Mio. €</span></div>
-          <div class="sz-row"><span class="sz-rl">Nettovermögen 2054</span><span class="sz-rv g">3,28 Mio. €</span></div>
-          <div class="sz-row"><span class="sz-rl">Grenzsteuersatz 2025</span><span class="sz-rv">42 %</span></div>
-          <div class="sz-row"><span class="sz-rl">Grenzsteuersatz Ruhestand</span><span class="sz-rv g">~25 %</span></div>
-          <div class="sz-row"><span class="sz-rl">Steueroptimierung</span><span class="sz-rv g">+ 30 % Potenzial genutzt</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="op-banner rv d3">
-      <div class="sb-main">
-        <div class="sb-lbl">Gesamter Mehrwert durch Optimierung</div>
-        <div class="sb-val">+ 520.000 €</div>
-        <div class="sb-sub">Zusätzliches Nettovermögen bis 2054</div>
-      </div>
-      <div class="sb-grid">
-        <div><div class="sb-item-lbl">Liquiditätsvorteil / Jahr</div><div class="sb-item-val">+ 15 T€</div></div>
-        <div><div class="sb-item-lbl">Steuerersparnis</div><div class="sb-item-val">− 3 % Satz</div></div>
-        <div><div class="sb-item-lbl">bAV Netto-Vorteil</div><div class="sb-item-val">72 € / Mon.</div></div>
-        <div><div class="sb-item-lbl">Planungshorizont</div><div class="sb-item-val">30 Jahre</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 {% set currentTheme = "" %}{% include "themen-links.njk" %}
 
 {%- set ctaTitle = "Ihren persönlichen OptiPlan erstellen" -%}
-{%- set ctaText = "Kostenlos & unverbindlich: Wie stehen Ihre drei Dimensionen, wo liegt Potenzial?" -%}
+{%- set ctaText = "Das Erstgespräch ist kostenfrei und unverbindlich." -%}
 {%- set ctaBtn = "Beratung anfragen" -%}
 {% include "cta.njk" %}
 
@@ -583,23 +300,23 @@ var PROC_ICONS=[
   '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>'
 ];
 var PROC=[
-  {num:'01',title:'Ziele und Status klären',tag:'Kostenlos & unverbindlich',
-   desc:'Im kostenlosen Erstgespräch erfassen wir Ihre Ausgangssituation und Ziele.',
-   bullets:['Einnahmen, Ausgaben, Vermögen, Verbindlichkeiten','Persönliche Ziele und Zeitplan definieren','Individuellen Aufnahme-Bogen erstellen','Ca. 45 Minuten, online oder vor Ort, kostenlos']},
+  {num:'01',title:'Ziele und Status klären',tag:'Kostenfrei & unverbindlich',
+   desc:'Im kostenfreien Erstgespräch erfassen wir Ihre Ausgangssituation und Ziele.',
+   bullets:['Einnahmen, Ausgaben, Vermögen, Verbindlichkeiten','Persönliche Ziele und Zeitplan definieren','Individuellen Aufnahme-Bogen erstellen','Ca. 45 Minuten, online oder vor Ort, kostenfrei']},
   {num:'02',title:'Drei Dimensionen simulieren',tag:'Simultane Analyse',
    desc:'OptiPlan berechnet Liquidität, Vermögen und Steuern gleichzeitig.',
-   bullets:['Dynamischer Finanzplan bis zum Lebensende','Rücklagen und Versorgungslücken sichtbar','Steueroptimierungspotenziale identifizieren','Wechselwirkungen aller Dimensionen darstellen']},
+   bullets:['Dynamischer Finanzplan bis zum Lebensende','Rücklagen und Versorgungslücken sichtbar','Steuerliche Aspekte berücksichtigen','Wechselwirkungen aller Dimensionen darstellen']},
   {num:'03',title:'Szenarien vergleichen',tag:'Transparente Entscheidungsbasis',
    desc:'Strategien im direkten Vergleich, mit sichtbarem Effekt jeder Maßnahme.',
-   bullets:['Status Quo vs. Optimiert im direkten Vergleich','Konkrete Zahlen statt Versprechen','Messbarer Effekt jeder Maßnahme','Sie entscheiden, wir setzen um']},
+   bullets:['Status quo vs. Optimiert im direkten Vergleich','Konkrete Zahlen statt Versprechen','Messbarer Effekt jeder Maßnahme','Sie entscheiden, wir setzen um']},
   {num:'04',title:'Umsetzen und überwachen',tag:'Dauerhafte Begleitung',
    desc:'Wir überwachen laufend und passen den Plan bei Veränderungen an.',
    bullets:['13+ Spezialisten setzen um','1 zentraler Ansprechpartner koordiniert alles','Regelmäßige Überprüfung und Anpassung','Partnerschaft statt Einmalberatung']},
-  {num:'05',title:'Rechtssicher dokumentiert',tag:'BetrAVG · BRSG · Steuerrecht',
-   desc:'Alle Maßnahmen rechtssicher dokumentiert nach BetrAVG, BRSG und Steuerrecht.',
-   bullets:['Vollständige Dokumentation aller Maßnahmen','Konform mit aktueller Gesetzgebung','Klare Nachvollziehbarkeit jeder Entscheidung','Schutz vor rechtlichen und steuerlichen Risiken']},
+  {num:'05',title:'Sauber dokumentiert',tag:'Nachvollziehbar',
+   desc:'Alle Maßnahmen werden nachvollziehbar dokumentiert.',
+   bullets:['Vollständige Dokumentation aller Maßnahmen','Klare Nachvollziehbarkeit jeder Entscheidung']},
   {num:'06',title:'Persönlicher Ansprechpartner',tag:'Ein Kontakt · Alles aus einer Hand',
-   desc:'Ein Koordinator verbindet alle Spezialisten. Kein Aufwand für Sie.',
+   desc:'Ein Koordinator verbindet alle Spezialisten. Wenig Aufwand für Sie.',
    bullets:['Einziger Ansprechpartner für alle 13+ Spezialisten','Alle Spezialisten voll informiert','Transparente Kommunikation auf allen Ebenen']}
 ];
 var procLast=null;
@@ -626,172 +343,4 @@ function closeProc(){
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeProc();});
 
-/* ════════ RECHNER ════════ */
-var C={lime:'#b4c800',basil:'#697d0f',amber:'#ecbd00',amberL:'#f6dc73',grey:'#cbc3b6',greyD:'#827869',grid:'#ece8df',axis:'#6b6357',ink:'#1c2010',font:"Assistant,Calibri,system-ui,sans-serif"};
-var curCalc=0;
-
-/* TAB SWITCH */
-function switchCalc(i){
-  curCalc=i;
-  document.querySelectorAll('.ctab').forEach(function(t,j){t.classList.toggle('active',i===j);t.setAttribute('aria-selected',i===j?'true':'false');});
-  document.querySelectorAll('.cbody').forEach(function(b,j){b.classList.toggle('active',i===j);});
-  if(i===0)calcLiq();if(i===1)calcVer();if(i===2)calcSt();
-}
-
-/* SVG HELPERS */
-function ns(tag){return document.createElementNS('http://www.w3.org/2000/svg',tag);}
-function sa(el,a){Object.keys(a).forEach(function(k){el.setAttribute(k,a[k]);});return el;}
-function svgLine(x1,y1,x2,y2,stroke,sw){return sa(ns('line'),{x1:x1,y1:y1,x2:x2,y2:y2,stroke:stroke||C.grid,'stroke-width':sw||'1'});}
-function svgText(x,y,txt,fill,size,anchor,weight){var t=ns('text');sa(t,{x:x,y:y,fill:fill||C.axis,'font-size':size||'12','font-family':C.font,'font-weight':weight||'600','text-anchor':anchor||'middle'});t.textContent=txt;return t;}
-/* SVG an tatsächliche Pixelgröße anpassen -> Schrift bleibt überall gut lesbar */
-function svgSize(svg){var r=svg.parentNode.getBoundingClientRect();var W=Math.round(r.width)||560,H=Math.round(r.height)||280;svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.innerHTML='';return {W:W,H:H};}
-function niceStep(range,count){var raw=range/count,mag=Math.pow(10,Math.floor(Math.log10(raw||1))),n=raw/mag;return (n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*mag;}
-function fmtEur(v){var a=Math.abs(v),s=v<0?'−':'';if(a>=1000000)return s+(a/1000000).toFixed(a%1000000?1:0).replace('.',',')+' Mio.';if(a>=10000)return s+Math.round(a/1000)+' T€';return s+Math.round(a).toLocaleString('de-DE')+' €';}
-
-/* LIQUIDITÄT */
-function calcLiq(){
-  var inc=+document.getElementById('li-inc').value, exp=+document.getElementById('li-exp').value;
-  var age=+document.getElementById('li-age').value, ret=+document.getElementById('li-ret').value, pen=+document.getElementById('li-pen').value;
-  document.getElementById('lv-inc').textContent=inc.toLocaleString('de-DE')+' €';
-  document.getElementById('lv-exp').textContent=exp.toLocaleString('de-DE')+' €';
-  document.getElementById('lv-age').textContent=age+' Jahre';
-  document.getElementById('lv-ret').textContent=ret+' Jahre';
-  document.getElementById('lv-pen').textContent=pen.toLocaleString('de-DE')+' €';
-  var monthly=inc-exp;
-  document.getElementById('lv-res').textContent=(monthly>=0?'+ ':'− ')+Math.abs(monthly).toLocaleString('de-DE')+' €/Mon.';
-  var lm1=document.getElementById('lm-1');
-  lm1.textContent=(monthly>=0?'+ ':'− ')+Math.abs(monthly).toLocaleString('de-DE')+' €';
-  lm1.classList.toggle('op-neg',monthly<0);
-  var retNoOpt=pen-exp*1.4, lm2=document.getElementById('lm-2');
-  lm2.textContent=(retNoOpt>=0?'+ ':'− ')+Math.abs(Math.round(retNoOpt)).toLocaleString('de-DE')+' €';
-  lm2.classList.toggle('op-neg',retNoOpt<0);
-  document.getElementById('lm-3').textContent=(ret-age)+' Jahre';
-  var yrs=ret-age, vals=[], vals2=[];
-  for(var i=0;i<30;i++){
-    if(i<yrs){vals.push(Math.round(monthly*(1-i*.01)));vals2.push(Math.round(monthly*(1-i*.012)));}
-    else{vals.push(Math.round(pen*1.2-exp*(1+(i-yrs)*.02)));vals2.push(Math.round(pen-exp*(1+(i-yrs)*.02)));}
-  }
-  drawBars('liq-svg',vals,vals2,yrs);
-}
-
-function drawBars(id,vals,vals2,retIdx){
-  var svg=document.getElementById(id), s=svgSize(svg), W=s.W, H=s.H;
-  var compact=W<480, PL=compact?56:64, PR=8, PT=14, PB=26, cW=W-PL-PR, cH=H-PT-PB;
-  var all=vals.concat(vals2), hi=Math.max(0,Math.max.apply(null,all)), lo=Math.min(0,Math.min.apply(null,all));
-  if(hi===lo)hi=1;
-  var step=niceStep(hi-lo,compact?4:5), top=Math.ceil(hi/step)*step, bot=Math.floor(lo/step)*step;
-  function y(v){return PT+cH*(top-v)/(top-bot);}
-  for(var g=bot;g<=top+1e-6;g+=step){var gy=y(g);svg.appendChild(svgLine(PL,gy,W-PR,gy,g===0?'#b5ab9b':C.grid,g===0?'1.5':'1'));svg.appendChild(svgText(PL-8,gy+4,fmtEur(g),C.axis,compact?'12.5':'12','end'));}
-  var N=vals.length, gap=cW/N, bW=gap*.42, bW2=gap*.34, zeroY=y(0);
-  if(retIdx<N){var rx=PL+retIdx*gap;svg.appendChild(sa(svgLine(rx,PT,rx,PT+cH,C.greyD,'1.5'),{'stroke-dasharray':'4,3'}));
-    var lbl=svgText(rx+(retIdx>N*.7?-6:6),PT+12,'Ruhestand',C.ink,compact?'12.5':'12',retIdx>N*.7?'end':'start','800');svg.appendChild(lbl);}
-  var yr=new Date().getFullYear(), every=compact?6:5;
-  for(var i=0;i<N;i++){
-    var bx=PL+i*gap+(gap-bW-bW2-1)/2;
-    var v=vals[i],isNeg=v<0;
-    svg.appendChild(sa(ns('rect'),{x:bx,y:isNeg?zeroY:y(v),width:bW,height:Math.abs(y(v)-zeroY),rx:Math.min(3,bW/3),fill:isNeg?C.amber:C.lime}));
-    var v2=vals2[i],isNeg2=v2<0;
-    svg.appendChild(sa(ns('rect'),{x:bx+bW+1,y:isNeg2?zeroY:y(v2),width:bW2,height:Math.abs(y(v2)-zeroY),rx:Math.min(3,bW2/3),fill:isNeg2?C.amberL:C.grey}));
-    if(i%every===0)svg.appendChild(svgText(PL+i*gap+gap/2,H-6,(yr+i)+'',C.axis,compact?'12.5':'12'));
-  }
-}
-
-/* VERMÖGEN */
-function calcVer(){
-  var start=+document.getElementById('vi-start').value, save=+document.getElementById('vi-save').value*12;
-  var rate=+document.getElementById('vi-rate').value/100, yrs=+document.getElementById('vi-yrs').value;
-  var s=+document.getElementById('vi-start').value;
-  document.getElementById('vv-start').textContent=s>=1000000?(s/1000000).toFixed(2).replace('.',',')+' Mio.':s.toLocaleString('de-DE')+' €';
-  document.getElementById('vv-save').textContent=(+document.getElementById('vi-save').value).toLocaleString('de-DE')+' €';
-  document.getElementById('vv-rate').textContent=(+document.getElementById('vi-rate').value).toFixed(1).replace('.',',')+' %';
-  document.getElementById('vv-yrs').textContent=yrs+' Jahre';
-  var v1=start,v2=start,vals=[],vals2=[];
-  for(var i=0;i<=yrs;i++){vals.push(Math.round(v1));vals2.push(Math.round(v2));v1=v1*(1+rate)+save;v2=v2*(1+.02)+save;}
-  var e1=vals[vals.length-1],e2=vals2[vals2.length-1],d=e1-e2;
-  document.getElementById('vv-res').textContent=e1>=1000000?(e1/1000000).toFixed(2).replace('.',',')+' Mio. €':(e1/1000).toFixed(0)+' T€';
-  document.getElementById('vm-1').textContent=e1>=1000000?(e1/1000000).toFixed(2).replace('.',',')+' Mio.':(e1/1000).toFixed(0)+' T€';
-  document.getElementById('vm-2').textContent=e2>=1000000?(e2/1000000).toFixed(2).replace('.',',')+' Mio.':(e2/1000).toFixed(0)+' T€';
-  document.getElementById('vm-3').textContent='+ '+(d>=1000000?(d/1000000).toFixed(2).replace('.',',')+' Mio.':(d/1000).toFixed(0)+' T€');
-  drawLines('ver-svg',vals,vals2,yrs);
-}
-
-function drawLines(id,vals,vals2,yrs){
-  var svg=document.getElementById(id), s=svgSize(svg), W=s.W, H=s.H;
-  var compact=W<480, PL=compact?62:70, PR=compact?10:16, PT=14, PB=26, cW=W-PL-PR, cH=H-PT-PB;
-  var hi=Math.max(Math.max.apply(null,vals),Math.max.apply(null,vals2))||1, step=niceStep(hi,4), top=Math.ceil(hi/step)*step, N=vals.length;
-  function xp(i){return PL+(i/(N-1))*cW;}
-  function yp(v){return PT+cH*(1-v/top);}
-  for(var g=0;g<=top+1e-6;g+=step){var gy=yp(g);svg.appendChild(svgLine(PL,gy,W-PR,gy,g===0?'#b5ab9b':C.grid,g===0?'1.5':'1'));svg.appendChild(svgText(PL-8,gy+4,fmtEur(g),C.axis,compact?'12.5':'12','end'));}
-  var p1='',p2='',a1='M'+xp(0)+','+(PT+cH);
-  var yr=new Date().getFullYear(), every=(compact&&N>20)?10:5;
-  for(var i=0;i<N;i++){p1+=(i?'L':'M')+xp(i)+','+yp(vals[i]);p2+=(i?'L':'M')+xp(i)+','+yp(vals2[i]);a1+=' L'+xp(i)+','+yp(vals[i]);if(i%every===0)svg.appendChild(svgText(xp(i),H-6,(yr+i)+'',C.axis,compact?'12.5':'12',i===0?'start':'middle'));}
-  a1+=' L'+xp(N-1)+','+(PT+cH)+' Z';
-  var defs=ns('defs'),lg=sa(ns('linearGradient'),{id:id+'-g',x1:'0',y1:'0',x2:'0',y2:'1'});
-  lg.appendChild(sa(ns('stop'),{offset:'0','stop-color':C.lime,'stop-opacity':'.45'}));
-  lg.appendChild(sa(ns('stop'),{offset:'1','stop-color':C.lime,'stop-opacity':'.05'}));
-  defs.appendChild(lg);svg.appendChild(defs);
-  svg.appendChild(sa(ns('path'),{d:a1,fill:'url(#'+id+'-g)'}));
-  svg.appendChild(sa(ns('path'),{d:p2,fill:'none',stroke:C.greyD,'stroke-width':'2.5','stroke-dasharray':'6,5','stroke-linecap':'round','stroke-linejoin':'round'}));
-  svg.appendChild(sa(ns('path'),{d:p1,fill:'none',stroke:C.basil,'stroke-width':'3.5','stroke-linecap':'round','stroke-linejoin':'round'}));
-  /* Endpunkte markieren */
-  svg.appendChild(sa(ns('circle'),{cx:xp(N-1),cy:yp(vals2[N-1]),r:'5',fill:'#fff',stroke:C.greyD,'stroke-width':'2.5'}));
-  svg.appendChild(sa(ns('circle'),{cx:xp(N-1),cy:yp(vals[N-1]),r:'6',fill:C.lime,stroke:C.basil,'stroke-width':'3'}));
-}
-
-/* STEUER */
-function calcSt(){
-  var inc=+document.getElementById('si-inc').value, opt=+document.getElementById('si-opt').value, wk=+document.getElementById('si-wk').value;
-  var split=+document.getElementById('si-fam').value;
-  document.getElementById('sv-inc').textContent=inc.toLocaleString('de-DE')+' €';
-  document.getElementById('sv-opt').textContent=opt.toLocaleString('de-DE')+' €';
-  document.getElementById('sv-wk').textContent=wk.toLocaleString('de-DE')+' €';
-  function taxDE(z,sp){var t=0;var q=sp===2?z/2:z;if(q<=11784)t=0;else if(q<=17005){var y=(q-11784)/10000;t=979.18*y+1400*y*y;}else if(q<=66760){var y=(q-17005)/10000;t=192.59*y+2397*y*y+966.53;}else if(q<=277825)t=.42*q-10602.13;else t=.45*q-18936.88;return Math.round(sp===2?t*2:t);}
-  var b=Math.max(0,inc-wk), t1=taxDE(b,split), t2=taxDE(Math.max(0,b-opt),split), sav=t1-t2;
-  document.getElementById('sv-res').textContent=t2.toLocaleString('de-DE')+' €';
-  document.getElementById('sm-1').textContent=t1.toLocaleString('de-DE')+' €';
-  document.getElementById('sm-2').textContent=t2.toLocaleString('de-DE')+' €';
-  document.getElementById('sm-3').textContent='− '+sav.toLocaleString('de-DE')+' €';
-  drawStBars('st-svg',inc,t1,t2,opt,wk);
-}
-
-function drawStBars(id,inc,t1,t2,opt,wk){
-  var svg=document.getElementById(id), s=svgSize(svg), W=s.W, H=s.H;
-  var compact=W<520;
-  var items=[
-    {lbl:'Einkommen',val:inc,color:'#e6e1d8',v:inc.toLocaleString('de-DE')+' €'},
-    {lbl:'Werbungskosten',val:wk,color:'#d6e46a',v:'− '+wk.toLocaleString('de-DE')+' €'},
-    {lbl:'Steueroptimierung',val:opt,color:C.lime,v:'− '+opt.toLocaleString('de-DE')+' €'},
-    {lbl:'Steuerlast Basis',val:t1,color:C.amber,v:t1.toLocaleString('de-DE')+' €'},
-    {lbl:'Steuerlast optimiert',val:t2,color:C.basil,v:t2.toLocaleString('de-DE')+' €'}
-  ];
-  var n=items.length, valW=compact?92:110;
-  if(compact){
-    /* Mobil: Beschriftung über dem Balken */
-    var rowH=(H-8)/n, bH=Math.min(18,rowH-22), barW=W-valW-4;
-    items.forEach(function(it,i){
-      var y0=4+i*rowH, w=Math.max(3,Math.min(it.val/inc,1)*barW);
-      svg.appendChild(svgText(0,y0+14,it.lbl,C.ink,'13','start','700'));
-      svg.appendChild(sa(ns('rect'),{x:0,y:y0+20,width:w,height:bH,rx:'5',fill:it.color}));
-      svg.appendChild(svgText(w+8,y0+20+bH*.78,it.v,i===4?C.basil:i===3?'#8a5a00':C.ink,'13','start','800'));
-    });
-  } else {
-    var lblW=170, barW=W-lblW-valW, gap=16, bH=Math.min(44,(H-gap*(n-1)-10)/n), totalH=n*bH+(n-1)*gap, startY=(H-totalH)/2;
-    items.forEach(function(it,i){
-      var y=startY+i*(bH+gap), w=Math.max(3,Math.min(it.val/inc,1)*barW);
-      svg.appendChild(svgText(0,y+bH/2+5,it.lbl,C.ink,'14','start','700'));
-      svg.appendChild(sa(ns('rect'),{x:lblW,y:y,width:w,height:bH,rx:'7',fill:it.color}));
-      svg.appendChild(svgText(lblW+w+10,y+bH/2+5,it.v,i===4?C.basil:i===3?'#8a5a00':C.ink,'14','start','800'));
-    });
-  }
-}
-
-/* Neu zeichnen bei Größenänderung (Diagramme in echter Pixelgröße) */
-var rzT;window.addEventListener('resize',function(){clearTimeout(rzT);rzT=setTimeout(function(){switchCalc(curCalc);},150);});
-
-/* Slider-Füllstand (WebKit) */
-function rangeFill(r){var p=(r.value-r.min)/(r.max-r.min)*100;r.style.setProperty('--p',p+'%');}
-document.querySelectorAll('.cf-range').forEach(function(r){rangeFill(r);r.addEventListener('input',function(){rangeFill(r);});});
-
-/* INIT */
-calcLiq(); calcVer(); calcSt();
 </script>
