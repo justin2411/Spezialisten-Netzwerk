@@ -14,7 +14,7 @@ const icons = {
 };
 
 const team = {
-  lohne: { name: 'Jonathan Lohne', role: 'Netzwerk Manager', url: '/ruhestandsplanung', img: '/assets/img/team/jonathan-lohne.webp' },
+  lohne: { name: 'Jonathan Lohne', role: 'Netzwerk-Manager', url: '/ruhestandsplanung', img: '/assets/img/team/jonathan-lohne.webp' },
   hoffmann: { name: 'Jana Hoffmann', role: 'Spezialistin Finanzierung', url: '/finanzierung', img: '/assets/img/team/jana-hoffmann.webp' },
   moews: { name: 'Mathias Moews', role: 'Dipl.-Betriebswirt | Finanzierungen', url: '/finanzierung', img: '/assets/img/team/mathias-moews.webp' },
   buck: { name: 'Dr. Michael Buck', role: 'Kranken- & Pflegeversicherung', url: '/kranken-pflege', img: '/assets/img/team/michael-buck.webp' },
@@ -27,11 +27,11 @@ const team = {
 };
 
 const themen = [
-  { key: 'immobilie', title: 'Kapitalanlage Immobilie', short: 'Immobilien', url: '/kapitalanlage-immobilie', icon: icons.immobilie, people: ['schneider'], teaser: 'Inflationsschutz, Steuervorteile, Vermögensaufbau.' },
+  { key: 'immobilie', title: 'Kapitalanlage Immobilie', short: 'Immobilien', url: '/kapitalanlage-immobilie', icon: icons.immobilie, people: ['schneider'], teaser: 'Immobilien als Baustein Ihres Vermögens.' },
   { key: 'bav', title: 'Betriebliche Versorgung', short: 'Betr. Versorgung', url: '/betriebliche-versorgung', icon: icons.bav, people: ['arndt', 'domes'], teaser: 'Vorsorge über den Betrieb.' },
   { key: 'ruhestand', title: 'Ruhestandsplanung', short: 'Ruhestand', url: '/ruhestandsplanung', icon: icons.ruhestand, people: ['lohne'], teaser: 'Ihr Vermögen im Ruhestand im Blick.' },
   { key: 'investment', title: 'Investment & AIF', short: 'Investment & AIF', url: '/investment-aif', icon: icons.investment, people: ['scholl'], teaser: 'Vermögen aufbauen, erhalten, übertragen.' },
-  { key: 'kranken', title: 'Kranken & Pflege', short: 'Kranken & Pflege', url: '/kranken-pflege', icon: icons.kranken, people: ['buck'], teaser: 'Bestmöglich abgesichert im Krankheitsfall.' },
+  { key: 'kranken', title: 'Kranken & Pflege', short: 'Kranken & Pflege', url: '/kranken-pflege', icon: icons.kranken, people: ['buck'], teaser: 'Absicherung im Krankheits- und Pflegefall.' },
   { key: 'analyse', title: 'Finanzanalysen', short: 'Finanzanalysen', url: '/finanzanalysen', icon: icons.analyse, people: ['hendelkes'], teaser: 'Klarheit für Ihre Entscheidungen.' },
   { key: 'finanzierung', title: 'Finanzierung', short: 'Finanzierung', url: '/finanzierung', icon: icons.finanzierung, people: ['hoffmann', 'moews'], teaser: 'Ein Ansprechpartner, rund 600 Partner.' },
   { key: 'heilwesen', title: 'Heilwesenberufe', short: 'Heilwesen', url: '/heilwesenberufe', icon: icons.heilwesen, people: ['casanova'], teaser: 'Von der Praxisgründung bis zur Abgabe.' }
