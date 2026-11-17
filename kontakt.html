@@ -95,6 +95,8 @@ permalink: "/kontakt.html"
 .ct-check input:focus-visible{outline:none;border-color:var(--gd);box-shadow:0 0 0 4px rgba(180,200,0,.35)}
 .ct-check input:checked{background:var(--g) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='5 12.5 10 17 19 7.5'/%3E%3C/svg%3E") center/70% no-repeat;border-color:var(--g)}
 .ct-check a{color:var(--gdd);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.ct-err{margin:.2rem 0 .8rem;padding:.8rem 1rem;border-radius:12px;background:#fff4cc;border:1px solid var(--amber);color:var(--ink);font-weight:600;line-height:1.5}
+.ct-err a{color:var(--gdd);font-weight:800}
 .ct-submit{width:100%;padding:1.15rem 1.9rem;font-size:1.1rem;margin-top:.3rem}
 .ct-note{font-size:.88rem;color:var(--muted);text-align:center}
 
@@ -329,6 +331,8 @@ permalink: "/kontakt.html"
               <input type="checkbox" id="datenschutz" required>
               <span>Ich habe die <a href="/datenschutzerklaerung">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zum Zweck der Kontaktaufnahme zu. *</span>
             </label>
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+            <p class="ct-err" id="ct-err" role="alert" hidden>Das Senden hat nicht geklappt. Bitte schreiben Sie direkt an <a href="mailto:Jonathan.Lohne@horbach.de">Jonathan.Lohne@horbach.de</a> oder rufen Sie an.</p>
             <button type="submit" class="sn-btn ct-submit">Jetzt Anfrage senden <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
             <p class="ct-note">* Pflichtfeld</p>
           </form>
@@ -395,7 +399,8 @@ permalink: "/kontakt.html"
   } catch (e) {}
 })();
 
-/* Formular: noch ohne Backend (Supabase folgt) — validiert und zeigt den Erfolgs-Zustand */
+/* Formular: Anfragen gehen per FormSubmit an Jonathan Lohne */
+var CT_TO = 'Jonathan.Lohne@horbach.de';
 function submitForm(e) {
   e.preventDefault();
   var form = document.getElementById('ct-form');
@@ -405,14 +410,30 @@ function submitForm(e) {
     if (bad) bad.focus();
     return;
   }
-  var area = document.getElementById('ct-form-area');
-  var success = document.getElementById('ct-success');
-  var name = (document.getElementById('vorname').value || '').trim();
-  if (name) document.getElementById('ct-success-title').textContent = 'Vielen Dank ' + name;
-  area.style.display = 'none';
-  success.classList.add('show');
-  var card = document.getElementById('formular');
-  if (card.getBoundingClientRect().top < 0) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  success.focus({ preventScroll: true });
+  var btn = form.querySelector('.ct-submit'), err = document.getElementById('ct-err');
+  err.hidden = true;
+  btn.disabled = true; btn.style.opacity = '.7';
+  var v = function (id) { return (document.getElementById(id).value || '').trim(); };
+  var data = {
+    _subject: 'Neue Anfrage über spezialisten-netzwerk.com' + (v('thema') ? ' – ' + v('thema') : ''),
+    _template: 'table', _captcha: 'false', _honey: form.elements._honey.value,
+    Vorname: v('vorname'), Nachname: v('nachname'), 'E-Mail': v('email'), Telefon: v('telefon'),
+    Thema: v('thema'), Nachricht: v('nachricht'), _replyto: v('email')
+  };
+  fetch('https://formsubmit.co/ajax/' + CT_TO, {
+    method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data)
+  }).then(function (res) { return res.json().then(function (j) { if (!res.ok || String(j.success) !== 'true') throw j; }); })
+    .then(function () {
+      var area = document.getElementById('ct-form-area');
+      var success = document.getElementById('ct-success');
+      if (data.Vorname) document.getElementById('ct-success-title').textContent = 'Vielen Dank ' + data.Vorname;
+      area.style.display = 'none';
+      success.classList.add('show');
+      var card = document.getElementById('formular');
+      if (card.getBoundingClientRect().top < 0) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      success.focus({ preventScroll: true });
+    })
+    .catch(function () { err.hidden = false; err.focus && err.scrollIntoView({ behavior: 'smooth', block: 'center' }); })
+    .then(function () { btn.disabled = false; btn.style.opacity = ''; });
 }
 </script>
