@@ -20,7 +20,7 @@ noindex: true
 .iw-form label{display:flex;flex-direction:column;gap:.4rem;font-weight:700;color:var(--ink);font-size:.98rem}
 .iw-form label small{font-weight:500;color:var(--muted)}
 .iw-form input[type=email],.iw-form input[type=password],.iw-form select,.iw-form textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--g50);border:1.5px solid var(--line);border-radius:14px;padding:.8rem 1rem;width:100%}
-.iw-form textarea{min-height:120px;resize:vertical}
+.iw-form textarea{min-height:220px;resize:vertical;line-height:1.6}
 .iw-form input:focus,.iw-form select:focus,.iw-form textarea:focus{outline:3px solid rgba(180,200,0,.35);border-color:var(--g)}
 .iw-form .sn-btn{align-self:flex-start}
 .iw-msg{font-weight:700;font-size:.98rem;margin:0;min-height:1.2em}
@@ -99,11 +99,15 @@ noindex: true
       </div>
       <div class="iw-grid">
         <div class="iw-card">
-          <h2>Neuer Wunsch</h2>
+          <h2>Neuer Auftrag</h2>
           <form class="iw-form" id="iw-wf" novalidate>
-            <label for="iw-seite">Seite
-              <select id="iw-seite" required>
-                <option value="">Bitte wählen</option>
+            <label for="iw-besch">Deine Nachricht an Claude
+              <small>Schreib einfach, was geändert werden soll. Soll ein Text genau so übernommen werden, schreib das dazu.</small>
+              <textarea id="iw-besch" required placeholder="z. B. Auf der Startseite im Abschnitt Unser Team soll bei Jana Hoffmann das neue Foto aus dem Anhang rein. Und unter Kontakt bitte genau diesen Satz ergänzen: …"></textarea>
+            </label>
+            <label for="iw-seite">Welche Seite? <small>optional</small>
+              <select id="iw-seite">
+                <option value="">Weiß nicht oder mehrere</option>
                 <option>Startseite</option><option>OptiPlan</option><option>Kapitalanlage Immobilie</option>
                 <option>Betriebliche Versorgung</option><option>Ruhestandsplanung</option><option>Investment &amp; AIF</option>
                 <option>Kranken &amp; Pflege</option><option>Finanzanalysen</option><option>Finanzierung</option>
@@ -111,18 +115,11 @@ noindex: true
                 <option>Ganze Website</option>
               </select>
             </label>
-            <label for="iw-besch">Was soll geändert werden?
-              <small>Wo genau auf der Seite und was soll anders sein</small>
-              <textarea id="iw-besch" required placeholder="z. B. Im Abschnitt Unser Team soll bei Jana Hoffmann ein neues Foto rein"></textarea>
-            </label>
-            <label for="iw-neu">Neuer Text <small>optional, genau so wie er auf der Seite stehen soll</small>
-              <textarea id="iw-neu" style="min-height:90px"></textarea>
-            </label>
             <label for="iw-bild">Bilder oder Screenshots <small>optional, bis zu 3</small>
               <input type="file" id="iw-bild" accept="image/*" multiple>
             </label>
             <div class="iw-thumbs" id="iw-thumbs"></div>
-            <button class="sn-btn" type="submit" id="iw-wb">Wunsch absenden</button>
+            <button class="sn-btn" type="submit" id="iw-wb">Auftrag absenden</button>
             <p class="iw-msg" id="iw-wmsg" role="status" aria-live="polite"></p>
             <p class="iw-note">Fachliche Inhalte wie Zahlen, Renditen oder Rechtstexte gehen erst nach Rücksprache live.</p>
           </form>
@@ -276,13 +273,12 @@ noindex: true
 
   $('iw-wf').addEventListener('submit', function (e) {
     e.preventDefault();
-    var m = $('iw-wmsg'), seite = $('iw-seite').value, besch = $('iw-besch').value.trim(), neu = $('iw-neu').value.trim();
-    if (!seite) { m.className = 'iw-msg bad'; m.textContent = 'Bitte die Seite auswählen.'; $('iw-seite').focus(); return; }
-    if (besch.length < 5) { m.className = 'iw-msg bad'; m.textContent = 'Bitte kurz beschreiben, was geändert werden soll.'; $('iw-besch').focus(); return; }
+    var m = $('iw-wmsg'), seite = $('iw-seite').value || 'Allgemein', besch = $('iw-besch').value.trim(), neu = '';
+    if (besch.length < 5) { m.className = 'iw-msg bad'; m.textContent = 'Bitte kurz schreiben, was geändert werden soll.'; $('iw-besch').focus(); return; }
     $('iw-wb').disabled = true; m.className = 'iw-msg'; m.textContent = 'Wird gesendet …';
     rpc('nw_neu', { p_token: token, p_seite: seite, p_beschreibung: besch, p_neuer_text: neu, p_bilder: bilder }).then(function () {
       $('iw-wf').reset(); $('iw-thumbs').textContent = ''; bilder = [];
-      m.className = 'iw-msg ok'; m.textContent = 'Danke, dein Wunsch ist gespeichert.';
+      m.className = 'iw-msg ok'; m.textContent = 'Danke, dein Auftrag ist gespeichert.';
       return load();
     }).catch(function (err) {
       m.className = 'iw-msg bad';
