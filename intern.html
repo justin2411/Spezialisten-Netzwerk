@@ -68,9 +68,9 @@ noindex: true
   <div class="sn-wrap">
     <div class="sn-eyebrow">Interner Bereich</div>
     <h1 class="sn-h1"><span class="sn-hl">Änderungswünsche</span></h1>
-    <p class="sn-lead">Schreib Claude, was auf der Website geändert werden soll. Die Änderung geht direkt live, den Status siehst du hier.</p>
+    <p class="sn-lead">Schreib der KI, was auf der Website geändert werden soll. Die Änderung geht direkt live, den Status siehst du hier.</p>
     <ol class="iw-steps" aria-label="Ablauf">
-      <li>1 Auftrag schreiben</li><li>2 Claude setzt um</li><li>3 Live auf der Website</li>
+      <li>1 Auftrag schreiben</li><li>2 KI setzt um</li><li>3 Live auf der Website</li>
     </ol>
   </div>
 </section>
@@ -101,7 +101,7 @@ noindex: true
         <div class="iw-card">
           <h2>Neuer Auftrag</h2>
           <form class="iw-form" id="iw-wf" novalidate>
-            <label for="iw-besch">Deine Nachricht an Claude
+            <label for="iw-besch">Deine Nachricht an die KI
               <small>Schreib einfach, was geändert werden soll. Soll ein Text genau so übernommen werden, schreib das dazu.</small>
               <textarea id="iw-besch" required placeholder="z. B. Auf der Startseite im Abschnitt Unser Team soll bei Jana Hoffmann das neue Foto aus dem Anhang rein. Und unter Kontakt bitte genau diesen Satz ergänzen: …"></textarea>
             </label>
@@ -202,7 +202,7 @@ noindex: true
           sh.appendChild(b); }
       }
       if (w.antwort || w.vorschau_url) {
-        var an = el('p', 'iw-ans'); an.appendChild(el('b', null, 'Claude: ')); an.appendChild(document.createTextNode(w.antwort || ''));
+        var an = el('p', 'iw-ans'); an.appendChild(el('b', null, 'KI: ')); an.appendChild(document.createTextNode(w.antwort || ''));
         if (/^https:\/\//.test(w.vorschau_url || '')) { an.appendChild(document.createTextNode(' ')); var a = el('a', null, 'Vorschau ansehen'); a.href = w.vorschau_url; a.target = '_blank'; a.rel = 'noopener'; an.appendChild(a); }
         li.appendChild(an);
       }
