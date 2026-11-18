@@ -14,7 +14,7 @@ const icons = {
 };
 
 const team = {
-  lohne: { name: 'Jonathan Lohne', role: 'Netzwerk-Manager', url: '/ruhestandsplanung', img: '/assets/img/team/jonathan-lohne.webp' },
+  lohne: { name: 'Jonathan Lohne', role: 'Netzwerk‑Manager', url: '/ruhestandsplanung', img: '/assets/img/team/jonathan-lohne.webp' },
   hoffmann: { name: 'Jana Hoffmann', role: 'Spezialistin Finanzierung', url: '/finanzierung', img: '/assets/img/team/jana-hoffmann.webp' },
   moews: { name: 'Mathias Moews', role: 'Dipl.-Betriebswirt | Finanzierungen', url: '/finanzierung', img: '/assets/img/team/mathias-moews.webp' },
   buck: { name: 'Dr. Michael Buck', role: 'Kranken- & Pflegeversicherung', url: '/kranken-pflege', img: '/assets/img/team/michael-buck.webp' },
