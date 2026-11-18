@@ -1,0 +1,296 @@
+---
+layout: base.njk
+title: "Änderungswünsche | Spezialisten Netzwerk"
+description: "Interner Bereich für Änderungswünsche an der Website."
+permalink: "/intern.html"
+noindex: true
+---
+{#- Interner Bereich: Jonathan Lohne trägt hier Änderungswünsche ein.
+    Daten liegen im Supabase-Schema netzwerk_web (eigener Bereich, Zugriff nur über die nw_*-Funktionen).
+    Der Schlüssel unten ist der öffentliche Publishable Key, kein Geheimnis. -#}
+<style>
+.iw-hero{padding:calc(var(--sp-sec)*.6) 0}
+.iw-hero .sn-h1{margin-bottom:.6rem}
+.iw-steps{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem;list-style:none;padding:0}
+.iw-steps li{font-size:.92rem;font-weight:700;color:var(--gdd);background:#fff;border:1px solid var(--g200);border-radius:999px;padding:.4rem .9rem}
+.iw-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);padding:var(--sp-card)}
+.iw-card h2{font-size:1.35rem;font-weight:800;color:var(--ink);margin-bottom:1.1rem}
+.iw-login{max-width:460px;margin:0 auto}
+.iw-form{display:flex;flex-direction:column;gap:1rem}
+.iw-form label{display:flex;flex-direction:column;gap:.4rem;font-weight:700;color:var(--ink);font-size:.98rem}
+.iw-form label small{font-weight:500;color:var(--muted)}
+.iw-form input[type=email],.iw-form input[type=password],.iw-form select,.iw-form textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--g50);border:1.5px solid var(--line);border-radius:14px;padding:.8rem 1rem;width:100%}
+.iw-form textarea{min-height:120px;resize:vertical}
+.iw-form input:focus,.iw-form select:focus,.iw-form textarea:focus{outline:3px solid rgba(180,200,0,.35);border-color:var(--g)}
+.iw-form .sn-btn{align-self:flex-start}
+.iw-msg{font-weight:700;font-size:.98rem;margin:0;min-height:1.2em}
+.iw-msg.ok{color:var(--gd)}
+.iw-msg.bad{color:#a33a2a}
+.iw-note{font-size:.92rem;color:var(--muted)}
+.iw-grid{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:var(--sp-gap);align-items:start}
+.iw-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem;margin-bottom:var(--sp-stack)}
+.iw-bar p{margin:0;font-weight:700;color:var(--ink)}
+.iw-link{background:none;border:none;font:inherit;font-weight:700;color:var(--gd);cursor:pointer;text-decoration:underline;padding:.5rem 0;min-height:44px}
+.iw-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem;margin-bottom:1rem}
+.iw-head h2{margin:0}
+.iw-filter{display:flex;flex-wrap:wrap;gap:.4rem}
+.iw-filter button{font:inherit;font-size:.9rem;font-weight:700;border:1.5px solid var(--line);background:#fff;color:var(--text);border-radius:999px;padding:.4rem .9rem;cursor:pointer;min-height:40px}
+.iw-filter button[aria-pressed=true]{background:var(--g);border-color:var(--g);color:#fff}
+.iw-list{display:flex;flex-direction:column;gap:.8rem;list-style:none;padding:0;margin:0}
+.iw-item{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.1rem 1.3rem;display:flex;flex-direction:column;gap:.55rem;min-width:0}
+.iw-top{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .8rem}
+.iw-page{font-weight:800;color:var(--ink)}
+.iw-date{font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.iw-pill{margin-left:auto;font-size:.78rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:.25rem .7rem}
+.p-neu{background:#e8edf8;color:#2f4a8a}
+.p-in_arbeit{background:#fff3cf;color:#7a5a00}
+.p-vorschau{background:#efe6fb;color:#5b3a99}
+.p-live{background:var(--g100);color:var(--gdd)}
+.p-abgelehnt{background:#f4e7e4;color:#8a3a2a}
+.iw-desc{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--text);line-height:1.65}
+.iw-new{margin:0;padding:.6rem .9rem;border-left:4px solid var(--g);background:var(--g50);border-radius:0 12px 12px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.iw-ans{margin:0;padding:.7rem .9rem;border-radius:12px;background:var(--g50);border:1px dashed var(--g200);font-size:.96rem;overflow-wrap:anywhere}
+.iw-ans b{color:var(--ink)}
+.iw-ans a{color:var(--gd);font-weight:800}
+.iw-shots{display:flex;flex-wrap:wrap;gap:.5rem}
+.iw-shots img{width:110px;height:74px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+.iw-act{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;font-size:.94rem}
+.iw-empty{text-align:center;padding:2.2rem 1rem;color:var(--muted);border:1.5px dashed var(--line);border-radius:var(--r)}
+.iw-empty b{display:block;color:var(--ink);font-size:1.05rem;margin-bottom:.3rem}
+.iw-thumbs{display:flex;flex-wrap:wrap;gap:.5rem}
+.iw-thumbs img{width:72px;height:52px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+@media(max-width:900px){.iw-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:620px){.iw-item{padding:1rem}.iw-pill{margin-left:0}}
+</style>
+
+<section class="sn-hero iw-hero">
+  {% include "hero-mosaic.njk" %}
+  <div class="sn-wrap">
+    <div class="sn-eyebrow">Interner Bereich</div>
+    <h1 class="sn-h1"><span class="sn-hl">Änderungswünsche</span></h1>
+    <p class="sn-lead">Wünsche für die Website eintragen. Claude setzt sie in einer Vorschau um, nach Freigabe gehen sie live.</p>
+    <ol class="iw-steps" aria-label="Ablauf">
+      <li>1 Wunsch eintragen</li><li>2 Vorschau wird gebaut</li><li>3 Freigabe</li><li>4 Live</li>
+    </ol>
+  </div>
+</section>
+
+<section class="sn-sec" style="padding-top:calc(var(--sp-sec)*.6)">
+  <div class="sn-wrap">
+
+    <div class="iw-card iw-login" id="iw-login">
+      <h2>Anmelden</h2>
+      <form class="iw-form" id="iw-lf" novalidate>
+        <label for="iw-email">E-Mail
+          <input type="email" id="iw-email" autocomplete="username" required>
+        </label>
+        <label for="iw-pw">Passwort
+          <input type="password" id="iw-pw" autocomplete="current-password" required>
+        </label>
+        <button class="sn-btn" type="submit" id="iw-lb">Anmelden</button>
+        <p class="iw-msg" id="iw-lmsg" role="alert"></p>
+      </form>
+    </div>
+
+    <div id="iw-app" hidden>
+      <div class="iw-bar">
+        <p id="iw-hello">Angemeldet</p>
+        <button type="button" class="iw-link" id="iw-out">Abmelden</button>
+      </div>
+      <div class="iw-grid">
+        <div class="iw-card">
+          <h2>Neuer Wunsch</h2>
+          <form class="iw-form" id="iw-wf" novalidate>
+            <label for="iw-seite">Seite
+              <select id="iw-seite" required>
+                <option value="">Bitte wählen</option>
+                <option>Startseite</option><option>OptiPlan</option><option>Kapitalanlage Immobilie</option>
+                <option>Betriebliche Versorgung</option><option>Ruhestandsplanung</option><option>Investment &amp; AIF</option>
+                <option>Kranken &amp; Pflege</option><option>Finanzanalysen</option><option>Finanzierung</option>
+                <option>Heilwesenberufe</option><option>Kontakt</option><option>Impressum / Datenschutz</option>
+                <option>Ganze Website</option>
+              </select>
+            </label>
+            <label for="iw-besch">Was soll geändert werden?
+              <small>Wo genau auf der Seite und was soll anders sein</small>
+              <textarea id="iw-besch" required placeholder="z. B. Im Abschnitt Unser Team soll bei Jana Hoffmann ein neues Foto rein"></textarea>
+            </label>
+            <label for="iw-neu">Neuer Text <small>optional, genau so wie er auf der Seite stehen soll</small>
+              <textarea id="iw-neu" style="min-height:90px"></textarea>
+            </label>
+            <label for="iw-bild">Bilder oder Screenshots <small>optional, bis zu 3</small>
+              <input type="file" id="iw-bild" accept="image/*" multiple>
+            </label>
+            <div class="iw-thumbs" id="iw-thumbs"></div>
+            <button class="sn-btn" type="submit" id="iw-wb">Wunsch absenden</button>
+            <p class="iw-msg" id="iw-wmsg" role="status" aria-live="polite"></p>
+            <p class="iw-note">Fachliche Inhalte wie Zahlen, Renditen oder Rechtstexte gehen erst nach Rücksprache live.</p>
+          </form>
+        </div>
+        <div>
+          <div class="iw-head">
+            <h2 style="font-size:1.35rem;font-weight:800;color:var(--ink)">Alle Wünsche</h2>
+            <div class="iw-filter" role="group" aria-label="Filter">
+              <button type="button" data-f="offen" aria-pressed="true">Offen</button>
+              <button type="button" data-f="erledigt" aria-pressed="false">Erledigt</button>
+              <button type="button" data-f="alle" aria-pressed="false">Alle</button>
+            </div>
+          </div>
+          <ul class="iw-list" id="iw-list">
+            <li class="iw-empty"><b>Noch keine Wünsche</b>Trage links den ersten Wunsch ein. Er erscheint dann hier mit seinem Status.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var API = 'https://djlyxhddzmhofirewwis.supabase.co/rest/v1/rpc/';
+  var KEY = 'sb_publishable_bBACgAWQYZ4Prf9r4KlpsQ_ohjcGX3O';
+  var STATUS = { neu: 'Neu', in_arbeit: 'In Arbeit', vorschau: 'Vorschau bereit', live: 'Live', abgelehnt: 'Zurückgestellt' };
+  var $ = function (id) { return document.getElementById(id); };
+  var token = null, items = [], filter = 'offen', bilder = [], confirmId = null, shotCache = {};
+  try { token = localStorage.getItem('nw_token'); } catch (e) {}
+
+  function rpc(name, body) {
+    return fetch(API + name, { method: 'POST', headers: { apikey: KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) { var e = new Error(j && j.message || 'fehler'); e.code = j && j.message; throw e; } return j; }); });
+  }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function fmt(iso) { try { return new Date(iso).toLocaleString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }); } catch (e) { return ''; } }
+  function setToken(t) { token = t; try { t ? localStorage.setItem('nw_token', t) : localStorage.removeItem('nw_token'); } catch (e) {} }
+
+  function showLogin(msg) { $('iw-app').hidden = true; $('iw-login').hidden = false; if (msg) { $('iw-lmsg').className = 'iw-msg bad'; $('iw-lmsg').textContent = msg; } }
+  function showApp() { $('iw-login').hidden = true; $('iw-app').hidden = false; }
+
+  function load() {
+    return rpc('nw_liste', { p_token: token }).then(function (d) {
+      $('iw-hello').textContent = 'Angemeldet als ' + (d.name || 'Nutzer');
+      items = d.wuensche || []; showApp(); render();
+    }).catch(function (e) {
+      if (e.code === 'nicht_angemeldet') { setToken(null); showLogin('Bitte erneut anmelden.'); }
+      else showLogin('Die Wünsche konnten nicht geladen werden. Bitte später erneut versuchen.');
+    });
+  }
+
+  function render() {
+    var list = $('iw-list'); list.textContent = '';
+    var rows = items.filter(function (w) {
+      if (filter === 'offen') return ['neu', 'in_arbeit', 'vorschau'].indexOf(w.status) >= 0;
+      if (filter === 'erledigt') return w.status === 'live' || w.status === 'abgelehnt';
+      return true;
+    });
+    if (!rows.length) {
+      var em = el('li', 'iw-empty'); em.appendChild(el('b', null, items.length ? 'Keine Wünsche in diesem Filter' : 'Noch keine Wünsche'));
+      em.appendChild(document.createTextNode(items.length ? 'Wähle oben einen anderen Filter.' : 'Trage links den ersten Wunsch ein. Er erscheint dann hier mit seinem Status.'));
+      list.appendChild(em); return;
+    }
+    rows.forEach(function (w) {
+      var li = el('li', 'iw-item'), top = el('div', 'iw-top');
+      top.appendChild(el('span', 'iw-page', w.seite));
+      top.appendChild(el('span', 'iw-date', fmt(w.erstellt)));
+      top.appendChild(el('span', 'iw-pill p-' + w.status, STATUS[w.status] || w.status));
+      li.appendChild(top);
+      li.appendChild(el('p', 'iw-desc', w.beschreibung));
+      if (w.neuer_text) li.appendChild(el('p', 'iw-new', w.neuer_text));
+      if (w.anhaenge > 0) {
+        var sh = el('div', 'iw-shots'); li.appendChild(sh);
+        var showShots = function (arr) { sh.textContent = ''; arr.forEach(function (src) { if (/^data:image\//.test(src)) { var im = el('img'); im.src = src; im.alt = 'Anhang'; sh.appendChild(im); } }); };
+        if (shotCache[w.id]) showShots(shotCache[w.id]);
+        else { var b = el('button', 'iw-link', w.anhaenge + (w.anhaenge === 1 ? ' Bild anzeigen' : ' Bilder anzeigen')); b.type = 'button';
+          b.onclick = function () { rpc('nw_anhaenge', { p_token: token, p_wunsch: w.id }).then(function (a) { shotCache[w.id] = a || []; showShots(shotCache[w.id]); }).catch(function () { b.textContent = 'Bilder konnten nicht geladen werden'; }); };
+          sh.appendChild(b); }
+      }
+      if (w.antwort || w.vorschau_url) {
+        var an = el('p', 'iw-ans'); an.appendChild(el('b', null, 'Claude: ')); an.appendChild(document.createTextNode(w.antwort || ''));
+        if (/^https:\/\//.test(w.vorschau_url || '')) { an.appendChild(document.createTextNode(' ')); var a = el('a', null, 'Vorschau ansehen'); a.href = w.vorschau_url; a.target = '_blank'; a.rel = 'noopener'; an.appendChild(a); }
+        li.appendChild(an);
+      }
+      if (w.status === 'neu') {
+        var act = el('div', 'iw-act');
+        if (confirmId === w.id) {
+          act.appendChild(el('span', null, 'Wunsch wirklich zurückziehen?'));
+          var y = el('button', 'iw-link', 'Ja, zurückziehen'); y.type = 'button';
+          y.onclick = function () { rpc('nw_zurueckziehen', { p_token: token, p_wunsch: w.id }).then(load).catch(render); confirmId = null; };
+          var n = el('button', 'iw-link', 'Abbrechen'); n.type = 'button'; n.onclick = function () { confirmId = null; render(); };
+          act.appendChild(y); act.appendChild(n);
+        } else { var z = el('button', 'iw-link', 'Zurückziehen'); z.type = 'button'; z.onclick = function () { confirmId = w.id; render(); }; act.appendChild(z); }
+        li.appendChild(act);
+      }
+      list.appendChild(li);
+    });
+  }
+
+  document.querySelectorAll('.iw-filter button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      filter = b.getAttribute('data-f');
+      document.querySelectorAll('.iw-filter button').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+      render();
+    });
+  });
+
+  $('iw-lf').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var m = $('iw-lmsg'), email = $('iw-email').value.trim(), pw = $('iw-pw').value;
+    if (!email || !pw) { m.className = 'iw-msg bad'; m.textContent = 'Bitte E-Mail und Passwort eingeben.'; return; }
+    $('iw-lb').disabled = true; m.className = 'iw-msg'; m.textContent = 'Wird geprüft …';
+    rpc('nw_login', { p_email: email, p_passwort: pw }).then(function (t) {
+      if (!t) { m.className = 'iw-msg bad'; m.textContent = 'E-Mail oder Passwort stimmt nicht.'; return; }
+      setToken(t); m.textContent = ''; $('iw-pw').value = ''; return load();
+    }).catch(function (err) {
+      m.className = 'iw-msg bad';
+      m.textContent = err.code === 'zu_viele_versuche' ? 'Zu viele Fehlversuche. Bitte in 15 Minuten erneut versuchen.' : 'Anmeldung gerade nicht möglich. Bitte später erneut versuchen.';
+    }).then(function () { $('iw-lb').disabled = false; });
+  });
+
+  $('iw-out').addEventListener('click', function () {
+    var t = token; setToken(null); items = []; showLogin('');
+    if (t) rpc('nw_logout', { p_token: t }).catch(function () {});
+  });
+
+  // Bilder verkleinern (max. 1600 px, JPEG), damit sie schnell gespeichert sind
+  function shrink(file) {
+    return new Promise(function (res, rej) {
+      var r = new FileReader();
+      r.onload = function () {
+        var img = new Image();
+        img.onload = function () {
+          var s = Math.min(1, 1600 / Math.max(img.width, img.height)), c = document.createElement('canvas');
+          c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+          var ctx = c.getContext('2d'); ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height); ctx.drawImage(img, 0, 0, c.width, c.height);
+          res(c.toDataURL('image/jpeg', .82));
+        };
+        img.onerror = rej; img.src = r.result;
+      };
+      r.onerror = rej; r.readAsDataURL(file);
+    });
+  }
+  $('iw-bild').addEventListener('change', function () {
+    var files = Array.prototype.slice.call(this.files || [], 0, 3), th = $('iw-thumbs'); th.textContent = ''; bilder = [];
+    Promise.all(files.map(shrink)).then(function (arr) { bilder = arr; arr.forEach(function (src) { var im = el('img'); im.src = src; im.alt = 'Vorschau'; th.appendChild(im); }); })
+      .catch(function () { $('iw-wmsg').className = 'iw-msg bad'; $('iw-wmsg').textContent = 'Ein Bild konnte nicht gelesen werden.'; });
+  });
+
+  $('iw-wf').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var m = $('iw-wmsg'), seite = $('iw-seite').value, besch = $('iw-besch').value.trim(), neu = $('iw-neu').value.trim();
+    if (!seite) { m.className = 'iw-msg bad'; m.textContent = 'Bitte die Seite auswählen.'; $('iw-seite').focus(); return; }
+    if (besch.length < 5) { m.className = 'iw-msg bad'; m.textContent = 'Bitte kurz beschreiben, was geändert werden soll.'; $('iw-besch').focus(); return; }
+    $('iw-wb').disabled = true; m.className = 'iw-msg'; m.textContent = 'Wird gesendet …';
+    rpc('nw_neu', { p_token: token, p_seite: seite, p_beschreibung: besch, p_neuer_text: neu, p_bilder: bilder }).then(function () {
+      $('iw-wf').reset(); $('iw-thumbs').textContent = ''; bilder = [];
+      m.className = 'iw-msg ok'; m.textContent = 'Danke, dein Wunsch ist gespeichert.';
+      return load();
+    }).catch(function (err) {
+      m.className = 'iw-msg bad';
+      m.textContent = err.code === 'nicht_angemeldet' ? 'Deine Anmeldung ist abgelaufen. Bitte neu anmelden.' : 'Speichern hat nicht geklappt. Bitte in einer Minute erneut versuchen.';
+      if (err.code === 'nicht_angemeldet') { setToken(null); showLogin(''); }
+    }).then(function () { $('iw-wb').disabled = false; });
+  });
+
+  if (token) load(); else showLogin('');
+})();
+</script>
