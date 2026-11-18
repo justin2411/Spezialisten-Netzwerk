@@ -48,7 +48,7 @@
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{font-family:'Assistant',Calibri,system-ui,sans-serif;font-size:17px;color:var(--text);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.65}
+body{font-family:'Assistant',Calibri,system-ui,sans-serif;font-size:17px;color:var(--text);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.65;hyphens:manual;-webkit-hyphens:manual;overflow-wrap:normal}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 button{font-family:inherit}
@@ -202,7 +202,7 @@ button{font-family:inherit}
 
 /* ──── CTA (hell & fröhlich) ──── */
 .sn-cta{position:relative;overflow:hidden;border-radius:var(--r-lg);background:radial-gradient(600px 300px at 90% 0%,rgba(255,255,255,.35),transparent 60%),linear-gradient(135deg,#c9da1f 0%,var(--g) 45%,#a8bc00 100%);padding:clamp(3rem,7vw,5rem) clamp(1.5rem,6vw,5rem);display:grid;grid-template-columns:1.3fr auto;gap:2rem;align-items:center;box-shadow:0 30px 70px rgba(150,170,0,.3)}
-.sn-cta h2{font-size:clamp(1.9rem,3.8vw,2.8rem);font-weight:800;line-height:1.1;color:#fff;letter-spacing:-.02em;margin-bottom:.8rem;position:relative;z-index:1}
+.sn-cta h2{text-wrap:balance;font-size:clamp(1.9rem,3.8vw,2.8rem);font-weight:800;line-height:1.1;color:#fff;letter-spacing:-.02em;margin-bottom:.8rem;position:relative;z-index:1}
 .sn-cta p{font-size:1.12rem;color:rgba(255,255,255,.92);line-height:1.7;max-width:560px;position:relative;z-index:1}
 .sn-cta .sn-btns{position:relative;z-index:1}
 .sn-cta .sn-btn{background:#fff;color:var(--gdd);box-shadow:0 14px 30px rgba(28,32,16,.22)}
@@ -331,8 +331,8 @@ button{font-family:inherit}
   .sn-topic-go{font-size:1rem}
   .sn-crumbs{font-size:.95rem}
   :root{--sp-card:1.5rem;--sp-head:2.25rem}
-  .sn-h1{font-size:clamp(2.1rem,9.4vw,2.4rem);hyphens:auto;-webkit-hyphens:auto}
-  .sn-h2{hyphens:auto;-webkit-hyphens:auto;text-wrap:balance}
+  .sn-h1{font-size:clamp(1.8rem,9vw,2.4rem);hyphens:manual;-webkit-hyphens:manual}
+  .sn-h2{hyphens:manual;-webkit-hyphens:manual;text-wrap:balance}
   .sn-person-name{font-size:clamp(1.4rem,6vw,1.6rem)}
   .sn-cta .sn-mosaic{right:-140px!important}
   .ft .sn-mosaic{display:none}
