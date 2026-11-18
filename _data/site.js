@@ -20,7 +20,7 @@ const team = {
   buck: { name: 'Dr. Michael Buck', role: 'Kranken- & Pflegeversicherung', url: '/kranken-pflege', img: '/assets/img/team/michael-buck.webp' },
   hendelkes: { name: 'Joachim Hendelkes', role: 'Dipl.-Kfm. | Finanzanalysen', url: '/finanzanalysen', img: '/assets/img/team/joachim-hendelkes.webp' },
   schneider: { name: 'Christian H. Schneider', role: 'Dipl.-Kfm. | Kapitalanlage Immobilien', url: '/kapitalanlage-immobilie', img: '/assets/img/team/christian-schneider.webp' },
-  scholl: { name: 'Dorian Scholl', role: 'Financial Planner | Investment & AIF', url: '/investment-aif', img: '/assets/img/team/dorian-scholl.webp' },
+  scholl: { name: 'Dorian Scholl', role: 'Financial Planner | Investment, AIF & ELTIF', url: '/investment-aif', img: '/assets/img/team/dorian-scholl.webp' },
   casanova: { name: 'Sigrid Casanova', role: 'M.A. | Unternehmensberatung Heilwesen', url: '/heilwesenberufe', img: '/assets/img/team/sigrid-casanova.webp' },
   arndt: { name: 'Ronni Arndt', role: 'Dipl.-Volkswirt | bAV / DMA', url: '/betriebliche-versorgung', img: '/assets/img/team/ronni-arndt.webp' },
   domes: { name: 'Steffen Domes', role: 'Experte bAV / DMA', url: '/betriebliche-versorgung', img: '/assets/img/team/steffen-domes.webp' }
@@ -30,7 +30,7 @@ const themen = [
   { key: 'immobilie', title: 'Kapitalanlage Immobilie', short: 'Immobilien', url: '/kapitalanlage-immobilie', icon: icons.immobilie, people: ['schneider'], teaser: 'Immobilien als Baustein Ihres Vermögens.' },
   { key: 'bav', title: 'Betriebliche Versorgung', short: 'Betr. Versorgung', url: '/betriebliche-versorgung', icon: icons.bav, people: ['arndt', 'domes'], teaser: 'Vorsorge über den Betrieb.' },
   { key: 'ruhestand', title: 'Ruhestandsplanung', short: 'Ruhestand', url: '/ruhestandsplanung', icon: icons.ruhestand, people: ['lohne'], teaser: 'Ihr Vermögen im Ruhestand im Blick.' },
-  { key: 'investment', title: 'Investment & AIF', short: 'Investment & AIF', url: '/investment-aif', icon: icons.investment, people: ['scholl'], teaser: 'Vermögen aufbauen, erhalten, übertragen.' },
+  { key: 'investment', title: 'Investment, AIF & ELTIF', short: 'Investment, AIF & ELTIF', url: '/investment-aif', icon: icons.investment, people: ['scholl'], teaser: 'Vermögen aufbauen, erhalten, übertragen.' },
   { key: 'kranken', title: 'Kranken & Pflege', short: 'Kranken & Pflege', url: '/kranken-pflege', icon: icons.kranken, people: ['buck'], teaser: 'Absicherung im Krankheits- und Pflegefall.' },
   { key: 'analyse', title: 'Finanzanalysen', short: 'Finanzanalysen', url: '/finanzanalysen', icon: icons.analyse, people: ['hendelkes'], teaser: 'Klarheit für Ihre Entscheidungen.' },
   { key: 'finanzierung', title: 'Finanzierung', short: 'Finanzierung', url: '/finanzierung', icon: icons.finanzierung, people: ['hoffmann', 'moews'], teaser: 'Ein Ansprechpartner, rund 600 Partner.' },
