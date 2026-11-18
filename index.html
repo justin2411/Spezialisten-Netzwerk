@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: "Das Spezialisten Netzwerk: Vermögensbildung nach Plan"
-description: "13+ Fachspezialisten, ein Plan, null Provisionsdruck. Ungebundene Finanz-, Ruhestands- und Vermögensplanung aus einer Hand."
+description: "13+ Fachspezialisten, ein Plan. Ungebundene Finanz-, Ruhestands- und Vermögensplanung aus einer Hand."
 permalink: "/index.html"
 ---
 <style>
@@ -216,7 +216,7 @@ permalink: "/index.html"
   .tm{display:grid;grid-template-columns:108px minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:1rem;padding-right:1rem}
   .tm-img{display:contents}
   .tm-img img{grid-column:1;grid-row:1/3;width:108px;height:100%;min-height:132px;background:linear-gradient(160deg,var(--g200),var(--g100))}
-  .tm-tag{position:static;grid-column:2;grid-row:1;align-self:start;margin-top:1rem;width:fit-content;max-width:100%;background:var(--g100);font-size:.78rem;line-height:1.25;padding:.25rem .6rem .25rem .3rem;gap:.35rem}
+  .tm-tag{position:static;grid-column:2;grid-row:1;align-self:start;margin-top:1rem;width:fit-content;max-width:100%;background:var(--g100);font-size:.84rem;line-height:1.25;padding:.25rem .6rem .25rem .3rem;gap:.35rem}
   .tm-tag span{width:20px;height:20px;border-radius:6px;flex-shrink:0}
   .tm-tag svg{width:12px;height:12px}
   .tm-foot{grid-column:2;grid-row:2;align-self:start;padding:.55rem 0 1rem;align-items:center}
@@ -228,6 +228,7 @@ permalink: "/index.html"
   .sn-fq button{padding:1.1rem 1.2rem;font-size:1.05rem}
   .sn-fq-a p{padding:0 1.2rem 1.2rem}
 }
+@media(max-width:360px){.vg-tab{padding:.7rem .6rem}}
 /* Handy: Profilbild-Mosaik im Hero ausblenden (Kundenwunsch) */
 @media(max-width:620px){.hx-grid>div:last-child{display:none}}
 </style>
@@ -238,7 +239,7 @@ permalink: "/index.html"
   <div class="sn-wrap">
     <div class="hx-grid">
       <div>
-        <div class="sn-eyebrow rv">100 % ungebunden · keine Produktgeber</div>
+        <div class="sn-eyebrow rv">Ungebunden beraten</div>
         <h1 class="rv d1">Finanzielle Entscheidungen trifft man <span class="sn-hl">nicht allein</span>
           <span class="soft">Sondern mit einem Netzwerk das <span style="white-space:nowrap">nur Ihnen</span> verpflichtet ist</span></h1>
         <div class="sn-btns rv d3">
@@ -294,7 +295,7 @@ permalink: "/index.html"
     <div class="sn-head sn-tc">
       <div class="sn-eyebrow rv">Das Netzwerk</div>
       <h2 class="sn-h2 rv">Das Spezialisten <span class="sn-hl">Netzwerk</span></h2>
-      <p class="sn-lead rv">13 Spezialisten, eine Strategie. Alles aus einer Hand.</p>
+      <p class="sn-lead rv">13+ Spezialisten, eine Strategie. Alles aus einer Hand.</p>
     </div>
     <div class="orb rv" id="orb">
       <div class="orb-ring spin"></div>
@@ -304,7 +305,7 @@ permalink: "/index.html"
           <img class="logo" src="/assets/img/logo.png" alt="Das Spezialisten Netzwerk">
           <div class="ppl"><img src="{{ T.lohne.img }}" alt=""></div>
           <b>{{ T.lohne.name }}</b>
-          <small>Netzwerk Manager</small>
+          <small>Netzwerk-Manager</small>
         </div>
       </div>
       {%- set pos = [[50,10],[78.3,21.7],[90,50],[78.3,78.3],[50,90],[21.7,78.3],[10,50],[21.7,21.7]] %}
@@ -328,12 +329,12 @@ permalink: "/index.html"
       <p class="sn-lead rv">Ihre Vermögensplanung sollte zu Ihrem Leben passen.</p>
     </div>
     <div class="q-grid">
-      <div class="q-card rv d1"><i>?</i><p>Größere Summen investieren, hochklassig beraten?</p></div>
-      <div class="q-card rv d2"><i>?</i><p>Wie reduziere ich Erbschafts- und Schenkungssteuern?</p></div>
-      <div class="q-card rv d3"><i>?</i><p>Wie strukturiere ich mein Vermögen für den Ruhestand?</p></div>
-      <div class="q-card rv d1"><i>?</i><p>Vermögen vererben ohne Fehlanreize für die Kinder?</p></div>
-      <div class="q-card rv d2"><i>?</i><p>Reicht mein Vermögen bis an mein Lebensende?</p></div>
-      <div class="q-card rv d3"><i>?</i><p>Große Beträge anlegen ohne unnötige Risiken?</p></div>
+      <div class="q-card rv d1"><i>?</i><p>Wie regele ich die Vermögensübertragung?</p></div>
+      <div class="q-card rv d2"><i>?</i><p>Wie strukturiere ich mein Vermögen für den Ruhestand?</p></div>
+      <div class="q-card rv d3"><i>?</i><p>Vermögen vererben ohne Fehlanreize für die Kinder?</p></div>
+      <div class="q-card rv d1"><i>?</i><p>Reicht mein Vermögen bis an mein Lebensende?</p></div>
+      <div class="q-card rv d2"><i>?</i><p>Große Beträge anlegen ohne unnötige Risiken?</p></div>
+      <div class="q-card rv d3"><i>?</i><p>Wie sichere ich meine Familie finanziell ab?</p></div>
     </div>
   </div>
 </section>
@@ -366,7 +367,7 @@ permalink: "/index.html"
       <p class="sn-lead rv">Vier Schritte, ein Ansprechpartner.</p>
     </div>
     <div class="vg-tabs rv" role="tablist">
-      <button class="vg-tab active" data-vorg="0" role="tab"><span class="n">01</span><span><b>Vorgespräch</b><small>Kostenlos</small></span></button>
+      <button class="vg-tab active" data-vorg="0" role="tab"><span class="n">01</span><span><b>Vorgespräch</b><small>Kostenfrei</small></span></button>
       <button class="vg-tab" data-vorg="1" role="tab"><span class="n">02</span><span><b>Status-Analyse</b><small>Analyse</small></span></button>
       <button class="vg-tab" data-vorg="2" role="tab"><span class="n">03</span><span><b>Strategiegespräch</b><small>Strategie</small></span></button>
       <button class="vg-tab" data-vorg="3" role="tab"><span class="n">04</span><span><b>Umsetzung</b><small>Dauerhaft</small></span></button>
@@ -376,9 +377,9 @@ permalink: "/index.html"
     <div class="vorg-panel active" id="vorg-panel-0">
       <div class="vorg-panel-left">
         <div class="vorg-big-num">01</div>
-        <div class="vorg-panel-badge">Kostenlos</div>
+        <div class="vorg-panel-badge">Kostenfrei</div>
         <h3 class="vorg-panel-title">Vorgespräch &amp; Zieldefinition</h3>
-        <p class="vorg-panel-desc">Wir lernen Ihre Situation kennen. Gemeinsam ermitteln wir Ihre Ziele, das verfügbare Budget und erstellen Ihren individuellen Aufnahme-Bogen. Kein Aufwand, keine Kosten.</p>
+        <p class="vorg-panel-desc">Wir lernen Ihre Situation kennen. Gemeinsam ermitteln wir Ihre Ziele, das verfügbare Budget und erstellen Ihren individuellen Aufnahme-Bogen.</p>
       </div>
       <div class="vorg-panel-card">
         <div class="vorg-feature-list">
@@ -392,10 +393,10 @@ permalink: "/index.html"
           </div>
           <div class="vorg-feature">
             <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <div class="vorg-feature-text"><strong>Zeitaufwand ca. 45 Min</strong><span>Online oder vor Ort</span></div>
+            <div class="vorg-feature-text"><strong>Zeitaufwand ca. 45 Min.</strong><span>Online oder vor Ort</span></div>
           </div>
         </div>
-        <div class="vorg-highlight"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Vollständig kostenlos und unverbindlich</div>
+        <div class="vorg-highlight"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Kostenfrei und unverbindlich</div>
       </div>
     </div>
 
@@ -419,7 +420,7 @@ permalink: "/index.html"
           </div>
           <div class="vorg-feature">
             <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-            <div class="vorg-feature-text"><strong>Steueroptimierung</strong><span>Steuerliche Möglichkeiten nutzen</span></div>
+            <div class="vorg-feature-text"><strong>Steuerliche Aspekte</strong><span>In Abstimmung mit Ihrer Steuerberatung</span></div>
           </div>
         </div>
         <div class="vorg-highlight"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Transparente Darstellung aller Ergebnisse</div>
@@ -446,7 +447,7 @@ permalink: "/index.html"
           </div>
           <div class="vorg-feature">
             <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <div class="vorg-feature-text"><strong>Rechtssichere Planung</strong><span>Alles gesetzeskonform dokumentiert</span></div>
+            <div class="vorg-feature-text"><strong>Nachvollziehbare Planung</strong><span>Alles sauber dokumentiert</span></div>
           </div>
         </div>
         <div class="vorg-highlight"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Individuell auf Ihre Lebensplanung abgestimmt</div>
@@ -469,14 +470,14 @@ permalink: "/index.html"
           </div>
           <div class="vorg-feature">
             <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.77 4.77a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.72 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-            <div class="vorg-feature-text"><strong>1 zentraler Ansprechpartner</strong><span>Kein Aufwand für Sie</span></div>
+            <div class="vorg-feature-text"><strong>1 zentraler Ansprechpartner</strong><span>Wenig Aufwand für Sie</span></div>
           </div>
           <div class="vorg-feature">
             <div class="vorg-feature-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
             <div class="vorg-feature-text"><strong>Dauerhaftes Monitoring</strong><span>Regelmäßig überprüft und angepasst</span></div>
           </div>
         </div>
-        <div class="vorg-highlight"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Lebenslange Partnerschaft statt einmalige Beratung</div>
+        <div class="vorg-highlight"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Langfristige Begleitung statt einmaliger Beratung</div>
       </div>
     </div>
     </div>
@@ -529,7 +530,7 @@ permalink: "/index.html"
     <div class="sn-faq">
       {%- set faqs = [
         ["Was macht das Spezialisten-Netzwerk anders?","13+ Spezialisten, eine abgestimmte Gesamtstrategie. Strategie vor Produkt."],
-        ["Ist die Beratung wirklich ungebunden?","Ja, vollständig. Kein Spezialist ist an Produktgeber gebunden."],
+        ["Ist die Beratung wirklich ungebunden?","Ja. Wir sprechen zuerst über Ihre Strategie, dann über Produktgattungen. Erst zum Schluss wählen wir passende Produkte aus."],
         ["Für wen ist das Netzwerk geeignet?","Für Unternehmer, Freiberufler, Führungskräfte und Privatpersonen mit Vermögen."],
         ["Wie viel Zeit muss ich investieren?","Minimal. Ein Ansprechpartner koordiniert alles für Sie."],
         ["Was kostet das Erstgespräch?","Nichts. Es ist kostenfrei und unverbindlich."]

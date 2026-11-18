@@ -1,11 +1,9 @@
 ---
 layout: base.njk
 title: "Kapitalanlage Immobilie | Spezialisten Netzwerk"
-description: "Ihr nachhaltiger Vermögensmultiplikator: Inflationsschutz, Steuervorteile und Vermögensübertragung durch professionell geprüfte Investments."
+description: "Immobilien als Baustein Ihres Vermögensaufbaus: Sachwert, steuerliche Aspekte und Vermögensübertragung mit sorgfältig ausgewählten Objekten."
 permalink: "/kapitalanlage-immobilie.html"
 ---
-{#- Renditerechner vorerst ausgeblendet (Wunsch Justin, 11/2026). Zum Einblenden auf true setzen. -#}
-{%- set showRechner = false -%}
 {%- set currentTheme = "immobilie" -%}
 {%- set p = site.team.schneider -%}
 <style>
@@ -14,9 +12,6 @@ permalink: "/kapitalanlage-immobilie.html"
 
 /* Hero: Kennzahlen in der Hero-Karte */
 .ki-hv{display:block;font-size:1.55rem;font-weight:800;color:var(--gd);line-height:1.1;letter-spacing:-.01em;margin-bottom:.15rem}
-.ki-hero-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.1rem;font-weight:800;color:var(--gdd);font-size:1rem}
-.ki-hero-link svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s var(--ease)}
-.ki-hero-link:hover svg{transform:translateY(3px)}
 
 /* Intro: Bild + Text */
 .ki-intro{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--sp-gap)*2.5);align-items:center}
@@ -32,69 +27,6 @@ permalink: "/kapitalanlage-immobilie.html"
 .ki-pic .ki-badge{top:1.5rem;right:-1.2rem}
 .ki-intro-text p{font-size:1.08rem;color:var(--text);line-height:1.8;margin-bottom:1rem}
 .ki-intro-text .sn-check{margin:var(--sp-stack) 0}
-
-/* ════════ Rechner ════════ */
-.ki-calc{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:var(--sp-card);position:relative;z-index:1}
-.ki-calc-grid{display:grid;grid-template-columns:400px 1fr;gap:var(--sp-gap);align-items:stretch}
-.calc-inputs{background:linear-gradient(170deg,var(--g100),var(--g50) 55%,#fff);border:1px solid var(--g200);border-radius:var(--r);padding:var(--sp-card);display:flex;flex-direction:column}
-.ci-title{display:flex;align-items:center;gap:.6rem;font-size:.9rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gdd);margin-bottom:1.5rem}
-.ci-title::before{content:'';width:12px;height:12px;border-radius:3px;background:var(--g);transform:rotate(45deg)}
-.ci-fields{flex:1;display:flex;flex-direction:column;justify-content:space-between}
-.ci-field{margin-bottom:1.25rem}
-.ci-field label{display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-bottom:.55rem}
-.ci-label-text{font-size:1rem;font-weight:700;color:var(--ink)}
-.ci-label-val{font-size:1rem;font-weight:800;color:var(--gdd);background:#fff;border:1px solid var(--g200);padding:.2rem .7rem;border-radius:10px;min-width:96px;text-align:center;white-space:nowrap;box-shadow:var(--sh-sm)}
-.ci-range{--p:50%;width:100%;-webkit-appearance:none;appearance:none;height:10px;border-radius:999px;background:linear-gradient(90deg,var(--g) 0,var(--g) var(--p),#fff var(--p),#fff 100%);box-shadow:inset 0 0 0 1px var(--g200);outline:none;cursor:pointer;accent-color:var(--g)}
-.ci-range::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--g);border:4px solid #fff;box-shadow:0 0 0 2px var(--gd),0 4px 12px rgba(105,125,15,.3);cursor:grab;transition:transform .2s var(--ease)}
-.ci-range::-webkit-slider-thumb:hover{transform:scale(1.12)}
-.ci-range:active::-webkit-slider-thumb{cursor:grabbing;transform:scale(1.15)}
-.ci-range::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--g);border:4px solid #fff;box-shadow:0 0 0 2px var(--gd),0 4px 12px rgba(105,125,15,.3);cursor:grab}
-.ci-range::-moz-range-track{height:10px;border-radius:999px;background:transparent}
-.ci-range:focus-visible{outline:3px solid var(--gd);outline-offset:6px}
-.ci-hint{font-size:.9rem;color:var(--muted);margin-top:.45rem;line-height:1.45}
-.ci-divider{height:2px;background:var(--g200);border-radius:2px;margin:.4rem 0 1.6rem}
-.ci-result{margin-top:1.4rem;background:#fff;border:2px solid var(--g);border-radius:var(--r);padding:1.4rem 1.2rem;text-align:center;box-shadow:0 14px 34px rgba(150,170,0,.2);position:relative;overflow:hidden}
-.ci-result::before{content:'';position:absolute;right:-16px;top:-16px;width:56px;height:56px;border-radius:14px;background:var(--g100);transform:rotate(45deg)}
-.ci-result-label{position:relative;font-size:.88rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--gdd);margin-bottom:.45rem}
-.ci-result-val{position:relative;font-size:clamp(2.6rem,5vw,3.3rem);font-weight:800;color:var(--gd);letter-spacing:-.03em;line-height:1;white-space:nowrap}
-.ci-result-sub{position:relative;font-size:.95rem;color:var(--muted);margin-top:.45rem}
-
-.calc-output{display:flex;flex-direction:column;gap:var(--sp-gap);min-width:0}
-.co-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-gap)}
-.co-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.1rem .9rem;text-align:center;box-shadow:var(--sh-sm);transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
-.co-card:hover{transform:translateY(-3px);border-color:var(--g200);box-shadow:var(--sh)}
-.co-card-lbl{font-size:.88rem;font-weight:700;color:var(--muted);margin-bottom:.45rem;line-height:1.3}
-.co-card-val{font-size:1.3rem;font-weight:800;color:var(--ink);line-height:1.15;white-space:nowrap}
-.co-card-val.green{color:var(--gd)}
-.co-card-val.neu{color:var(--ink)}
-.ki-hebel{display:flex;align-items:center;gap:1rem;background:var(--g50);border:1px solid var(--g200);border-radius:16px;padding:.9rem 1.2rem}
-.ki-hebel-lbl{font-size:.9rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--gdd);white-space:nowrap}
-.ki-hebel-track{flex:1;height:12px;background:#fff;border-radius:999px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--g200)}
-.ki-hebel-fill{height:100%;width:50%;background:linear-gradient(90deg,var(--gl),var(--g));border-radius:999px;transition:width .6s var(--ease)}
-.ki-hebel-val{font-size:1.15rem;font-weight:800;color:var(--gd);white-space:nowrap}
-.co-chart-wrap{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:var(--sp-card);position:relative;display:flex;flex-direction:column;flex:1;box-shadow:var(--sh-sm)}
-.co-chart-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
-.co-chart-title{font-size:1.08rem;font-weight:800;color:var(--ink)}
-.co-chart-legend{display:flex;gap:.6rem 1.1rem;flex-wrap:wrap}
-.co-legend-item{display:flex;align-items:center;gap:.4rem;font-size:.9rem;color:var(--muted);font-weight:600}
-.co-legend-dot{width:12px;height:12px;border-radius:4px;flex-shrink:0}
-#immo-svg{width:100%;height:auto;display:block;margin:auto 0}
-.co-tooltip{position:absolute;background:#fff;border:1px solid var(--g200);border-radius:12px;padding:.55rem .8rem;font-size:.9rem;color:var(--text);line-height:1.5;pointer-events:none;opacity:0;transition:opacity .15s;z-index:20;white-space:nowrap;box-shadow:var(--sh)}
-.co-tooltip strong{color:var(--gd);display:block;font-size:1rem;margin-bottom:2px}
-.co-breakdown{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
-.co-bd-row{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.8rem 1rem;background:var(--cream);border:1px solid var(--line);border-radius:14px;font-size:1rem;transition:border-color .3s,background .3s}
-.co-bd-row:hover{border-color:var(--g200);background:var(--g50)}
-.co-bd-key{color:var(--text);display:flex;align-items:center;gap:.55rem}
-.co-bd-key svg{width:18px;height:18px;flex-shrink:0;stroke:var(--gd);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.co-bd-val{font-weight:800;white-space:nowrap}
-.co-bd-val.pos{color:var(--gd)}
-.co-bd-val.neg{color:#b3261e}
-.co-bd-val.neu{color:var(--ink)}
-.co-bd-row.ki-total{background:var(--g100);border-color:var(--g)}
-.co-bd-row.ki-total .co-bd-key{color:var(--ink);font-weight:800}
-.co-bd-row.ki-total .co-bd-val{font-size:1.2rem}
-.ki-calc-btn{width:100%}
-.immo-calc-note{font-size:.92rem;color:var(--muted);text-align:center;margin-top:var(--sp-stack);line-height:1.6;padding-top:var(--sp-stack);border-top:1px solid var(--line)}
 
 /* ════════ Sechs Gründe ════════ */
 .ki-grund{position:relative;display:flex;flex-direction:column;align-items:flex-start;width:100%;text-align:left;font:inherit;cursor:pointer;overflow:hidden}
@@ -138,7 +70,6 @@ permalink: "/kapitalanlage-immobilie.html"
 .ki-quote-person small{display:block;color:var(--gdd);font-weight:700;font-size:.92rem;text-align:left}
 
 /* Responsive */
-@media(max-width:1200px){.ki-calc-grid{grid-template-columns:1fr}.co-cards{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:900px){
   .ki-intro{grid-template-columns:1fr}
   .ki-pic-frame{min-height:340px}
@@ -147,33 +78,10 @@ permalink: "/kapitalanlage-immobilie.html"
   .ki-person .sn-person-photo{min-height:380px}
 }
 @media(max-width:620px){
-  .co-breakdown{grid-template-columns:1fr}
-  .co-cards{gap:.6rem}
-  .co-card{padding:.9rem .6rem}
-  .co-card-val{font-size:1.1rem}
-  .calc-inputs{padding:1.3rem}
-  .ki-calc{padding:.8rem;border-radius:var(--r)}
-  .ki-hebel{flex-wrap:wrap;gap:.6rem 1rem}
-  .ki-hebel-track{order:3;flex-basis:100%}
-  .co-chart-wrap{padding:1.1rem .8rem .8rem}
   .ki-pic::before{right:-8px;bottom:-8px}
   .ki-pop-head{padding:1.6rem 1.4rem 1.3rem}
   .ki-pop-body{padding:1.4rem}
   #gp-title{font-size:1.4rem;padding-right:2.5rem}
-  /* Mobil: Rechner ohne doppelten Rahmen, damit Regler & Werte die volle Breite nutzen */
-  .ki-calc{padding:0;border:none;background:transparent;box-shadow:none;border-radius:0}
-  .calc-inputs{padding:1.4rem 1.2rem;box-shadow:var(--sh-sm)}
-  .immo-calc-note{border-top:none;padding-top:0}
-  .ci-field{margin-bottom:.8rem}
-  .ci-field label{margin-bottom:0}
-  .ci-hint{margin-top:0}
-  .ci-hint{font-size:1rem}
-  .co-legend-item{font-size:.95rem}
-  .ci-result-sub{font-size:1rem}
-  .co-card-lbl{font-size:.92rem}
-  .co-chart-wrap{padding:1.2rem 1rem 1rem}
-  /* Hero-Link als volle Tap-Fläche */
-  .ki-hero-link{min-height:44px;margin-top:.6rem}
   /* Sechs Gründe: kompakt — Icon links, Text rechts, Nummer unten rechts */
   /* (Raster Icon links / Text rechts kommt aus head.njk: .sn-grid-3>.sn-card) */
   .ki-gtitle{grid-column:2;font-size:1.2rem;margin:.1rem 0 .45rem;hyphens:auto;-webkit-hyphens:auto}
@@ -181,15 +89,6 @@ permalink: "/kapitalanlage-immobilie.html"
   .ki-grund .sn-topic-go{grid-column:2;margin-top:.9rem;min-height:24px}
   .ki-gnum{top:auto;bottom:1.3rem;right:1.4rem;font-size:2.3rem}
   .ki-person .sn-person-photo{min-height:340px}
-}
-/* Touch/Tablet: Regler mit 44px hoher Tap-Fläche (Spur bleibt 10px, Griff größer) */
-@media(max-width:900px){
-  .ci-range{height:44px;background:transparent;box-shadow:none}
-  .ci-range::-webkit-slider-runnable-track{height:10px;border-radius:999px;background:linear-gradient(90deg,var(--g) 0,var(--g) var(--p),#fff var(--p),#fff 100%);box-shadow:inset 0 0 0 1px var(--g200)}
-  .ci-range::-webkit-slider-thumb{width:30px;height:30px;margin-top:-10px}
-  .ci-range::-moz-range-track{height:10px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--g200)}
-  .ci-range::-moz-range-progress{height:10px;border-radius:999px;background:var(--g)}
-  .ci-range::-moz-range-thumb{width:22px;height:22px}
 }
 </style>
 
@@ -202,10 +101,10 @@ permalink: "/kapitalanlage-immobilie.html"
         <nav class="sn-crumbs rv" aria-label="Brotkrumen"><a href="/">Startseite</a><span>/</span>Themen<span>/</span>Kapitalanlage Immobilie</nav>
         <div class="sn-eyebrow rv">Spezialisten-Thema</div>
         <h1 class="sn-h1 rv d1">Kapitalanlage <span class="sn-hl">Immobilie</span></h1>
-        <p class="sn-lead rv d2">Ihr Vermögensmultiplikator: Inflationsschutz, Steuervorteile und Vermögensübertragung mit geprüften Investments.</p>
+        <p class="sn-lead rv d2">Ein Baustein Ihres Vermögensaufbaus: Sachwert, steuerliche Aspekte und Vermögensübertragung mit sorgfältig ausgewählten Objekten.</p>
         <div class="sn-btns rv d3">
-          <a href="/kontakt" class="sn-btn" aria-label="Kostenlose Beratung anfragen">Kostenlos beraten lassen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a href="#leistungen" class="sn-btn sn-btn--ghost">Unsere Leistungen</a>
+          <a href="/kontakt" class="sn-btn" aria-label="Kostenfreies Erstgespräch anfragen">Kostenfreies Erstgespräch <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#leistungen" class="sn-btn sn-btn--ghost">Sechs Gründe</a>
         </div>
         <div class="sn-hero-person rv d4">
           <img src="{{ p.img }}" alt="{{ p.name }}">
@@ -214,12 +113,8 @@ permalink: "/kapitalanlage-immobilie.html"
       </div>
       <div class="sn-hero-card rv d2">
         <div class="sn-hero-card-title">Was wir für Sie leisten</div>
-        <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></span><div><b class="ki-hv">30+ Jahre</b><span>Immobilienerfahrung</span></div></div>
-        <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><div><b class="ki-hv">Geprüft</b><span>Engmaschiger Prüfprozess</span></div></div>
-{% if showRechner %}
-        <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></span><div><b class="ki-hv">7,59 % p.a.</b><span>Ø Rendite auf Eigenkapital</span></div></div>
-        <a href="#rechner" class="ki-hero-link">Ihre Rendite berechnen <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
-{% endif %}
+        <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></span><div><b class="ki-hv">30+ Jahre</b><span>Finanzerfahrung</span></div></div>
+        <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><div><b class="ki-hv">Geprüft</b><span>Sorgfältiger Prüfprozess</span></div></div>
       </div>
     </div>
   </div>
@@ -232,20 +127,20 @@ permalink: "/kapitalanlage-immobilie.html"
       <div class="ki-pic rv">
         <div class="ki-pic-frame">
           <img src="/assets/img/stock/wohnraum.webp" alt="Helle, moderne Wohnung als Kapitalanlage" loading="lazy">
-          <span class="ki-chip">Strategie · Steuervorteile · Schutz</span>
+          <span class="ki-chip">Strategie · Steuern · Sachwert</span>
         </div>
         <div class="ki-badge"><b>30+</b><span>Jahre Erfahrung</span></div>
       </div>
       <div class="ki-intro-text rv d1">
         <div class="sn-eyebrow">Warum Immobilien</div>
-        <h2 class="sn-h2">Ihr nachhaltiger <span class="sn-hl">Vermögens&shy;multiplikator</span></h2>
-        <p>Unabhängig von Wertpapiermärkten, mit Inflationsschutz. Wir begleiten Sie von der Prüfung bis zum Verkauf.</p>
+        <h2 class="sn-h2">Baustein Ihres <span class="sn-hl">Vermögens&shy;aufbaus</span></h2>
+        <p>Ergänzung zu Wertpapieren. Wir begleiten Sie von der Prüfung bis zum Verkauf.</p>
         <ul class="sn-check">
           <li>Strategische Portfolio-Ergänzung</li>
-          <li>Unabhängigkeit von Wertpapiermärkten</li>
-          <li>Steuervorteile und Fördermittel</li>
-          <li>Garantierter Inflationsschutz</li>
-          <li>Günstige Vermögensübertragung</li>
+          <li>Diversifikation</li>
+          <li>Steuerliche Aspekte</li>
+          <li>Sachwert im Portfolio</li>
+          <li>Planbare Vermögensübertragung</li>
         </ul>
         <a href="/kontakt" class="sn-btn">Beratung anfragen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
@@ -258,127 +153,19 @@ permalink: "/kapitalanlage-immobilie.html"
   <div class="sn-wrap">
     <div class="sn-head sn-tc">
       <div class="sn-eyebrow rv">Ihre Vorteile</div>
-      <h2 class="sn-h2 rv">Professionelle Investments mit <span class="sn-hl">geprüfter Qualität</span></h2>
+      <h2 class="sn-h2 rv">Professionell begleitet mit <span class="sn-hl">sorgfältiger Auswahl</span></h2>
       <p class="sn-lead rv">Zielorientierung, Individualität und verlässliche Prozesse.</p>
     </div>
     <div class="sn-grid-3">
-      <div class="sn-card rv d1"><div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Produktqualität</h3><p>Engmaschige Prüfung nach höchsten Kriterien.</p></div>
+      <div class="sn-card rv d1"><div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Produktqualität</h3><p>Sorgfältige Prüfung jedes Objekts.</p></div>
       <div class="sn-card rv d2"><div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Verbraucherschutz</h3><p>Klare Dokumentation und transparente Information.</p></div>
-      <div class="sn-card rv d3"><div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Erfahrene Beratung</h3><p>Über 30 Jahre Immobilien- und Finanzerfahrung.</p></div>
-      <div class="sn-card rv d1"><div class="sn-ico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h3>Optimierung</h3><p>Portfolio nach Steuer, Recht und Struktur optimiert.</p></div>
+      <div class="sn-card rv d3"><div class="sn-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Erfahrene Beratung</h3><p>Über 30 Jahre Finanzerfahrung.</p></div>
+      <div class="sn-card rv d1"><div class="sn-ico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h3>Struktur</h3><p>Portfolio-Struktur im Blick, in Abstimmung mit Ihrer Steuerberatung.</p></div>
       <div class="sn-card rv d2"><div class="sn-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3>Zusammenarbeit</h3><p>Vernetzt mit Finanzierungsspezialisten.</p></div>
-      <div class="sn-card rv d3"><div class="sn-ico"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><h3>Komplettpaket</h3><p>Von Prüfung über Mietgarantien bis Verkauf.</p></div>
+      <div class="sn-card rv d3"><div class="sn-ico"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><h3>Komplettpaket</h3><p>Von der Prüfung bis zum Verkauf.</p></div>
     </div>
   </div>
 </section>
-
-{% if showRechner %}
-<!-- ════════ IMMOBILIEN-RENDITERECHNER ════════ -->
-<section class="sn-sec" id="rechner">
-  <div class="sn-wrap">
-    <div class="sn-head sn-tc">
-      <div class="sn-eyebrow rv">Interaktiver Rechner</div>
-      <h2 class="sn-h2 rv">Ihre Immobilien-<span class="sn-hl">Rendite berechnen</span></h2>
-      <p class="sn-lead rv">Hebeleffekt, Steuerersparnis, Cashflow und Gesamtrendite Ihrer Immobilie simulieren.</p>
-    </div>
-
-    <div class="ki-calc rv">
-      <div class="ki-calc-grid">
-
-        <!-- INPUTS -->
-        <div class="calc-inputs">
-          <div class="ci-title">Ihre Eckdaten</div>
-          <div class="ci-fields">
-            <div class="ci-field">
-              <label for="r-kp"><span class="ci-label-text">Kaufpreis</span><span class="ci-label-val" id="v-kp">280.000 €</span></label>
-              <input class="ci-range" type="range" id="r-kp" min="100000" max="1000000" step="5000" value="280000" oninput="calcImmo()">
-            </div>
-            <div class="ci-field">
-              <label for="r-ek"><span class="ci-label-text">Eigenkapital (inkl. NK)</span><span class="ci-label-val" id="v-ek">70.000 €</span></label>
-              <input class="ci-range" type="range" id="r-ek" min="10000" max="500000" step="5000" value="70000" oninput="calcImmo()">
-              <div class="ci-hint">Typisch: 20 bis 30 % des Kaufpreises inkl. Nebenkosten</div>
-            </div>
-            <div class="ci-field">
-              <label for="r-mi"><span class="ci-label-text">Kaltmiete monatlich</span><span class="ci-label-val" id="v-mi">900 €</span></label>
-              <input class="ci-range" type="range" id="r-mi" min="300" max="5000" step="50" value="900" oninput="calcImmo()">
-            </div>
-            <div class="ci-divider" aria-hidden="true"></div>
-            <div class="ci-field">
-              <label for="r-ws"><span class="ci-label-text">Wertsteigerung p.a.</span><span class="ci-label-val" id="v-ws">2,0 %</span></label>
-              <input class="ci-range" type="range" id="r-ws" min="0" max="6" step="0.5" value="2" oninput="calcImmo()">
-              <div class="ci-hint">Historischer Schnitt Deutschland: 2 bis 3 % p.a.</div>
-            </div>
-            <div class="ci-field">
-              <label for="r-zi"><span class="ci-label-text">Zinssatz Darlehen</span><span class="ci-label-val" id="v-zi">3,5 %</span></label>
-              <input class="ci-range" type="range" id="r-zi" min="1" max="6" step="0.25" value="3.5" oninput="calcImmo()">
-            </div>
-            <div class="ci-field">
-              <label for="r-ti"><span class="ci-label-text">Tilgung p.a.</span><span class="ci-label-val" id="v-ti">2,0 %</span></label>
-              <input class="ci-range" type="range" id="r-ti" min="1" max="5" step="0.5" value="2" oninput="calcImmo()">
-            </div>
-            <div class="ci-field">
-              <label for="r-st"><span class="ci-label-text">Grenzsteuersatz</span><span class="ci-label-val" id="v-st">42 %</span></label>
-              <input class="ci-range" type="range" id="r-st" min="14" max="45" step="1" value="42" oninput="calcImmo()">
-            </div>
-            <div class="ci-field">
-              <label for="r-hd"><span class="ci-label-text">Haltedauer</span><span class="ci-label-val" id="v-hd">20 Jahre</span></label>
-              <input class="ci-range" type="range" id="r-hd" min="5" max="35" step="1" value="20" oninput="calcImmo()">
-            </div>
-          </div>
-          <div class="ci-result" aria-live="polite">
-            <div class="ci-result-label">Gesamtrendite auf Eigenkapital</div>
-            <div class="ci-result-val" id="r-gesamt">7,59 %</div>
-            <div class="ci-result-sub">Netto p.a. nach Steuern &amp; Kosten</div>
-          </div>
-        </div>
-
-        <!-- OUTPUT -->
-        <div class="calc-output">
-          <div class="co-cards">
-            <div class="co-card"><div class="co-card-lbl">Monatl. Cashflow</div><div class="co-card-val green" id="o-cf">+ 195 €</div></div>
-            <div class="co-card"><div class="co-card-lbl">Steuervorteil p.a.</div><div class="co-card-val green" id="o-sv">4.200 €</div></div>
-            <div class="co-card"><div class="co-card-lbl">Eigenkapital heute</div><div class="co-card-val neu" id="o-ek">70.000 €</div></div>
-            <div class="co-card"><div class="co-card-lbl">Vermögen am Ende</div><div class="co-card-val green" id="o-vm">412.000 €</div></div>
-          </div>
-
-          <div class="ki-hebel" id="hebel-bar">
-            <div class="ki-hebel-lbl">Hebeleffekt</div>
-            <div class="ki-hebel-track"><div class="ki-hebel-fill" id="hebel-fill"></div></div>
-            <div class="ki-hebel-val" id="hebel-val">1,8× EK</div>
-          </div>
-
-          <div class="co-chart-wrap" id="co-chart-wrap">
-            <div class="co-tooltip" id="co-tooltip"></div>
-            <div class="co-chart-header">
-              <div class="co-chart-title">Vermögensentwicklung über die Haltedauer</div>
-              <div class="co-chart-legend">
-                <div class="co-legend-item"><div class="co-legend-dot" style="background:#697d0f"></div>Eigenkapital + Tilgung</div>
-                <div class="co-legend-item"><div class="co-legend-dot" style="background:#d6e46a"></div>Wertsteigerung</div>
-                <div class="co-legend-item"><div class="co-legend-dot" style="background:#ecbd00"></div>Kumulierter Cashflow</div>
-              </div>
-            </div>
-            <svg id="immo-svg" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagramm: Vermögensentwicklung über die Haltedauer"></svg>
-          </div>
-
-          <div class="co-breakdown">
-            <div class="co-bd-row"><span class="co-bd-key"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Kaufpreis</span><span class="co-bd-val neu" id="b-kp">280.000 €</span></div>
-            <div class="co-bd-row"><span class="co-bd-key"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Jährl. Mieteinnahmen</span><span class="co-bd-val pos" id="b-me">10.800 €</span></div>
-            <div class="co-bd-row"><span class="co-bd-key"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16h16V8z"/><polyline points="14 2 14 8 20 8"/></svg>Jährl. Zinsaufwand</span><span class="co-bd-val neg" id="b-zi">7.350 €</span></div>
-            <div class="co-bd-row"><span class="co-bd-key"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>AfA-Abschreibung p.a.</span><span class="co-bd-val pos" id="b-afa">5.600 €</span></div>
-            <div class="co-bd-row"><span class="co-bd-key"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Steuervorteil p.a.</span><span class="co-bd-val pos" id="b-sv">4.200 €</span></div>
-            <div class="co-bd-row"><span class="co-bd-key"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>Objektrendite (brutto)</span><span class="co-bd-val pos" id="b-or">3,9 %</span></div>
-            <div class="co-bd-row"><span class="co-bd-key"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>Immobilienwert am Ende</span><span class="co-bd-val pos" id="b-wv">415.000 €</span></div>
-            <div class="co-bd-row ki-total"><span class="co-bd-key"><svg viewBox="0 0 24 24"><polyline points="22 4 12 14.01 9 11.01"/><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/></svg>Netto-EK-Rendite p.a.</span><span class="co-bd-val pos" id="b-gr">7,59 %</span></div>
-          </div>
-
-          <a id="calc-contact-btn" href="#" onclick="goToContact(event)" class="sn-btn ki-calc-btn">Beratung mit diesen Werten anfragen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </div>
-      <p class="immo-calc-note">* Vereinfachte Modellrechnung. AfA: 2% auf 80% des Kaufpreises (Gebäudeanteil). Keine Steuerberatung. Individuelle Ergebnisse können abweichen.</p>
-    </div>
-  </div>
-</section>
-{% endif %}
 
 <!-- ════════ SECHS GRÜNDE ════════ -->
 <section class="sn-sec sn-sec--lime" id="leistungen">
@@ -391,9 +178,9 @@ permalink: "/kapitalanlage-immobilie.html"
     <div class="sn-grid-3">
       {%- set gruende = [
         ["Strategie", "Portfolio-Ergänzung", '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>'],
-        ["Unabhängigkeit", "Marktneutral", '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'],
+        ["Streuung", "Diversifikation", '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'],
         ["Steuervorteile", "AfA & Werbungskosten", '<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>'],
-        ["Inflationsschutz", "Realer Sachwert", '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'],
+        ["Sachwert", "Kaufkraft im Blick", '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'],
         ["Vermögensübertragung", "Erbschaft & Schenkung", '<path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>'],
         ["Rückdeckung", "Versorgungszusagen", '<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>']
       ] -%}
@@ -440,7 +227,7 @@ permalink: "/kapitalanlage-immobilie.html"
       <div class="sn-person rv">
         <div class="sn-person-photo">
           <img loading="lazy" src="{{ p.img }}" alt="{{ p.name }}">
-          <div class="ki-photo-badge"><b>seit 1995</b><span>Top-Spezialist</span></div>
+          <div class="ki-photo-badge"><b>seit 1995</b><span>Finanzplaner</span></div>
         </div>
         <div class="sn-person-body">
           <span class="sn-badge">Kapitalanlage Immobilie</span>
@@ -451,7 +238,7 @@ permalink: "/kapitalanlage-immobilie.html"
             <li>Seit 1995 Finanzplaner, seit 1997 Kapitalanlagen bei HORBACH</li>
             <li>Lebt in Berlin zur Miete, leidenschaftlicher Vermieter</li>
           </ul>
-          <div class="sn-quote-line">„Der Kunde ist der Mittelpunkt! Statt Probleme zu suchen, finden wir Lösungen!"</div>
+          <div class="sn-quote-line">„Der Kunde ist der Mittelpunkt! Statt Probleme zu suchen, finden wir Lösungen!“</div>
           <div class="sn-btns"><a href="/kontakt" class="sn-btn sn-btn--sm">Kontakt aufnehmen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </div>
@@ -463,7 +250,7 @@ permalink: "/kapitalanlage-immobilie.html"
 <section class="sn-sec sn-sec--tint">
   <div class="sn-wrap">
     <figure class="sn-quote rv">
-      <p>Immobilien als Kapitalanlage: Ihr nachhaltiger Vermögensmultiplikator.</p>
+      <p>Immobilien als Kapitalanlage: ein Baustein Ihres Vermögensaufbaus.</p>
       <figcaption class="ki-quote-person">
         <img src="{{ p.img }}" alt="{{ p.name }}" loading="lazy">
         <div><b>{{ p.name }}</b><small>Spezialist im Netzwerk</small></div>
@@ -475,7 +262,7 @@ permalink: "/kapitalanlage-immobilie.html"
 {% include "themen-links.njk" %}
 
 {%- set ctaTitle = "Von der Prüfung bis zum Verkauf an Ihrer Seite" -%}
-{%- set ctaText = "Strategie, Steuervorteile und Schutz für Ihr Vermögen. Erstgespräch kostenfrei und unverbindlich." -%}
+{%- set ctaText = "Strategie, Sachwert und Planung für Ihr Vermögen. Erstgespräch kostenfrei und unverbindlich." -%}
 {%- set ctaBtn = "Jetzt Kontakt aufnehmen" -%}
 {% include "cta.njk" %}
 
@@ -485,44 +272,44 @@ var GRUENDE = [
   {
     num:'01', title:'Strategie', tag:'Portfolio-Ergänzung',
     icon:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
-    desc:'Eine stabile, renditestarke Ergänzung für ein diversifiziertes Portfolio.',
-    bullets:['Sachwert mit realem Gegenwert','Stabile Mieteinnahmen unabhängig von Börsen','Vermögensaufbau durch Miete und Wertsteigerung','Kern eines breiten Portfolios'],
-    highlight:'Drei Renditequellen in einem Investment: Miete, Steuervorteile, Wertsteigerung.'
+    desc:'Eine Ergänzung für ein breit aufgestelltes Portfolio.',
+    bullets:['Sachwert mit realem Gegenwert','Laufende Mieteinnahmen möglich','Vermögensaufbau durch Miete und Tilgung','Baustein eines breiten Portfolios'],
+    highlight:''
   },
   {
-    num:'02', title:'Unabhängigkeit', tag:'Marktneutral',
+    num:'02', title:'Streuung', tag:'Diversifikation',
     icon:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
-    desc:'Börsencrashs und Zinsschwankungen beeinflussen Ihre Mieteinnahmen nicht.',
-    bullets:['Keine direkte Korrelation zu Aktien oder Renten','Mieteinnahmen auch in Krisenzeiten','Diversifikation gegen Klumpenrisiken','Historisch langfristig steigende Werte'],
-    highlight:'2008 und in der Corona-Pandemie blieben deutsche Wohnimmobilien weitgehend stabil, Aktien brachen ein.'
+    desc:'Mieteinnahmen hängen nicht direkt von der Börse ab.',
+    bullets:['Andere Einflussfaktoren als Aktien oder Renten','Diversifikation gegen Klumpenrisiken'],
+    highlight:''
   },
   {
     num:'03', title:'Steuervorteile', tag:'AfA & Werbungskosten',
     icon:'<svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
-    desc:'Abschreibung, Zinsen, Verwaltung und Instandhaltung senken Ihre Steuerlast.',
-    bullets:['AfA: 2% p.a. auf 80% des Kaufpreises','Kreditzinsen voll als Werbungskosten','Verwaltung und Instandhaltung absetzbar','Verkauf nach 10 Jahren: keine Spekulationssteuer'],
-    highlight:'Bei 300.000 € Kaufpreis und 42% Grenzsteuersatz sind über 5.000 € Steuervorteil pro Jahr möglich.'
+    desc:'Abschreibung, Zinsen, Verwaltung und Instandhaltung können steuerlich berücksichtigt werden.',
+    bullets:['Abschreibung (AfA) auf den Gebäudeanteil','Verwaltung und Instandhaltung als Werbungskosten','Steuerliche Details klären wir gemeinsam mit Ihrer Steuerberatung'],
+    highlight:'Abschreibung und Werbungskosten können die Steuerlast senken.'
   },
   {
-    num:'04', title:'Inflationsschutz', tag:'Realer Sachwert',
+    num:'04', title:'Sachwert', tag:'Kaufkraft im Blick',
     icon:'<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-    desc:'Wert und Mieten steigen mit der Inflation, die Kaufkraft bleibt erhalten.',
-    bullets:['Regelmäßige Mietanpassungen möglich','Historische Wertsteigerung: 2 bis 4 % p.a.','Inflation entwertet die Kreditschuld','Schutz vor Kaufkraftverlust'],
-    highlight:'Mit Darlehen doppelt profitieren: Restschuld sinkt real, Miete und Wert steigen.'
+    desc:'Sachwerte können helfen, Kaufkraft zu erhalten.',
+    bullets:['Mietanpassungen im gesetzlichen Rahmen möglich','Inflation kann die reale Kreditschuld mindern'],
+    highlight:''
   },
   {
     num:'05', title:'Vermögensübertragung', tag:'Erbschaft & Schenkung',
     icon:'<svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>',
-    desc:'Vermögen in der Familie übertragen, steuerlich günstiger als andere Werte.',
-    bullets:['Bewertung unter Verkehrswert','Freibeträge alle 10 Jahre neu (585.000 € pro Kind)','Schenkung mit Nießbrauch möglich','Generationenwechsel steueroptimiert planbar'],
-    highlight:'Richtig strukturiert, schrittweise und weitgehend steuerfrei an die nächste Generation.'
+    desc:'Vermögen in der Familie übertragen.',
+    bullets:['Freibeträge können alle 10 Jahre neu genutzt werden','Schenkung mit Nießbrauch möglich','Generationenwechsel frühzeitig planbar'],
+    highlight:'Übertragung frühzeitig und gemeinsam mit Steuerberatung planen.'
   },
   {
     num:'06', title:'Rückdeckung', tag:'Versorgungszusagen',
     icon:'<svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',
-    desc:'Ideal zur Rückdeckung von Versorgungszusagen und als Unternehmenssicherheit.',
-    bullets:['Deckungsmasse für Pensionsverpflichtungen','Sicherheit für Unternehmensfinanzierungen','Stabile Werte für langfristige Deckung','Mit bAV kombinierbar'],
-    highlight:'Für Unternehmer: private Vermögensanlage plus betriebliche Absicherung.'
+    desc:'Kann Teil der betrieblichen Vermögensplanung sein.',
+    bullets:['Langfristig ausgerichteter Sachwert','Mit bAV kombinierbar'],
+    highlight:'Für Unternehmer: private und betriebliche Vermögensplanung zusammen denken.'
   }
 ];
 
@@ -535,7 +322,9 @@ function openPopup(idx){
   document.getElementById('gp-title').textContent=d.title;
   document.getElementById('gp-tag').textContent=d.tag;
   document.getElementById('gp-desc').textContent=d.desc;
-  document.getElementById('gp-highlight').textContent=d.highlight;
+  var gpHl=document.getElementById('gp-highlight');
+  gpHl.textContent=d.highlight;
+  gpHl.style.display=d.highlight?'':'none';
   document.getElementById('gp-bullets').innerHTML=d.bullets.map(function(b){return '<li>'+b+'</li>';}).join('');
   var overlay=document.getElementById('grund-overlay');
   var popup=document.getElementById('grund-popup');
@@ -565,307 +354,3 @@ function closePopup(){
 
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePopup();});
 </script>
-
-{% if showRechner %}
-<script>
-/* ══ IMMOBILIEN-RECHNER ══ (Rechenlogik unverändert; nur Farben/Schriftgrößen im Diagramm an das helle Design angepasst) */
-(function(){
-
-function fmtEuro(n){
-  if(isNaN(n)||n===undefined)return'-';
-  var a=Math.abs(Math.round(n));
-  var sign=n<0?'− ':'';
-  if(a>=1000000)return sign+(n<0?a:n/1000000<10?(Math.round(n/100000)/10).toFixed(1):(Math.round(n/1000000))).toString().replace('.',',')+' Mio. €';
-  return sign+a.toLocaleString('de-DE')+' €';
-}
-function fmtEuroSign(n){return(n>=0?'+ ':'− ')+Math.abs(Math.round(n)).toLocaleString('de-DE')+' €';}
-function fmtPct(n){return(Math.round(n*10)/10).toFixed(1).replace('.',',')+' %';}
-
-function goToContact(e){
-  e.preventDefault();
-  var kp=document.getElementById('r-kp').value;
-  var ek=document.getElementById('r-ek').value;
-  var mi=document.getElementById('r-mi').value;
-  var ws=document.getElementById('r-ws').value;
-  var zi=document.getElementById('r-zi').value;
-  var ti=document.getElementById('r-ti').value;
-  var st=document.getElementById('r-st').value;
-  var hd=document.getElementById('r-hd').value;
-  var rendite=document.getElementById('r-gesamt').textContent;
-  var lines=[
-    'Ich interessiere mich fuer eine Kapitalanlageimmobilie.',
-    '',
-    'Kaufpreis: '+(+kp).toLocaleString('de-DE')+' EUR',
-    'Eigenkapital: '+(+ek).toLocaleString('de-DE')+' EUR',
-    'Kaltmiete: '+(+mi).toLocaleString('de-DE')+' EUR/Monat',
-    'Wertsteigerung: '+ws+' % p.a.',
-    'Zinssatz: '+zi+' %',
-    'Tilgung: '+ti+' % p.a.',
-    'Grenzsteuersatz: '+st+' %',
-    'Haltedauer: '+hd+' Jahre',
-    'Errechnete EK-Rendite: '+rendite+' p.a.'
-  ];
-  var msg=lines.join('%0A');
-  var betreff=encodeURIComponent('Kapitalanlage Immobilie - Rechner-Anfrage');
-  window.open('/kontakt.html?betreff='+betreff+'&nachricht='+msg,'_blank');
-}
-// Global verfügbar machen (Button nutzt onclick="goToContact(event)")
-window.goToContact = goToContact;
-
-// Slider-Füllstand (rein optisch)
-function paintRange(el){
-  var min=+el.min, max=+el.max, v=+el.value;
-  el.style.setProperty('--p', ((v-min)/(max-min)*100)+'%');
-}
-
-window.calcImmo = function(){
-  var kp = +document.getElementById('r-kp').value;
-  var ek = Math.min(+document.getElementById('r-ek').value, kp * 0.98);
-  var mi = +document.getElementById('r-mi').value;
-  var ws = +document.getElementById('r-ws').value / 100;
-  var zi = +document.getElementById('r-zi').value / 100;
-  var ti = +document.getElementById('r-ti').value / 100;
-  var st = +document.getElementById('r-st').value / 100;
-  var hd = +document.getElementById('r-hd').value;
-
-  document.querySelectorAll('.ci-range').forEach(paintRange);
-
-  // Labels
-  var fmt2 = function(v){ return v>=1000000?(v/1000000).toFixed(2).replace('.',',')+' Mio.':v.toLocaleString('de-DE')+' €'; };
-  document.getElementById('v-kp').textContent = fmt2(kp);
-  document.getElementById('v-ek').textContent = ek.toLocaleString('de-DE')+' €';
-  document.getElementById('v-mi').textContent = mi.toLocaleString('de-DE')+' €';
-  document.getElementById('v-ws').textContent = (ws*100).toFixed(1).replace('.',',')+' %';
-  document.getElementById('v-zi').textContent = (zi*100).toFixed(2).replace('.',',')+' %';
-  document.getElementById('v-ti').textContent = (ti*100).toFixed(1).replace('.',',')+' %';
-  document.getElementById('v-st').textContent = Math.round(st*100)+' %';
-  document.getElementById('v-hd').textContent = hd+' Jahre';
-
-  // ── Jahr-für-Jahr Simulation ──
-  var darlehen0 = kp - ek;
-  var mietJahr  = mi * 12;
-  var bwkRate   = 0.20;                        // Bewirtschaftungskosten 20% der Bruttomiete
-  var afa       = kp * 0.80 * 0.02;            // AfA: 2% auf 80% Kaufpreis
-
-  var darlehen  = darlehen0;
-  var cumCF     = 0;
-  var cumStVorteil = 0;
-
-  var ekArr = [ek];   // EK-Position (Immowert - Restschuld)
-  var wertArr = [kp]; // Immobilienwert
-  var cfArr = [0];    // kumulierter Netto-Cashflow
-
-  // Year 1 snapshot values for display
-  var y1_zins = darlehen * zi;
-  var y1_mietNetto = mietJahr * (1 - bwkRate);
-  var y1_stBasis = y1_mietNetto - y1_zins - afa;
-  var y1_stVorteil = y1_stBasis < 0 ? Math.abs(y1_stBasis) * st : 0;
-  var y1_stLast    = y1_stBasis > 0 ? y1_stBasis * st : 0;
-  var y1_tilgung   = darlehen * ti;
-  var y1_cfBrutto  = y1_mietNetto - (y1_zins + y1_tilgung);
-  var y1_cfNetto   = y1_cfBrutto + y1_stVorteil - y1_stLast;
-  var y1_cfMonat   = y1_cfNetto / 12;
-
-  for(var y=1; y<=hd; y++){
-    var wert = kp * Math.pow(1+ws, y);
-    var zins = darlehen * zi;
-    var tilg = darlehen * ti;
-    darlehen = Math.max(0, darlehen - tilg);
-
-    var mietNetto = mietJahr * (1-bwkRate);
-    var stBasis = mietNetto - zins - afa;
-    var stVorteil = stBasis < 0 ? Math.abs(stBasis)*st : 0;
-    var stLast    = stBasis > 0 ? stBasis*st : 0;
-    var cfJahr = mietNetto - (zins + tilg) + stVorteil - stLast;
-
-    cumCF += cfJahr;
-    cumStVorteil += stVorteil;
-
-    var ekPos = wert - darlehen;
-    ekArr.push(ekPos);
-    wertArr.push(wert);
-    cfArr.push(cumCF);
-  }
-
-  var immowertEnde = wertArr[hd];
-  var restschuld   = darlehen;
-  var ekEnde       = ekArr[hd];
-  var gesamtGewinn = ekEnde - ek + cumCF;        // Wertzuwachs EK + gesamter Cashflow
-  var ekRendite    = (Math.pow(Math.max(0.001,ekEnde/ek), 1/hd)-1)*100;
-  var totalReturn  = ekEnde + cumCF;
-  var totalRendite = (Math.pow(Math.max(0.001,totalReturn/ek), 1/hd)-1)*100;
-
-  var objRenditeBrutto = mietJahr / kp * 100;
-
-  // ── Update UI ──
-  document.getElementById('o-cf').textContent = fmtEuroSign(y1_cfMonat)+'/Mon.';
-  document.getElementById('o-cf').style.color  = y1_cfMonat>=0?'var(--gd)':'#b3261e';
-  document.getElementById('o-sv').textContent  = fmtEuro(cumStVorteil / hd)+'/Jahr';
-  document.getElementById('o-ek').textContent  = fmtEuro(ek);
-  document.getElementById('o-vm').textContent  = fmtEuro(ekEnde + cumCF);
-
-  document.getElementById('b-kp').textContent  = fmtEuro(kp);
-  document.getElementById('b-me').textContent  = fmtEuro(mietJahr);
-  document.getElementById('b-zi').textContent  = fmtEuro(y1_zins);
-  document.getElementById('b-afa').textContent = fmtEuro(afa);
-  document.getElementById('b-sv').textContent  = fmtEuro(y1_stVorteil) + '/Jahr';
-  document.getElementById('b-sv').className    = 'co-bd-val ' + (y1_stVorteil>0?'pos':'neg');
-  document.getElementById('b-or').textContent  = fmtPct(objRenditeBrutto);
-  document.getElementById('b-wv').textContent  = fmtEuro(immowertEnde);
-  document.getElementById('b-gr').textContent  = fmtPct(totalRendite);
-
-  document.getElementById('r-gesamt').textContent = fmtPct(totalRendite);
-
-  // Hebeleffekt
-  var hebelFaktor = Math.max(1, (ekEnde+cumCF)/ek);
-  var hebelPct = Math.min(100, (hebelFaktor-1)/5*100);
-  var hebelFill = document.getElementById('hebel-fill');
-  var hebelVal  = document.getElementById('hebel-val');
-  if(hebelFill) hebelFill.style.width = hebelPct+'%';
-  if(hebelVal)  hebelVal.textContent = hebelFaktor.toFixed(1).replace('.',',')+'× EK';
-
-  drawChart(ekArr, wertArr, cfArr, hd, ek);
-};
-
-// Diagramm-Farben (helles Design)
-var C = {
-  grid:'#e9edd9', label:'#6b6357', font:"Assistant,Calibri,system-ui,sans-serif",
-  wertFill:'rgba(214,228,106,.28)', wertLine:'#b4c800',
-  cfFill:'rgba(236,189,0,.16)', cfLine:'#d4a900',
-  ekFill:'rgba(180,200,0,.30)', ekLine:'#697d0f'
-};
-
-var hoverBound = false;
-var chartState = null;
-
-function drawChart(ekArr, wertArr, cfArr, hd, ek){
-  var svg = document.getElementById('immo-svg');
-  svg.innerHTML = '';
-  var W=640, cw0=svg.clientWidth||W, H=cw0<480?440:320;
-  svg.setAttribute('viewBox','0 0 '+W+' '+H);
-  // Achsenschrift auf schmalen Bildschirmen lesbar halten (rein optisch; mobil höheres Diagramm, ~13px Schrift)
-  var fs = Math.min(30, Math.max(13, Math.round(13.5*W/cw0))), FS = String(fs);
-  var PL=Math.round(Math.max(58, fs*3.6)), PR=Math.round(Math.max(16, fs*1.1)), PT=16, PB=Math.round(Math.max(30, fs*1.6));
-  var cW=W-PL-PR, cH=H-PT-PB;
-  var N = hd+1;
-
-  var allVals = wertArr.concat(cfArr.map(function(v){return Math.max(0,v);}));
-  var maxV = Math.max.apply(null, allVals) * 1.1 || 1;
-
-  function xp(i){ return PL + (i/hd)*cW; }
-  function yp(v){ return PT + cH*(1 - Math.max(0,v)/maxV); }
-
-  // Grid
-  for(var g=0;g<=4;g++){
-    var gy = PT + cH*(1-g/4);
-    var gv = maxV * g/4;
-    var line = document.createElementNS('http://www.w3.org/2000/svg','line');
-    line.setAttribute('x1',PL); line.setAttribute('x2',W-PR);
-    line.setAttribute('y1',gy); line.setAttribute('y2',gy);
-    line.setAttribute('stroke',C.grid);
-    line.setAttribute('stroke-width','1');
-    svg.appendChild(line);
-    var lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
-    lbl.setAttribute('x',PL-8); lbl.setAttribute('y',gy+4);
-    lbl.setAttribute('font-size',FS); lbl.setAttribute('font-weight','600'); lbl.setAttribute('fill',C.label);
-    lbl.setAttribute('text-anchor','end'); lbl.setAttribute('font-family',C.font);
-    var gvStr = gv>=1000000?(gv/1000000).toFixed(1).replace('.',',')+'M':(gv>=1000?Math.round(gv/1000)+'K':'0');
-    lbl.textContent = gvStr; svg.appendChild(lbl);
-  }
-
-  function makePath(arr, close){
-    var d='';
-    for(var i=0;i<N;i++) d += (i===0?'M':'L')+xp(i)+','+yp(arr[i]);
-    if(close) d += ' L'+xp(hd)+','+(PT+cH)+' L'+xp(0)+','+(PT+cH)+' Z';
-    return d;
-  }
-
-  var aWert = document.createElementNS('http://www.w3.org/2000/svg','path');
-  aWert.setAttribute('d', makePath(wertArr, true));
-  aWert.setAttribute('fill',C.wertFill);
-  svg.appendChild(aWert);
-
-  var posCF = cfArr.map(function(v){return Math.max(0,v);});
-  var aCF = document.createElementNS('http://www.w3.org/2000/svg','path');
-  aCF.setAttribute('d', makePath(posCF, true));
-  aCF.setAttribute('fill',C.cfFill);
-  svg.appendChild(aCF);
-
-  var aEK = document.createElementNS('http://www.w3.org/2000/svg','path');
-  aEK.setAttribute('d', makePath(ekArr, true));
-  aEK.setAttribute('fill',C.ekFill);
-  svg.appendChild(aEK);
-
-  function addLine(arr, color, w, dash){
-    var l = document.createElementNS('http://www.w3.org/2000/svg','path');
-    l.setAttribute('d', makePath(arr, false));
-    l.setAttribute('fill','none'); l.setAttribute('stroke',color);
-    l.setAttribute('stroke-width', w||2); l.setAttribute('stroke-linecap','round');
-    l.setAttribute('stroke-linejoin','round');
-    if(dash) l.setAttribute('stroke-dasharray', dash);
-    svg.appendChild(l);
-  }
-  addLine(wertArr, C.wertLine, 2, '5,4');
-  addLine(posCF, C.cfLine, 2, '4,4');
-  addLine(ekArr, C.ekLine, 3);
-
-  var startDot = document.createElementNS('http://www.w3.org/2000/svg','circle');
-  startDot.setAttribute('cx', xp(0)); startDot.setAttribute('cy', yp(ek));
-  startDot.setAttribute('r','4.5'); startDot.setAttribute('fill',C.ekLine);
-  svg.appendChild(startDot);
-
-  var endDot = document.createElementNS('http://www.w3.org/2000/svg','circle');
-  endDot.setAttribute('cx', xp(hd)); endDot.setAttribute('cy', yp(ekArr[hd]));
-  endDot.setAttribute('r','6'); endDot.setAttribute('fill','#b4c800');
-  endDot.setAttribute('stroke',C.ekLine); endDot.setAttribute('stroke-width','2.5');
-  svg.appendChild(endDot);
-
-  var step = hd <= 10 ? 2 : hd <= 20 ? 5 : 10;
-  for(var y=0; y<=hd; y+=step){
-    var xt = document.createElementNS('http://www.w3.org/2000/svg','text');
-    xt.setAttribute('x', xp(y)); xt.setAttribute('y', H-5);
-    xt.setAttribute('font-size',FS); xt.setAttribute('font-weight','600'); xt.setAttribute('fill',C.label);
-    xt.setAttribute('text-anchor','middle'); xt.setAttribute('font-family',C.font);
-    xt.textContent = 'J'+y; svg.appendChild(xt);
-  }
-
-  // Hover: aktuelle Daten merken, Listener nur einmal binden
-  chartState = {ekArr:ekArr, wertArr:wertArr, cfArr:cfArr, hd:hd, PL:PL, cW:cW, W:W};
-  if(hoverBound) return;
-  hoverBound = true;
-  var tip = document.getElementById('co-tooltip');
-  var wrap = document.getElementById('co-chart-wrap');
-  function showTip(e){
-    var s = chartState; if(!s) return;
-    var r = svg.getBoundingClientRect();
-    var wr = wrap.getBoundingClientRect();
-    var scale = r.width / s.W;
-    var mx = e.clientX - r.left;
-    var relX = (mx/scale - s.PL) / s.cW;
-    if(relX < 0 || relX > 1){ tip.style.opacity='0'; return; }
-    var idx = Math.max(0, Math.min(s.hd, Math.round(relX * s.hd)));
-    tip.innerHTML = '<strong>Jahr '+idx+'</strong>'
-      +'EK-Position: '+Math.round(s.ekArr[idx]).toLocaleString('de-DE')+' €<br>'
-      +'Immobilienwert: '+Math.round(s.wertArr[idx]).toLocaleString('de-DE')+' €<br>'
-      +'Kum. Cashflow: '+(s.cfArr[idx]>=0?'+ ':'− ')+Math.abs(Math.round(s.cfArr[idx])).toLocaleString('de-DE')+' €';
-    var ox = e.clientX - wr.left, oy = e.clientY - wr.top;
-    var tx = (relX > .5) ? ox - tip.offsetWidth - 14 : ox + 14;
-    tx = Math.max(6, Math.min(wr.width - tip.offsetWidth - 6, tx)); // Tooltip bleibt in der Box (mobil)
-    tip.style.left = tx+'px'; tip.style.top = Math.max(8, oy - 60)+'px'; tip.style.opacity='1';
-  }
-  svg.addEventListener('mousemove', showTip);
-  svg.addEventListener('click', showTip); // Tippen auf dem Handy zeigt die Jahreswerte
-  // Touch: Tooltip nach dem Tippen stehen lassen, beim Tippen außerhalb ausblenden
-  var lastTouch = 0;
-  svg.addEventListener('touchstart', function(){ lastTouch = Date.now(); }, {passive:true});
-  document.addEventListener('touchstart', function(e){ if(!svg.contains(e.target)) tip.style.opacity='0'; }, {passive:true});
-  svg.addEventListener('mouseleave', function(){ if(Date.now() - lastTouch < 1000) return; tip.style.opacity='0'; });
-}
-
-calcImmo();
-/* Diagramm bei Größenänderung (z. B. Drehen des Handys) neu zeichnen */
-var rzT; window.addEventListener('resize', function(){ clearTimeout(rzT); rzT = setTimeout(calcImmo, 150); });
-
-})();
-</script>
-{% endif %}
