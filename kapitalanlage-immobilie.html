@@ -4,6 +4,8 @@ title: "Kapitalanlage Immobilie | Spezialisten Netzwerk"
 description: "Ihr nachhaltiger Vermögensmultiplikator: Inflationsschutz, Steuervorteile und Vermögensübertragung durch professionell geprüfte Investments."
 permalink: "/kapitalanlage-immobilie.html"
 ---
+{#- Renditerechner vorerst ausgeblendet (Wunsch Justin, 11/2026). Zum Einblenden auf true setzen. -#}
+{%- set showRechner = false -%}
 {%- set currentTheme = "immobilie" -%}
 {%- set p = site.team.schneider -%}
 <style>
@@ -214,8 +216,10 @@ permalink: "/kapitalanlage-immobilie.html"
         <div class="sn-hero-card-title">Was wir für Sie leisten</div>
         <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></span><div><b class="ki-hv">30+ Jahre</b><span>Immobilienerfahrung</span></div></div>
         <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><div><b class="ki-hv">Geprüft</b><span>Engmaschiger Prüfprozess</span></div></div>
+{% if showRechner %}
         <div class="sn-hero-row"><span class="sn-ico sn-ico--sm"><svg viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></span><div><b class="ki-hv">7,59 % p.a.</b><span>Ø Rendite auf Eigenkapital</span></div></div>
         <a href="#rechner" class="ki-hero-link">Ihre Rendite berechnen <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+{% endif %}
       </div>
     </div>
   </div>
@@ -268,6 +272,7 @@ permalink: "/kapitalanlage-immobilie.html"
   </div>
 </section>
 
+{% if showRechner %}
 <!-- ════════ IMMOBILIEN-RENDITERECHNER ════════ -->
 <section class="sn-sec" id="rechner">
   <div class="sn-wrap">
@@ -373,6 +378,7 @@ permalink: "/kapitalanlage-immobilie.html"
     </div>
   </div>
 </section>
+{% endif %}
 
 <!-- ════════ SECHS GRÜNDE ════════ -->
 <section class="sn-sec sn-sec--lime" id="leistungen">
@@ -560,6 +566,7 @@ function closePopup(){
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePopup();});
 </script>
 
+{% if showRechner %}
 <script>
 /* ══ IMMOBILIEN-RECHNER ══ (Rechenlogik unverändert; nur Farben/Schriftgrößen im Diagramm an das helle Design angepasst) */
 (function(){
@@ -861,3 +868,4 @@ var rzT; window.addEventListener('resize', function(){ clearTimeout(rzT); rzT = 
 
 })();
 </script>
+{% endif %}
